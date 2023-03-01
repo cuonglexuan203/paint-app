@@ -62,7 +62,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\CustomUI\customUI.cs">
+    <Compile Include="src\CustomUI\CustomUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\ExtendMethods\GraphicsExtensions.cs" />
@@ -249,6 +249,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\page-size.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vertical-Line.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

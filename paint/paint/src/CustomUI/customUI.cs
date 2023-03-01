@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace paint
 {
-    partial class AppPaint
+    public partial class AppPaint
     {
+        public void CustomizeUIs()
+        {
+            this.SuspendLayout();
+            CustomizeButtonImage();
+            CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
+            this.ResumeLayout();
+        }
         public void CustomizeButtonImage()
         {
             int borderWidth = 5;
@@ -17,7 +25,34 @@ namespace paint
             foreach (Button btn in buttons)
             {
                 Image img = btn.Image;
-                btn.Image = (Image)(new Bitmap(img, new Size(btn.Width - borderWidth * 2 , btn.Height - borderWidth * 2)));
+                btn.Image = (Image)(new Bitmap(img, new Size(btn.Width - borderWidth * 2, btn.Height - borderWidth * 2)));
+            }
+        }
+        public void CustomizeBorderPanelColor(Panel pnl, int topWidth, int rightWidth, int bottomWidth, int leftWidth, Color color)
+        {
+            using (Graphics g = this.PnlControlDrawing.CreateGraphics())
+            {
+                Pen p = new Pen(color, topWidth);
+                // top
+                Point sp = pnl.Location;
+                Point ep = new Point(sp.X + pnl.Width, sp.Y);
+                g.DrawLine(p, sp, ep);
+                // bottom
+                p.Width = bottomWidth;
+                sp.Y += pnl.Height;
+                ep.Y += pnl.Height;
+                g.DrawLine(p, sp, ep);
+                // right
+                p.Width = rightWidth;
+                sp.X = ep.X;
+                sp.Y = pnl.Location.Y;
+                g.DrawLine(p, sp, ep);
+                // left
+                p.Width = leftWidth;
+                sp.X = pnl.Location.X;
+                ep.X = pnl.Location.X;
+                g.DrawLine(p, sp, ep);
+
             }
         }
     }

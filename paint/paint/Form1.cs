@@ -40,7 +40,7 @@ namespace paint
         public AppPaint()
         {
             InitializeComponent();
-            CustomizeButtonImage();
+            CustomizeUIs();
             int defaultWidth = 2;
             mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
             mainGraphic  = Graphics.FromImage(mainBitmap);
@@ -48,8 +48,9 @@ namespace paint
             mainPen = new Pen(Color.Black, defaultWidth);
             mainEraser = new Pen(Color.White, defaultWidth);
             PcBMainDrawing.Image = mainBitmap;
+            
             //
-
+            
         }
 
         
@@ -155,6 +156,12 @@ namespace paint
 
         private void Btn_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void PnlControlDrawing_Paint(object sender, PaintEventArgs e)
+        {
+            CustomizeBorderPanelColor(this.PnlControlDrawing, 1, 0, 1, 0, Color.FromArgb(234, 234, 234));
 
         }
 

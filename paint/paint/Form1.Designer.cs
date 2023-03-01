@@ -64,6 +64,8 @@
             this.LbBar1 = new System.Windows.Forms.Label();
             this.LbShapeSizePoint = new System.Windows.Forms.Label();
             this.LbBar2 = new System.Windows.Forms.Label();
+            this.LbPageSizePoint = new System.Windows.Forms.Label();
+            this.PcBBar1 = new System.Windows.Forms.PictureBox();
             this.PcBMainDrawing = new System.Windows.Forms.PictureBox();
             this.BtnPageSize = new System.Windows.Forms.Button();
             this.BtnShapeSize = new System.Windows.Forms.Button();
@@ -121,7 +123,11 @@
             this.BtnUndo = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.PcbAppIcon = new System.Windows.Forms.PictureBox();
-            this.LbPageSizePoint = new System.Windows.Forms.Label();
+            this.PcbBar2 = new System.Windows.Forms.PictureBox();
+            this.PcbBar3 = new System.Windows.Forms.PictureBox();
+            this.PcbBar4 = new System.Windows.Forms.PictureBox();
+            this.PcbBar5 = new System.Windows.Forms.PictureBox();
+            this.PcbBar6 = new System.Windows.Forms.PictureBox();
             this.BtnColor30 = new paint.EclipseButton();
             this.BtnColor29 = new paint.EclipseButton();
             this.BtnColor27 = new paint.EclipseButton();
@@ -172,8 +178,14 @@
             this.PnlRotate.SuspendLayout();
             this.PnlControlClipBoard.SuspendLayout();
             this.FLPShape.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar6)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlControlApp
@@ -214,7 +226,7 @@
             this.BtnView.Name = "BtnView";
             this.BtnView.Size = new System.Drawing.Size(57, 37);
             this.BtnView.TabIndex = 1;
-            this.BtnView.Tag = "1";
+            this.BtnView.Tag = "2";
             this.BtnView.Text = "View";
             this.BtnView.UseVisualStyleBackColor = false;
             this.BtnView.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -232,7 +244,7 @@
             this.BtnFile.Name = "BtnFile";
             this.BtnFile.Size = new System.Drawing.Size(57, 37);
             this.BtnFile.TabIndex = 0;
-            this.BtnFile.Tag = "0";
+            this.BtnFile.Tag = "1";
             this.BtnFile.Text = "File";
             this.BtnFile.UseVisualStyleBackColor = false;
             this.BtnFile.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -328,9 +340,9 @@
             // PnlDrawing
             // 
             this.PnlDrawing.Controls.Add(this.PcBMainDrawing);
-            this.PnlDrawing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlDrawing.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PnlDrawing.Location = new System.Drawing.Point(0, 132);
-            this.PnlDrawing.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlDrawing.Margin = new System.Windows.Forms.Padding(5);
             this.PnlDrawing.Name = "PnlDrawing";
             this.PnlDrawing.Size = new System.Drawing.Size(1461, 425);
             this.PnlDrawing.TabIndex = 2;
@@ -364,10 +376,12 @@
             this.PnlControlDrawing.Controls.Add(this.PnlControlClipBoard);
             this.PnlControlDrawing.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlControlDrawing.Location = new System.Drawing.Point(0, 0);
-            this.PnlControlDrawing.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlControlDrawing.Margin = new System.Windows.Forms.Padding(1);
             this.PnlControlDrawing.Name = "PnlControlDrawing";
+            this.PnlControlDrawing.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.PnlControlDrawing.Size = new System.Drawing.Size(1461, 132);
             this.PnlControlDrawing.TabIndex = 0;
+            this.PnlControlDrawing.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlControlDrawing_Paint);
             // 
             // PnlControlColors
             // 
@@ -406,9 +420,9 @@
             this.PnlControlColors.Controls.Add(this.BtnColor1);
             this.PnlControlColors.Controls.Add(this.BtnMainColor1);
             this.PnlControlColors.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlControlColors.Location = new System.Drawing.Point(1032, 0);
+            this.PnlControlColors.Location = new System.Drawing.Point(1032, 1);
             this.PnlControlColors.Name = "PnlControlColors";
-            this.PnlControlColors.Size = new System.Drawing.Size(429, 132);
+            this.PnlControlColors.Size = new System.Drawing.Size(429, 130);
             this.PnlControlColors.TabIndex = 6;
             // 
             // LbColors
@@ -424,11 +438,12 @@
             // 
             this.PnlControlSize.BackColor = System.Drawing.Color.Transparent;
             this.PnlControlSize.Controls.Add(this.PnlControlPenWidth);
+            this.PnlControlSize.Controls.Add(this.PcbBar6);
             this.PnlControlSize.Controls.Add(this.LbSize);
             this.PnlControlSize.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlSize.Location = new System.Drawing.Point(955, 0);
+            this.PnlControlSize.Location = new System.Drawing.Point(955, 1);
             this.PnlControlSize.Name = "PnlControlSize";
-            this.PnlControlSize.Size = new System.Drawing.Size(77, 132);
+            this.PnlControlSize.Size = new System.Drawing.Size(77, 130);
             this.PnlControlSize.TabIndex = 5;
             // 
             // PnlControlPenWidth
@@ -436,9 +451,12 @@
             this.PnlControlPenWidth.Controls.Add(this.BtnSize);
             this.PnlControlPenWidth.Controls.Add(this.BtnSizeOptions);
             this.PnlControlPenWidth.Location = new System.Drawing.Point(18, 25);
+            this.PnlControlPenWidth.Margin = new System.Windows.Forms.Padding(0);
             this.PnlControlPenWidth.Name = "PnlControlPenWidth";
-            this.PnlControlPenWidth.Size = new System.Drawing.Size(41, 66);
+            this.PnlControlPenWidth.Padding = new System.Windows.Forms.Padding(1);
+            this.PnlControlPenWidth.Size = new System.Drawing.Size(42, 66);
             this.PnlControlPenWidth.TabIndex = 3;
+            this.PnlControlPenWidth.Tag = "68";
             this.PnlControlPenWidth.Click += new System.EventHandler(this.Btn_Click);
             this.PnlControlPenWidth.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.PnlControlPenWidth.MouseLeave += new System.EventHandler(this.Btn_Leave);
@@ -454,6 +472,7 @@
             // 
             // PnlControlShape
             // 
+            this.PnlControlShape.Controls.Add(this.PcbBar5);
             this.PnlControlShape.Controls.Add(this.FLPShape);
             this.PnlControlShape.Controls.Add(this.BtnShapeFillOptions);
             this.PnlControlShape.Controls.Add(this.BtnShapeOutlineOptions);
@@ -461,9 +480,9 @@
             this.PnlControlShape.Controls.Add(this.BtnShapeOutline);
             this.PnlControlShape.Controls.Add(this.LbShape);
             this.PnlControlShape.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlShape.Location = new System.Drawing.Point(624, 0);
+            this.PnlControlShape.Location = new System.Drawing.Point(624, 1);
             this.PnlControlShape.Name = "PnlControlShape";
-            this.PnlControlShape.Size = new System.Drawing.Size(331, 132);
+            this.PnlControlShape.Size = new System.Drawing.Size(331, 130);
             this.PnlControlShape.TabIndex = 4;
             // 
             // LbShape
@@ -478,13 +497,14 @@
             // PnlBrushes
             // 
             this.PnlBrushes.BackColor = System.Drawing.Color.Transparent;
+            this.PnlBrushes.Controls.Add(this.PcbBar4);
             this.PnlBrushes.Controls.Add(this.BtnBrushOptions);
             this.PnlBrushes.Controls.Add(this.BtnBrush);
             this.PnlBrushes.Controls.Add(this.LbBrushes);
             this.PnlBrushes.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlBrushes.Location = new System.Drawing.Point(537, 0);
+            this.PnlBrushes.Location = new System.Drawing.Point(537, 1);
             this.PnlBrushes.Name = "PnlBrushes";
-            this.PnlBrushes.Size = new System.Drawing.Size(87, 132);
+            this.PnlBrushes.Size = new System.Drawing.Size(87, 130);
             this.PnlBrushes.TabIndex = 3;
             // 
             // LbBrushes
@@ -499,6 +519,7 @@
             // PnlControlTools
             // 
             this.PnlControlTools.BackColor = System.Drawing.Color.Transparent;
+            this.PnlControlTools.Controls.Add(this.PcbBar3);
             this.PnlControlTools.Controls.Add(this.BtnMagnifier);
             this.PnlControlTools.Controls.Add(this.BtnColorPicker);
             this.PnlControlTools.Controls.Add(this.BtnText);
@@ -507,9 +528,9 @@
             this.PnlControlTools.Controls.Add(this.BtnPencil);
             this.PnlControlTools.Controls.Add(this.LbTools);
             this.PnlControlTools.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlTools.Location = new System.Drawing.Point(337, 0);
+            this.PnlControlTools.Location = new System.Drawing.Point(337, 1);
             this.PnlControlTools.Name = "PnlControlTools";
-            this.PnlControlTools.Size = new System.Drawing.Size(200, 132);
+            this.PnlControlTools.Size = new System.Drawing.Size(200, 130);
             this.PnlControlTools.TabIndex = 2;
             // 
             // LbTools
@@ -524,17 +545,18 @@
             // PnlControlImage
             // 
             this.PnlControlImage.BackColor = System.Drawing.Color.Transparent;
-            this.PnlControlImage.Controls.Add(this.PnlFlip);
             this.PnlControlImage.Controls.Add(this.PnlRotate);
+            this.PnlControlImage.Controls.Add(this.PnlFlip);
+            this.PnlControlImage.Controls.Add(this.PcbBar2);
             this.PnlControlImage.Controls.Add(this.BtnResize);
             this.PnlControlImage.Controls.Add(this.BtnCrop);
             this.PnlControlImage.Controls.Add(this.BtnSelectOptions);
             this.PnlControlImage.Controls.Add(this.BtnSelect);
             this.PnlControlImage.Controls.Add(this.LbImage);
             this.PnlControlImage.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlImage.Location = new System.Drawing.Point(137, 0);
+            this.PnlControlImage.Location = new System.Drawing.Point(137, 1);
             this.PnlControlImage.Name = "PnlControlImage";
-            this.PnlControlImage.Size = new System.Drawing.Size(200, 132);
+            this.PnlControlImage.Size = new System.Drawing.Size(200, 130);
             this.PnlControlImage.TabIndex = 1;
             // 
             // PnlFlip
@@ -545,7 +567,7 @@
             this.PnlFlip.Name = "PnlFlip";
             this.PnlFlip.Size = new System.Drawing.Size(54, 33);
             this.PnlFlip.TabIndex = 15;
-            this.PnlFlip.Tag = "12";
+            this.PnlFlip.Tag = "33";
             this.PnlFlip.Click += new System.EventHandler(this.Btn_Click);
             this.PnlFlip.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.PnlFlip.MouseLeave += new System.EventHandler(this.Btn_Leave);
@@ -558,7 +580,7 @@
             this.PnlRotate.Name = "PnlRotate";
             this.PnlRotate.Size = new System.Drawing.Size(54, 34);
             this.PnlRotate.TabIndex = 14;
-            this.PnlRotate.Tag = "11";
+            this.PnlRotate.Tag = "32";
             this.PnlRotate.Click += new System.EventHandler(this.Btn_Click);
             this.PnlRotate.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.PnlRotate.MouseLeave += new System.EventHandler(this.Btn_Leave);
@@ -579,10 +601,11 @@
             this.PnlControlClipBoard.Controls.Add(this.BtnPasteOptions);
             this.PnlControlClipBoard.Controls.Add(this.BtnPaste);
             this.PnlControlClipBoard.Controls.Add(this.LbClipboard);
+            this.PnlControlClipBoard.Controls.Add(this.PcBBar1);
             this.PnlControlClipBoard.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlClipBoard.Location = new System.Drawing.Point(0, 0);
+            this.PnlControlClipBoard.Location = new System.Drawing.Point(0, 1);
             this.PnlControlClipBoard.Name = "PnlControlClipBoard";
-            this.PnlControlClipBoard.Size = new System.Drawing.Size(137, 132);
+            this.PnlControlClipBoard.Size = new System.Drawing.Size(137, 130);
             this.PnlControlClipBoard.TabIndex = 0;
             // 
             // LbClipboard
@@ -662,6 +685,28 @@
             this.LbBar2.TabIndex = 18;
             this.LbBar2.Text = "|";
             // 
+            // LbPageSizePoint
+            // 
+            this.LbPageSizePoint.AutoSize = true;
+            this.LbPageSizePoint.BackColor = System.Drawing.Color.Transparent;
+            this.LbPageSizePoint.Location = new System.Drawing.Point(401, 13);
+            this.LbPageSizePoint.Name = "LbPageSizePoint";
+            this.LbPageSizePoint.Size = new System.Drawing.Size(18, 20);
+            this.LbPageSizePoint.TabIndex = 20;
+            this.LbPageSizePoint.Text = "0";
+            // 
+            // PcBBar1
+            // 
+            this.PcBBar1.BackColor = System.Drawing.Color.Transparent;
+            this.PcBBar1.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcBBar1.Location = new System.Drawing.Point(115, 0);
+            this.PcBBar1.Margin = new System.Windows.Forms.Padding(0);
+            this.PcBBar1.Name = "PcBBar1";
+            this.PcBBar1.Size = new System.Drawing.Size(46, 132);
+            this.PcBBar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcBBar1.TabIndex = 1;
+            this.PcBBar1.TabStop = false;
+            // 
             // PcBMainDrawing
             // 
             this.PcBMainDrawing.Location = new System.Drawing.Point(28, 13);
@@ -735,6 +780,7 @@
             this.BtnEditColor.Name = "BtnEditColor";
             this.BtnEditColor.Size = new System.Drawing.Size(48, 44);
             this.BtnEditColor.TabIndex = 73;
+            this.BtnEditColor.Tag = "69";
             this.BtnEditColor.UseVisualStyleBackColor = false;
             this.BtnEditColor.Click += new System.EventHandler(this.Btn_Click);
             this.BtnEditColor.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -749,10 +795,10 @@
             this.BtnSize.FlatAppearance.BorderSize = 0;
             this.BtnSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSize.Image = global::paint.Properties.Resources.shape_size;
-            this.BtnSize.Location = new System.Drawing.Point(0, 0);
+            this.BtnSize.Location = new System.Drawing.Point(1, 1);
             this.BtnSize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnSize.Name = "BtnSize";
-            this.BtnSize.Size = new System.Drawing.Size(41, 34);
+            this.BtnSize.Size = new System.Drawing.Size(40, 34);
             this.BtnSize.TabIndex = 1;
             this.BtnSize.UseVisualStyleBackColor = false;
             // 
@@ -784,7 +830,7 @@
             this.BtnShape1.Name = "BtnShape1";
             this.BtnShape1.Size = new System.Drawing.Size(23, 23);
             this.BtnShape1.TabIndex = 13;
-            this.BtnShape1.Tag = "18";
+            this.BtnShape1.Tag = "42";
             this.BtnShape1.UseVisualStyleBackColor = false;
             // 
             // BtnShape2
@@ -800,7 +846,7 @@
             this.BtnShape2.Name = "BtnShape2";
             this.BtnShape2.Size = new System.Drawing.Size(23, 23);
             this.BtnShape2.TabIndex = 14;
-            this.BtnShape2.Tag = "18";
+            this.BtnShape2.Tag = "43";
             this.BtnShape2.UseVisualStyleBackColor = false;
             // 
             // BtnShape3
@@ -816,7 +862,7 @@
             this.BtnShape3.Name = "BtnShape3";
             this.BtnShape3.Size = new System.Drawing.Size(23, 23);
             this.BtnShape3.TabIndex = 15;
-            this.BtnShape3.Tag = "18";
+            this.BtnShape3.Tag = "44";
             this.BtnShape3.UseVisualStyleBackColor = false;
             // 
             // BtnShape4
@@ -832,7 +878,7 @@
             this.BtnShape4.Name = "BtnShape4";
             this.BtnShape4.Size = new System.Drawing.Size(23, 23);
             this.BtnShape4.TabIndex = 16;
-            this.BtnShape4.Tag = "18";
+            this.BtnShape4.Tag = "45";
             this.BtnShape4.UseVisualStyleBackColor = false;
             // 
             // BtnShape5
@@ -848,7 +894,7 @@
             this.BtnShape5.Name = "BtnShape5";
             this.BtnShape5.Size = new System.Drawing.Size(23, 23);
             this.BtnShape5.TabIndex = 17;
-            this.BtnShape5.Tag = "18";
+            this.BtnShape5.Tag = "46";
             this.BtnShape5.UseVisualStyleBackColor = false;
             // 
             // BtnShape6
@@ -864,7 +910,7 @@
             this.BtnShape6.Name = "BtnShape6";
             this.BtnShape6.Size = new System.Drawing.Size(23, 23);
             this.BtnShape6.TabIndex = 18;
-            this.BtnShape6.Tag = "18";
+            this.BtnShape6.Tag = "47";
             this.BtnShape6.UseVisualStyleBackColor = false;
             // 
             // BtnShape7
@@ -880,7 +926,7 @@
             this.BtnShape7.Name = "BtnShape7";
             this.BtnShape7.Size = new System.Drawing.Size(23, 23);
             this.BtnShape7.TabIndex = 19;
-            this.BtnShape7.Tag = "18";
+            this.BtnShape7.Tag = "48";
             this.BtnShape7.UseVisualStyleBackColor = false;
             // 
             // BtnShape8
@@ -896,7 +942,7 @@
             this.BtnShape8.Name = "BtnShape8";
             this.BtnShape8.Size = new System.Drawing.Size(23, 23);
             this.BtnShape8.TabIndex = 20;
-            this.BtnShape8.Tag = "18";
+            this.BtnShape8.Tag = "49";
             this.BtnShape8.UseVisualStyleBackColor = false;
             // 
             // BtnShape9
@@ -912,7 +958,7 @@
             this.BtnShape9.Name = "BtnShape9";
             this.BtnShape9.Size = new System.Drawing.Size(23, 23);
             this.BtnShape9.TabIndex = 21;
-            this.BtnShape9.Tag = "18";
+            this.BtnShape9.Tag = "50";
             this.BtnShape9.UseVisualStyleBackColor = false;
             // 
             // BtnShape10
@@ -928,7 +974,7 @@
             this.BtnShape10.Name = "BtnShape10";
             this.BtnShape10.Size = new System.Drawing.Size(23, 23);
             this.BtnShape10.TabIndex = 22;
-            this.BtnShape10.Tag = "18";
+            this.BtnShape10.Tag = "51";
             this.BtnShape10.UseVisualStyleBackColor = false;
             // 
             // BtnShape11
@@ -944,7 +990,7 @@
             this.BtnShape11.Name = "BtnShape11";
             this.BtnShape11.Size = new System.Drawing.Size(23, 23);
             this.BtnShape11.TabIndex = 23;
-            this.BtnShape11.Tag = "18";
+            this.BtnShape11.Tag = "52";
             this.BtnShape11.UseVisualStyleBackColor = false;
             // 
             // BtnShape12
@@ -960,7 +1006,7 @@
             this.BtnShape12.Name = "BtnShape12";
             this.BtnShape12.Size = new System.Drawing.Size(23, 23);
             this.BtnShape12.TabIndex = 24;
-            this.BtnShape12.Tag = "18";
+            this.BtnShape12.Tag = "53";
             this.BtnShape12.UseVisualStyleBackColor = false;
             // 
             // BtnShape13
@@ -976,7 +1022,7 @@
             this.BtnShape13.Name = "BtnShape13";
             this.BtnShape13.Size = new System.Drawing.Size(23, 23);
             this.BtnShape13.TabIndex = 25;
-            this.BtnShape13.Tag = "18";
+            this.BtnShape13.Tag = "54";
             this.BtnShape13.UseVisualStyleBackColor = false;
             // 
             // BtnShape14
@@ -992,7 +1038,7 @@
             this.BtnShape14.Name = "BtnShape14";
             this.BtnShape14.Size = new System.Drawing.Size(23, 23);
             this.BtnShape14.TabIndex = 26;
-            this.BtnShape14.Tag = "18";
+            this.BtnShape14.Tag = "55";
             this.BtnShape14.UseVisualStyleBackColor = false;
             // 
             // BtnShape15
@@ -1008,7 +1054,7 @@
             this.BtnShape15.Name = "BtnShape15";
             this.BtnShape15.Size = new System.Drawing.Size(23, 23);
             this.BtnShape15.TabIndex = 27;
-            this.BtnShape15.Tag = "18";
+            this.BtnShape15.Tag = "56";
             this.BtnShape15.UseVisualStyleBackColor = false;
             // 
             // BtnShape16
@@ -1024,7 +1070,7 @@
             this.BtnShape16.Name = "BtnShape16";
             this.BtnShape16.Size = new System.Drawing.Size(23, 23);
             this.BtnShape16.TabIndex = 28;
-            this.BtnShape16.Tag = "18";
+            this.BtnShape16.Tag = "57";
             this.BtnShape16.UseVisualStyleBackColor = false;
             // 
             // BtnShape17
@@ -1040,7 +1086,7 @@
             this.BtnShape17.Name = "BtnShape17";
             this.BtnShape17.Size = new System.Drawing.Size(23, 23);
             this.BtnShape17.TabIndex = 29;
-            this.BtnShape17.Tag = "18";
+            this.BtnShape17.Tag = "58";
             this.BtnShape17.UseVisualStyleBackColor = false;
             // 
             // BtnShape18
@@ -1056,7 +1102,7 @@
             this.BtnShape18.Name = "BtnShape18";
             this.BtnShape18.Size = new System.Drawing.Size(23, 23);
             this.BtnShape18.TabIndex = 30;
-            this.BtnShape18.Tag = "18";
+            this.BtnShape18.Tag = "59";
             this.BtnShape18.UseVisualStyleBackColor = false;
             // 
             // BtnShape19
@@ -1072,7 +1118,7 @@
             this.BtnShape19.Name = "BtnShape19";
             this.BtnShape19.Size = new System.Drawing.Size(23, 23);
             this.BtnShape19.TabIndex = 31;
-            this.BtnShape19.Tag = "18";
+            this.BtnShape19.Tag = "60";
             this.BtnShape19.UseVisualStyleBackColor = false;
             // 
             // BtnShape20
@@ -1088,7 +1134,7 @@
             this.BtnShape20.Name = "BtnShape20";
             this.BtnShape20.Size = new System.Drawing.Size(23, 23);
             this.BtnShape20.TabIndex = 32;
-            this.BtnShape20.Tag = "18";
+            this.BtnShape20.Tag = "61";
             this.BtnShape20.UseVisualStyleBackColor = false;
             // 
             // BtnShape21
@@ -1104,7 +1150,7 @@
             this.BtnShape21.Name = "BtnShape21";
             this.BtnShape21.Size = new System.Drawing.Size(23, 23);
             this.BtnShape21.TabIndex = 33;
-            this.BtnShape21.Tag = "18";
+            this.BtnShape21.Tag = "62";
             this.BtnShape21.UseVisualStyleBackColor = false;
             // 
             // BtnShape22
@@ -1120,7 +1166,7 @@
             this.BtnShape22.Name = "BtnShape22";
             this.BtnShape22.Size = new System.Drawing.Size(23, 23);
             this.BtnShape22.TabIndex = 34;
-            this.BtnShape22.Tag = "18";
+            this.BtnShape22.Tag = "63";
             this.BtnShape22.UseVisualStyleBackColor = false;
             // 
             // BtnShapeFillOptions
@@ -1135,6 +1181,7 @@
             this.BtnShapeFillOptions.Name = "BtnShapeFillOptions";
             this.BtnShapeFillOptions.Size = new System.Drawing.Size(16, 20);
             this.BtnShapeFillOptions.TabIndex = 17;
+            this.BtnShapeFillOptions.Tag = "67";
             this.BtnShapeFillOptions.UseVisualStyleBackColor = false;
             this.BtnShapeFillOptions.Click += new System.EventHandler(this.Btn_Click);
             this.BtnShapeFillOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1152,6 +1199,7 @@
             this.BtnShapeOutlineOptions.Name = "BtnShapeOutlineOptions";
             this.BtnShapeOutlineOptions.Size = new System.Drawing.Size(16, 20);
             this.BtnShapeOutlineOptions.TabIndex = 16;
+            this.BtnShapeOutlineOptions.Tag = "65";
             this.BtnShapeOutlineOptions.UseVisualStyleBackColor = false;
             this.BtnShapeOutlineOptions.Click += new System.EventHandler(this.Btn_Click);
             this.BtnShapeOutlineOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1169,6 +1217,7 @@
             this.BtnShapeFill.Name = "BtnShapeFill";
             this.BtnShapeFill.Size = new System.Drawing.Size(32, 34);
             this.BtnShapeFill.TabIndex = 15;
+            this.BtnShapeFill.Tag = "66";
             this.BtnShapeFill.UseVisualStyleBackColor = false;
             this.BtnShapeFill.Click += new System.EventHandler(this.Btn_Click);
             this.BtnShapeFill.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1186,6 +1235,7 @@
             this.BtnShapeOutline.Name = "BtnShapeOutline";
             this.BtnShapeOutline.Size = new System.Drawing.Size(32, 34);
             this.BtnShapeOutline.TabIndex = 14;
+            this.BtnShapeOutline.Tag = "64";
             this.BtnShapeOutline.UseVisualStyleBackColor = false;
             this.BtnShapeOutline.Click += new System.EventHandler(this.Btn_Click);
             this.BtnShapeOutline.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1203,7 +1253,7 @@
             this.BtnBrushOptions.Name = "BtnBrushOptions";
             this.BtnBrushOptions.Size = new System.Drawing.Size(16, 20);
             this.BtnBrushOptions.TabIndex = 2;
-            this.BtnBrushOptions.Tag = "19.1";
+            this.BtnBrushOptions.Tag = "41";
             this.BtnBrushOptions.UseVisualStyleBackColor = false;
             this.BtnBrushOptions.Click += new System.EventHandler(this.Btn_Click);
             this.BtnBrushOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1221,7 +1271,7 @@
             this.BtnBrush.Name = "BtnBrush";
             this.BtnBrush.Size = new System.Drawing.Size(32, 34);
             this.BtnBrush.TabIndex = 1;
-            this.BtnBrush.Tag = "19";
+            this.BtnBrush.Tag = "40";
             this.BtnBrush.UseVisualStyleBackColor = false;
             this.BtnBrush.Click += new System.EventHandler(this.Btn_Click);
             this.BtnBrush.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1239,7 +1289,7 @@
             this.BtnMagnifier.Name = "BtnMagnifier";
             this.BtnMagnifier.Size = new System.Drawing.Size(32, 34);
             this.BtnMagnifier.TabIndex = 12;
-            this.BtnMagnifier.Tag = "18";
+            this.BtnMagnifier.Tag = "39";
             this.BtnMagnifier.UseVisualStyleBackColor = false;
             this.BtnMagnifier.Click += new System.EventHandler(this.Btn_Click);
             this.BtnMagnifier.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1257,7 +1307,7 @@
             this.BtnColorPicker.Name = "BtnColorPicker";
             this.BtnColorPicker.Size = new System.Drawing.Size(32, 34);
             this.BtnColorPicker.TabIndex = 11;
-            this.BtnColorPicker.Tag = "16";
+            this.BtnColorPicker.Tag = "37";
             this.BtnColorPicker.UseVisualStyleBackColor = false;
             this.BtnColorPicker.Click += new System.EventHandler(this.Btn_Click);
             this.BtnColorPicker.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1275,7 +1325,7 @@
             this.BtnText.Name = "BtnText";
             this.BtnText.Size = new System.Drawing.Size(32, 34);
             this.BtnText.TabIndex = 10;
-            this.BtnText.Tag = "17";
+            this.BtnText.Tag = "38";
             this.BtnText.UseVisualStyleBackColor = false;
             this.BtnText.Click += new System.EventHandler(this.Btn_Click);
             this.BtnText.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1293,7 +1343,7 @@
             this.BtnEraser.Name = "BtnEraser";
             this.BtnEraser.Size = new System.Drawing.Size(32, 34);
             this.BtnEraser.TabIndex = 9;
-            this.BtnEraser.Tag = "14";
+            this.BtnEraser.Tag = "35";
             this.BtnEraser.UseVisualStyleBackColor = false;
             this.BtnEraser.Click += new System.EventHandler(this.Btn_Click);
             this.BtnEraser.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1311,7 +1361,7 @@
             this.BtnFill.Name = "BtnFill";
             this.BtnFill.Size = new System.Drawing.Size(32, 34);
             this.BtnFill.TabIndex = 8;
-            this.BtnFill.Tag = "15";
+            this.BtnFill.Tag = "36";
             this.BtnFill.UseVisualStyleBackColor = false;
             this.BtnFill.Click += new System.EventHandler(this.Btn_Click);
             this.BtnFill.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1330,7 +1380,7 @@
             this.BtnPencil.Padding = new System.Windows.Forms.Padding(15);
             this.BtnPencil.Size = new System.Drawing.Size(32, 34);
             this.BtnPencil.TabIndex = 6;
-            this.BtnPencil.Tag = "13";
+            this.BtnPencil.Tag = "34";
             this.BtnPencil.UseVisualStyleBackColor = false;
             this.BtnPencil.Click += new System.EventHandler(this.Btn_Click);
             this.BtnPencil.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1409,7 +1459,7 @@
             this.BtnResize.Name = "BtnResize";
             this.BtnResize.Size = new System.Drawing.Size(32, 34);
             this.BtnResize.TabIndex = 9;
-            this.BtnResize.Tag = "10";
+            this.BtnResize.Tag = "31";
             this.BtnResize.UseVisualStyleBackColor = false;
             this.BtnResize.Click += new System.EventHandler(this.Btn_Click);
             this.BtnResize.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1427,7 +1477,7 @@
             this.BtnCrop.Name = "BtnCrop";
             this.BtnCrop.Size = new System.Drawing.Size(32, 34);
             this.BtnCrop.TabIndex = 8;
-            this.BtnCrop.Tag = "9";
+            this.BtnCrop.Tag = "30";
             this.BtnCrop.UseVisualStyleBackColor = false;
             this.BtnCrop.Click += new System.EventHandler(this.Btn_Click);
             this.BtnCrop.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1445,7 +1495,7 @@
             this.BtnSelectOptions.Name = "BtnSelectOptions";
             this.BtnSelectOptions.Size = new System.Drawing.Size(16, 20);
             this.BtnSelectOptions.TabIndex = 7;
-            this.BtnSelectOptions.Tag = "8.1";
+            this.BtnSelectOptions.Tag = "29";
             this.BtnSelectOptions.UseVisualStyleBackColor = false;
             this.BtnSelectOptions.Click += new System.EventHandler(this.Btn_Click);
             this.BtnSelectOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1463,7 +1513,7 @@
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(32, 34);
             this.BtnSelect.TabIndex = 6;
-            this.BtnSelect.Tag = "8";
+            this.BtnSelect.Tag = "28";
             this.BtnSelect.UseVisualStyleBackColor = false;
             this.BtnSelect.Click += new System.EventHandler(this.Btn_Click);
             this.BtnSelect.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1481,7 +1531,7 @@
             this.BtnCopy.Name = "BtnCopy";
             this.BtnCopy.Size = new System.Drawing.Size(32, 34);
             this.BtnCopy.TabIndex = 4;
-            this.BtnCopy.Tag = "7";
+            this.BtnCopy.Tag = "27";
             this.BtnCopy.UseVisualStyleBackColor = false;
             this.BtnCopy.Click += new System.EventHandler(this.Btn_Click);
             this.BtnCopy.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1499,7 +1549,7 @@
             this.BtnCut.Name = "BtnCut";
             this.BtnCut.Size = new System.Drawing.Size(32, 34);
             this.BtnCut.TabIndex = 3;
-            this.BtnCut.Tag = "6";
+            this.BtnCut.Tag = "26";
             this.BtnCut.UseVisualStyleBackColor = false;
             this.BtnCut.Click += new System.EventHandler(this.Btn_Click);
             this.BtnCut.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1516,7 +1566,7 @@
             this.BtnPasteOptions.Margin = new System.Windows.Forms.Padding(0);
             this.BtnPasteOptions.Name = "BtnPasteOptions";
             this.BtnPasteOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnPasteOptions.TabIndex = 2;
+            this.BtnPasteOptions.TabIndex = 25;
             this.BtnPasteOptions.Tag = "5.1";
             this.BtnPasteOptions.UseVisualStyleBackColor = false;
             this.BtnPasteOptions.Click += new System.EventHandler(this.Btn_Click);
@@ -1535,7 +1585,7 @@
             this.BtnPaste.Name = "BtnPaste";
             this.BtnPaste.Size = new System.Drawing.Size(32, 34);
             this.BtnPaste.TabIndex = 1;
-            this.BtnPaste.Tag = "5";
+            this.BtnPaste.Tag = "24";
             this.BtnPaste.UseVisualStyleBackColor = false;
             this.BtnPaste.Click += new System.EventHandler(this.Btn_Click);
             this.BtnPaste.MouseEnter += new System.EventHandler(this.Btn_Enter);
@@ -1552,7 +1602,7 @@
             this.BtnRedo.Name = "BtnRedo";
             this.BtnRedo.Size = new System.Drawing.Size(25, 26);
             this.BtnRedo.TabIndex = 4;
-            this.BtnRedo.Tag = "4";
+            this.BtnRedo.Tag = "23";
             this.BtnRedo.UseVisualStyleBackColor = false;
             this.BtnRedo.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.BtnRedo.MouseLeave += new System.EventHandler(this.Btn_Leave);
@@ -1568,7 +1618,7 @@
             this.BtnUndo.Name = "BtnUndo";
             this.BtnUndo.Size = new System.Drawing.Size(25, 26);
             this.BtnUndo.TabIndex = 3;
-            this.BtnUndo.Tag = "3";
+            this.BtnUndo.Tag = "22";
             this.BtnUndo.UseVisualStyleBackColor = false;
             this.BtnUndo.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.BtnUndo.MouseLeave += new System.EventHandler(this.Btn_Leave);
@@ -1584,7 +1634,7 @@
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(25, 26);
             this.BtnSave.TabIndex = 2;
-            this.BtnSave.Tag = "2";
+            this.BtnSave.Tag = "21";
             this.BtnSave.UseVisualStyleBackColor = false;
             this.BtnSave.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.BtnSave.MouseLeave += new System.EventHandler(this.Btn_Leave);
@@ -1603,15 +1653,65 @@
             this.PcbAppIcon.TabIndex = 0;
             this.PcbAppIcon.TabStop = false;
             // 
-            // LbPageSizePoint
+            // PcbBar2
             // 
-            this.LbPageSizePoint.AutoSize = true;
-            this.LbPageSizePoint.BackColor = System.Drawing.Color.Transparent;
-            this.LbPageSizePoint.Location = new System.Drawing.Point(401, 13);
-            this.LbPageSizePoint.Name = "LbPageSizePoint";
-            this.LbPageSizePoint.Size = new System.Drawing.Size(18, 20);
-            this.LbPageSizePoint.TabIndex = 20;
-            this.LbPageSizePoint.Text = "0";
+            this.PcbBar2.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar2.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar2.Location = new System.Drawing.Point(178, 0);
+            this.PcbBar2.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar2.Name = "PcbBar2";
+            this.PcbBar2.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar2.TabIndex = 16;
+            this.PcbBar2.TabStop = false;
+            // 
+            // PcbBar3
+            // 
+            this.PcbBar3.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar3.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar3.Location = new System.Drawing.Point(178, 0);
+            this.PcbBar3.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar3.Name = "PcbBar3";
+            this.PcbBar3.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar3.TabIndex = 17;
+            this.PcbBar3.TabStop = false;
+            // 
+            // PcbBar4
+            // 
+            this.PcbBar4.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar4.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar4.Location = new System.Drawing.Point(65, -1);
+            this.PcbBar4.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar4.Name = "PcbBar4";
+            this.PcbBar4.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar4.TabIndex = 2;
+            this.PcbBar4.TabStop = false;
+            // 
+            // PcbBar5
+            // 
+            this.PcbBar5.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar5.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar5.Location = new System.Drawing.Point(309, 0);
+            this.PcbBar5.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar5.Name = "PcbBar5";
+            this.PcbBar5.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar5.TabIndex = 2;
+            this.PcbBar5.TabStop = false;
+            // 
+            // PcbBar6
+            // 
+            this.PcbBar6.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar6.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar6.Location = new System.Drawing.Point(55, 0);
+            this.PcbBar6.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar6.Name = "PcbBar6";
+            this.PcbBar6.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar6.TabIndex = 2;
+            this.PcbBar6.TabStop = false;
             // 
             // BtnColor30
             // 
@@ -2073,8 +2173,14 @@
             this.PnlControlClipBoard.ResumeLayout(false);
             this.PnlControlClipBoard.PerformLayout();
             this.FLPShape.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2207,6 +2313,12 @@
         private System.Windows.Forms.Label LbBar2;
         private System.Windows.Forms.Button BtnPageSize;
         private System.Windows.Forms.Label LbPageSizePoint;
+        private System.Windows.Forms.PictureBox PcBBar1;
+        private System.Windows.Forms.PictureBox PcbBar6;
+        private System.Windows.Forms.PictureBox PcbBar5;
+        private System.Windows.Forms.PictureBox PcbBar4;
+        private System.Windows.Forms.PictureBox PcbBar3;
+        private System.Windows.Forms.PictureBox PcbBar2;
     }
 }
 
