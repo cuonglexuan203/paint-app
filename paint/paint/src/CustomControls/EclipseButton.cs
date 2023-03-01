@@ -13,7 +13,6 @@ namespace paint
     {
         private Color borderColor = Color.Black;
         private int borderWidth = 3;
-
         public Color BorderColor { get => borderColor; set => borderColor = value; }
         public int BorderWidth { get => borderWidth; set => borderWidth = value; }
 
@@ -35,9 +34,6 @@ namespace paint
             eclipse.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height);
             e.Graphics.DrawPath(pen, eclipse);
             this.Region = new Region(eclipse);
-            
-
-            
 
         }
     }

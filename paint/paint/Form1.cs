@@ -40,6 +40,7 @@ namespace paint
         public AppPaint()
         {
             InitializeComponent();
+            CustomizeButtonImage();
             int defaultWidth = 2;
             mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
             mainGraphic  = Graphics.FromImage(mainBitmap);
