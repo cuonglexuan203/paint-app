@@ -16,7 +16,20 @@ namespace paint
             this.SuspendLayout();
             CustomizeButtonImage();
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
+            InitColorsOfPen();
             this.ResumeLayout();
+        }
+        public void InitColorsOfPen()
+        {
+            foreach (EclipseButton ebtn in FLBColorOptions.Controls)
+            {
+                int index = Convert.ToInt32(ebtn.Tag);
+                if (index >= colors.Count)
+                {
+                    break;
+                }
+                ebtn.BackColor = this.colors[index];
+            }
         }
         public void CustomizeButtonImage()
         {
