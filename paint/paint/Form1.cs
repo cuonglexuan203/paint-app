@@ -47,6 +47,8 @@ namespace paint
             mainPen = new Pen(Color.Black, defaultWidth);
             mainEraser = new Pen(Color.White, defaultWidth);
             PcBMainDrawing.Image = mainBitmap;
+            //
+
         }
 
         
@@ -159,6 +161,8 @@ namespace paint
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.MaximumSize = new System.Drawing.Size(workingArea.Width, workingArea.Height);
+            //
+            
         }
 
         

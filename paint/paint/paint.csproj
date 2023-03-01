@@ -175,5 +175,74 @@
   <ItemGroup>
     <None Include="Resources\undo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud-comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\six-pointed-star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5-point-star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4-point-star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hexagon-geometrical-shape-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pentagon-outline-shape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\polygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rounded-rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangular-shape-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagonal-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curve-line.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
