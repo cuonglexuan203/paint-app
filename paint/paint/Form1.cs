@@ -17,7 +17,6 @@ namespace paint
     public partial class AppPaint : Form
     {
         // data
-        int index = 34;
         Bitmap mainBitmap;
         Graphics mainGraphic;
         Color mainColor;
@@ -27,12 +26,15 @@ namespace paint
         Pen subPen;
         Pen mainEraser;
         ColorDialog mainColorDialog = new ColorDialog();
-        bool painted = false;
         // point
         Point pointX, pointY;
         int x, y, sx, sy, ix, iy; // s: scale, i: initial
         List<Point> points = new List<Point>();
+        //
+        // control var
 
+        int index = 34;
+        bool painted = false;
         //
         List<Color> colors = new List<Color>() { 
         Color.FromArgb(0,0,0),
@@ -99,7 +101,11 @@ namespace paint
         public void ValidateFillColor(Bitmap bm, Stack<Point> pixel, int x, int y, Color oldColor, Color newColor)
         {
             Color curColor = bm.GetPixel(x, y);
-            if (curColor == oldColor)
+            if (curColor.ToArgb() == newColor.ToArgb())
+            {
+                return;
+            }
+            if (curColor.ToArgb() == oldColor.ToArgb())
             {
                 pixel.Push(new Point(x, y));
                 bm.SetPixel(x, y, newColor);
@@ -112,7 +118,7 @@ namespace paint
             Stack<Point> pixel = new Stack<Point>();
             pixel.Push(new Point(x, y));
             bm.SetPixel(x, y, newColor);
-            if (oldColor == newColor)
+            if (oldColor.ToArgb() == newColor.ToArgb())
             {
                 return;
             }
@@ -157,19 +163,25 @@ namespace paint
         {
             if (painted)
             {
-
+                Point p = SetPoint(PcBMainDrawing, e.Location);
                 if (index == 34) // free-line
                 {
-                    points.Add(e.Location);
+                    points.Add(p);
                 }
                 else if (index == 35) // eraser
                 {
-                    points.Add(e.Location);
+                    points.Add(p);
                 }
                 else if (index == 36) // fill
                 {
-                    Point p = SetPoint(PcBMainDrawing, e.Location);
-                    FillUp(mainBitmap, p.X, p.Y, mainColor);
+                    if (selectedColor == 0)
+                    {
+                        FillUp(mainBitmap, p.X, p.Y, mainColor);
+                    }
+                    else if (selectedColor == 1)
+                    {
+                        FillUp(mainBitmap, p.X, p.Y, subColor);
+                    }
                 }
             }
             
@@ -207,7 +219,7 @@ namespace paint
         
         private void PcBMainDrawing_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
             if (this.index == 36)
             {
                 Point p = SetPoint(PcBMainDrawing, e.Location);
@@ -230,6 +242,7 @@ namespace paint
         }
 
         // Btn event
+       
         private void Handler_ColorChoice_Click(object sender, EventArgs e)
         {
             EclipseButton esBtn = (EclipseButton)sender;
@@ -263,12 +276,18 @@ namespace paint
                 SetSubColor(color);
             }
         }
-        private void Handlerr_Tools_Click(object sender, EventArgs e)
+        private void Handler_Tools_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             int tag = Convert.ToInt32(btn.Tag);
             //
             this.index = tag;
+        }
+        private void Handler_Shapes_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            this.index = Convert.ToInt32(btn.Tag);
+
         }
         private void Btn_Enter(object sender, EventArgs e)
         {
@@ -307,10 +326,7 @@ namespace paint
         }
         
 
-        private void Btn_Click(object sender, EventArgs e)
-        {
-
-        }
+       
        
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -322,8 +338,10 @@ namespace paint
         private void BtnExit_MouseEnter(object sender, EventArgs e)
         {
             this.BtnExit.ForeColor = Color.White;
-
+            
         }
+
+        
 
         private void BtnExit_MouseLeave(object sender, EventArgs e)
         {
