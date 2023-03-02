@@ -31,7 +31,7 @@ namespace paint
         // point
         Point pointX, pointY;
         int x, y, sx, sy, ix, iy; // s: scale, i: initial
-
+        List<Point> points = new List<Point>();
 
         //
         List<Color> colors = new List<Color>() { 
@@ -60,37 +60,42 @@ namespace paint
 
 
         //
+        private void InitData()
+        {
+            int defaultWidth = 2;
+            mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
+            mainGraphic = Graphics.FromImage(mainBitmap);
+            mainGraphic.Clear(Color.White);
+            mainColor = Color.Black;
+            subColor = Color.White;
+            mainPen = new Pen(mainColor, defaultWidth);
+            subPen = new Pen(subColor, defaultWidth);
+            mainEraser = new Pen(Color.White, defaultWidth);
+            PcBMainDrawing.Image = mainBitmap;
+        }
         private void AppPaint_Load(object sender, EventArgs e)
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.MaximumSize = new System.Drawing.Size(workingArea.Width, workingArea.Height);
             //
-
         }
         public AppPaint()
         {
             InitializeComponent();
             CustomizeUIs();
-            int defaultWidth = 2;
-            mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
-            mainGraphic  = Graphics.FromImage(mainBitmap);
-            mainGraphic.Clear(Color.White);
-            mainPen = new Pen(Color.Black, defaultWidth);
-            subPen = new Pen(subColor, defaultWidth);
-            mainEraser = new Pen(Color.White, defaultWidth);
-            PcBMainDrawing.Image = mainBitmap;
-            
+            InitData();
             //
             
         }
         // process logic
+        // get the coordinate of mouse click follow by the ratio bitmap/picturebox
         public Point SetPoint(PictureBox pictureBox, Point point)
         {
             float xr = 1f * pictureBox.Image.Width / pictureBox.Width;
             float yr = 1f * pictureBox.Image.Height / pictureBox.Height;
             return new Point((int)(point.X * xr), (int)(point.Y * yr));
         }
-
+        // Check fill pixel
         public void ValidateFillColor(Bitmap bm, Stack<Point> pixel, int x, int y, Color oldColor, Color newColor)
         {
             Color curColor = bm.GetPixel(x, y);
@@ -99,9 +104,8 @@ namespace paint
                 pixel.Push(new Point(x, y));
                 bm.SetPixel(x, y, newColor);
             }
-
         }
-        
+        // Fill
         public void FillUp(Bitmap bm, int x, int y, Color newColor)
         {
             Color oldColor = bm.GetPixel(x, y);
@@ -112,22 +116,19 @@ namespace paint
             {
                 return;
             }
-            while(pixel.Count > 0)
+
+            while (pixel.Count > 0)
             {
-                Point p = (Point)pixel.Pop();
-                if(p.X > 0 &&  p.Y > 0 && p.X < bm.Width - 1 && p.Y < bm.Height - 1)
+                Point p = pixel.Pop();
+                if (p.X > 0 && p.Y > 0 && p.X < bm.Width - 1 && p.Y < bm.Height - 1)
                 {
                     ValidateFillColor(bm, pixel, p.X, p.Y - 1, oldColor, newColor); // top
                     ValidateFillColor(bm, pixel, p.X + 1, p.Y, oldColor, newColor); // right
                     ValidateFillColor(bm, pixel, p.X, p.Y + 1, oldColor, newColor); // bottom
                     ValidateFillColor(bm, pixel, p.X - 1, p.Y, oldColor, newColor); // left
                 }
-
             }
-            
         }
-        
-
         
         // PictureBox event
         private void PcBMainDrawing_MouseDown(object sender, MouseEventArgs e)
@@ -136,6 +137,9 @@ namespace paint
             pointY = e.Location;
             ix = e.X;
             iy = e.Y;
+            //
+            points.Clear();
+            points.Add(e.Location);
         }
 
         private void PcBMainDrawing_MouseUp(object sender, MouseEventArgs e)
@@ -144,6 +148,7 @@ namespace paint
             {
                 
             }
+            points.Clear();
             painted = false;
 
         }
@@ -153,24 +158,21 @@ namespace paint
             if (painted)
             {
 
-                if (index == 34)
+                if (index == 34) // free-line
                 {
-                    pointX = e.Location;
-                    mainGraphic.DrawLine(mainPen, pointX, pointY);
-                    pointY = pointX;
+                    points.Add(e.Location);
                 }
-                if (index == 35)
+                else if (index == 35) // eraser
                 {
-                    pointX = e.Location;
-                    mainGraphic.DrawLine(mainEraser, pointX, pointY);
-                    pointY = pointX;
+                    points.Add(e.Location);
                 }
-                if (index == 36)
+                else if (index == 36) // fill
                 {
                     Point p = SetPoint(PcBMainDrawing, e.Location);
                     FillUp(mainBitmap, p.X, p.Y, mainColor);
                 }
             }
+            
             PcBMainDrawing.Refresh();
             x = e.X;
             y = e.Y;
@@ -180,23 +182,43 @@ namespace paint
 
         private void PcBMainDrawing_Paint(object sender, PaintEventArgs e)
         {
+            if (points.Count > 1)
+            {
+               mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
+               if (index == 34)
+                {
 
+                    if (selectedColor == 0)
+                    {
+                        mainGraphic.DrawCurve(mainPen, points.ToArray());
+
+                    }
+                    else if (selectedColor == 1)
+                    {
+                        mainGraphic.DrawCurve(subPen, points.ToArray());
+                    }
+                }
+               if (index == 35)
+                {
+                    mainGraphic.DrawCurve(mainEraser, points.ToArray());
+                }
+            }
         }
-        private void SetMainColor(Color color)
-        {
-            this.BtnMainColor1.BackColor = mainColor = mainPen.Color = color;
-        }
-        private void SetSubColor(Color color)
-        {
-            this.BtnMainColor2.BackColor = subColor = subPen.Color = color;
-        }
+        
         private void PcBMainDrawing_MouseClick(object sender, MouseEventArgs e)
         {
             
             if (this.index == 36)
             {
                 Point p = SetPoint(PcBMainDrawing, e.Location);
-                FillUp(mainBitmap, p.X, p.Y, mainColor);
+                if(selectedColor == 0)
+                {
+                    FillUp(mainBitmap, p.X, p.Y, mainColor);
+                }
+                else if (selectedColor == 1)
+                {
+                    FillUp(mainBitmap, p.X, p.Y, subColor);
+                }
             }
             else if (index == 37)
             {
@@ -208,6 +230,39 @@ namespace paint
         }
 
         // Btn event
+        private void Handler_ColorChoice_Click(object sender, EventArgs e)
+        {
+            EclipseButton esBtn = (EclipseButton)sender;
+            this.selectedColor = Convert.ToInt32(esBtn.Tag);
+        }
+
+        private void Handler_ColorOptions_Click(object sender, EventArgs e)
+        {
+            EclipseButton esBtn = (EclipseButton)(sender);
+            if (selectedColor == 0)
+            {
+                SetMainColor(esBtn.BackColor);
+            }
+            else if (selectedColor == 1)
+            {
+                SetSubColor(esBtn.BackColor);
+            }
+
+        }
+
+        private void Handler_ColorWheel_Click(object sender, EventArgs e)
+        {
+            mainColorDialog.ShowDialog();
+            Color color = mainColorDialog.Color;
+            if (selectedColor == 0)
+            {
+                SetMainColor(color);
+            }
+            else if (selectedColor == 1)
+            {
+                SetSubColor(color);
+            }
+        }
         private void Handlerr_Tools_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -256,40 +311,6 @@ namespace paint
         {
 
         }
-
-        private void Handler_ColorChoice_Click(object sender, EventArgs e)
-        {
-            EclipseButton esBtn = (EclipseButton)sender;
-            this.selectedColor = Convert.ToInt32(esBtn.Tag);
-        }
-        
-        private void Handler_ColorOptions_Click(object sender, EventArgs e)
-        {
-            EclipseButton esBtn = (EclipseButton)(sender);
-            if (selectedColor == 0)
-            {
-                SetMainColor(esBtn.BackColor);
-            }
-            else if (selectedColor == 1)
-            {
-                SetSubColor(esBtn.BackColor);
-            }
-        }
-
-        private void Handler_ColorWheel_Click(object sender, EventArgs e)
-        {
-            mainColorDialog.ShowDialog();
-            Color color = mainColorDialog.Color;
-            if (selectedColor == 0)
-            {
-                SetMainColor(color);
-            }
-            else if (selectedColor == 1)
-            {
-                SetSubColor(color);
-            }
-        }
-
        
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -334,6 +355,15 @@ namespace paint
         {
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1, 0, 1, 0, Color.FromArgb(234, 234, 234));
 
+        }
+        // additional method
+        private void SetMainColor(Color color)
+        {
+            this.BtnMainColor1.BackColor = mainColor = mainPen.Color = color;
+        }
+        private void SetSubColor(Color color)
+        {
+            this.BtnMainColor2.BackColor = subColor = subPen.Color = color;
         }
 
     }

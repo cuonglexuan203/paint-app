@@ -55,6 +55,7 @@
             this.BtnLocation = new System.Windows.Forms.Button();
             this.PnlControlDrawing = new System.Windows.Forms.Panel();
             this.PnlControlColors = new System.Windows.Forms.Panel();
+            this.FLBColorOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnEditColor = new System.Windows.Forms.Button();
             this.LbColors = new System.Windows.Forms.Label();
             this.PnlControlSize = new System.Windows.Forms.Panel();
@@ -128,7 +129,6 @@
             this.LbClipboard = new System.Windows.Forms.Label();
             this.PcBBar1 = new System.Windows.Forms.PictureBox();
             this.LbLocationPoint = new System.Windows.Forms.Label();
-            this.FLBColorOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnColor1 = new paint.EclipseButton();
             this.BtnColor2 = new paint.EclipseButton();
             this.BtnColor3 = new paint.EclipseButton();
@@ -171,6 +171,7 @@
             this.PnlControlFooter.SuspendLayout();
             this.PnlControlDrawing.SuspendLayout();
             this.PnlControlColors.SuspendLayout();
+            this.FLBColorOptions.SuspendLayout();
             this.PnlControlSize.SuspendLayout();
             this.PnlControlPenWidth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbBar6)).BeginInit();
@@ -187,7 +188,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).BeginInit();
             this.PnlControlClipBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).BeginInit();
-            this.FLBColorOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlControlApp
@@ -560,6 +560,43 @@
             this.PnlControlColors.Name = "PnlControlColors";
             this.PnlControlColors.Size = new System.Drawing.Size(429, 130);
             this.PnlControlColors.TabIndex = 6;
+            // 
+            // FLBColorOptions
+            // 
+            this.FLBColorOptions.Controls.Add(this.BtnColor1);
+            this.FLBColorOptions.Controls.Add(this.BtnColor2);
+            this.FLBColorOptions.Controls.Add(this.BtnColor3);
+            this.FLBColorOptions.Controls.Add(this.BtnColor4);
+            this.FLBColorOptions.Controls.Add(this.BtnColor6);
+            this.FLBColorOptions.Controls.Add(this.BtnColor8);
+            this.FLBColorOptions.Controls.Add(this.BtnColor5);
+            this.FLBColorOptions.Controls.Add(this.BtnColor7);
+            this.FLBColorOptions.Controls.Add(this.BtnColor9);
+            this.FLBColorOptions.Controls.Add(this.BtnColor10);
+            this.FLBColorOptions.Controls.Add(this.BtnColor11);
+            this.FLBColorOptions.Controls.Add(this.BtnColor12);
+            this.FLBColorOptions.Controls.Add(this.BtnColor13);
+            this.FLBColorOptions.Controls.Add(this.BtnColor14);
+            this.FLBColorOptions.Controls.Add(this.BtnColor16);
+            this.FLBColorOptions.Controls.Add(this.BtnColor18);
+            this.FLBColorOptions.Controls.Add(this.BtnColor15);
+            this.FLBColorOptions.Controls.Add(this.BtnColor17);
+            this.FLBColorOptions.Controls.Add(this.BtnColor19);
+            this.FLBColorOptions.Controls.Add(this.BtnColor20);
+            this.FLBColorOptions.Controls.Add(this.BtnColor21);
+            this.FLBColorOptions.Controls.Add(this.BtnColor22);
+            this.FLBColorOptions.Controls.Add(this.BtnColor23);
+            this.FLBColorOptions.Controls.Add(this.BtnColor24);
+            this.FLBColorOptions.Controls.Add(this.BtnColor26);
+            this.FLBColorOptions.Controls.Add(this.BtnColor28);
+            this.FLBColorOptions.Controls.Add(this.BtnColor25);
+            this.FLBColorOptions.Controls.Add(this.BtnColor27);
+            this.FLBColorOptions.Controls.Add(this.BtnColor29);
+            this.FLBColorOptions.Controls.Add(this.BtnColor30);
+            this.FLBColorOptions.Location = new System.Drawing.Point(83, 18);
+            this.FLBColorOptions.Name = "FLBColorOptions";
+            this.FLBColorOptions.Size = new System.Drawing.Size(252, 77);
+            this.FLBColorOptions.TabIndex = 1;
             // 
             // BtnEditColor
             // 
@@ -1687,43 +1724,6 @@
             this.LbLocationPoint.TabIndex = 14;
             this.LbLocationPoint.Text = "0";
             // 
-            // FLBColorOptions
-            // 
-            this.FLBColorOptions.Controls.Add(this.BtnColor1);
-            this.FLBColorOptions.Controls.Add(this.BtnColor2);
-            this.FLBColorOptions.Controls.Add(this.BtnColor3);
-            this.FLBColorOptions.Controls.Add(this.BtnColor4);
-            this.FLBColorOptions.Controls.Add(this.BtnColor6);
-            this.FLBColorOptions.Controls.Add(this.BtnColor8);
-            this.FLBColorOptions.Controls.Add(this.BtnColor5);
-            this.FLBColorOptions.Controls.Add(this.BtnColor7);
-            this.FLBColorOptions.Controls.Add(this.BtnColor9);
-            this.FLBColorOptions.Controls.Add(this.BtnColor10);
-            this.FLBColorOptions.Controls.Add(this.BtnColor11);
-            this.FLBColorOptions.Controls.Add(this.BtnColor12);
-            this.FLBColorOptions.Controls.Add(this.BtnColor13);
-            this.FLBColorOptions.Controls.Add(this.BtnColor14);
-            this.FLBColorOptions.Controls.Add(this.BtnColor16);
-            this.FLBColorOptions.Controls.Add(this.BtnColor18);
-            this.FLBColorOptions.Controls.Add(this.BtnColor15);
-            this.FLBColorOptions.Controls.Add(this.BtnColor17);
-            this.FLBColorOptions.Controls.Add(this.BtnColor19);
-            this.FLBColorOptions.Controls.Add(this.BtnColor20);
-            this.FLBColorOptions.Controls.Add(this.BtnColor21);
-            this.FLBColorOptions.Controls.Add(this.BtnColor22);
-            this.FLBColorOptions.Controls.Add(this.BtnColor23);
-            this.FLBColorOptions.Controls.Add(this.BtnColor24);
-            this.FLBColorOptions.Controls.Add(this.BtnColor26);
-            this.FLBColorOptions.Controls.Add(this.BtnColor28);
-            this.FLBColorOptions.Controls.Add(this.BtnColor25);
-            this.FLBColorOptions.Controls.Add(this.BtnColor27);
-            this.FLBColorOptions.Controls.Add(this.BtnColor29);
-            this.FLBColorOptions.Controls.Add(this.BtnColor30);
-            this.FLBColorOptions.Location = new System.Drawing.Point(83, 18);
-            this.FLBColorOptions.Name = "FLBColorOptions";
-            this.FLBColorOptions.Size = new System.Drawing.Size(252, 77);
-            this.FLBColorOptions.TabIndex = 1;
-            // 
             // BtnColor1
             // 
             this.BtnColor1.BackColor = System.Drawing.Color.Black;
@@ -2234,6 +2234,7 @@
             this.PnlControlDrawing.ResumeLayout(false);
             this.PnlControlColors.ResumeLayout(false);
             this.PnlControlColors.PerformLayout();
+            this.FLBColorOptions.ResumeLayout(false);
             this.PnlControlSize.ResumeLayout(false);
             this.PnlControlSize.PerformLayout();
             this.PnlControlPenWidth.ResumeLayout(false);
@@ -2256,7 +2257,6 @@
             this.PnlControlClipBoard.ResumeLayout(false);
             this.PnlControlClipBoard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).EndInit();
-            this.FLBColorOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
