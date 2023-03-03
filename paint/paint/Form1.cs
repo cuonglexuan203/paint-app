@@ -30,6 +30,10 @@ namespace paint
         Point pointX, pointY;
         int x, y, sx, sy, ix, iy; // s: scale, i: initial
         List<Point> points = new List<Point>();
+        // point: shape
+        bool hasRoot = false;
+        Point rootPoint, endPoint; // root coordinate of the polygon, endPoint: the end point of previous line
+        int countLine = 0;
         //
         // control var
 
@@ -140,21 +144,138 @@ namespace paint
         private void PcBMainDrawing_MouseDown(object sender, MouseEventArgs e)
         {
             painted = true;
-            pointY = e.Location;
+            pointX = e.Location;
             ix = e.X;
             iy = e.Y;
             //
-            points.Clear();
+            //
+            points.Clear(); // dispose for free-line
             points.Add(e.Location);
+            //
+            if (index == 47)
+            {
+                if (!hasRoot)
+                {
+                    rootPoint = e.Location; // the root of polygon
+                    hasRoot = true;
+                }
+            }
         }
+        private Point GetStartPoint()
+        {
+            Point point = pointX;
+            Point epoint = new Point(x, y);
+            if (sx < 0 && sy < 0)
+            {
+                point = epoint ;
+            }
+            else if (sx < 0)
+            {
+                point.X += sx; // sx now is negative
+            }
+            else if (sy < 0)
+            {
+                point.Y += sy; // sy now is negative
+            }
+            return point;
+        }
+        
+        private void Handler_DrawShape(Graphics g)
+        {
+            switch (this.index)
+            {
+                case 42:
+                    {
+                        Point sp = pointX;
+                        Point ep = new Point(x, y);
+                        g.DrawLine(mainPen, sp, ep);
+                        break;
+                    }
+                case 43:
+                    {
 
+                        break;
+                    }
+                case 44:
+                    {
+
+                        Size size = new Size(sx, sy);
+                        g.DrawEllipse(mainPen, new Rectangle(pointX, size));
+                        break;
+                    }
+                case 45:
+                    {
+
+                        Point startP = GetStartPoint();
+                        Size size = new Size(Math.Abs(sx), Math.Abs(sy));
+                        Rectangle rect = new Rectangle(startP, size);
+                        g.DrawRectangle(mainPen, rect);
+                        break;
+                    }
+                case 46:
+                    {
+                        Point startP = GetStartPoint();
+                        Size size = new Size(Math.Abs(sx), Math.Abs(sy));
+                        Rectangle rect = new Rectangle(startP, size);
+                        g.DrawRoundedRectangle(mainPen, rect, 10);
+                        break;
+                    }
+                case 47:
+                    {
+                        Point currentPoint = new Point(x, y);
+                        g.DrawPolygon(mainPen, rootPoint, pointX, pointY, endPoint, currentPoint,ref countLine,ref hasRoot);
+                        break;
+                    }
+                case 48:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawTriangle(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 49:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawRightTriangle(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 50:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawDiamond(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 51:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawPentagon(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 52:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawHexagon(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 53:
+                    {
+                        break;
+                    }
+            }
+        }
         private void PcBMainDrawing_MouseUp(object sender, MouseEventArgs e)
         {
+            pointY = e.Location;
             if (painted)
             {
-                
+                // endPoint now contain the coordinate of the end point of the pre line
+                Handler_DrawShape(mainGraphic);
+                if (index == 47)
+                {
+                    endPoint = e.Location; // save the current coordinate of the end point of the current line
+                    countLine++;
+                }
             }
-            points.Clear();
+            //points.Clear();
             painted = false;
 
         }
@@ -184,36 +305,39 @@ namespace paint
                     }
                 }
             }
-            
+
             PcBMainDrawing.Refresh();
             x = e.X;
             y = e.Y;
-            sx = e.X - x;
-            sy = e.Y - y;
+            sx = e.X - ix;
+            sy = e.Y - iy;
         }
 
         private void PcBMainDrawing_Paint(object sender, PaintEventArgs e)
         {
-            if (points.Count > 1)
+            
+            if (painted)
             {
-               mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
-               if (index == 34)
+                 mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
+                if (points.Count > 1)
                 {
-
-                    if (selectedColor == 0)
+                    if (index == 34)
                     {
-                        mainGraphic.DrawCurve(mainPen, points.ToArray());
-
+                        if (selectedColor == 0)
+                        {
+                            mainGraphic.DrawCurve(mainPen, points.ToArray());
+                        }
+                        else if (selectedColor == 1)
+                        {
+                            mainGraphic.DrawCurve(subPen, points.ToArray());
+                        }
                     }
-                    else if (selectedColor == 1)
+                    if (index == 35)
                     {
-                        mainGraphic.DrawCurve(subPen, points.ToArray());
+                        mainGraphic.DrawCurve(mainEraser, points.ToArray());
                     }
                 }
-               if (index == 35)
-                {
-                    mainGraphic.DrawCurve(mainEraser, points.ToArray());
-                }
+                Handler_DrawShape(e.Graphics);
             }
         }
         
@@ -324,10 +448,6 @@ namespace paint
             btn.BackColor = btn.Parent.BackColor;
 
         }
-        
-
-       
-       
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
