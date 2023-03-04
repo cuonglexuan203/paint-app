@@ -208,5 +208,170 @@ namespace paint
             PointF[] pentagonPoints = { p1, p2, p3, p4, p5, p6 };
             g.DrawPolygon(p, pentagonPoints);
         }
+        //
+        public static void DrawRightArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
+        {
+            Point pointX = topLeft;
+            int x = bottomRight.X;
+            int y = bottomRight.Y;
+            //
+
+            float height = Math.Abs(topLeft.Y - bottomRight.Y);
+            float width = Math.Abs(topLeft.X - bottomRight.X);
+            PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            PointF p1 = new PointF( centerP.X, centerP.Y - height / 4 );
+            PointF p2 = new PointF(centerP.X, centerP.Y - height / 2);
+            PointF p3 = new PointF(centerP.X + width / 2, centerP.Y);
+            PointF p4 = new PointF(centerP.X, centerP.Y + height / 2);
+
+            PointF p5 = new PointF(centerP.X, centerP.Y + height / 4);
+            PointF p6 = new PointF(centerP.X - width / 2, centerP.Y + height / 4);
+            PointF p7 = new PointF(centerP.X - width / 2, centerP.Y - height / 4);
+
+            PointF[] rightArrowPoints = { p1, p2, p3, p4, p5, p6, p7 };
+            g.DrawPolygon(p, rightArrowPoints);
+        }
+        public static void DrawLeftArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
+        {
+            Point pointX = topLeft;
+            int x = bottomRight.X;
+            int y = bottomRight.Y;
+            //
+
+            float height = Math.Abs(topLeft.Y - bottomRight.Y);
+            float width = Math.Abs(topLeft.X - bottomRight.X);
+            PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            PointF p1 = new PointF(centerP.X, centerP.Y - height / 4);
+            PointF p2 = new PointF(centerP.X, centerP.Y - height / 2);
+            PointF p3 = new PointF(centerP.X - width / 2, centerP.Y);
+            PointF p4 = new PointF(centerP.X, centerP.Y + height / 2);
+
+            PointF p5 = new PointF(centerP.X, centerP.Y + height / 4);
+            PointF p6 = new PointF(centerP.X + width / 2, centerP.Y + height / 4);
+            PointF p7 = new PointF(centerP.X + width / 2, centerP.Y - height / 4);
+
+            PointF[] leftArrowPoints = { p1, p2, p3, p4, p5, p6, p7 };
+            g.DrawPolygon(p, leftArrowPoints);
+        }
+        public static void DrawUpArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
+        {
+            Point pointX = topLeft;
+            int x = bottomRight.X;
+            int y = bottomRight.Y;
+            //
+
+            float height = Math.Abs(topLeft.Y - bottomRight.Y);
+            float width = Math.Abs(topLeft.X - bottomRight.X);
+            PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            PointF p1 = new PointF(centerP.X, centerP.Y - height / 2);
+            PointF p2 = new PointF(centerP.X + width / 2, centerP.Y );
+            PointF p3 = new PointF(centerP.X + width / 4, centerP.Y);
+            PointF p4 = new PointF(centerP.X + width / 4, centerP.Y + height / 2);
+
+            PointF p5 = new PointF(centerP.X - width / 4, centerP.Y + height / 2);
+            PointF p6 = new PointF(centerP.X - width / 4, centerP.Y );
+            PointF p7 = new PointF(centerP.X - width / 2, centerP.Y );
+
+            PointF[] upArrowPoints = { p1, p2, p3, p4, p5, p6, p7 };
+            g.DrawPolygon(p, upArrowPoints);
+        }
+        public static void DrawDownArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
+        {
+            Point pointX = topLeft;
+            int x = bottomRight.X;
+            int y = bottomRight.Y;
+            //
+
+            float height = Math.Abs(topLeft.Y - bottomRight.Y);
+            float width = Math.Abs(topLeft.X - bottomRight.X);
+            PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            PointF p1 = new PointF(centerP.X, centerP.Y + height / 2);
+            PointF p2 = new PointF(centerP.X + width / 2, centerP.Y);
+            PointF p3 = new PointF(centerP.X + width / 4, centerP.Y);
+            PointF p4 = new PointF(centerP.X + width / 4, centerP.Y  - height / 2);
+
+            PointF p5 = new PointF(centerP.X - width / 4, centerP.Y - height / 2);
+            PointF p6 = new PointF(centerP.X - width / 4, centerP.Y);
+            PointF p7 = new PointF(centerP.X - width / 2, centerP.Y);
+
+            PointF[] downArrowPoints = { p1, p2, p3, p4, p5, p6, p7 };
+            g.DrawPolygon(p, downArrowPoints);
+        }
+        public static void DrawFourPointStar(this Graphics g, Pen p, Point topLeft, Point bottomRight)
+        {
+            Point pointX = topLeft;
+            int x = bottomRight.X;
+            int y = bottomRight.Y;
+            //
+
+            PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            float height = Math.Abs(topLeft.Y - bottomRight.Y);
+            float width = Math.Abs(topLeft.X - bottomRight.X);
+            //
+            PointF p1 = new PointF(centerP.X, centerP.Y - height / 2);
+            PointF p2 = new PointF( centerP.X + width / 2, centerP.Y);
+            PointF p3 = new PointF(centerP.X , centerP.Y + height / 2);
+            PointF p4 = new PointF(centerP.X - width / 2, centerP.Y);
+            //
+            PointF p5 = new PointF((p4.X + p1.X + 2 * centerP.X) / 4 , (p4.Y + p1.Y + 2 * centerP.Y) / 4);
+            PointF p6 = new PointF((p1.X + p2.X + 2 * centerP.X) / 4, (p1.Y + p2.Y + 2 * centerP.Y) / 4);
+            PointF p7 = new PointF((p2.X + p3.X + 2 * centerP.X) / 4, (p2.Y + p3.Y + 2 * centerP.Y) / 4);
+            PointF p8 = new PointF((p3.X + p4.X + 2 * centerP.X) / 4, (p3.Y + p4.Y + 2 * centerP.Y) / 4);
+
+            PointF[] fourPointStarPoints = { p1, p6, p2, p7, p3, p8, p4, p5 };
+            g.DrawPolygon(p, fourPointStarPoints);
+        }
+        public static void DrawFivePointStar(this Graphics g, Pen p, Point topLeft, Point bottomRight)
+        {
+            PointF centerPoint = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            float convertRatio = (float)Math.PI / 180;
+            float x = centerPoint.X;
+            float y = centerPoint.Y;
+            float q = 1.61803398875f;
+            float d = (float)Math.Sqrt(Math.Pow(topLeft.X - bottomRight.X, 2) + Math.Pow(topLeft.Y - bottomRight.Y, 2));
+            float s = d / (1 + q);
+            PointF p1 = new PointF(x, y - s); // A
+            PointF p2 = new PointF((float)(x + s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio))); // B
+            PointF p3 = new PointF((float)(x + s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio))); // C
+            PointF p4 = new PointF((float)(x - s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio))); // D
+            PointF p5 = new PointF((float)(x - s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio))); // E
+            PointF[] outerPoints = {p1,p2, p3, p4, p5};  // outer points: A B C D E
+            //
+            //                          A
+            //
+            //          E          K         F         B
+            //
+            //                  I               G
+            //                          H            
+            //
+            //              D                       C
+            float a = 0f;
+            float b = 0f;
+            // calculate parameter of AC, BD, CE, DA, EB
+            List <Tuple<float, float>> parameters = new List<Tuple<float, float>>();
+            for(int i = 0; i  < outerPoints.Length; i++)
+            {
+                int ii = ( i + 2 < outerPoints.Length ?  i + 2 : i + 2 - outerPoints.Length);
+                a = (outerPoints[i].Y - outerPoints[ii].Y) / (outerPoints[i].X - outerPoints[ii].X);
+                b = outerPoints[i].Y - a * outerPoints[i].X;
+                parameters.Add(new Tuple<float, float>(a, b)); 
+            }
+            // calculate the coordinate of intersections ( inner points )
+            // in order: G H I K F
+            List <PointF> innerPoints = new List<PointF>();
+            float pointX = 0f;
+            float pointY = 0f;
+            for (int i = 0; i < parameters.Count; i++)
+            {
+                int ii = (i + 1 < parameters.Count ? i + 1 : i + 1 -  parameters.Count);
+                pointX = (parameters[ii].Item2 - parameters[i].Item2) / (parameters[i].Item1 - parameters[ii].Item1);
+                pointY = parameters[i].Item1 * pointX + parameters[i].Item2;
+                innerPoints.Add(new PointF(pointX, pointY));
+            }
+            //
+            List <PointF> fivePointStarPoints = new List<PointF>() { outerPoints[0], innerPoints[4], outerPoints[1], innerPoints[0], outerPoints[2],
+                                                                     innerPoints[1], outerPoints[3], innerPoints[2], outerPoints[4], innerPoints[3] };
+            g.DrawPolygon(p, fivePointStarPoints.ToArray());
+        }
     }
 }

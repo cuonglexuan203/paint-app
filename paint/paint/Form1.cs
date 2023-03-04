@@ -72,17 +72,20 @@ namespace paint
             mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
             mainGraphic = Graphics.FromImage(mainBitmap);
             mainGraphic.Clear(Color.White);
+            mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
             mainColor = Color.Black;
             subColor = Color.White;
             mainPen = new Pen(mainColor, defaultWidth);
             subPen = new Pen(subColor, defaultWidth);
             mainEraser = new Pen(Color.White, defaultWidth);
             PcBMainDrawing.Image = mainBitmap;
+            
         }
         private void AppPaint_Load(object sender, EventArgs e)
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.MaximumSize = new System.Drawing.Size(workingArea.Width, workingArea.Height);
+
             //
         }
         public AppPaint()
@@ -258,6 +261,38 @@ namespace paint
                     }
                 case 53:
                     {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawRightArrow(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 54:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawLeftArrow(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 55:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawUpArrow(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 56:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawDownArrow(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 57:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawFourPointStar(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 58:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawFivePointStar(mainPen, pointX, currentPoint);
                         break;
                     }
             }
@@ -318,7 +353,7 @@ namespace paint
             
             if (painted)
             {
-                 mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                 if (points.Count > 1)
                 {
                     if (index == 34)
@@ -337,6 +372,7 @@ namespace paint
                         mainGraphic.DrawCurve(mainEraser, points.ToArray());
                     }
                 }
+                
                 Handler_DrawShape(e.Graphics);
             }
         }
