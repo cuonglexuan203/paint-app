@@ -373,5 +373,32 @@ namespace paint
                                                                      innerPoints[1], outerPoints[3], innerPoints[2], outerPoints[4], innerPoints[3] };
             g.DrawPolygon(p, fivePointStarPoints.ToArray());
         }
+        public static void DrawSixPointStar(this Graphics g, Pen p, Point topLeft, Point bottomRight)
+        {
+            //
+            PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            float x = centerP.X;
+            float y = centerP.Y;
+            float height = Math.Abs(topLeft.Y - bottomRight.Y);
+            float width = Math.Abs(topLeft.X - bottomRight.X);
+            //
+            PointF p1 = new PointF(x , y - height / 2);
+            PointF p2 = new PointF(x  + width / 6, y - height / 4);
+            PointF p3 = new PointF(x + width / 2, y - height / 4);
+            PointF p4 = new PointF(x + width / 3, y);
+            
+            //
+            PointF p5 = new PointF(x + width / 2, y + height / 4);
+            PointF p6 = new PointF(x + width / 6, y + height / 4);
+            PointF p7 = new PointF(x, y + height / 2);
+            PointF p8 = new PointF(x - width / 6, y + height / 4);
+            PointF p9 = new PointF(x - width / 2, y + height / 4);
+            PointF p10 = new PointF(x - width / 3, y);
+            PointF p11 = new PointF(x - width / 2, y - height / 4);
+            PointF p12 = new PointF(x - width / 6, y - height / 4);
+            //
+            PointF[] sixPointStarPoints = { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12 };
+            g.DrawPolygon(p, sixPointStarPoints);
+        }
     }
 }

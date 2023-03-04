@@ -313,6 +313,8 @@
             this.PnlTitle.Name = "PnlTitle";
             this.PnlTitle.Size = new System.Drawing.Size(1461, 38);
             this.PnlTitle.TabIndex = 0;
+            this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseDown);
+            this.PnlTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseMove);
             // 
             // BtnMinimize
             // 

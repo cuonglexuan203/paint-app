@@ -16,6 +16,7 @@ namespace paint
     
     public partial class AppPaint : Form
     {
+        
         // data
         Bitmap mainBitmap;
         Graphics mainGraphic;
@@ -36,7 +37,7 @@ namespace paint
         int countLine = 0;
         //
         // control var
-
+        Point mouseOffset;
         int index = 34;
         bool painted = false;
         //
@@ -295,6 +296,12 @@ namespace paint
                         g.DrawFivePointStar(mainPen, pointX, currentPoint);
                         break;
                     }
+                case 59:
+                    {
+                        Point currentPoint = new Point((int)x, (int)y);
+                        g.DrawSixPointStar(mainPen, pointX, currentPoint);
+                        break;
+                    }
             }
         }
         private void PcBMainDrawing_MouseUp(object sender, MouseEventArgs e)
@@ -491,6 +498,8 @@ namespace paint
             
         }
 
+        
+
         private void BtnExit_MouseEnter(object sender, EventArgs e)
         {
             this.BtnExit.ForeColor = Color.White;
@@ -525,6 +534,24 @@ namespace paint
             this.WindowState = FormWindowState.Minimized;
         }
         // Panel event
+        private void PnlTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                mouseOffset = new Point(-e.X, -e.Y);
+            }
+        }
+
+        private void PnlTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.WindowState = FormWindowState.Normal;
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouseOffset);
+                this.Location = mousePos;
+            }
+        }
         private void PnlControlDrawing_Paint(object sender, PaintEventArgs e)
         {
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1, 0, 1, 0, Color.FromArgb(234, 234, 234));
