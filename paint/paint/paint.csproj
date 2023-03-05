@@ -62,6 +62,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\CustomControls\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\CustomUI\CustomUI.cs">
       <SubType>Form</SubType>
     </Compile>

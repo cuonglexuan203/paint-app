@@ -43,6 +43,11 @@
             this.LbAppTitle = new System.Windows.Forms.Label();
             this.PcbAppIcon = new System.Windows.Forms.PictureBox();
             this.PnlContainer = new System.Windows.Forms.Panel();
+            this.PnlSize = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.PnlDrawing = new System.Windows.Forms.Panel();
             this.PcBMainDrawing = new System.Windows.Forms.PictureBox();
             this.PnlControlFooter = new System.Windows.Forms.Panel();
@@ -166,6 +171,7 @@
             this.PnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).BeginInit();
             this.PnlContainer.SuspendLayout();
+            this.PnlSize.SuspendLayout();
             this.PnlDrawing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).BeginInit();
             this.PnlControlFooter.SuspendLayout();
@@ -393,6 +399,7 @@
             // 
             // PnlContainer
             // 
+            this.PnlContainer.Controls.Add(this.PnlSize);
             this.PnlContainer.Controls.Add(this.PnlDrawing);
             this.PnlContainer.Controls.Add(this.PnlControlFooter);
             this.PnlContainer.Controls.Add(this.PnlControlDrawing);
@@ -403,10 +410,74 @@
             this.PnlContainer.Size = new System.Drawing.Size(1461, 601);
             this.PnlContainer.TabIndex = 1;
             // 
+            // PnlSize
+            // 
+            this.PnlSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PnlSize.Controls.Add(this.button4);
+            this.PnlSize.Controls.Add(this.button3);
+            this.PnlSize.Controls.Add(this.button2);
+            this.PnlSize.Controls.Add(this.button1);
+            this.PnlSize.Location = new System.Drawing.Point(899, 93);
+            this.PnlSize.Name = "PnlSize";
+            this.PnlSize.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PnlSize.Size = new System.Drawing.Size(190, 270);
+            this.PnlSize.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(3, 200);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(182, 65);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(3, 135);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(182, 65);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(3, 70);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(182, 65);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(3, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 65);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // PnlDrawing
             // 
             this.PnlDrawing.Controls.Add(this.PcBMainDrawing);
-            this.PnlDrawing.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PnlDrawing.Location = new System.Drawing.Point(0, 132);
             this.PnlDrawing.Margin = new System.Windows.Forms.Padding(5);
             this.PnlDrawing.Name = "PnlDrawing";
@@ -415,7 +486,7 @@
             // 
             // PcBMainDrawing
             // 
-            this.PcBMainDrawing.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PcBMainDrawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PcBMainDrawing.Location = new System.Drawing.Point(0, 0);
             this.PcBMainDrawing.Margin = new System.Windows.Forms.Padding(10);
             this.PcBMainDrawing.Name = "PcBMainDrawing";
@@ -1140,6 +1211,7 @@
             this.PnlControlPenWidth.Size = new System.Drawing.Size(42, 66);
             this.PnlControlPenWidth.TabIndex = 3;
             this.PnlControlPenWidth.Tag = "68";
+            this.PnlControlPenWidth.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlControlPenWidth_MouseClick);
             this.PnlControlPenWidth.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.PnlControlPenWidth.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
@@ -2234,6 +2306,7 @@
             this.PnlTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).EndInit();
             this.PnlContainer.ResumeLayout(false);
+            this.PnlSize.ResumeLayout(false);
             this.PnlDrawing.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).EndInit();
             this.PnlControlFooter.ResumeLayout(false);
@@ -2283,89 +2356,70 @@
         private System.Windows.Forms.Button BtnUndo;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Panel PnlContainer;
-        private System.Windows.Forms.Panel PnlControlDrawing;
         private System.Windows.Forms.Panel PnlControlFooter;
+        private System.Windows.Forms.PictureBox PcbAppIcon;
+        private System.Windows.Forms.Button BtnLocation;
+        private System.Windows.Forms.Button BtnShapeSize;
+        private System.Windows.Forms.Label LbBar1;
+        private System.Windows.Forms.Label LbShapeSizePoint;
+        private System.Windows.Forms.Label LbBar2;
+        private System.Windows.Forms.Button BtnPageSize;
+        private System.Windows.Forms.Label LbPageSizePoint;
+        private System.Windows.Forms.Label LbLocationPoint;
         private System.Windows.Forms.Panel PnlDrawing;
-        private System.Windows.Forms.Panel PnlControlClipBoard;
-        private System.Windows.Forms.Panel PnlControlImage;
-        private System.Windows.Forms.Button BtnPaste;
-        private System.Windows.Forms.Label LbClipboard;
-        private System.Windows.Forms.Button BtnPasteOptions;
-        private System.Windows.Forms.Button BtnCut;
-        private System.Windows.Forms.Button BtnCopy;
-        private System.Windows.Forms.Button BtnResize;
-        private System.Windows.Forms.Button BtnCrop;
-        private System.Windows.Forms.Button BtnSelectOptions;
-        private System.Windows.Forms.Button BtnSelect;
-        private System.Windows.Forms.Label LbImage;
-        private System.Windows.Forms.Button BtnFlip;
-        private System.Windows.Forms.Button BtnRotate;
-        private System.Windows.Forms.Button BtnRotateOptions;
-        private System.Windows.Forms.Panel PnlControlTools;
-        private System.Windows.Forms.Button BtnColorPicker;
-        private System.Windows.Forms.Button BtnText;
-        private System.Windows.Forms.Button BtnEraser;
-        private System.Windows.Forms.Button BtnFill;
-        private System.Windows.Forms.Button BtnPencil;
-        private System.Windows.Forms.Label LbTools;
-        private System.Windows.Forms.Button BtnMagnifier;
-        private System.Windows.Forms.Panel PnlBrushes;
-        private System.Windows.Forms.Button BtnBrushOptions;
-        private System.Windows.Forms.Button BtnBrush;
-        private System.Windows.Forms.Label LbBrushes;
-        private System.Windows.Forms.Panel PnlControlShape;
-        private System.Windows.Forms.Label LbShape;
-        private System.Windows.Forms.Button BtnShapeFillOptions;
-        private System.Windows.Forms.Button BtnShapeOutlineOptions;
-        private System.Windows.Forms.Button BtnShapeFill;
-        private System.Windows.Forms.Button BtnShapeOutline;
-        private System.Windows.Forms.Panel PnlControlSize;
-        private System.Windows.Forms.Button BtnSizeOptions;
-        private System.Windows.Forms.Button BtnSize;
-        private System.Windows.Forms.Label LbSize;
+        private System.Windows.Forms.PictureBox PcBMainDrawing;
+        private System.Windows.Forms.Panel PnlControlDrawing;
         private System.Windows.Forms.Panel PnlControlColors;
-        private System.Windows.Forms.Button BtnEditColor;
-        private EclipseButton BtnColor30;
-        private EclipseButton BtnColor29;
-        private EclipseButton BtnColor27;
-        private EclipseButton BtnColor25;
-        private EclipseButton BtnColor28;
-        private EclipseButton BtnColor26;
-        private EclipseButton BtnColor24;
-        private EclipseButton BtnColor23;
-        private EclipseButton BtnColor22;
-        private EclipseButton BtnColor21;
-        private EclipseButton BtnColor20;
-        private EclipseButton BtnColor19;
-        private EclipseButton BtnColor17;
-        private EclipseButton BtnColor15;
-        private EclipseButton BtnColor18;
-        private EclipseButton BtnColor16;
-        private EclipseButton BtnColor14;
-        private EclipseButton BtnColor13;
-        private EclipseButton BtnColor12;
-        private EclipseButton BtnColor11;
-        private EclipseButton BtnColor10;
-        private EclipseButton BtnColor9;
-        private EclipseButton BtnColor7;
-        private EclipseButton BtnColor5;
-        private EclipseButton BtnColor8;
-        private EclipseButton BtnColor6;
-        private EclipseButton BtnColor4;
-        private EclipseButton BtnColor3;
+        private System.Windows.Forms.FlowLayoutPanel FLBColorOptions;
+        private EclipseButton BtnColor1;
         private EclipseButton BtnColor2;
+        private EclipseButton BtnColor3;
+        private EclipseButton BtnColor4;
+        private EclipseButton BtnColor6;
+        private EclipseButton BtnColor8;
+        private EclipseButton BtnColor5;
+        private EclipseButton BtnColor7;
+        private EclipseButton BtnColor9;
+        private EclipseButton BtnColor10;
+        private EclipseButton BtnColor11;
+        private EclipseButton BtnColor12;
+        private EclipseButton BtnColor13;
+        private EclipseButton BtnColor14;
+        private EclipseButton BtnColor16;
+        private EclipseButton BtnColor18;
+        private EclipseButton BtnColor15;
+        private EclipseButton BtnColor17;
+        private EclipseButton BtnColor19;
+        private EclipseButton BtnColor20;
+        private EclipseButton BtnColor21;
+        private EclipseButton BtnColor22;
+        private EclipseButton BtnColor23;
+        private EclipseButton BtnColor24;
+        private EclipseButton BtnColor26;
+        private EclipseButton BtnColor28;
+        private EclipseButton BtnColor25;
+        private EclipseButton BtnColor27;
+        private EclipseButton BtnColor29;
+        private EclipseButton BtnColor30;
+        private System.Windows.Forms.Button BtnEditColor;
         private System.Windows.Forms.Label LbColors;
         private EclipseButton BtnMainColor2;
-        private EclipseButton BtnColor1;
         private EclipseButton BtnMainColor1;
-        private System.Windows.Forms.PictureBox PcBMainDrawing;
-        private System.Windows.Forms.Panel PnlRotate;
-        private System.Windows.Forms.Panel PnlFlip;
-        private System.Windows.Forms.Button BtnFlipOptions;
+        private System.Windows.Forms.Panel PnlControlSize;
         private System.Windows.Forms.Panel PnlControlPenWidth;
-        private System.Windows.Forms.PictureBox PcbAppIcon;
-        private System.Windows.Forms.Button BtnShape1;
+        private System.Windows.Forms.Button BtnSize;
+        private System.Windows.Forms.Button BtnSizeOptions;
+        private System.Windows.Forms.PictureBox PcbBar6;
+        private System.Windows.Forms.Label LbSize;
+        private System.Windows.Forms.Panel PnlControlShape;
+        private System.Windows.Forms.Panel PnlSize;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox PcbBar5;
         private System.Windows.Forms.FlowLayoutPanel FLPShape;
+        private System.Windows.Forms.Button BtnShape1;
         private System.Windows.Forms.Button BtnShape2;
         private System.Windows.Forms.Button BtnShape3;
         private System.Windows.Forms.Button BtnShape4;
@@ -2387,21 +2441,45 @@
         private System.Windows.Forms.Button BtnShape20;
         private System.Windows.Forms.Button BtnShape21;
         private System.Windows.Forms.Button BtnShape22;
-        private System.Windows.Forms.Button BtnLocation;
-        private System.Windows.Forms.Button BtnShapeSize;
-        private System.Windows.Forms.Label LbBar1;
-        private System.Windows.Forms.Label LbShapeSizePoint;
-        private System.Windows.Forms.Label LbBar2;
-        private System.Windows.Forms.Button BtnPageSize;
-        private System.Windows.Forms.Label LbPageSizePoint;
-        private System.Windows.Forms.PictureBox PcBBar1;
-        private System.Windows.Forms.PictureBox PcbBar6;
-        private System.Windows.Forms.PictureBox PcbBar5;
+        private System.Windows.Forms.Button BtnShapeFillOptions;
+        private System.Windows.Forms.Button BtnShapeOutlineOptions;
+        private System.Windows.Forms.Button BtnShapeFill;
+        private System.Windows.Forms.Button BtnShapeOutline;
+        private System.Windows.Forms.Label LbShape;
+        private System.Windows.Forms.Panel PnlBrushes;
         private System.Windows.Forms.PictureBox PcbBar4;
+        private System.Windows.Forms.Button BtnBrushOptions;
+        private System.Windows.Forms.Button BtnBrush;
+        private System.Windows.Forms.Label LbBrushes;
+        private System.Windows.Forms.Panel PnlControlTools;
         private System.Windows.Forms.PictureBox PcbBar3;
+        private System.Windows.Forms.Button BtnMagnifier;
+        private System.Windows.Forms.Button BtnColorPicker;
+        private System.Windows.Forms.Button BtnText;
+        private System.Windows.Forms.Button BtnEraser;
+        private System.Windows.Forms.Button BtnFill;
+        private System.Windows.Forms.Button BtnPencil;
+        private System.Windows.Forms.Label LbTools;
+        private System.Windows.Forms.Panel PnlControlImage;
+        private System.Windows.Forms.Panel PnlRotate;
+        private System.Windows.Forms.Button BtnRotate;
+        private System.Windows.Forms.Button BtnRotateOptions;
+        private System.Windows.Forms.Panel PnlFlip;
+        private System.Windows.Forms.Button BtnFlipOptions;
+        private System.Windows.Forms.Button BtnFlip;
         private System.Windows.Forms.PictureBox PcbBar2;
-        private System.Windows.Forms.FlowLayoutPanel FLBColorOptions;
-        private System.Windows.Forms.Label LbLocationPoint;
+        private System.Windows.Forms.Button BtnResize;
+        private System.Windows.Forms.Button BtnCrop;
+        private System.Windows.Forms.Button BtnSelectOptions;
+        private System.Windows.Forms.Button BtnSelect;
+        private System.Windows.Forms.Label LbImage;
+        private System.Windows.Forms.Panel PnlControlClipBoard;
+        private System.Windows.Forms.Button BtnCopy;
+        private System.Windows.Forms.Button BtnCut;
+        private System.Windows.Forms.Button BtnPasteOptions;
+        private System.Windows.Forms.Button BtnPaste;
+        private System.Windows.Forms.Label LbClipboard;
+        private System.Windows.Forms.PictureBox PcBBar1;
     }
 }
 

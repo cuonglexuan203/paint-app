@@ -86,14 +86,14 @@ namespace paint
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.MaximumSize = new System.Drawing.Size(workingArea.Width, workingArea.Height);
-
+            
             //
         }
         public AppPaint()
         {
             InitializeComponent();
-            CustomizeUIs();
             InitData();
+            CustomizeUIs();
             //
             
         }
@@ -300,6 +300,23 @@ namespace paint
                     {
                         Point currentPoint = new Point((int)x, (int)y);
                         g.DrawSixPointStar(mainPen, pointX, currentPoint);
+                        break;
+                    }
+                case 60:
+                    {
+                        
+                        break;
+                    }
+                case 61:
+                    {
+                        break;
+                    }
+                case 62:
+                    {
+                        break;
+                    }
+                case 63:
+                    {
                         break;
                     }
             }
@@ -511,6 +528,12 @@ namespace paint
         private void BtnExit_MouseLeave(object sender, EventArgs e)
         {
             this.BtnExit.ForeColor = Color.Black;
+        }
+
+        private void PnlControlPenWidth_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.PnlSize.Show();
+            
         }
 
         private void BtnMaximize_Click(object sender, EventArgs e)

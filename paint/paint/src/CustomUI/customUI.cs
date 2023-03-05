@@ -17,6 +17,7 @@ namespace paint
             CustomizeButtonImage();
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
             InitColorsOfPen();
+            HideControls(new List<Control> {this.PnlSize });
             this.ResumeLayout();
         }
         public void InitColorsOfPen()
@@ -66,6 +67,13 @@ namespace paint
                 ep.X = pnl.Location.X;
                 g.DrawLine(p, sp, ep);
 
+            }
+        }
+        public void HideControls(List<Control> ctls)
+        {
+            foreach (Control c in ctls)
+            {
+                c.Hide();
             }
         }
     }
