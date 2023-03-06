@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -41,6 +42,9 @@ namespace paint
         int index = 34;
         bool painted = false;
         //
+        List<Panel> optionalPanels ;
+        List<Panel> autoHideControls;
+        //
         List<Color> colors = new List<Color>() { 
         Color.FromArgb(0,0,0),
         Color.FromArgb(127,127,127),
@@ -69,7 +73,7 @@ namespace paint
         //
         private void InitData()
         {
-            int defaultWidth = 2;
+            int defaultWidth = 1;
             mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
             mainGraphic = Graphics.FromImage(mainBitmap);
             mainGraphic.Clear(Color.White);
@@ -80,24 +84,54 @@ namespace paint
             subPen = new Pen(subColor, defaultWidth);
             mainEraser = new Pen(Color.White, defaultWidth);
             PcBMainDrawing.Image = mainBitmap;
-            
+            //
+            autoHideControls = new List<Panel> { this.PnlSize };
+            optionalPanels = new List<Panel> { this.PnlContainer, this.PnlControlPaint};
         }
         private void AppPaint_Load(object sender, EventArgs e)
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.MaximumSize = new System.Drawing.Size(workingArea.Width, workingArea.Height);
-            
             //
+            AddEvent_Controls_OnClick();
+
         }
         public AppPaint()
         {
             InitializeComponent();
             InitData();
             CustomizeUIs();
-            //
             
+            //
+
         }
         // process logic
+        public void HideControls(object sender, EventArgs e)
+        {
+            
+            foreach (Panel pnl in autoHideControls)
+            {
+                pnl.Hide();
+            }
+        }
+        public void AddEventForAllControls(Control parent) // add event for the control include its child
+        {
+            foreach (Control c in parent.Controls)
+            {
+                c.Click += new System.EventHandler(HideControls);
+                if (c.HasChildren)
+                {
+                    AddEventForAllControls(c);
+                }
+            }
+        }
+        public void AddEvent_Controls_OnClick()
+        {
+            foreach (Panel p in optionalPanels)
+            {
+              AddEventForAllControls(p);
+            }
+        }
         // get the coordinate of mouse click follow by the ratio bitmap/picturebox
         public Point SetPoint(PictureBox pictureBox, Point point)
         {
@@ -426,7 +460,7 @@ namespace paint
         }
 
         // Btn event
-       
+        
         private void Handler_ColorChoice_Click(object sender, EventArgs e)
         {
             EclipseButton esBtn = (EclipseButton)sender;
@@ -465,12 +499,12 @@ namespace paint
             Button btn = (Button)sender;
             int tag = Convert.ToInt32(btn.Tag);
             //
-            this.index = tag;
+            this.index = this.indexPenSize = tag;
         }
         private void Handler_Shapes_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            this.index = Convert.ToInt32(btn.Tag);
+            this.index = indexPenSize = Convert.ToInt32(btn.Tag);
 
         }
         private void Btn_Enter(object sender, EventArgs e)
@@ -533,7 +567,29 @@ namespace paint
         private void PnlControlPenWidth_MouseClick(object sender, MouseEventArgs e)
         {
             this.PnlSize.Show();
-            
+            CustomSizes(PnlSize);
+            this.PnlSize.Refresh();
+        }
+
+        private void PnlControlPenWidth_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void BtnPenSizes_Click(object sender, EventArgs e)
+        {
+            if (indexPenSize == 34)
+            {
+                this.mainPen.Width = ((CustomWidthButton)sender).BarHeight;
+            }
+            else if (indexPenSize == 35)
+            {
+                this.mainEraser.Width = ((CustomWidthButton)sender).BarHeight;
+
+            }
+            else if (indexPenSize >= 42 && indexPenSize <= 63)
+            {
+                this.mainPen.Width = ((CustomWidthButton)sender).BarHeight;
+            }
         }
 
         private void BtnMaximize_Click(object sender, EventArgs e)

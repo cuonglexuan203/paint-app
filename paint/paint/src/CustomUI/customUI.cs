@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -11,13 +12,42 @@ namespace paint
 {
     public partial class AppPaint
     {
+
+        private List<List<int>> penWidths = new List<List<int>>() {
+        new List<int>{ 1, 2, 3 , 4 }, // pencil
+        new List<int>{4, 6, 8, 10}, // eraser
+        new List<int> { 1, 3, 5, 8 }, // shapes
+        };
+        int indexPenSize = 34;
+        //
+        public void CustomSizes(Panel pnls)
+        {
+            int i = 0;
+            foreach (CustomWidthButton pnl in pnls.Controls)
+            {
+                
+                if (indexPenSize == 34)
+                {
+                    pnl.BarHeight = penWidths[0][penWidths[0].Count - i - 1];
+                }
+                else if (indexPenSize == 35)
+                {
+                    pnl.BarHeight = penWidths[1][penWidths[1].Count - i - 1];
+                }
+                else if (indexPenSize >= 42 && indexPenSize <= 63)
+                {
+                    pnl.BarHeight = penWidths[2][penWidths[2].Count - i - 1];
+                }
+                i++;
+            }
+        }
         public void CustomizeUIs()
         {
             this.SuspendLayout();
             CustomizeButtonImage();
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
             InitColorsOfPen();
-            HideControls(new List<Control> {this.PnlSize });
+            HideControls(new List<Control> { this.PnlSize });
             this.ResumeLayout();
         }
         public void InitColorsOfPen()

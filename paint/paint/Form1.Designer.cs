@@ -29,25 +29,12 @@
 
         private void InitializeComponent()
         {
-            this.PnlControlApp = new System.Windows.Forms.Panel();
-            this.PnlControlPaint = new System.Windows.Forms.Panel();
-            this.BtnRedo = new System.Windows.Forms.Button();
-            this.BtnUndo = new System.Windows.Forms.Button();
-            this.BtnSave = new System.Windows.Forms.Button();
-            this.BtnView = new System.Windows.Forms.Button();
-            this.BtnFile = new System.Windows.Forms.Button();
-            this.PnlTitle = new System.Windows.Forms.Panel();
-            this.BtnMinimize = new System.Windows.Forms.Button();
-            this.BtnMaximize = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Button();
-            this.LbAppTitle = new System.Windows.Forms.Label();
-            this.PcbAppIcon = new System.Windows.Forms.PictureBox();
             this.PnlContainer = new System.Windows.Forms.Panel();
             this.PnlSize = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnPenSize4 = new paint.CustomWidthButton();
+            this.BtnPenSize3 = new paint.CustomWidthButton();
+            this.BtnPenSize2 = new paint.CustomWidthButton();
+            this.BtnPenSize1 = new paint.CustomWidthButton();
             this.PnlDrawing = new System.Windows.Forms.Panel();
             this.PcBMainDrawing = new System.Windows.Forms.PictureBox();
             this.PnlControlFooter = new System.Windows.Forms.Panel();
@@ -166,10 +153,19 @@
             this.BtnPaste = new System.Windows.Forms.Button();
             this.LbClipboard = new System.Windows.Forms.Label();
             this.PcBBar1 = new System.Windows.Forms.PictureBox();
-            this.PnlControlApp.SuspendLayout();
-            this.PnlControlPaint.SuspendLayout();
-            this.PnlTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).BeginInit();
+            this.PnlTitle = new System.Windows.Forms.Panel();
+            this.BtnMinimize = new System.Windows.Forms.Button();
+            this.BtnMaximize = new System.Windows.Forms.Button();
+            this.BtnExit = new System.Windows.Forms.Button();
+            this.LbAppTitle = new System.Windows.Forms.Label();
+            this.PcbAppIcon = new System.Windows.Forms.PictureBox();
+            this.PnlControlPaint = new System.Windows.Forms.Panel();
+            this.BtnRedo = new System.Windows.Forms.Button();
+            this.BtnUndo = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnView = new System.Windows.Forms.Button();
+            this.BtnFile = new System.Windows.Forms.Button();
+            this.PnlControlApp = new System.Windows.Forms.Panel();
             this.PnlContainer.SuspendLayout();
             this.PnlSize.SuspendLayout();
             this.PnlDrawing.SuspendLayout();
@@ -194,208 +190,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).BeginInit();
             this.PnlControlClipBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).BeginInit();
+            this.PnlTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).BeginInit();
+            this.PnlControlPaint.SuspendLayout();
+            this.PnlControlApp.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // PnlControlApp
-            // 
-            this.PnlControlApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))));
-            this.PnlControlApp.Controls.Add(this.PnlControlPaint);
-            this.PnlControlApp.Controls.Add(this.PnlTitle);
-            this.PnlControlApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlControlApp.Location = new System.Drawing.Point(0, 0);
-            this.PnlControlApp.Margin = new System.Windows.Forms.Padding(0);
-            this.PnlControlApp.Name = "PnlControlApp";
-            this.PnlControlApp.Size = new System.Drawing.Size(1461, 75);
-            this.PnlControlApp.TabIndex = 0;
-            // 
-            // PnlControlPaint
-            // 
-            this.PnlControlPaint.Controls.Add(this.BtnRedo);
-            this.PnlControlPaint.Controls.Add(this.BtnUndo);
-            this.PnlControlPaint.Controls.Add(this.BtnSave);
-            this.PnlControlPaint.Controls.Add(this.BtnView);
-            this.PnlControlPaint.Controls.Add(this.BtnFile);
-            this.PnlControlPaint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlControlPaint.Location = new System.Drawing.Point(0, 38);
-            this.PnlControlPaint.Margin = new System.Windows.Forms.Padding(2);
-            this.PnlControlPaint.Name = "PnlControlPaint";
-            this.PnlControlPaint.Size = new System.Drawing.Size(1461, 37);
-            this.PnlControlPaint.TabIndex = 1;
-            // 
-            // BtnRedo
-            // 
-            this.BtnRedo.BackColor = System.Drawing.Color.Transparent;
-            this.BtnRedo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnRedo.FlatAppearance.BorderSize = 0;
-            this.BtnRedo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRedo.Image = global::paint.Properties.Resources.redo;
-            this.BtnRedo.Location = new System.Drawing.Point(225, 5);
-            this.BtnRedo.Name = "BtnRedo";
-            this.BtnRedo.Size = new System.Drawing.Size(25, 26);
-            this.BtnRedo.TabIndex = 4;
-            this.BtnRedo.Tag = "23";
-            this.BtnRedo.UseVisualStyleBackColor = false;
-            this.BtnRedo.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnRedo.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnUndo
-            // 
-            this.BtnUndo.BackColor = System.Drawing.Color.Transparent;
-            this.BtnUndo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnUndo.FlatAppearance.BorderSize = 0;
-            this.BtnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnUndo.Image = global::paint.Properties.Resources.undo;
-            this.BtnUndo.Location = new System.Drawing.Point(182, 5);
-            this.BtnUndo.Name = "BtnUndo";
-            this.BtnUndo.Size = new System.Drawing.Size(25, 26);
-            this.BtnUndo.TabIndex = 3;
-            this.BtnUndo.Tag = "22";
-            this.BtnUndo.UseVisualStyleBackColor = false;
-            this.BtnUndo.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnUndo.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSave.FlatAppearance.BorderSize = 0;
-            this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSave.Image = global::paint.Properties.Resources.save;
-            this.BtnSave.Location = new System.Drawing.Point(135, 5);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(25, 26);
-            this.BtnSave.TabIndex = 2;
-            this.BtnSave.Tag = "21";
-            this.BtnSave.UseVisualStyleBackColor = false;
-            this.BtnSave.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnSave.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnView
-            // 
-            this.BtnView.BackColor = System.Drawing.Color.Transparent;
-            this.BtnView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnView.FlatAppearance.BorderSize = 0;
-            this.BtnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(240)))));
-            this.BtnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnView.Location = new System.Drawing.Point(57, 0);
-            this.BtnView.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnView.Name = "BtnView";
-            this.BtnView.Size = new System.Drawing.Size(57, 37);
-            this.BtnView.TabIndex = 1;
-            this.BtnView.Tag = "2";
-            this.BtnView.Text = "View";
-            this.BtnView.UseVisualStyleBackColor = false;
-            this.BtnView.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnView.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnFile
-            // 
-            this.BtnFile.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFile.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnFile.FlatAppearance.BorderSize = 0;
-            this.BtnFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(240)))));
-            this.BtnFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFile.Location = new System.Drawing.Point(0, 0);
-            this.BtnFile.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnFile.Name = "BtnFile";
-            this.BtnFile.Size = new System.Drawing.Size(57, 37);
-            this.BtnFile.TabIndex = 0;
-            this.BtnFile.Tag = "1";
-            this.BtnFile.Text = "File";
-            this.BtnFile.UseVisualStyleBackColor = false;
-            this.BtnFile.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnFile.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // PnlTitle
-            // 
-            this.PnlTitle.Controls.Add(this.BtnMinimize);
-            this.PnlTitle.Controls.Add(this.BtnMaximize);
-            this.PnlTitle.Controls.Add(this.BtnExit);
-            this.PnlTitle.Controls.Add(this.LbAppTitle);
-            this.PnlTitle.Controls.Add(this.PcbAppIcon);
-            this.PnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlTitle.Location = new System.Drawing.Point(0, 0);
-            this.PnlTitle.Margin = new System.Windows.Forms.Padding(2);
-            this.PnlTitle.Name = "PnlTitle";
-            this.PnlTitle.Size = new System.Drawing.Size(1461, 38);
-            this.PnlTitle.TabIndex = 0;
-            this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseDown);
-            this.PnlTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseMove);
-            // 
-            // BtnMinimize
-            // 
-            this.BtnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnMinimize.FlatAppearance.BorderSize = 0;
-            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMinimize.Location = new System.Drawing.Point(1320, 0);
-            this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMinimize.Name = "BtnMinimize";
-            this.BtnMinimize.Size = new System.Drawing.Size(47, 38);
-            this.BtnMinimize.TabIndex = 4;
-            this.BtnMinimize.Text = "🗕";
-            this.BtnMinimize.UseVisualStyleBackColor = false;
-            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
-            // 
-            // BtnMaximize
-            // 
-            this.BtnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnMaximize.FlatAppearance.BorderSize = 0;
-            this.BtnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMaximize.Location = new System.Drawing.Point(1367, 0);
-            this.BtnMaximize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMaximize.Name = "BtnMaximize";
-            this.BtnMaximize.Size = new System.Drawing.Size(47, 38);
-            this.BtnMaximize.TabIndex = 3;
-            this.BtnMaximize.Text = "🗖";
-            this.BtnMaximize.UseVisualStyleBackColor = false;
-            this.BtnMaximize.Click += new System.EventHandler(this.BtnMaximize_Click);
-            // 
-            // BtnExit
-            // 
-            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
-            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnExit.FlatAppearance.BorderSize = 0;
-            this.BtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
-            this.BtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
-            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExit.Location = new System.Drawing.Point(1414, 0);
-            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(47, 38);
-            this.BtnExit.TabIndex = 2;
-            this.BtnExit.Text = "X";
-            this.BtnExit.UseVisualStyleBackColor = false;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            this.BtnExit.MouseEnter += new System.EventHandler(this.BtnExit_MouseEnter);
-            this.BtnExit.MouseLeave += new System.EventHandler(this.BtnExit_MouseLeave);
-            // 
-            // LbAppTitle
-            // 
-            this.LbAppTitle.AutoSize = true;
-            this.LbAppTitle.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbAppTitle.Location = new System.Drawing.Point(41, 11);
-            this.LbAppTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.LbAppTitle.Name = "LbAppTitle";
-            this.LbAppTitle.Size = new System.Drawing.Size(109, 19);
-            this.LbAppTitle.TabIndex = 1;
-            this.LbAppTitle.Text = "Untitled - Paint";
-            // 
-            // PcbAppIcon
-            // 
-            this.PcbAppIcon.BackColor = System.Drawing.Color.Transparent;
-            this.PcbAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbAppIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PcbAppIcon.Image = global::paint.Properties.Resources.paint;
-            this.PcbAppIcon.Location = new System.Drawing.Point(0, 0);
-            this.PcbAppIcon.Margin = new System.Windows.Forms.Padding(5);
-            this.PcbAppIcon.Name = "PcbAppIcon";
-            this.PcbAppIcon.Size = new System.Drawing.Size(36, 38);
-            this.PcbAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbAppIcon.TabIndex = 0;
-            this.PcbAppIcon.TabStop = false;
             // 
             // PnlContainer
             // 
@@ -413,67 +212,71 @@
             // PnlSize
             // 
             this.PnlSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PnlSize.Controls.Add(this.button4);
-            this.PnlSize.Controls.Add(this.button3);
-            this.PnlSize.Controls.Add(this.button2);
-            this.PnlSize.Controls.Add(this.button1);
+            this.PnlSize.Controls.Add(this.BtnPenSize4);
+            this.PnlSize.Controls.Add(this.BtnPenSize3);
+            this.PnlSize.Controls.Add(this.BtnPenSize2);
+            this.PnlSize.Controls.Add(this.BtnPenSize1);
             this.PnlSize.Location = new System.Drawing.Point(899, 93);
             this.PnlSize.Name = "PnlSize";
             this.PnlSize.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.PnlSize.Size = new System.Drawing.Size(190, 270);
             this.PnlSize.TabIndex = 1;
             // 
-            // button4
+            // BtnPenSize4
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(3, 200);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(182, 65);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnPenSize4.BarHeight = 4;
+            this.BtnPenSize4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize4.Location = new System.Drawing.Point(3, 200);
+            this.BtnPenSize4.Name = "BtnPenSize4";
+            this.BtnPenSize4.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize4.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize4.TabIndex = 3;
+            this.BtnPenSize4.Text = "4 px";
+            this.BtnPenSize4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize4.UseVisualStyleBackColor = true;
+            this.BtnPenSize4.Click += new System.EventHandler(this.BtnPenSizes_Click);
             // 
-            // button3
+            // BtnPenSize3
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(3, 135);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(182, 65);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnPenSize3.BarHeight = 3;
+            this.BtnPenSize3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize3.Location = new System.Drawing.Point(3, 135);
+            this.BtnPenSize3.Name = "BtnPenSize3";
+            this.BtnPenSize3.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize3.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize3.TabIndex = 2;
+            this.BtnPenSize3.Text = "3 px";
+            this.BtnPenSize3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize3.UseVisualStyleBackColor = true;
+            this.BtnPenSize3.Click += new System.EventHandler(this.BtnPenSizes_Click);
             // 
-            // button2
+            // BtnPenSize2
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(3, 70);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 65);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnPenSize2.BarHeight = 2;
+            this.BtnPenSize2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize2.Location = new System.Drawing.Point(3, 70);
+            this.BtnPenSize2.Name = "BtnPenSize2";
+            this.BtnPenSize2.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize2.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize2.TabIndex = 1;
+            this.BtnPenSize2.Text = "2 px";
+            this.BtnPenSize2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize2.UseVisualStyleBackColor = true;
+            this.BtnPenSize2.Click += new System.EventHandler(this.BtnPenSizes_Click);
             // 
-            // button1
+            // BtnPenSize1
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 65);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnPenSize1.BarHeight = 1;
+            this.BtnPenSize1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize1.Location = new System.Drawing.Point(3, 5);
+            this.BtnPenSize1.Name = "BtnPenSize1";
+            this.BtnPenSize1.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize1.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize1.TabIndex = 0;
+            this.BtnPenSize1.Text = "1 px";
+            this.BtnPenSize1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize1.UseVisualStyleBackColor = true;
+            this.BtnPenSize1.Click += new System.EventHandler(this.BtnPenSizes_Click);
             // 
             // PnlDrawing
             // 
@@ -1211,6 +1014,7 @@
             this.PnlControlPenWidth.Size = new System.Drawing.Size(42, 66);
             this.PnlControlPenWidth.TabIndex = 3;
             this.PnlControlPenWidth.Tag = "68";
+            this.PnlControlPenWidth.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlControlPenWidth_Paint);
             this.PnlControlPenWidth.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlControlPenWidth_MouseClick);
             this.PnlControlPenWidth.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.PnlControlPenWidth.MouseLeave += new System.EventHandler(this.Btn_Leave);
@@ -2284,6 +2088,207 @@
             this.PcBBar1.TabIndex = 1;
             this.PcBBar1.TabStop = false;
             // 
+            // PnlTitle
+            // 
+            this.PnlTitle.Controls.Add(this.BtnMinimize);
+            this.PnlTitle.Controls.Add(this.BtnMaximize);
+            this.PnlTitle.Controls.Add(this.BtnExit);
+            this.PnlTitle.Controls.Add(this.LbAppTitle);
+            this.PnlTitle.Controls.Add(this.PcbAppIcon);
+            this.PnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.PnlTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.PnlTitle.Name = "PnlTitle";
+            this.PnlTitle.Size = new System.Drawing.Size(1461, 38);
+            this.PnlTitle.TabIndex = 0;
+            this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseDown);
+            this.PnlTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseMove);
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnMinimize.FlatAppearance.BorderSize = 0;
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.Location = new System.Drawing.Point(1320, 0);
+            this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(47, 38);
+            this.BtnMinimize.TabIndex = 4;
+            this.BtnMinimize.Text = "🗕";
+            this.BtnMinimize.UseVisualStyleBackColor = false;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
+            // 
+            // BtnMaximize
+            // 
+            this.BtnMaximize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnMaximize.FlatAppearance.BorderSize = 0;
+            this.BtnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMaximize.Location = new System.Drawing.Point(1367, 0);
+            this.BtnMaximize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMaximize.Name = "BtnMaximize";
+            this.BtnMaximize.Size = new System.Drawing.Size(47, 38);
+            this.BtnMaximize.TabIndex = 3;
+            this.BtnMaximize.Text = "🗖";
+            this.BtnMaximize.UseVisualStyleBackColor = false;
+            this.BtnMaximize.Click += new System.EventHandler(this.BtnMaximize_Click);
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
+            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnExit.FlatAppearance.BorderSize = 0;
+            this.BtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
+            this.BtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
+            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExit.Location = new System.Drawing.Point(1414, 0);
+            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(47, 38);
+            this.BtnExit.TabIndex = 2;
+            this.BtnExit.Text = "X";
+            this.BtnExit.UseVisualStyleBackColor = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            this.BtnExit.MouseEnter += new System.EventHandler(this.BtnExit_MouseEnter);
+            this.BtnExit.MouseLeave += new System.EventHandler(this.BtnExit_MouseLeave);
+            // 
+            // LbAppTitle
+            // 
+            this.LbAppTitle.AutoSize = true;
+            this.LbAppTitle.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbAppTitle.Location = new System.Drawing.Point(41, 11);
+            this.LbAppTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.LbAppTitle.Name = "LbAppTitle";
+            this.LbAppTitle.Size = new System.Drawing.Size(109, 19);
+            this.LbAppTitle.TabIndex = 1;
+            this.LbAppTitle.Text = "Untitled - Paint";
+            // 
+            // PcbAppIcon
+            // 
+            this.PcbAppIcon.BackColor = System.Drawing.Color.Transparent;
+            this.PcbAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbAppIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PcbAppIcon.Image = global::paint.Properties.Resources.paint;
+            this.PcbAppIcon.Location = new System.Drawing.Point(0, 0);
+            this.PcbAppIcon.Margin = new System.Windows.Forms.Padding(5);
+            this.PcbAppIcon.Name = "PcbAppIcon";
+            this.PcbAppIcon.Size = new System.Drawing.Size(36, 38);
+            this.PcbAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbAppIcon.TabIndex = 0;
+            this.PcbAppIcon.TabStop = false;
+            // 
+            // PnlControlPaint
+            // 
+            this.PnlControlPaint.Controls.Add(this.BtnRedo);
+            this.PnlControlPaint.Controls.Add(this.BtnUndo);
+            this.PnlControlPaint.Controls.Add(this.BtnSave);
+            this.PnlControlPaint.Controls.Add(this.BtnView);
+            this.PnlControlPaint.Controls.Add(this.BtnFile);
+            this.PnlControlPaint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlControlPaint.Location = new System.Drawing.Point(0, 38);
+            this.PnlControlPaint.Margin = new System.Windows.Forms.Padding(2);
+            this.PnlControlPaint.Name = "PnlControlPaint";
+            this.PnlControlPaint.Size = new System.Drawing.Size(1461, 37);
+            this.PnlControlPaint.TabIndex = 1;
+            // 
+            // BtnRedo
+            // 
+            this.BtnRedo.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRedo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRedo.FlatAppearance.BorderSize = 0;
+            this.BtnRedo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRedo.Image = global::paint.Properties.Resources.redo;
+            this.BtnRedo.Location = new System.Drawing.Point(225, 5);
+            this.BtnRedo.Name = "BtnRedo";
+            this.BtnRedo.Size = new System.Drawing.Size(25, 26);
+            this.BtnRedo.TabIndex = 4;
+            this.BtnRedo.Tag = "23";
+            this.BtnRedo.UseVisualStyleBackColor = false;
+            this.BtnRedo.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnRedo.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnUndo
+            // 
+            this.BtnUndo.BackColor = System.Drawing.Color.Transparent;
+            this.BtnUndo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnUndo.FlatAppearance.BorderSize = 0;
+            this.BtnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnUndo.Image = global::paint.Properties.Resources.undo;
+            this.BtnUndo.Location = new System.Drawing.Point(182, 5);
+            this.BtnUndo.Name = "BtnUndo";
+            this.BtnUndo.Size = new System.Drawing.Size(25, 26);
+            this.BtnUndo.TabIndex = 3;
+            this.BtnUndo.Tag = "22";
+            this.BtnUndo.UseVisualStyleBackColor = false;
+            this.BtnUndo.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnUndo.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSave.FlatAppearance.BorderSize = 0;
+            this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSave.Image = global::paint.Properties.Resources.save;
+            this.BtnSave.Location = new System.Drawing.Point(135, 5);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(25, 26);
+            this.BtnSave.TabIndex = 2;
+            this.BtnSave.Tag = "21";
+            this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnSave.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnView
+            // 
+            this.BtnView.BackColor = System.Drawing.Color.Transparent;
+            this.BtnView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnView.FlatAppearance.BorderSize = 0;
+            this.BtnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(240)))));
+            this.BtnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnView.Location = new System.Drawing.Point(57, 0);
+            this.BtnView.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnView.Name = "BtnView";
+            this.BtnView.Size = new System.Drawing.Size(57, 37);
+            this.BtnView.TabIndex = 1;
+            this.BtnView.Tag = "2";
+            this.BtnView.Text = "View";
+            this.BtnView.UseVisualStyleBackColor = false;
+            this.BtnView.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnView.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnFile
+            // 
+            this.BtnFile.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFile.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnFile.FlatAppearance.BorderSize = 0;
+            this.BtnFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(240)))));
+            this.BtnFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFile.Location = new System.Drawing.Point(0, 0);
+            this.BtnFile.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnFile.Name = "BtnFile";
+            this.BtnFile.Size = new System.Drawing.Size(57, 37);
+            this.BtnFile.TabIndex = 0;
+            this.BtnFile.Tag = "1";
+            this.BtnFile.Text = "File";
+            this.BtnFile.UseVisualStyleBackColor = false;
+            this.BtnFile.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnFile.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // PnlControlApp
+            // 
+            this.PnlControlApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))));
+            this.PnlControlApp.Controls.Add(this.PnlControlPaint);
+            this.PnlControlApp.Controls.Add(this.PnlTitle);
+            this.PnlControlApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlControlApp.Location = new System.Drawing.Point(0, 0);
+            this.PnlControlApp.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlControlApp.Name = "PnlControlApp";
+            this.PnlControlApp.Size = new System.Drawing.Size(1461, 75);
+            this.PnlControlApp.TabIndex = 0;
+            // 
             // AppPaint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2300,11 +2305,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paint";
             this.Load += new System.EventHandler(this.AppPaint_Load);
-            this.PnlControlApp.ResumeLayout(false);
-            this.PnlControlPaint.ResumeLayout(false);
-            this.PnlTitle.ResumeLayout(false);
-            this.PnlTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).EndInit();
             this.PnlContainer.ResumeLayout(false);
             this.PnlSize.ResumeLayout(false);
             this.PnlDrawing.ResumeLayout(false);
@@ -2337,37 +2337,30 @@
             this.PnlControlClipBoard.ResumeLayout(false);
             this.PnlControlClipBoard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).EndInit();
+            this.PnlTitle.ResumeLayout(false);
+            this.PnlTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).EndInit();
+            this.PnlControlPaint.ResumeLayout(false);
+            this.PnlControlApp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel PnlControlApp;
-        private System.Windows.Forms.Panel PnlTitle;
-        private System.Windows.Forms.Panel PnlControlPaint;
-        private System.Windows.Forms.Label LbAppTitle;
-        private System.Windows.Forms.Button BtnExit;
-        private System.Windows.Forms.Button BtnMaximize;
-        private System.Windows.Forms.Button BtnMinimize;
-        private System.Windows.Forms.Button BtnFile;
-        private System.Windows.Forms.Button BtnView;
-        private System.Windows.Forms.Button BtnRedo;
-        private System.Windows.Forms.Button BtnUndo;
-        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Panel PnlContainer;
-        private System.Windows.Forms.Panel PnlControlFooter;
-        private System.Windows.Forms.PictureBox PcbAppIcon;
-        private System.Windows.Forms.Button BtnLocation;
-        private System.Windows.Forms.Button BtnShapeSize;
-        private System.Windows.Forms.Label LbBar1;
-        private System.Windows.Forms.Label LbShapeSizePoint;
-        private System.Windows.Forms.Label LbBar2;
-        private System.Windows.Forms.Button BtnPageSize;
-        private System.Windows.Forms.Label LbPageSizePoint;
-        private System.Windows.Forms.Label LbLocationPoint;
+        private System.Windows.Forms.Panel PnlSize;
         private System.Windows.Forms.Panel PnlDrawing;
         private System.Windows.Forms.PictureBox PcBMainDrawing;
+        private System.Windows.Forms.Panel PnlControlFooter;
+        private System.Windows.Forms.Label LbLocationPoint;
+        private System.Windows.Forms.Label LbPageSizePoint;
+        private System.Windows.Forms.Button BtnPageSize;
+        private System.Windows.Forms.Label LbBar2;
+        private System.Windows.Forms.Label LbShapeSizePoint;
+        private System.Windows.Forms.Button BtnShapeSize;
+        private System.Windows.Forms.Label LbBar1;
+        private System.Windows.Forms.Button BtnLocation;
         private System.Windows.Forms.Panel PnlControlDrawing;
         private System.Windows.Forms.Panel PnlControlColors;
         private System.Windows.Forms.FlowLayoutPanel FLBColorOptions;
@@ -2412,11 +2405,6 @@
         private System.Windows.Forms.PictureBox PcbBar6;
         private System.Windows.Forms.Label LbSize;
         private System.Windows.Forms.Panel PnlControlShape;
-        private System.Windows.Forms.Panel PnlSize;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox PcbBar5;
         private System.Windows.Forms.FlowLayoutPanel FLPShape;
         private System.Windows.Forms.Button BtnShape1;
@@ -2480,6 +2468,23 @@
         private System.Windows.Forms.Button BtnPaste;
         private System.Windows.Forms.Label LbClipboard;
         private System.Windows.Forms.PictureBox PcBBar1;
+        private System.Windows.Forms.Panel PnlTitle;
+        private System.Windows.Forms.Button BtnMinimize;
+        private System.Windows.Forms.Button BtnMaximize;
+        private System.Windows.Forms.Button BtnExit;
+        private System.Windows.Forms.Label LbAppTitle;
+        private System.Windows.Forms.PictureBox PcbAppIcon;
+        private System.Windows.Forms.Panel PnlControlPaint;
+        private System.Windows.Forms.Button BtnRedo;
+        private System.Windows.Forms.Button BtnUndo;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.Button BtnView;
+        private System.Windows.Forms.Button BtnFile;
+        private System.Windows.Forms.Panel PnlControlApp;
+        private CustomWidthButton BtnPenSize4;
+        private CustomWidthButton BtnPenSize3;
+        private CustomWidthButton BtnPenSize2;
+        private CustomWidthButton BtnPenSize1;
     }
 }
 
