@@ -28,6 +28,7 @@ namespace paint
         Pen subPen;
         Pen mainEraser;
         ColorDialog mainColorDialog = new ColorDialog();
+        List<int> savedPenWidths = new List<int> { 1, 1, 4, 1 }; // 0: mainPen, 1: subPen, 2: eraser, 3: shapes
         // point
         Point pointX, pointY;
         int x, y, sx, sy, ix, iy; // s: scale, i: initial
@@ -73,16 +74,16 @@ namespace paint
         //
         private void InitData()
         {
-            int defaultWidth = 1;
             mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
             mainGraphic = Graphics.FromImage(mainBitmap);
             mainGraphic.Clear(Color.White);
             mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
             mainColor = Color.Black;
             subColor = Color.White;
-            mainPen = new Pen(mainColor, defaultWidth);
-            subPen = new Pen(subColor, defaultWidth);
-            mainEraser = new Pen(Color.White, defaultWidth);
+            mainPen = new Pen(mainColor, savedPenWidths[0]);
+            subPen = new Pen(subColor, savedPenWidths[1]);
+            mainEraser = new Pen(Color.White, savedPenWidths[2]);
+            
             PcBMainDrawing.Image = mainBitmap;
             //
             autoHideControls = new List<Panel> { this.PnlSize };
@@ -220,13 +221,22 @@ namespace paint
         
         private void Handler_DrawShape(Graphics g)
         {
+            Pen selectedPen = new Pen(Color.Black, 1);
+            if (selectedColor == 0)
+            {
+                selectedPen = mainPen;
+            }
+            else if(selectedColor == 1)
+            {
+                selectedPen = subPen;
+            }
             switch (this.index)
             {
                 case 42:
                     {
                         Point sp = pointX;
                         Point ep = new Point(x, y);
-                        g.DrawLine(mainPen, sp, ep);
+                        g.DrawLine(selectedPen, sp, ep);
                         break;
                     }
                 case 43:
@@ -238,7 +248,7 @@ namespace paint
                     {
 
                         Size size = new Size(sx, sy);
-                        g.DrawEllipse(mainPen, new Rectangle(pointX, size));
+                        g.DrawEllipse(selectedPen, new Rectangle(pointX, size));
                         break;
                     }
                 case 45:
@@ -247,7 +257,7 @@ namespace paint
                         Point startP = GetStartPoint();
                         Size size = new Size(Math.Abs(sx), Math.Abs(sy));
                         Rectangle rect = new Rectangle(startP, size);
-                        g.DrawRectangle(mainPen, rect);
+                        g.DrawRectangle(selectedPen, rect);
                         break;
                     }
                 case 46:
@@ -255,85 +265,85 @@ namespace paint
                         Point startP = GetStartPoint();
                         Size size = new Size(Math.Abs(sx), Math.Abs(sy));
                         Rectangle rect = new Rectangle(startP, size);
-                        g.DrawRoundedRectangle(mainPen, rect, 10);
+                        g.DrawRoundedRectangle(selectedPen, rect, 10);
                         break;
                     }
                 case 47:
                     {
                         Point currentPoint = new Point(x, y);
-                        g.DrawPolygon(mainPen, rootPoint, pointX, pointY, endPoint, currentPoint,ref countLine,ref hasRoot);
+                        g.DrawPolygon(selectedPen, rootPoint, pointX, pointY, endPoint, currentPoint,ref countLine,ref hasRoot);
                         break;
                     }
                 case 48:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawTriangle(mainPen, pointX, currentPoint);
+                        g.DrawTriangle(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 49:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawRightTriangle(mainPen, pointX, currentPoint);
+                        g.DrawRightTriangle(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 50:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawDiamond(mainPen, pointX, currentPoint);
+                        g.DrawDiamond(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 51:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawPentagon(mainPen, pointX, currentPoint);
+                        g.DrawPentagon(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 52:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawHexagon(mainPen, pointX, currentPoint);
+                        g.DrawHexagon(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 53:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawRightArrow(mainPen, pointX, currentPoint);
+                        g.DrawRightArrow(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 54:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawLeftArrow(mainPen, pointX, currentPoint);
+                        g.DrawLeftArrow(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 55:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawUpArrow(mainPen, pointX, currentPoint);
+                        g.DrawUpArrow(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 56:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawDownArrow(mainPen, pointX, currentPoint);
+                        g.DrawDownArrow(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 57:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawFourPointStar(mainPen, pointX, currentPoint);
+                        g.DrawFourPointStar(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 58:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawFivePointStar(mainPen, pointX, currentPoint);
+                        g.DrawFivePointStar(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 59:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawSixPointStar(mainPen, pointX, currentPoint);
+                        g.DrawSixPointStar(selectedPen, pointX, currentPoint);
                         break;
                     }
                 case 60:
@@ -500,12 +510,37 @@ namespace paint
             int tag = Convert.ToInt32(btn.Tag);
             //
             this.index = this.indexPenSize = tag;
+            //
+            if (tag == 34)
+            {
+                if (selectedColor == 0)
+                {
+                    this.mainPen.Width = savedPenWidths[0];
+                }
+                else if (selectedColor == 1)
+                {
+                    this.subPen.Width = savedPenWidths[1];
+                }
+            }
+            else if (tag == 35)
+            {
+                this.mainEraser.Width = savedPenWidths[2];
+            }
         }
         private void Handler_Shapes_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             this.index = indexPenSize = Convert.ToInt32(btn.Tag);
+            //
+            if (selectedColor == 0)
+            {
+            this.mainPen.Width = savedPenWidths[3];
+            }
+            else if (selectedColor == 1)
+            {
+                this.subPen.Width = savedPenWidths[3];
 
+            }
         }
         private void Btn_Enter(object sender, EventArgs e)
         {
@@ -563,33 +598,73 @@ namespace paint
         {
             this.BtnExit.ForeColor = Color.Black;
         }
-
+        private void SetSelectedCustomWidthButton(int size, Panel pnl)
+        {
+            foreach(CustomWidthButton c in pnl.Controls)
+            {
+                if (c.BarHeight == size)
+                {
+                    c.BackColor = Color.FromArgb(238, 240, 243);
+                }
+                else
+                {
+                    c.BackColor = Color.White;
+                }
+            }
+        }
         private void PnlControlPenWidth_MouseClick(object sender, MouseEventArgs e)
         {
-            this.PnlSize.Show();
             CustomSizes(PnlSize);
-            this.PnlSize.Refresh();
-        }
+            if (selectedColor == 0)
+            {
+                SetSelectedCustomWidthButton( (int)this.mainPen.Width, PnlSize);
 
-        private void PnlControlPenWidth_Paint(object sender, PaintEventArgs e)
-        {
+            }
+            else if (selectedColor == 1)
+            {
+                SetSelectedCustomWidthButton((int)this.subPen.Width, PnlSize);
+            }
+            this.PnlSize.Refresh();
+            this.PnlSize.Show();
+            this.PnlSize.Focus();
         }
 
         private void BtnPenSizes_Click(object sender, EventArgs e)
         {
+            CustomWidthButton btn = ((CustomWidthButton)sender);
             if (indexPenSize == 34)
             {
-                this.mainPen.Width = ((CustomWidthButton)sender).BarHeight;
+                if (selectedColor == 0)
+                {
+                    this.mainPen.Width = savedPenWidths[0] =btn.BarHeight;
+                }
+                else if (selectedColor == 1)
+                {
+                    this.subPen.Width = savedPenWidths[1] = btn.BarHeight;
+                }
             }
             else if (indexPenSize == 35)
             {
-                this.mainEraser.Width = ((CustomWidthButton)sender).BarHeight;
+                this.mainEraser.Width = savedPenWidths[2] = btn.BarHeight;
 
             }
             else if (indexPenSize >= 42 && indexPenSize <= 63)
             {
-                this.mainPen.Width = ((CustomWidthButton)sender).BarHeight;
+                if (selectedColor == 0)
+                {
+                    this.mainPen.Width = savedPenWidths[3] = btn.BarHeight;
+                }
+                else if (selectedColor == 1)
+                {
+                    this.subPen.Width = savedPenWidths[3] = btn.BarHeight;
+
+                }
             }
+        }
+
+        private void PnlControlPenWidth_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void BtnMaximize_Click(object sender, EventArgs e)
