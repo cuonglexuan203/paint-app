@@ -44,10 +44,11 @@ namespace paint
         public void CustomizeUIs()
         {
             this.SuspendLayout();
-            CustomizeButtonImage();
-            CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
             InitColorsOfPen();
-            HideControls(new List<Control> { this.PnlSize });
+            CustomizeButtonImage(new List<Button>() { BtnSave, BtnUndo, BtnRedo, BtnPaste, BtnCut, BtnCopy, BtnSelect, BtnCrop, BtnResize, BtnRotate, BtnFlip, BtnPencil, BtnFill, BtnText, BtnEraser, BtnColorPicker, BtnMagnifier, BtnBrush, BtnShape1, BtnShape2, BtnShape3, BtnShape4, BtnShape5, BtnShape6, BtnShape7, BtnShape8, BtnShape9, BtnShape10, BtnShape11, BtnShape12, BtnShape13, BtnShape14, BtnShape15, BtnShape16, BtnShape17, BtnShape18, BtnShape19, BtnShape20, BtnShape21, BtnShape22, BtnShapeOutline, BtnShapeFill, BtnSize, BtnEditColor });
+            CustomizeOptionButtonImage(new List<Button> { BtnFlipHor, BtnFlipVer, this.BtnRotateRight90, this.BtnRotateLeft90, this.BtnRotate180 });
+            CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
+            HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage });
             this.ResumeLayout();
         }
         public void InitColorsOfPen()
@@ -62,14 +63,23 @@ namespace paint
                 ebtn.BackColor = this.colors[index];
             }
         }
-        public void CustomizeButtonImage()
+        public void CustomizeButtonImage(List<Button> buttons)
         {
             int borderWidth = 5;
-            List<Button> buttons = new List<Button>() { BtnSave, BtnUndo, BtnRedo, BtnPaste, BtnCut, BtnCopy, BtnSelect, BtnCrop, BtnResize, BtnRotate, BtnFlip, BtnPencil, BtnFill, BtnText, BtnEraser, BtnColorPicker, BtnMagnifier, BtnBrush, BtnShape1, BtnShape2, BtnShape3, BtnShape4, BtnShape5, BtnShape6, BtnShape7, BtnShape8, BtnShape9, BtnShape10, BtnShape11, BtnShape12, BtnShape13, BtnShape14, BtnShape15, BtnShape16, BtnShape17, BtnShape18, BtnShape19, BtnShape20, BtnShape21, BtnShape22, BtnShapeOutline, BtnShapeFill, BtnSize, BtnEditColor };
             foreach (Button btn in buttons)
             {
                 Image img = btn.Image;
                 btn.Image = (Image)(new Bitmap(img, new Size(btn.Width - borderWidth * 2, btn.Height - borderWidth * 2)));
+            }
+        }
+        public void CustomizeOptionButtonImage(List<Button> buttons)
+        {
+            int borderWidth = 5;
+            
+            foreach (Button btn in buttons)
+            {
+                Image img = btn.Image;
+                btn.Image = (Image)(new Bitmap(img, new Size((int)(btn.Width * 0.2 - borderWidth * 2), (int)(btn.Height * .6 - borderWidth * 2))));
             }
         }
         public void CustomizeBorderPanelColor(Panel pnl, int topWidth, int rightWidth, int bottomWidth, int leftWidth, Color color)
@@ -99,7 +109,7 @@ namespace paint
 
             }
         }
-        public void HideControls(List<Control> ctls)
+        public void HideInitialControls(List<Control> ctls) // hide control when start
         {
             foreach (Control c in ctls)
             {

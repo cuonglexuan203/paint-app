@@ -31,6 +31,13 @@
         {
             this.PnlContainer = new System.Windows.Forms.Panel();
             this.PnlSize = new System.Windows.Forms.Panel();
+            this.PnlRotateImage = new System.Windows.Forms.Panel();
+            this.BtnRotate180 = new System.Windows.Forms.Button();
+            this.BtnRotateLeft90 = new System.Windows.Forms.Button();
+            this.BtnRotateRight90 = new System.Windows.Forms.Button();
+            this.PnlImageFlip = new System.Windows.Forms.Panel();
+            this.BtnFlipHor = new System.Windows.Forms.Button();
+            this.BtnFlipVer = new System.Windows.Forms.Button();
             this.PnlDrawing = new System.Windows.Forms.Panel();
             this.PcBMainDrawing = new System.Windows.Forms.PictureBox();
             this.PnlControlFooter = new System.Windows.Forms.Panel();
@@ -168,6 +175,8 @@
             this.BtnMainColor1 = new paint.EclipseButton();
             this.PnlContainer.SuspendLayout();
             this.PnlSize.SuspendLayout();
+            this.PnlRotateImage.SuspendLayout();
+            this.PnlImageFlip.SuspendLayout();
             this.PnlDrawing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).BeginInit();
             this.PnlControlFooter.SuspendLayout();
@@ -199,6 +208,8 @@
             // PnlContainer
             // 
             this.PnlContainer.Controls.Add(this.PnlSize);
+            this.PnlContainer.Controls.Add(this.PnlRotateImage);
+            this.PnlContainer.Controls.Add(this.PnlImageFlip);
             this.PnlContainer.Controls.Add(this.PnlDrawing);
             this.PnlContainer.Controls.Add(this.PnlControlFooter);
             this.PnlContainer.Controls.Add(this.PnlControlDrawing);
@@ -222,22 +233,117 @@
             this.PnlSize.Size = new System.Drawing.Size(190, 270);
             this.PnlSize.TabIndex = 1;
             // 
+            // PnlRotateImage
+            // 
+            this.PnlRotateImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PnlRotateImage.Controls.Add(this.BtnRotate180);
+            this.PnlRotateImage.Controls.Add(this.BtnRotateLeft90);
+            this.PnlRotateImage.Controls.Add(this.BtnRotateRight90);
+            this.PnlRotateImage.Location = new System.Drawing.Point(197, 47);
+            this.PnlRotateImage.Name = "PnlRotateImage";
+            this.PnlRotateImage.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PnlRotateImage.Size = new System.Drawing.Size(190, 206);
+            this.PnlRotateImage.TabIndex = 5;
+            // 
+            // BtnRotate180
+            // 
+            this.BtnRotate180.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotate180.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRotate180.Image = global::paint.Properties.Resources.rotate_180;
+            this.BtnRotate180.Location = new System.Drawing.Point(3, 135);
+            this.BtnRotate180.Name = "BtnRotate180";
+            this.BtnRotate180.Size = new System.Drawing.Size(182, 65);
+            this.BtnRotate180.TabIndex = 2;
+            this.BtnRotate180.Text = "Rotate 180";
+            this.BtnRotate180.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnRotate180.UseVisualStyleBackColor = false;
+            this.BtnRotate180.Click += new System.EventHandler(this.BtnRotate180_Click);
+            // 
+            // BtnRotateLeft90
+            // 
+            this.BtnRotateLeft90.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotateLeft90.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRotateLeft90.Image = global::paint.Properties.Resources.rotate_left;
+            this.BtnRotateLeft90.Location = new System.Drawing.Point(3, 70);
+            this.BtnRotateLeft90.Name = "BtnRotateLeft90";
+            this.BtnRotateLeft90.Size = new System.Drawing.Size(182, 65);
+            this.BtnRotateLeft90.TabIndex = 1;
+            this.BtnRotateLeft90.Text = "Rotate left 90";
+            this.BtnRotateLeft90.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnRotateLeft90.UseVisualStyleBackColor = false;
+            this.BtnRotateLeft90.Click += new System.EventHandler(this.BtnRotateLeft90_Click);
+            // 
+            // BtnRotateRight90
+            // 
+            this.BtnRotateRight90.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotateRight90.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRotateRight90.Image = global::paint.Properties.Resources.rotate_right;
+            this.BtnRotateRight90.Location = new System.Drawing.Point(3, 5);
+            this.BtnRotateRight90.Name = "BtnRotateRight90";
+            this.BtnRotateRight90.Size = new System.Drawing.Size(182, 65);
+            this.BtnRotateRight90.TabIndex = 0;
+            this.BtnRotateRight90.Text = "Rotate right 90";
+            this.BtnRotateRight90.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnRotateRight90.UseVisualStyleBackColor = false;
+            this.BtnRotateRight90.Click += new System.EventHandler(this.BtnRotateRight90_Click);
+            // 
+            // PnlImageFlip
+            // 
+            this.PnlImageFlip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PnlImageFlip.Controls.Add(this.BtnFlipHor);
+            this.PnlImageFlip.Controls.Add(this.BtnFlipVer);
+            this.PnlImageFlip.Location = new System.Drawing.Point(197, 104);
+            this.PnlImageFlip.Name = "PnlImageFlip";
+            this.PnlImageFlip.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PnlImageFlip.Size = new System.Drawing.Size(190, 139);
+            this.PnlImageFlip.TabIndex = 4;
+            // 
+            // BtnFlipHor
+            // 
+            this.BtnFlipHor.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFlipHor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnFlipHor.Image = global::paint.Properties.Resources.horizontal_symmetry;
+            this.BtnFlipHor.Location = new System.Drawing.Point(3, 70);
+            this.BtnFlipHor.Name = "BtnFlipHor";
+            this.BtnFlipHor.Size = new System.Drawing.Size(182, 65);
+            this.BtnFlipHor.TabIndex = 1;
+            this.BtnFlipHor.Text = "Flip horizontal";
+            this.BtnFlipHor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnFlipHor.UseVisualStyleBackColor = false;
+            this.BtnFlipHor.Click += new System.EventHandler(this.BtnFlipHor_Click);
+            // 
+            // BtnFlipVer
+            // 
+            this.BtnFlipVer.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFlipVer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnFlipVer.Image = global::paint.Properties.Resources.flip;
+            this.BtnFlipVer.Location = new System.Drawing.Point(3, 5);
+            this.BtnFlipVer.Name = "BtnFlipVer";
+            this.BtnFlipVer.Size = new System.Drawing.Size(182, 65);
+            this.BtnFlipVer.TabIndex = 0;
+            this.BtnFlipVer.Text = "Flip vertical";
+            this.BtnFlipVer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnFlipVer.UseVisualStyleBackColor = false;
+            this.BtnFlipVer.Click += new System.EventHandler(this.BtnFlipVer_Click);
+            // 
             // PnlDrawing
             // 
+            this.PnlDrawing.AutoScroll = true;
             this.PnlDrawing.Controls.Add(this.PcBMainDrawing);
+            this.PnlDrawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlDrawing.Location = new System.Drawing.Point(0, 132);
-            this.PnlDrawing.Margin = new System.Windows.Forms.Padding(5);
+            this.PnlDrawing.Margin = new System.Windows.Forms.Padding(0);
             this.PnlDrawing.Name = "PnlDrawing";
             this.PnlDrawing.Size = new System.Drawing.Size(1461, 425);
             this.PnlDrawing.TabIndex = 2;
             // 
             // PcBMainDrawing
             // 
-            this.PcBMainDrawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PcBMainDrawing.Location = new System.Drawing.Point(0, 0);
-            this.PcBMainDrawing.Margin = new System.Windows.Forms.Padding(10);
+            this.PcBMainDrawing.Margin = new System.Windows.Forms.Padding(0);
             this.PcBMainDrawing.Name = "PcBMainDrawing";
-            this.PcBMainDrawing.Size = new System.Drawing.Size(1461, 425);
+            this.PcBMainDrawing.Size = new System.Drawing.Size(800, 300);
+            this.PcBMainDrawing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PcBMainDrawing.TabIndex = 0;
             this.PcBMainDrawing.TabStop = false;
             this.PcBMainDrawing.Paint += new System.Windows.Forms.PaintEventHandler(this.PcBMainDrawing_Paint);
@@ -1284,6 +1390,7 @@
             this.PnlRotate.Size = new System.Drawing.Size(54, 34);
             this.PnlRotate.TabIndex = 14;
             this.PnlRotate.Tag = "32";
+            this.PnlRotate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlRotate_MouseClick);
             this.PnlRotate.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.PnlRotate.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
@@ -1326,6 +1433,7 @@
             this.PnlFlip.Size = new System.Drawing.Size(54, 33);
             this.PnlFlip.TabIndex = 15;
             this.PnlFlip.Tag = "33";
+            this.PnlFlip.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlFlip_MouseClick);
             this.PnlFlip.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.PnlFlip.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
@@ -2315,7 +2423,10 @@
             this.Load += new System.EventHandler(this.AppPaint_Load);
             this.PnlContainer.ResumeLayout(false);
             this.PnlSize.ResumeLayout(false);
+            this.PnlRotateImage.ResumeLayout(false);
+            this.PnlImageFlip.ResumeLayout(false);
             this.PnlDrawing.ResumeLayout(false);
+            this.PnlDrawing.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).EndInit();
             this.PnlControlFooter.ResumeLayout(false);
             this.PnlControlFooter.PerformLayout();
@@ -2357,9 +2468,6 @@
         #endregion
 
         private System.Windows.Forms.Panel PnlContainer;
-        private System.Windows.Forms.Panel PnlSize;
-        private System.Windows.Forms.Panel PnlDrawing;
-        private System.Windows.Forms.PictureBox PcBMainDrawing;
         private System.Windows.Forms.Panel PnlControlFooter;
         private System.Windows.Forms.Label LbLocationPoint;
         private System.Windows.Forms.Label LbPageSizePoint;
@@ -2369,6 +2477,26 @@
         private System.Windows.Forms.Button BtnShapeSize;
         private System.Windows.Forms.Label LbBar1;
         private System.Windows.Forms.Button BtnLocation;
+        private System.Windows.Forms.Panel PnlTitle;
+        private System.Windows.Forms.Button BtnMinimize;
+        private System.Windows.Forms.Button BtnMaximize;
+        private System.Windows.Forms.Button BtnExit;
+        private System.Windows.Forms.Label LbAppTitle;
+        private System.Windows.Forms.PictureBox PcbAppIcon;
+        private System.Windows.Forms.Panel PnlControlPaint;
+        private System.Windows.Forms.Button BtnRedo;
+        private System.Windows.Forms.Button BtnUndo;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.Button BtnView;
+        private System.Windows.Forms.Button BtnFile;
+        private System.Windows.Forms.Panel PnlControlApp;
+        private System.Windows.Forms.Panel PnlSize;
+        private CustomWidthButton BtnPenSize4;
+        private CustomWidthButton BtnPenSize3;
+        private CustomWidthButton BtnPenSize2;
+        private CustomWidthButton BtnPenSize1;
+        private System.Windows.Forms.Panel PnlDrawing;
+        private System.Windows.Forms.PictureBox PcBMainDrawing;
         private System.Windows.Forms.Panel PnlControlDrawing;
         private System.Windows.Forms.Panel PnlControlColors;
         private System.Windows.Forms.FlowLayoutPanel FLBColorOptions;
@@ -2476,23 +2604,13 @@
         private System.Windows.Forms.Button BtnPaste;
         private System.Windows.Forms.Label LbClipboard;
         private System.Windows.Forms.PictureBox PcBBar1;
-        private System.Windows.Forms.Panel PnlTitle;
-        private System.Windows.Forms.Button BtnMinimize;
-        private System.Windows.Forms.Button BtnMaximize;
-        private System.Windows.Forms.Button BtnExit;
-        private System.Windows.Forms.Label LbAppTitle;
-        private System.Windows.Forms.PictureBox PcbAppIcon;
-        private System.Windows.Forms.Panel PnlControlPaint;
-        private System.Windows.Forms.Button BtnRedo;
-        private System.Windows.Forms.Button BtnUndo;
-        private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.Button BtnView;
-        private System.Windows.Forms.Button BtnFile;
-        private System.Windows.Forms.Panel PnlControlApp;
-        private CustomWidthButton BtnPenSize4;
-        private CustomWidthButton BtnPenSize3;
-        private CustomWidthButton BtnPenSize2;
-        private CustomWidthButton BtnPenSize1;
+        private System.Windows.Forms.Panel PnlImageFlip;
+        private System.Windows.Forms.Button BtnFlipHor;
+        private System.Windows.Forms.Button BtnFlipVer;
+        private System.Windows.Forms.Panel PnlRotateImage;
+        private System.Windows.Forms.Button BtnRotateLeft90;
+        private System.Windows.Forms.Button BtnRotateRight90;
+        private System.Windows.Forms.Button BtnRotate180;
     }
 }
 

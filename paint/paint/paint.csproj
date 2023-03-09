@@ -256,6 +256,17 @@
   <ItemGroup>
     <None Include="Resources\Vertical-Line.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\horizontal-symmetry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate-left.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

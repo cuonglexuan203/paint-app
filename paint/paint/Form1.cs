@@ -76,6 +76,7 @@ namespace paint
         {
             mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
             mainGraphic = Graphics.FromImage(mainBitmap);
+            
             mainGraphic.Clear(Color.White);
             mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
             mainColor = Color.Black;
@@ -83,10 +84,12 @@ namespace paint
             mainPen = new Pen(mainColor, savedPenWidths[0]);
             subPen = new Pen(subColor, savedPenWidths[1]);
             mainEraser = new Pen(Color.White, savedPenWidths[2]);
-            
             PcBMainDrawing.Image = mainBitmap;
             //
-            autoHideControls = new List<Panel> { this.PnlSize };
+            //this.PnlDrawing.AutoScrollMinSize = this.PcBMainDrawing.Size;
+
+            //
+            autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage }; // auto hide controls when click on the optional panels
             optionalPanels = new List<Panel> { this.PnlContainer, this.PnlControlPaint};
         }
         private void AppPaint_Load(object sender, EventArgs e)
@@ -94,15 +97,15 @@ namespace paint
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.MaximumSize = new System.Drawing.Size(workingArea.Width, workingArea.Height);
             //
-            AddEvent_Controls_OnClick();
-
+            
         }
         public AppPaint()
         {
             InitializeComponent();
             InitData();
             CustomizeUIs();
-            
+            AddEvent_Controls_OnClick();
+
             //
 
         }
@@ -115,22 +118,22 @@ namespace paint
                 pnl.Hide();
             }
         }
-        public void AddEventForAllControls(Control parent) // add event for the control include its child
+        public void AddEventHandlerForAllControls(Control parent) // add event handler for the control include its child
         {
             foreach (Control c in parent.Controls)
             {
                 c.Click += new System.EventHandler(HideControls);
                 if (c.HasChildren)
                 {
-                    AddEventForAllControls(c);
+                    AddEventHandlerForAllControls(c);
                 }
             }
         }
-        public void AddEvent_Controls_OnClick()
+        public void AddEvent_Controls_OnClick() // traverse all panel need to add event handler
         {
             foreach (Panel p in optionalPanels)
             {
-              AddEventForAllControls(p);
+              AddEventHandlerForAllControls(p);
             }
         }
         // get the coordinate of mouse click follow by the ratio bitmap/picturebox
@@ -198,6 +201,10 @@ namespace paint
                     rootPoint = e.Location; // the root of polygon
                     hasRoot = true;
                 }
+            }
+            if (e.Location.Y >= 300)
+            {
+                MessageBox.Show(e.Location + "");
             }
         }
         private Point GetStartPoint()
@@ -615,18 +622,26 @@ namespace paint
         private void PnlControlPenWidth_MouseClick(object sender, MouseEventArgs e)
         {
             CustomSizes(PnlSize);
-            if (selectedColor == 0)
+            if (index == 34)
             {
-                SetSelectedCustomWidthButton( (int)this.mainPen.Width, PnlSize);
+                if (selectedColor == 0)
+                {
+                    SetSelectedCustomWidthButton((int)this.mainPen.Width, PnlSize);
 
+                }
+                else if (selectedColor == 1)
+                {
+                    SetSelectedCustomWidthButton((int)this.subPen.Width, PnlSize);
+                }
             }
-            else if (selectedColor == 1)
+            else if (index == 35)
             {
-                SetSelectedCustomWidthButton((int)this.subPen.Width, PnlSize);
+                SetSelectedCustomWidthButton((int)this.mainEraser.Width, PnlSize);
             }
             this.PnlSize.Refresh();
             this.PnlSize.Show();
             this.PnlSize.Focus();
+            
         }
 
         private void BtnPenSizes_Click(object sender, EventArgs e)
@@ -665,6 +680,66 @@ namespace paint
         private void PnlControlPenWidth_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+       
+       
+        private void PnlFlip_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.PnlImageFlip.Show();
+            this.PnlImageFlip.Focus();
+            
+        }
+
+        private void BtnFlipVer_Click(object sender, EventArgs e)
+        {
+            Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
+            newBm.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            //
+            mainGraphic = Graphics.FromImage(newBm);
+            PcBMainDrawing.Image = newBm;
+        }
+
+        private void BtnFlipHor_Click(object sender, EventArgs e)
+        {
+            Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
+            newBm.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            //
+            mainGraphic = Graphics.FromImage(newBm);
+            PcBMainDrawing.Image = newBm;
+        }
+
+        private void PnlRotate_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.PnlRotateImage.Show();
+            this.PnlRotateImage.Focus();
+        }
+
+        private void BtnRotateRight90_Click(object sender, EventArgs e)
+        {
+            Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
+            newBm.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            //
+            mainGraphic = Graphics.FromImage(newBm);
+            PcBMainDrawing.Image = newBm;
+        }
+
+        private void BtnRotateLeft90_Click(object sender, EventArgs e)
+        {
+            Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
+            newBm.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            //
+            mainGraphic = Graphics.FromImage(newBm);
+            PcBMainDrawing.Image = newBm;
+        }
+
+        private void BtnRotate180_Click(object sender, EventArgs e)
+        {
+            Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
+            newBm.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            //
+            mainGraphic = Graphics.FromImage(newBm);
+            PcBMainDrawing.Image = newBm;
         }
 
         private void BtnMaximize_Click(object sender, EventArgs e)
