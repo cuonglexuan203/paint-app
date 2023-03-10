@@ -97,7 +97,6 @@ namespace paint
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.MaximumSize = new System.Drawing.Size(workingArea.Width, workingArea.Height);
             //
-            
         }
         public AppPaint()
         {
@@ -202,10 +201,7 @@ namespace paint
                     hasRoot = true;
                 }
             }
-            if (e.Location.Y >= 300)
-            {
-                MessageBox.Show(e.Location + "");
-            }
+            
         }
         private Point GetStartPoint()
         {
@@ -717,20 +713,25 @@ namespace paint
 
         private void BtnRotateRight90_Click(object sender, EventArgs e)
         {
-            Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
-            newBm.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            Bitmap rotatedBm = new Bitmap(PcBMainDrawing.Image);
+            rotatedBm.RotateFlip(RotateFlipType.Rotate90FlipNone); // rotated bitmap will be swap the dimension ( width <-> height , x <-> y) 
             //
-            mainGraphic = Graphics.FromImage(newBm);
+            Bitmap newBm = new Bitmap(rotatedBm); // back to the normal dimension
             PcBMainDrawing.Image = newBm;
+            mainBitmap = newBm;
+            mainGraphic = Graphics.FromImage(mainBitmap);
         }
 
         private void BtnRotateLeft90_Click(object sender, EventArgs e)
         {
-            Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
-            newBm.RotateFlip(RotateFlipType.Rotate270FlipNone);
+
+            Bitmap rotatedBm = new Bitmap(PcBMainDrawing.Image);
+            rotatedBm.RotateFlip(RotateFlipType.Rotate270FlipNone);
             //
-            mainGraphic = Graphics.FromImage(newBm);
+            Bitmap newBm = new Bitmap(rotatedBm); // back to the normal dimension
             PcBMainDrawing.Image = newBm;
+            mainBitmap = newBm;
+            mainGraphic = Graphics.FromImage(mainBitmap);
         }
 
         private void BtnRotate180_Click(object sender, EventArgs e)
@@ -738,8 +739,16 @@ namespace paint
             Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
             newBm.RotateFlip(RotateFlipType.Rotate180FlipNone);
             //
-            mainGraphic = Graphics.FromImage(newBm);
             PcBMainDrawing.Image = newBm;
+            mainBitmap = newBm;
+            mainGraphic = Graphics.FromImage(mainBitmap);
+            
+        }
+
+        private void BtnResize_MouseClick(object sender, MouseEventArgs e)
+        {
+            ResizeAndSkewForm resizeAndSkewForm = new ResizeAndSkewForm();
+            resizeAndSkewForm.ShowDialog();
         }
 
         private void BtnMaximize_Click(object sender, EventArgs e)

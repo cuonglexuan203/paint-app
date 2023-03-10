@@ -9,3 +9,4 @@ D:\HCMUTE\Subject\2022-2023\Semester2\Windows_Programming\Practice\w4\paint_appl
 D:\HCMUTE\Subject\2022-2023\Semester2\Windows_Programming\Practice\w4\paint_application\paint\paint\obj\Debug\paint.csproj.CoreCompileInputs.cache
 D:\HCMUTE\Subject\2022-2023\Semester2\Windows_Programming\Practice\w4\paint_application\paint\paint\obj\Debug\paint.exe
 D:\HCMUTE\Subject\2022-2023\Semester2\Windows_Programming\Practice\w4\paint_application\paint\paint\obj\Debug\paint.pdb
+D:\HCMUTE\Subject\2022-2023\Semester2\Windows_Programming\Practice\w4\paint_application\paint\paint\obj\Debug\paint.ResizeAndSkewForm.resources

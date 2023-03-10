@@ -53,6 +53,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ResizeAndSkewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResizeAndSkewForm.Designer.cs">
+      <DependentUpon>ResizeAndSkewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\CustomControls\CustomWidthButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -84,6 +90,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResizeAndSkewForm.resx">
+      <DependentUpon>ResizeAndSkewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
