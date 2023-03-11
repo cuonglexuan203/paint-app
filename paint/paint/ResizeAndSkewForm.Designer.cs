@@ -37,10 +37,10 @@
             this.LbSkewHor = new System.Windows.Forms.Label();
             this.LbSkew = new System.Windows.Forms.Label();
             this.PnlResize = new System.Windows.Forms.Panel();
-            this.TxtVerRatio = new System.Windows.Forms.TextBox();
+            this.TxtVerResize = new System.Windows.Forms.TextBox();
             this.LbResizeVer = new System.Windows.Forms.Label();
             this.BtnResizeRatioConnected = new System.Windows.Forms.Button();
-            this.TxtHorRatio = new System.Windows.Forms.TextBox();
+            this.TxtHorResize = new System.Windows.Forms.TextBox();
             this.LbResizeHor = new System.Windows.Forms.Label();
             this.RadPixel = new System.Windows.Forms.RadioButton();
             this.RadPercentage = new System.Windows.Forms.RadioButton();
@@ -146,10 +146,10 @@
             // 
             // PnlResize
             // 
-            this.PnlResize.Controls.Add(this.TxtVerRatio);
+            this.PnlResize.Controls.Add(this.TxtVerResize);
             this.PnlResize.Controls.Add(this.LbResizeVer);
             this.PnlResize.Controls.Add(this.BtnResizeRatioConnected);
-            this.PnlResize.Controls.Add(this.TxtHorRatio);
+            this.PnlResize.Controls.Add(this.TxtHorResize);
             this.PnlResize.Controls.Add(this.LbResizeHor);
             this.PnlResize.Controls.Add(this.RadPixel);
             this.PnlResize.Controls.Add(this.RadPercentage);
@@ -163,13 +163,14 @@
             this.PnlResize.Size = new System.Drawing.Size(368, 249);
             this.PnlResize.TabIndex = 2;
             // 
-            // TxtVerRatio
+            // TxtVerResize
             // 
-            this.TxtVerRatio.Location = new System.Drawing.Point(224, 180);
-            this.TxtVerRatio.Name = "TxtVerRatio";
-            this.TxtVerRatio.Size = new System.Drawing.Size(100, 30);
-            this.TxtVerRatio.TabIndex = 8;
-            this.TxtVerRatio.Text = "100";
+            this.TxtVerResize.Location = new System.Drawing.Point(224, 180);
+            this.TxtVerResize.Name = "TxtVerResize";
+            this.TxtVerResize.Size = new System.Drawing.Size(100, 30);
+            this.TxtVerResize.TabIndex = 8;
+            this.TxtVerResize.Tag = "vertical";
+            this.TxtVerResize.Text = "100";
             // 
             // LbResizeVer
             // 
@@ -190,13 +191,14 @@
             this.BtnResizeRatioConnected.Text = "=";
             this.BtnResizeRatioConnected.UseVisualStyleBackColor = true;
             // 
-            // TxtHorRatio
+            // TxtHorResize
             // 
-            this.TxtHorRatio.Location = new System.Drawing.Point(34, 180);
-            this.TxtHorRatio.Name = "TxtHorRatio";
-            this.TxtHorRatio.Size = new System.Drawing.Size(100, 30);
-            this.TxtHorRatio.TabIndex = 5;
-            this.TxtHorRatio.Text = "100";
+            this.TxtHorResize.Location = new System.Drawing.Point(34, 180);
+            this.TxtHorResize.Name = "TxtHorResize";
+            this.TxtHorResize.Size = new System.Drawing.Size(100, 30);
+            this.TxtHorResize.TabIndex = 5;
+            this.TxtHorResize.Tag = "horizontal";
+            this.TxtHorResize.Text = "100";
             // 
             // LbResizeHor
             // 
@@ -216,8 +218,10 @@
             this.RadPixel.Size = new System.Drawing.Size(72, 24);
             this.RadPixel.TabIndex = 3;
             this.RadPixel.TabStop = true;
+            this.RadPixel.Tag = "pixel";
             this.RadPixel.Text = "Pixels";
             this.RadPixel.UseVisualStyleBackColor = true;
+            this.RadPixel.Click += new System.EventHandler(this.Handler_ResizeRadios_Click);
             // 
             // RadPercentage
             // 
@@ -227,8 +231,10 @@
             this.RadPercentage.Size = new System.Drawing.Size(116, 24);
             this.RadPercentage.TabIndex = 2;
             this.RadPercentage.TabStop = true;
+            this.RadPercentage.Tag = "percentage";
             this.RadPercentage.Text = "Percentage";
             this.RadPercentage.UseVisualStyleBackColor = true;
+            this.RadPercentage.Click += new System.EventHandler(this.Handler_ResizeRadios_Click);
             // 
             // LbResizeSkew
             // 
@@ -282,6 +288,7 @@
             this.BtnOk.TabIndex = 0;
             this.BtnOk.Text = "OK";
             this.BtnOk.UseVisualStyleBackColor = true;
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // PnlTitle
             // 
@@ -348,9 +355,9 @@
         private System.Windows.Forms.RadioButton RadPercentage;
         private System.Windows.Forms.RadioButton RadPixel;
         private System.Windows.Forms.Button BtnResizeRatioConnected;
-        private System.Windows.Forms.TextBox TxtHorRatio;
+        private System.Windows.Forms.TextBox TxtHorResize;
         private System.Windows.Forms.Label LbResizeHor;
-        private System.Windows.Forms.TextBox TxtVerRatio;
+        private System.Windows.Forms.TextBox TxtVerResize;
         private System.Windows.Forms.Label LbResizeVer;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnOk;

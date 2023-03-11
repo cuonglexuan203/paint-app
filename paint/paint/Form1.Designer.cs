@@ -170,9 +170,23 @@
             this.BtnRedo = new System.Windows.Forms.Button();
             this.BtnUndo = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
-            this.BtnView = new System.Windows.Forms.Button();
-            this.BtnFile = new System.Windows.Forms.Button();
+            this.MenuControl = new System.Windows.Forms.MenuStrip();
+            this.MenuHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.MeniItemFullScreen = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemZoom = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemStatusBar = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlControlApp = new System.Windows.Forms.Panel();
+            this.pNGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jPEGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bMPPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gIFPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlContainer.SuspendLayout();
             this.PnlSize.SuspendLayout();
             this.PnlRotateImage.SuspendLayout();
@@ -202,6 +216,7 @@
             this.PnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).BeginInit();
             this.PnlControlPaint.SuspendLayout();
+            this.MenuControl.SuspendLayout();
             this.PnlControlApp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -2301,8 +2316,7 @@
             this.PnlControlPaint.Controls.Add(this.BtnRedo);
             this.PnlControlPaint.Controls.Add(this.BtnUndo);
             this.PnlControlPaint.Controls.Add(this.BtnSave);
-            this.PnlControlPaint.Controls.Add(this.BtnView);
-            this.PnlControlPaint.Controls.Add(this.BtnFile);
+            this.PnlControlPaint.Controls.Add(this.MenuControl);
             this.PnlControlPaint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlControlPaint.Location = new System.Drawing.Point(0, 38);
             this.PnlControlPaint.Margin = new System.Windows.Forms.Padding(2);
@@ -2317,7 +2331,7 @@
             this.BtnRedo.FlatAppearance.BorderSize = 0;
             this.BtnRedo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRedo.Image = global::paint.Properties.Resources.redo;
-            this.BtnRedo.Location = new System.Drawing.Point(225, 5);
+            this.BtnRedo.Location = new System.Drawing.Point(233, 5);
             this.BtnRedo.Name = "BtnRedo";
             this.BtnRedo.Size = new System.Drawing.Size(25, 26);
             this.BtnRedo.TabIndex = 4;
@@ -2333,7 +2347,7 @@
             this.BtnUndo.FlatAppearance.BorderSize = 0;
             this.BtnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnUndo.Image = global::paint.Properties.Resources.undo;
-            this.BtnUndo.Location = new System.Drawing.Point(182, 5);
+            this.BtnUndo.Location = new System.Drawing.Point(190, 5);
             this.BtnUndo.Name = "BtnUndo";
             this.BtnUndo.Size = new System.Drawing.Size(25, 26);
             this.BtnUndo.TabIndex = 3;
@@ -2349,50 +2363,112 @@
             this.BtnSave.FlatAppearance.BorderSize = 0;
             this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSave.Image = global::paint.Properties.Resources.save;
-            this.BtnSave.Location = new System.Drawing.Point(135, 5);
+            this.BtnSave.Location = new System.Drawing.Point(143, 5);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(25, 26);
             this.BtnSave.TabIndex = 2;
             this.BtnSave.Tag = "21";
             this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.Handler_SaveImage);
             this.BtnSave.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.BtnSave.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
-            // BtnView
+            // MenuControl
             // 
-            this.BtnView.BackColor = System.Drawing.Color.Transparent;
-            this.BtnView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnView.FlatAppearance.BorderSize = 0;
-            this.BtnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(240)))));
-            this.BtnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnView.Location = new System.Drawing.Point(57, 0);
-            this.BtnView.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnView.Name = "BtnView";
-            this.BtnView.Size = new System.Drawing.Size(57, 37);
-            this.BtnView.TabIndex = 1;
-            this.BtnView.Tag = "2";
-            this.BtnView.Text = "View";
-            this.BtnView.UseVisualStyleBackColor = false;
-            this.BtnView.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnView.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            this.MenuControl.Dock = System.Windows.Forms.DockStyle.None;
+            this.MenuControl.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MenuControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuHome,
+            this.ViewHome});
+            this.MenuControl.Location = new System.Drawing.Point(2, 6);
+            this.MenuControl.Name = "MenuControl";
+            this.MenuControl.Size = new System.Drawing.Size(273, 28);
+            this.MenuControl.TabIndex = 5;
+            this.MenuControl.Text = "menuStrip1";
             // 
-            // BtnFile
+            // MenuHome
             // 
-            this.BtnFile.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFile.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnFile.FlatAppearance.BorderSize = 0;
-            this.BtnFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(240)))));
-            this.BtnFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFile.Location = new System.Drawing.Point(0, 0);
-            this.BtnFile.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnFile.Name = "BtnFile";
-            this.BtnFile.Size = new System.Drawing.Size(57, 37);
-            this.BtnFile.TabIndex = 0;
-            this.BtnFile.Tag = "1";
-            this.BtnFile.Text = "File";
-            this.BtnFile.UseVisualStyleBackColor = false;
-            this.BtnFile.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnFile.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            this.MenuHome.BackColor = System.Drawing.Color.Transparent;
+            this.MenuHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemNew,
+            this.MenuItemOpen,
+            this.MenuItemSave,
+            this.MenuItemSaveAs,
+            this.MenuItemAbout});
+            this.MenuHome.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.MenuHome.Name = "MenuHome";
+            this.MenuHome.Size = new System.Drawing.Size(60, 24);
+            this.MenuHome.Text = "Menu";
+            // 
+            // MenuItemNew
+            // 
+            this.MenuItemNew.BackColor = System.Drawing.Color.Transparent;
+            this.MenuItemNew.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.MenuItemNew.Name = "MenuItemNew";
+            this.MenuItemNew.Size = new System.Drawing.Size(224, 26);
+            this.MenuItemNew.Text = "New";
+            this.MenuItemNew.Click += new System.EventHandler(this.MenuItemNew_Click);
+            // 
+            // MenuItemOpen
+            // 
+            this.MenuItemOpen.Name = "MenuItemOpen";
+            this.MenuItemOpen.Size = new System.Drawing.Size(224, 26);
+            this.MenuItemOpen.Text = "Open";
+            // 
+            // MenuItemSave
+            // 
+            this.MenuItemSave.Name = "MenuItemSave";
+            this.MenuItemSave.Size = new System.Drawing.Size(224, 26);
+            this.MenuItemSave.Text = "Save";
+            this.MenuItemSave.Click += new System.EventHandler(this.Handler_SaveImage);
+            // 
+            // MenuItemSaveAs
+            // 
+            this.MenuItemSaveAs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pNGPictureToolStripMenuItem,
+            this.jPEGPictureToolStripMenuItem,
+            this.bMPPictureToolStripMenuItem,
+            this.gIFPictureToolStripMenuItem,
+            this.otherToolStripMenuItem});
+            this.MenuItemSaveAs.Name = "MenuItemSaveAs";
+            this.MenuItemSaveAs.Size = new System.Drawing.Size(224, 26);
+            this.MenuItemSaveAs.Text = "Save as";
+            // 
+            // MenuItemAbout
+            // 
+            this.MenuItemAbout.Name = "MenuItemAbout";
+            this.MenuItemAbout.Size = new System.Drawing.Size(224, 26);
+            this.MenuItemAbout.Text = "About Paint";
+            // 
+            // ViewHome
+            // 
+            this.ViewHome.BackColor = System.Drawing.Color.Transparent;
+            this.ViewHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MeniItemFullScreen,
+            this.MenuItemZoom,
+            this.MenuItemStatusBar});
+            this.ViewHome.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.ViewHome.Name = "ViewHome";
+            this.ViewHome.Size = new System.Drawing.Size(55, 24);
+            this.ViewHome.Text = "View";
+            // 
+            // MeniItemFullScreen
+            // 
+            this.MeniItemFullScreen.Name = "MeniItemFullScreen";
+            this.MeniItemFullScreen.Size = new System.Drawing.Size(161, 26);
+            this.MeniItemFullScreen.Text = "Full screen";
+            // 
+            // MenuItemZoom
+            // 
+            this.MenuItemZoom.Name = "MenuItemZoom";
+            this.MenuItemZoom.Size = new System.Drawing.Size(161, 26);
+            this.MenuItemZoom.Text = "100%";
+            // 
+            // MenuItemStatusBar
+            // 
+            this.MenuItemStatusBar.Name = "MenuItemStatusBar";
+            this.MenuItemStatusBar.Size = new System.Drawing.Size(161, 26);
+            this.MenuItemStatusBar.Text = "Status bar";
             // 
             // PnlControlApp
             // 
@@ -2405,6 +2481,44 @@
             this.PnlControlApp.Name = "PnlControlApp";
             this.PnlControlApp.Size = new System.Drawing.Size(1461, 75);
             this.PnlControlApp.TabIndex = 0;
+            // 
+            // pNGPictureToolStripMenuItem
+            // 
+            this.pNGPictureToolStripMenuItem.Name = "pNGPictureToolStripMenuItem";
+            this.pNGPictureToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pNGPictureToolStripMenuItem.Tag = "png";
+            this.pNGPictureToolStripMenuItem.Text = "PNG picture";
+            this.pNGPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // jPEGPictureToolStripMenuItem
+            // 
+            this.jPEGPictureToolStripMenuItem.Name = "jPEGPictureToolStripMenuItem";
+            this.jPEGPictureToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jPEGPictureToolStripMenuItem.Tag = "jpg";
+            this.jPEGPictureToolStripMenuItem.Text = "JPEG picture";
+            this.jPEGPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // bMPPictureToolStripMenuItem
+            // 
+            this.bMPPictureToolStripMenuItem.Name = "bMPPictureToolStripMenuItem";
+            this.bMPPictureToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bMPPictureToolStripMenuItem.Tag = "bmp";
+            this.bMPPictureToolStripMenuItem.Text = "BMP picture";
+            this.bMPPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // gIFPictureToolStripMenuItem
+            // 
+            this.gIFPictureToolStripMenuItem.Name = "gIFPictureToolStripMenuItem";
+            this.gIFPictureToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gIFPictureToolStripMenuItem.Tag = "gif";
+            this.gIFPictureToolStripMenuItem.Text = "GIF picture";
+            this.gIFPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // otherToolStripMenuItem
+            // 
+            this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
+            this.otherToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.otherToolStripMenuItem.Text = "Other";
             // 
             // AppPaint
             // 
@@ -2461,6 +2575,9 @@
             this.PnlTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).EndInit();
             this.PnlControlPaint.ResumeLayout(false);
+            this.PnlControlPaint.PerformLayout();
+            this.MenuControl.ResumeLayout(false);
+            this.MenuControl.PerformLayout();
             this.PnlControlApp.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -2488,8 +2605,6 @@
         private System.Windows.Forms.Button BtnRedo;
         private System.Windows.Forms.Button BtnUndo;
         private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.Button BtnView;
-        private System.Windows.Forms.Button BtnFile;
         private System.Windows.Forms.Panel PnlControlApp;
         private System.Windows.Forms.Panel PnlSize;
         private CustomWidthButton BtnPenSize4;
@@ -2612,6 +2727,22 @@
         private System.Windows.Forms.Button BtnRotateLeft90;
         private System.Windows.Forms.Button BtnRotateRight90;
         private System.Windows.Forms.Button BtnRotate180;
+        private System.Windows.Forms.MenuStrip MenuControl;
+        private System.Windows.Forms.ToolStripMenuItem MenuHome;
+        private System.Windows.Forms.ToolStripMenuItem ViewHome;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemNew;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemOpen;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemSave;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemAbout;
+        private System.Windows.Forms.ToolStripMenuItem MeniItemFullScreen;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemZoom;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemStatusBar;
+        private System.Windows.Forms.ToolStripMenuItem pNGPictureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jPEGPictureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bMPPictureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gIFPictureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otherToolStripMenuItem;
     }
 }
 

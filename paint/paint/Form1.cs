@@ -5,6 +5,8 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -29,6 +31,7 @@ namespace paint
         Pen mainEraser;
         ColorDialog mainColorDialog = new ColorDialog();
         List<int> savedPenWidths = new List<int> { 1, 1, 4, 1 }; // 0: mainPen, 1: subPen, 2: eraser, 3: shapes
+        Size mainPcbSize = new Size(800, 300);
         // point
         Point pointX, pointY;
         int x, y, sx, sy, ix, iy; // s: scale, i: initial
@@ -39,12 +42,13 @@ namespace paint
         int countLine = 0;
         //
         // control var
-        Point mouseOffset;
-        int index = 34;
+        Point mouseOffset;  // var to control the drag-drop form
+        int index = 34;  // var to set the feature to client
         bool painted = false;
+        string fileExt = "png";
         //
-        List<Panel> optionalPanels ;
-        List<Panel> autoHideControls;
+        List<Panel> optionalPanels ;  // option for autoHideControls
+        List<Panel> autoHideControls;  // auto hide controls in this var list when click on the optionalPanels
         //
         List<Color> colors = new List<Color>() { 
         Color.FromArgb(0,0,0),
@@ -85,6 +89,7 @@ namespace paint
             subPen = new Pen(subColor, savedPenWidths[1]);
             mainEraser = new Pen(Color.White, savedPenWidths[2]);
             PcBMainDrawing.Image = mainBitmap;
+            PcBMainDrawing.Size = mainPcbSize;
             //
             //this.PnlDrawing.AutoScrollMinSize = this.PcBMainDrawing.Size;
 
@@ -135,6 +140,68 @@ namespace paint
               AddEventHandlerForAllControls(p);
             }
         }
+
+        private void Handler_SaveAsImage(object sender, EventArgs e)
+        {
+            ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
+            fileExt = toolStripMenuItem.Tag as string;
+            Handler_SaveImage(sender, e);
+        }
+        private void Handler_SaveImage(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Bitmap (*.bmp;*dib) | *.bmp;*dib | JPEG (*.jpg;*.jpeg;*.jpe;*.jfif) | *.jpg;*.jpeg;*.jpe;*.jfif | GIF (*.gif) | *.gif | TIFF (*.tif;*.tiff) | *.tif;*.tiff | PNG (*.png) | *.png";
+            saveFile.RestoreDirectory = true;
+            saveFile.DefaultExt = fileExt;   // it do not set the default ext
+            saveFile.AddExtension = true;  
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap savedBm = mainBitmap.Clone(new Rectangle(0, 0, PcBMainDrawing.Width, PcBMainDrawing.Height), mainBitmap.PixelFormat);
+                string extension = Path.GetExtension(saveFile.FileName);
+                ImageFormat imageFormat = ImageFormat.Png;
+                if (extension.Equals(".bmp", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Bmp;
+                }
+                else if (extension.Equals(".dib", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Bmp;
+                }
+                else if (extension.Equals(".jpg", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Jpeg;
+                }
+                else if (extension.Equals(".jpeg", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Jpeg;
+                }
+                else if (extension.Equals(".jpe", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Jpeg;
+                }
+                else if (extension.Equals(".jfif", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Jpeg;
+                }
+                else if (extension.Equals(".gif", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Gif;
+                }
+                else if (extension.Equals(".tif", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Tiff;
+                }
+                else if (extension.Equals(".tiff", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Tiff;
+                }
+                else if (extension.Equals(".png", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    imageFormat = ImageFormat.Png;
+                }
+                savedBm.Save(saveFile.FileName, imageFormat);
+            }
+        }
         // get the coordinate of mouse click follow by the ratio bitmap/picturebox
         public Point SetPoint(PictureBox pictureBox, Point point)
         {
@@ -163,7 +230,7 @@ namespace paint
             Stack<Point> pixel = new Stack<Point>();
             pixel.Push(new Point(x, y));
             bm.SetPixel(x, y, newColor);
-            if (oldColor.ToArgb() == newColor.ToArgb())
+            if (oldColor.ToArgb() == newColor.ToArgb()) // * to argb
             {
                 return;
             }
@@ -718,6 +785,7 @@ namespace paint
             //
             Bitmap newBm = new Bitmap(rotatedBm); // back to the normal dimension
             PcBMainDrawing.Image = newBm;
+            PcBMainDrawing.Location = new Point(0, 0);
             mainBitmap = newBm;
             mainGraphic = Graphics.FromImage(mainBitmap);
         }
@@ -730,6 +798,7 @@ namespace paint
             //
             Bitmap newBm = new Bitmap(rotatedBm); // back to the normal dimension
             PcBMainDrawing.Image = newBm;
+            PcBMainDrawing.Location = new Point(0, 0);
             mainBitmap = newBm;
             mainGraphic = Graphics.FromImage(mainBitmap);
         }
@@ -740,6 +809,7 @@ namespace paint
             newBm.RotateFlip(RotateFlipType.Rotate180FlipNone);
             //
             PcBMainDrawing.Image = newBm;
+            PcBMainDrawing.Location = new Point(0, 0);
             mainBitmap = newBm;
             mainGraphic = Graphics.FromImage(mainBitmap);
             
@@ -747,8 +817,44 @@ namespace paint
 
         private void BtnResize_MouseClick(object sender, MouseEventArgs e)
         {
-            ResizeAndSkewForm resizeAndSkewForm = new ResizeAndSkewForm();
+            ResizeAndSkewForm resizeAndSkewForm = new ResizeAndSkewForm(PcBMainDrawing.Size);
+            resizeAndSkewForm.Owner = this;
+            resizeAndSkewForm.StartPosition = FormStartPosition.CenterParent;
+            //
+            resizeAndSkewForm.FormClosed += ResizeAndSkewForm_FormClosed;
             resizeAndSkewForm.ShowDialog();
+            
+        }
+
+        private void ResizeAndSkewForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ResizeAndSkewForm resizeAndSkewForm = sender as ResizeAndSkewForm;
+            int horResize = resizeAndSkewForm.HorResize;
+            int verResize = resizeAndSkewForm.VertResize;
+            int horSkew = resizeAndSkewForm.HorSkew;
+            int verSkew = resizeAndSkewForm.VertSkew;
+            //
+            this.PcBMainDrawing.SizeMode = PictureBoxSizeMode.Zoom;
+            Size newSize = new Size(horResize, verResize);
+            this.PcBMainDrawing.Size = newSize;
+            //
+            mainBitmap = new Bitmap(mainBitmap, newSize);
+            mainGraphic = Graphics.FromImage(mainBitmap);
+            this.PcBMainDrawing.Image = mainBitmap;
+            //
+            //
+            if (horSkew != 0 || verSkew != 0)
+            {
+
+            }
+            PcBMainDrawing.Refresh();
+
+        }
+
+        private void MenuItemNew_Click(object sender, EventArgs e)
+        {
+            mainGraphic.Clear(Color.White);
+            PcBMainDrawing.Refresh();
         }
 
         private void BtnMaximize_Click(object sender, EventArgs e)
