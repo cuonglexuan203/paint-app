@@ -53,9 +53,9 @@ namespace paint
 
             });
             CustomizeOptionButtonImage(new List<Button> { BtnFlipHor, BtnFlipVer, this.BtnRotateRight90, this.BtnRotateLeft90, this.BtnRotate180,
-                this.BtnPenDashDotDot, this.BtnPenDashDot, this.BtnPenDash, this.BtnPenSolid, this.BtnPenDot });
+                this.BtnPenDashDotDot, this.BtnPenDashDot, this.BtnPenDash, this.BtnPenSolid, this.BtnPenDot, this.BtnBrushSolid, this.BtnLinearBrush });
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
-            HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions });
+            HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions });
             this.ResumeLayout();
         }
         public void InitColorsOfPen()

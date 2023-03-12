@@ -29,6 +29,11 @@ namespace paint
         Pen mainPen;
         Pen subPen;
         Pen mainEraser;
+        // brush
+        int selectedBrushIndex = 1;
+        SolidBrush mainSolidBrush;
+        LinearGradientBrush mainLinearGradientBrush;
+        //
         ColorDialog mainColorDialog = new ColorDialog();
         List<int> savedPenWidths = new List<int> { 1, 1, 4, 1 }; // 0: mainPen, 1: subPen, 2: eraser, 3: shapes
         Size mainPcbSize = new Size(800, 300);
@@ -42,6 +47,7 @@ namespace paint
         int countLine = 0;
         //
         // control var
+        bool isBrush = false;
         Point mouseOffset;  // var to control the drag-drop form
         int index = 34;  // var to set the feature to client
         bool painted = false;
@@ -87,13 +93,17 @@ namespace paint
             mainPen = new Pen(mainColor, savedPenWidths[0]);
             subPen = new Pen(subColor, savedPenWidths[1]);
             mainEraser = new Pen(Color.White, savedPenWidths[2]);
+            //
+            mainSolidBrush = new SolidBrush(mainColor);
+            // init for main linear gradient brush
+            //
             PcBMainDrawing.Image = mainBitmap;
             PcBMainDrawing.Size = mainPcbSize;
             //
             //this.PnlDrawing.AutoScrollMinSize = this.PcBMainDrawing.Size;
 
             //
-            autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions }; // auto hide controls when click on the optional panels
+            autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions }; // auto hide controls when click on the optional panels
             optionalPanels = new List<Panel> { this.PnlContainer, this.PnlControlPaint};
         }
         private void AppPaint_Load(object sender, EventArgs e)
@@ -145,6 +155,7 @@ namespace paint
             Button button = sender as Button;
             int selectedOption = int.Parse(button.Tag.ToString());
             Pen pen = mainPen;
+            isBrush = false;
             if (selectedColor == 1)
             {
                 pen = subPen;
@@ -347,7 +358,7 @@ namespace paint
                         Point ep = new Point(x, y);
                         g.DrawLine(selectedPen, sp, ep);
                         break;
-                    }
+                    }                    
                 case 43:
                     {
 
@@ -357,7 +368,19 @@ namespace paint
                     {
 
                         Size size = new Size(sx, sy);
-                        g.DrawEllipse(selectedPen, new Rectangle(pointX, size));
+                        Rectangle rect = new Rectangle(pointX, size);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillEllipse(mainSolidBrush, rect);
+                            }
+                            
+                        }
+                        else
+                        {
+                            g.DrawEllipse(selectedPen, rect);
+                        }
                         break;
                     }
                 case 45:
@@ -366,7 +389,18 @@ namespace paint
                         Point startP = GetStartPoint();
                         Size size = new Size(Math.Abs(sx), Math.Abs(sy));
                         Rectangle rect = new Rectangle(startP, size);
-                        g.DrawRectangle(selectedPen, rect);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillRectangle(mainSolidBrush, rect);
+                            }
+                            
+                        }
+                        else
+                        {
+                            g.DrawRectangle(selectedPen, rect);
+                        }
                         break;
                     }
                 case 46:
@@ -374,13 +408,25 @@ namespace paint
                         Point startP = GetStartPoint();
                         Size size = new Size(Math.Abs(sx), Math.Abs(sy));
                         Rectangle rect = new Rectangle(startP, size);
-                        g.DrawRoundedRectangle(selectedPen, rect, 10);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.DrawRoundedRectangle(selectedPen, rect, 10);
+                            }
+                            
+                            
+                        }
+                        else
+                        {
+                            g.DrawRoundedRectangle(selectedPen, rect, 10);
+                        }
                         break;
                     }
                 case 47:
                     {
                         Point currentPoint = new Point(x, y);
-                        g.DrawPolygon(selectedPen, rootPoint, pointX, pointY, endPoint, currentPoint,ref countLine,ref hasRoot);
+                        g.DrawPolygon(selectedPen, rootPoint, pointX, pointY, endPoint, currentPoint, ref countLine, ref hasRoot);
                         break;
                     }
                 case 48:
@@ -723,6 +769,7 @@ namespace paint
         }
         private void PnlControlPenWidth_MouseClick(object sender, MouseEventArgs e)
         {
+            isBrush = false;
             CustomSizes(PnlSize);
             if (index == 34)
             {
@@ -903,6 +950,21 @@ namespace paint
             this.PnlPenDashStyleOptions.Focus();
             this.PnlPenDashStyleOptions.Refresh();
         }
+        private void Handler_BrushOptionsButton_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            selectedBrushIndex = int.Parse(button.Tag.ToString());
+            isBrush = true;
+            
+            
+        }
+
+        private void PnlBrush_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.PnlBrushOptions.Show();
+            this.PnlBrushOptions.Focus();
+            this.PnlBrushOptions.Refresh();
+        }
 
         private void BtnMaximize_Click(object sender, EventArgs e)
         {
@@ -951,7 +1013,7 @@ namespace paint
         // additional method
         private void SetMainColor(Color color)
         {
-            this.BtnMainColor1.BackColor = mainColor = mainPen.Color = color;
+            this.BtnMainColor1.BackColor = mainColor = mainPen.Color = mainSolidBrush.Color = color;
         }
         private void SetSubColor(Color color)
         {

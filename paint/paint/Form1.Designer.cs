@@ -30,6 +30,9 @@
         private void InitializeComponent()
         {
             this.PnlContainer = new System.Windows.Forms.Panel();
+            this.PnlBrushOptions = new System.Windows.Forms.Panel();
+            this.BtnLinearBrush = new System.Windows.Forms.Button();
+            this.BtnBrushSolid = new System.Windows.Forms.Button();
             this.PnlPenDashStyleOptions = new System.Windows.Forms.Panel();
             this.BtnPenDot = new System.Windows.Forms.Button();
             this.BtnPenSolid = new System.Windows.Forms.Button();
@@ -37,22 +40,132 @@
             this.BtnPenDashDot = new System.Windows.Forms.Button();
             this.BtnPenDashDotDot = new System.Windows.Forms.Button();
             this.PnlSize = new System.Windows.Forms.Panel();
+            this.PnlRotateImage = new System.Windows.Forms.Panel();
+            this.BtnRotate180 = new System.Windows.Forms.Button();
+            this.BtnRotateLeft90 = new System.Windows.Forms.Button();
+            this.BtnRotateRight90 = new System.Windows.Forms.Button();
+            this.PnlImageFlip = new System.Windows.Forms.Panel();
+            this.BtnFlipHor = new System.Windows.Forms.Button();
+            this.BtnFlipVer = new System.Windows.Forms.Button();
+            this.PnlDrawing = new System.Windows.Forms.Panel();
+            this.PcBMainDrawing = new System.Windows.Forms.PictureBox();
+            this.PnlControlFooter = new System.Windows.Forms.Panel();
+            this.LbLocationPoint = new System.Windows.Forms.Label();
+            this.LbPageSizePoint = new System.Windows.Forms.Label();
+            this.BtnPageSize = new System.Windows.Forms.Button();
+            this.LbBar2 = new System.Windows.Forms.Label();
+            this.LbShapeSizePoint = new System.Windows.Forms.Label();
+            this.BtnShapeSize = new System.Windows.Forms.Button();
+            this.LbBar1 = new System.Windows.Forms.Label();
+            this.BtnLocation = new System.Windows.Forms.Button();
+            this.PnlControlDrawing = new System.Windows.Forms.Panel();
+            this.PnlControlColors = new System.Windows.Forms.Panel();
+            this.FLBColorOptions = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnEditColor = new System.Windows.Forms.Button();
+            this.LbColors = new System.Windows.Forms.Label();
+            this.PnlControlSize = new System.Windows.Forms.Panel();
+            this.PnlControlPenWidth = new System.Windows.Forms.Panel();
+            this.BtnSize = new System.Windows.Forms.Button();
+            this.BtnSizeOptions = new System.Windows.Forms.Button();
+            this.PcbBar6 = new System.Windows.Forms.PictureBox();
+            this.LbSize = new System.Windows.Forms.Label();
+            this.PnlControlShape = new System.Windows.Forms.Panel();
+            this.PnlPenDashStyle = new System.Windows.Forms.Panel();
+            this.BtnPenDashStyle = new System.Windows.Forms.Button();
+            this.BtnPenDashStyleOptions = new System.Windows.Forms.Button();
+            this.PcbBar5 = new System.Windows.Forms.PictureBox();
+            this.FLPShape = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnShape1 = new System.Windows.Forms.Button();
+            this.BtnShape2 = new System.Windows.Forms.Button();
+            this.BtnShape3 = new System.Windows.Forms.Button();
+            this.BtnShape4 = new System.Windows.Forms.Button();
+            this.BtnShape5 = new System.Windows.Forms.Button();
+            this.BtnShape6 = new System.Windows.Forms.Button();
+            this.BtnShape7 = new System.Windows.Forms.Button();
+            this.BtnShape8 = new System.Windows.Forms.Button();
+            this.BtnShape9 = new System.Windows.Forms.Button();
+            this.BtnShape10 = new System.Windows.Forms.Button();
+            this.BtnShape11 = new System.Windows.Forms.Button();
+            this.BtnShape12 = new System.Windows.Forms.Button();
+            this.BtnShape13 = new System.Windows.Forms.Button();
+            this.BtnShape14 = new System.Windows.Forms.Button();
+            this.BtnShape15 = new System.Windows.Forms.Button();
+            this.BtnShape16 = new System.Windows.Forms.Button();
+            this.BtnShape17 = new System.Windows.Forms.Button();
+            this.BtnShape18 = new System.Windows.Forms.Button();
+            this.BtnShape19 = new System.Windows.Forms.Button();
+            this.BtnShape20 = new System.Windows.Forms.Button();
+            this.BtnShape21 = new System.Windows.Forms.Button();
+            this.BtnShape22 = new System.Windows.Forms.Button();
+            this.BtnShapeOutlineOptions = new System.Windows.Forms.Button();
+            this.BtnShapeOutline = new System.Windows.Forms.Button();
+            this.LbShape = new System.Windows.Forms.Label();
+            this.PnlBrushes = new System.Windows.Forms.Panel();
+            this.PnlBrush = new System.Windows.Forms.Panel();
+            this.BtnBrush = new System.Windows.Forms.Button();
+            this.BtnBrushOptions = new System.Windows.Forms.Button();
+            this.PcbBar4 = new System.Windows.Forms.PictureBox();
+            this.LbBrushes = new System.Windows.Forms.Label();
+            this.PnlControlTools = new System.Windows.Forms.Panel();
+            this.PcbBar3 = new System.Windows.Forms.PictureBox();
+            this.BtnMagnifier = new System.Windows.Forms.Button();
+            this.BtnColorPicker = new System.Windows.Forms.Button();
+            this.BtnText = new System.Windows.Forms.Button();
+            this.BtnEraser = new System.Windows.Forms.Button();
+            this.BtnFill = new System.Windows.Forms.Button();
+            this.BtnPencil = new System.Windows.Forms.Button();
+            this.LbTools = new System.Windows.Forms.Label();
+            this.PnlControlImage = new System.Windows.Forms.Panel();
+            this.PnlRotate = new System.Windows.Forms.Panel();
+            this.BtnRotate = new System.Windows.Forms.Button();
+            this.BtnRotateOptions = new System.Windows.Forms.Button();
+            this.PnlFlip = new System.Windows.Forms.Panel();
+            this.BtnFlipOptions = new System.Windows.Forms.Button();
+            this.BtnFlip = new System.Windows.Forms.Button();
+            this.PcbBar2 = new System.Windows.Forms.PictureBox();
+            this.BtnResize = new System.Windows.Forms.Button();
+            this.BtnCrop = new System.Windows.Forms.Button();
+            this.BtnSelectOptions = new System.Windows.Forms.Button();
+            this.BtnSelect = new System.Windows.Forms.Button();
+            this.LbImage = new System.Windows.Forms.Label();
+            this.PnlControlClipBoard = new System.Windows.Forms.Panel();
+            this.BtnCopy = new System.Windows.Forms.Button();
+            this.BtnCut = new System.Windows.Forms.Button();
+            this.BtnPasteOptions = new System.Windows.Forms.Button();
+            this.BtnPaste = new System.Windows.Forms.Button();
+            this.LbClipboard = new System.Windows.Forms.Label();
+            this.PcBBar1 = new System.Windows.Forms.PictureBox();
+            this.PnlTitle = new System.Windows.Forms.Panel();
+            this.BtnMinimize = new System.Windows.Forms.Button();
+            this.BtnMaximize = new System.Windows.Forms.Button();
+            this.BtnExit = new System.Windows.Forms.Button();
+            this.LbAppTitle = new System.Windows.Forms.Label();
+            this.PcbAppIcon = new System.Windows.Forms.PictureBox();
+            this.PnlControlPaint = new System.Windows.Forms.Panel();
+            this.BtnRedo = new System.Windows.Forms.Button();
+            this.BtnUndo = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.MenuControl = new System.Windows.Forms.MenuStrip();
+            this.MenuHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.pNGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jPEGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bMPPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gIFPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.MeniItemFullScreen = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemZoom = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemStatusBar = new System.Windows.Forms.ToolStripMenuItem();
+            this.PnlControlApp = new System.Windows.Forms.Panel();
             this.BtnPenSize4 = new paint.CustomWidthButton();
             this.BtnPenSize3 = new paint.CustomWidthButton();
             this.BtnPenSize2 = new paint.CustomWidthButton();
             this.BtnPenSize1 = new paint.CustomWidthButton();
-            this.PnlRotateImage = new System.Windows.Forms.Panel();
-            this.PnlImageFlip = new System.Windows.Forms.Panel();
-            this.PnlDrawing = new System.Windows.Forms.Panel();
-            this.PnlControlFooter = new System.Windows.Forms.Panel();
-            this.LbLocationPoint = new System.Windows.Forms.Label();
-            this.LbPageSizePoint = new System.Windows.Forms.Label();
-            this.LbBar2 = new System.Windows.Forms.Label();
-            this.LbShapeSizePoint = new System.Windows.Forms.Label();
-            this.LbBar1 = new System.Windows.Forms.Label();
-            this.PnlControlDrawing = new System.Windows.Forms.Panel();
-            this.PnlControlColors = new System.Windows.Forms.Panel();
-            this.FLBColorOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnColor1 = new paint.EclipseButton();
             this.BtnColor2 = new paint.EclipseButton();
             this.BtnColor3 = new paint.EclipseButton();
@@ -83,154 +196,48 @@
             this.BtnColor27 = new paint.EclipseButton();
             this.BtnColor29 = new paint.EclipseButton();
             this.BtnColor30 = new paint.EclipseButton();
-            this.LbColors = new System.Windows.Forms.Label();
             this.BtnMainColor2 = new paint.EclipseButton();
             this.BtnMainColor1 = new paint.EclipseButton();
-            this.PnlControlSize = new System.Windows.Forms.Panel();
-            this.PnlControlPenWidth = new System.Windows.Forms.Panel();
-            this.LbSize = new System.Windows.Forms.Label();
-            this.PnlControlShape = new System.Windows.Forms.Panel();
-            this.PnlPenDashStyle = new System.Windows.Forms.Panel();
-            this.FLPShape = new System.Windows.Forms.FlowLayoutPanel();
-            this.LbShape = new System.Windows.Forms.Label();
-            this.PnlBrushes = new System.Windows.Forms.Panel();
-            this.LbBrushes = new System.Windows.Forms.Label();
-            this.PnlControlTools = new System.Windows.Forms.Panel();
-            this.LbTools = new System.Windows.Forms.Label();
-            this.PnlControlImage = new System.Windows.Forms.Panel();
-            this.PnlRotate = new System.Windows.Forms.Panel();
-            this.PnlFlip = new System.Windows.Forms.Panel();
-            this.LbImage = new System.Windows.Forms.Label();
-            this.PnlControlClipBoard = new System.Windows.Forms.Panel();
-            this.LbClipboard = new System.Windows.Forms.Label();
-            this.PnlTitle = new System.Windows.Forms.Panel();
-            this.BtnMinimize = new System.Windows.Forms.Button();
-            this.BtnMaximize = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Button();
-            this.LbAppTitle = new System.Windows.Forms.Label();
-            this.PnlControlPaint = new System.Windows.Forms.Panel();
-            this.MenuControl = new System.Windows.Forms.MenuStrip();
-            this.MenuHome = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.pNGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.jPEGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bMPPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gIFPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.ViewHome = new System.Windows.Forms.ToolStripMenuItem();
-            this.MeniItemFullScreen = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemZoom = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemStatusBar = new System.Windows.Forms.ToolStripMenuItem();
-            this.PnlControlApp = new System.Windows.Forms.Panel();
-            this.BtnRotate180 = new System.Windows.Forms.Button();
-            this.BtnRotateLeft90 = new System.Windows.Forms.Button();
-            this.BtnRotateRight90 = new System.Windows.Forms.Button();
-            this.BtnFlipHor = new System.Windows.Forms.Button();
-            this.BtnFlipVer = new System.Windows.Forms.Button();
-            this.PcBMainDrawing = new System.Windows.Forms.PictureBox();
-            this.BtnPageSize = new System.Windows.Forms.Button();
-            this.BtnShapeSize = new System.Windows.Forms.Button();
-            this.BtnLocation = new System.Windows.Forms.Button();
-            this.BtnEditColor = new System.Windows.Forms.Button();
-            this.BtnSize = new System.Windows.Forms.Button();
-            this.BtnSizeOptions = new System.Windows.Forms.Button();
-            this.PcbBar6 = new System.Windows.Forms.PictureBox();
-            this.BtnPenDashStyle = new System.Windows.Forms.Button();
-            this.BtnPenDashStyleOptions = new System.Windows.Forms.Button();
-            this.PcbBar5 = new System.Windows.Forms.PictureBox();
-            this.BtnShape1 = new System.Windows.Forms.Button();
-            this.BtnShape2 = new System.Windows.Forms.Button();
-            this.BtnShape3 = new System.Windows.Forms.Button();
-            this.BtnShape4 = new System.Windows.Forms.Button();
-            this.BtnShape5 = new System.Windows.Forms.Button();
-            this.BtnShape6 = new System.Windows.Forms.Button();
-            this.BtnShape7 = new System.Windows.Forms.Button();
-            this.BtnShape8 = new System.Windows.Forms.Button();
-            this.BtnShape9 = new System.Windows.Forms.Button();
-            this.BtnShape10 = new System.Windows.Forms.Button();
-            this.BtnShape11 = new System.Windows.Forms.Button();
-            this.BtnShape12 = new System.Windows.Forms.Button();
-            this.BtnShape13 = new System.Windows.Forms.Button();
-            this.BtnShape14 = new System.Windows.Forms.Button();
-            this.BtnShape15 = new System.Windows.Forms.Button();
-            this.BtnShape16 = new System.Windows.Forms.Button();
-            this.BtnShape17 = new System.Windows.Forms.Button();
-            this.BtnShape18 = new System.Windows.Forms.Button();
-            this.BtnShape19 = new System.Windows.Forms.Button();
-            this.BtnShape20 = new System.Windows.Forms.Button();
-            this.BtnShape21 = new System.Windows.Forms.Button();
-            this.BtnShape22 = new System.Windows.Forms.Button();
-            this.BtnShapeOutlineOptions = new System.Windows.Forms.Button();
-            this.BtnShapeOutline = new System.Windows.Forms.Button();
-            this.PcbBar4 = new System.Windows.Forms.PictureBox();
-            this.BtnBrushOptions = new System.Windows.Forms.Button();
-            this.BtnBrush = new System.Windows.Forms.Button();
-            this.PcbBar3 = new System.Windows.Forms.PictureBox();
-            this.BtnMagnifier = new System.Windows.Forms.Button();
-            this.BtnColorPicker = new System.Windows.Forms.Button();
-            this.BtnText = new System.Windows.Forms.Button();
-            this.BtnEraser = new System.Windows.Forms.Button();
-            this.BtnFill = new System.Windows.Forms.Button();
-            this.BtnPencil = new System.Windows.Forms.Button();
-            this.BtnRotate = new System.Windows.Forms.Button();
-            this.BtnRotateOptions = new System.Windows.Forms.Button();
-            this.BtnFlipOptions = new System.Windows.Forms.Button();
-            this.BtnFlip = new System.Windows.Forms.Button();
-            this.PcbBar2 = new System.Windows.Forms.PictureBox();
-            this.BtnResize = new System.Windows.Forms.Button();
-            this.BtnCrop = new System.Windows.Forms.Button();
-            this.BtnSelectOptions = new System.Windows.Forms.Button();
-            this.BtnSelect = new System.Windows.Forms.Button();
-            this.BtnCopy = new System.Windows.Forms.Button();
-            this.BtnCut = new System.Windows.Forms.Button();
-            this.BtnPasteOptions = new System.Windows.Forms.Button();
-            this.BtnPaste = new System.Windows.Forms.Button();
-            this.PcBBar1 = new System.Windows.Forms.PictureBox();
-            this.BtnRedo = new System.Windows.Forms.Button();
-            this.BtnUndo = new System.Windows.Forms.Button();
-            this.BtnSave = new System.Windows.Forms.Button();
-            this.PcbAppIcon = new System.Windows.Forms.PictureBox();
             this.PnlContainer.SuspendLayout();
+            this.PnlBrushOptions.SuspendLayout();
             this.PnlPenDashStyleOptions.SuspendLayout();
             this.PnlSize.SuspendLayout();
             this.PnlRotateImage.SuspendLayout();
             this.PnlImageFlip.SuspendLayout();
             this.PnlDrawing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).BeginInit();
             this.PnlControlFooter.SuspendLayout();
             this.PnlControlDrawing.SuspendLayout();
             this.PnlControlColors.SuspendLayout();
             this.FLBColorOptions.SuspendLayout();
             this.PnlControlSize.SuspendLayout();
             this.PnlControlPenWidth.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar6)).BeginInit();
             this.PnlControlShape.SuspendLayout();
             this.PnlPenDashStyle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar5)).BeginInit();
             this.FLPShape.SuspendLayout();
             this.PnlBrushes.SuspendLayout();
+            this.PnlBrush.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar4)).BeginInit();
             this.PnlControlTools.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar3)).BeginInit();
             this.PnlControlImage.SuspendLayout();
             this.PnlRotate.SuspendLayout();
             this.PnlFlip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).BeginInit();
             this.PnlControlClipBoard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).BeginInit();
             this.PnlTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).BeginInit();
             this.PnlControlPaint.SuspendLayout();
             this.MenuControl.SuspendLayout();
             this.PnlControlApp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlContainer
             // 
+            this.PnlContainer.Controls.Add(this.PnlBrushOptions);
             this.PnlContainer.Controls.Add(this.PnlPenDashStyleOptions);
             this.PnlContainer.Controls.Add(this.PnlSize);
             this.PnlContainer.Controls.Add(this.PnlRotateImage);
@@ -244,6 +251,47 @@
             this.PnlContainer.Name = "PnlContainer";
             this.PnlContainer.Size = new System.Drawing.Size(1461, 601);
             this.PnlContainer.TabIndex = 1;
+            // 
+            // PnlBrushOptions
+            // 
+            this.PnlBrushOptions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PnlBrushOptions.Controls.Add(this.BtnLinearBrush);
+            this.PnlBrushOptions.Controls.Add(this.BtnBrushSolid);
+            this.PnlBrushOptions.Location = new System.Drawing.Point(484, 87);
+            this.PnlBrushOptions.Name = "PnlBrushOptions";
+            this.PnlBrushOptions.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PnlBrushOptions.Size = new System.Drawing.Size(190, 139);
+            this.PnlBrushOptions.TabIndex = 6;
+            // 
+            // BtnLinearBrush
+            // 
+            this.BtnLinearBrush.BackColor = System.Drawing.Color.Transparent;
+            this.BtnLinearBrush.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnLinearBrush.Image = global::paint.Properties.Resources.linear_brush;
+            this.BtnLinearBrush.Location = new System.Drawing.Point(3, 70);
+            this.BtnLinearBrush.Name = "BtnLinearBrush";
+            this.BtnLinearBrush.Size = new System.Drawing.Size(182, 65);
+            this.BtnLinearBrush.TabIndex = 1;
+            this.BtnLinearBrush.Tag = "2";
+            this.BtnLinearBrush.Text = "Linear Gradient";
+            this.BtnLinearBrush.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnLinearBrush.UseVisualStyleBackColor = false;
+            this.BtnLinearBrush.Click += new System.EventHandler(this.Handler_BrushOptionsButton_Click);
+            // 
+            // BtnBrushSolid
+            // 
+            this.BtnBrushSolid.BackColor = System.Drawing.Color.Transparent;
+            this.BtnBrushSolid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBrushSolid.Image = global::paint.Properties.Resources.solid_brush;
+            this.BtnBrushSolid.Location = new System.Drawing.Point(3, 5);
+            this.BtnBrushSolid.Name = "BtnBrushSolid";
+            this.BtnBrushSolid.Size = new System.Drawing.Size(182, 65);
+            this.BtnBrushSolid.TabIndex = 0;
+            this.BtnBrushSolid.Tag = "1";
+            this.BtnBrushSolid.Text = "Solid";
+            this.BtnBrushSolid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnBrushSolid.UseVisualStyleBackColor = false;
+            this.BtnBrushSolid.Click += new System.EventHandler(this.Handler_BrushOptionsButton_Click);
             // 
             // PnlPenDashStyleOptions
             // 
@@ -347,70 +395,6 @@
             this.PnlSize.Size = new System.Drawing.Size(190, 270);
             this.PnlSize.TabIndex = 1;
             // 
-            // BtnPenSize4
-            // 
-            this.BtnPenSize4.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize4.BarHeight = 4;
-            this.BtnPenSize4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize4.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize4.Location = new System.Drawing.Point(3, 200);
-            this.BtnPenSize4.Name = "BtnPenSize4";
-            this.BtnPenSize4.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize4.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize4.TabIndex = 3;
-            this.BtnPenSize4.Text = "4 px";
-            this.BtnPenSize4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize4.UseVisualStyleBackColor = false;
-            this.BtnPenSize4.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
-            // BtnPenSize3
-            // 
-            this.BtnPenSize3.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize3.BarHeight = 3;
-            this.BtnPenSize3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize3.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize3.Location = new System.Drawing.Point(3, 135);
-            this.BtnPenSize3.Name = "BtnPenSize3";
-            this.BtnPenSize3.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize3.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize3.TabIndex = 2;
-            this.BtnPenSize3.Text = "3 px";
-            this.BtnPenSize3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize3.UseVisualStyleBackColor = false;
-            this.BtnPenSize3.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
-            // BtnPenSize2
-            // 
-            this.BtnPenSize2.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize2.BarHeight = 2;
-            this.BtnPenSize2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize2.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize2.Location = new System.Drawing.Point(3, 70);
-            this.BtnPenSize2.Name = "BtnPenSize2";
-            this.BtnPenSize2.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize2.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize2.TabIndex = 1;
-            this.BtnPenSize2.Text = "2 px";
-            this.BtnPenSize2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize2.UseVisualStyleBackColor = false;
-            this.BtnPenSize2.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
-            // BtnPenSize1
-            // 
-            this.BtnPenSize1.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize1.BarHeight = 1;
-            this.BtnPenSize1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize1.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize1.Location = new System.Drawing.Point(3, 5);
-            this.BtnPenSize1.Name = "BtnPenSize1";
-            this.BtnPenSize1.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize1.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize1.TabIndex = 0;
-            this.BtnPenSize1.Text = "1 px";
-            this.BtnPenSize1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize1.UseVisualStyleBackColor = false;
-            this.BtnPenSize1.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
             // PnlRotateImage
             // 
             this.PnlRotateImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -423,6 +407,48 @@
             this.PnlRotateImage.Size = new System.Drawing.Size(190, 206);
             this.PnlRotateImage.TabIndex = 5;
             // 
+            // BtnRotate180
+            // 
+            this.BtnRotate180.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotate180.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRotate180.Image = global::paint.Properties.Resources.rotate_180;
+            this.BtnRotate180.Location = new System.Drawing.Point(3, 135);
+            this.BtnRotate180.Name = "BtnRotate180";
+            this.BtnRotate180.Size = new System.Drawing.Size(182, 65);
+            this.BtnRotate180.TabIndex = 2;
+            this.BtnRotate180.Text = "Rotate 180";
+            this.BtnRotate180.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnRotate180.UseVisualStyleBackColor = false;
+            this.BtnRotate180.Click += new System.EventHandler(this.BtnRotate180_Click);
+            // 
+            // BtnRotateLeft90
+            // 
+            this.BtnRotateLeft90.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotateLeft90.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRotateLeft90.Image = global::paint.Properties.Resources.rotate_left;
+            this.BtnRotateLeft90.Location = new System.Drawing.Point(3, 70);
+            this.BtnRotateLeft90.Name = "BtnRotateLeft90";
+            this.BtnRotateLeft90.Size = new System.Drawing.Size(182, 65);
+            this.BtnRotateLeft90.TabIndex = 1;
+            this.BtnRotateLeft90.Text = "Rotate left 90";
+            this.BtnRotateLeft90.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnRotateLeft90.UseVisualStyleBackColor = false;
+            this.BtnRotateLeft90.Click += new System.EventHandler(this.BtnRotateLeft90_Click);
+            // 
+            // BtnRotateRight90
+            // 
+            this.BtnRotateRight90.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotateRight90.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRotateRight90.Image = global::paint.Properties.Resources.rotate_right;
+            this.BtnRotateRight90.Location = new System.Drawing.Point(3, 5);
+            this.BtnRotateRight90.Name = "BtnRotateRight90";
+            this.BtnRotateRight90.Size = new System.Drawing.Size(182, 65);
+            this.BtnRotateRight90.TabIndex = 0;
+            this.BtnRotateRight90.Text = "Rotate right 90";
+            this.BtnRotateRight90.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnRotateRight90.UseVisualStyleBackColor = false;
+            this.BtnRotateRight90.Click += new System.EventHandler(this.BtnRotateRight90_Click);
+            // 
             // PnlImageFlip
             // 
             this.PnlImageFlip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -434,6 +460,34 @@
             this.PnlImageFlip.Size = new System.Drawing.Size(190, 139);
             this.PnlImageFlip.TabIndex = 4;
             // 
+            // BtnFlipHor
+            // 
+            this.BtnFlipHor.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFlipHor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnFlipHor.Image = global::paint.Properties.Resources.horizontal_symmetry;
+            this.BtnFlipHor.Location = new System.Drawing.Point(3, 70);
+            this.BtnFlipHor.Name = "BtnFlipHor";
+            this.BtnFlipHor.Size = new System.Drawing.Size(182, 65);
+            this.BtnFlipHor.TabIndex = 1;
+            this.BtnFlipHor.Text = "Flip horizontal";
+            this.BtnFlipHor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnFlipHor.UseVisualStyleBackColor = false;
+            this.BtnFlipHor.Click += new System.EventHandler(this.BtnFlipHor_Click);
+            // 
+            // BtnFlipVer
+            // 
+            this.BtnFlipVer.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFlipVer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnFlipVer.Image = global::paint.Properties.Resources.flip;
+            this.BtnFlipVer.Location = new System.Drawing.Point(3, 5);
+            this.BtnFlipVer.Name = "BtnFlipVer";
+            this.BtnFlipVer.Size = new System.Drawing.Size(182, 65);
+            this.BtnFlipVer.TabIndex = 0;
+            this.BtnFlipVer.Text = "Flip vertical";
+            this.BtnFlipVer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnFlipVer.UseVisualStyleBackColor = false;
+            this.BtnFlipVer.Click += new System.EventHandler(this.BtnFlipVer_Click);
+            // 
             // PnlDrawing
             // 
             this.PnlDrawing.AutoScroll = true;
@@ -444,6 +498,21 @@
             this.PnlDrawing.Name = "PnlDrawing";
             this.PnlDrawing.Size = new System.Drawing.Size(1461, 425);
             this.PnlDrawing.TabIndex = 2;
+            // 
+            // PcBMainDrawing
+            // 
+            this.PcBMainDrawing.Location = new System.Drawing.Point(0, 0);
+            this.PcBMainDrawing.Margin = new System.Windows.Forms.Padding(0);
+            this.PcBMainDrawing.Name = "PcBMainDrawing";
+            this.PcBMainDrawing.Size = new System.Drawing.Size(800, 300);
+            this.PcBMainDrawing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PcBMainDrawing.TabIndex = 0;
+            this.PcBMainDrawing.TabStop = false;
+            this.PcBMainDrawing.Paint += new System.Windows.Forms.PaintEventHandler(this.PcBMainDrawing_Paint);
+            this.PcBMainDrawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseClick);
+            this.PcBMainDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseDown);
+            this.PcBMainDrawing.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseMove);
+            this.PcBMainDrawing.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseUp);
             // 
             // PnlControlFooter
             // 
@@ -483,6 +552,22 @@
             this.LbPageSizePoint.TabIndex = 20;
             this.LbPageSizePoint.Text = "0";
             // 
+            // BtnPageSize
+            // 
+            this.BtnPageSize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPageSize.BackgroundImage = global::paint.Properties.Resources.page_size;
+            this.BtnPageSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnPageSize.Enabled = false;
+            this.BtnPageSize.FlatAppearance.BorderSize = 0;
+            this.BtnPageSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPageSize.Location = new System.Drawing.Point(371, 13);
+            this.BtnPageSize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnPageSize.Name = "BtnPageSize";
+            this.BtnPageSize.Size = new System.Drawing.Size(20, 18);
+            this.BtnPageSize.TabIndex = 19;
+            this.BtnPageSize.Tag = "18";
+            this.BtnPageSize.UseVisualStyleBackColor = false;
+            // 
             // LbBar2
             // 
             this.LbBar2.AutoSize = true;
@@ -502,6 +587,22 @@
             this.LbShapeSizePoint.TabIndex = 17;
             this.LbShapeSizePoint.Text = "0";
             // 
+            // BtnShapeSize
+            // 
+            this.BtnShapeSize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShapeSize.BackgroundImage = global::paint.Properties.Resources.select;
+            this.BtnShapeSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShapeSize.Enabled = false;
+            this.BtnShapeSize.FlatAppearance.BorderSize = 0;
+            this.BtnShapeSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShapeSize.Location = new System.Drawing.Point(194, 14);
+            this.BtnShapeSize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnShapeSize.Name = "BtnShapeSize";
+            this.BtnShapeSize.Size = new System.Drawing.Size(20, 18);
+            this.BtnShapeSize.TabIndex = 16;
+            this.BtnShapeSize.Tag = "18";
+            this.BtnShapeSize.UseVisualStyleBackColor = false;
+            // 
             // LbBar1
             // 
             this.LbBar1.AutoSize = true;
@@ -510,6 +611,22 @@
             this.LbBar1.Size = new System.Drawing.Size(13, 20);
             this.LbBar1.TabIndex = 15;
             this.LbBar1.Text = "|";
+            // 
+            // BtnLocation
+            // 
+            this.BtnLocation.BackColor = System.Drawing.Color.Transparent;
+            this.BtnLocation.BackgroundImage = global::paint.Properties.Resources.arrow_pointer;
+            this.BtnLocation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnLocation.Enabled = false;
+            this.BtnLocation.FlatAppearance.BorderSize = 0;
+            this.BtnLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLocation.Location = new System.Drawing.Point(17, 14);
+            this.BtnLocation.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnLocation.Name = "BtnLocation";
+            this.BtnLocation.Size = new System.Drawing.Size(20, 18);
+            this.BtnLocation.TabIndex = 13;
+            this.BtnLocation.Tag = "18";
+            this.BtnLocation.UseVisualStyleBackColor = false;
             // 
             // PnlControlDrawing
             // 
@@ -579,6 +696,1515 @@
             this.FLBColorOptions.Name = "FLBColorOptions";
             this.FLBColorOptions.Size = new System.Drawing.Size(252, 77);
             this.FLBColorOptions.TabIndex = 1;
+            // 
+            // BtnEditColor
+            // 
+            this.BtnEditColor.BackColor = System.Drawing.Color.Transparent;
+            this.BtnEditColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnEditColor.FlatAppearance.BorderSize = 0;
+            this.BtnEditColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditColor.Image = global::paint.Properties.Resources.color_wheel;
+            this.BtnEditColor.Location = new System.Drawing.Point(354, 34);
+            this.BtnEditColor.Name = "BtnEditColor";
+            this.BtnEditColor.Size = new System.Drawing.Size(48, 44);
+            this.BtnEditColor.TabIndex = 73;
+            this.BtnEditColor.Tag = "69";
+            this.BtnEditColor.UseVisualStyleBackColor = false;
+            this.BtnEditColor.Click += new System.EventHandler(this.Handler_ColorWheel_Click);
+            this.BtnEditColor.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnEditColor.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // LbColors
+            // 
+            this.LbColors.AutoSize = true;
+            this.LbColors.Location = new System.Drawing.Point(181, 97);
+            this.LbColors.Name = "LbColors";
+            this.LbColors.Size = new System.Drawing.Size(57, 20);
+            this.LbColors.TabIndex = 43;
+            this.LbColors.Text = "Colors";
+            // 
+            // PnlControlSize
+            // 
+            this.PnlControlSize.BackColor = System.Drawing.Color.Transparent;
+            this.PnlControlSize.Controls.Add(this.PnlControlPenWidth);
+            this.PnlControlSize.Controls.Add(this.PcbBar6);
+            this.PnlControlSize.Controls.Add(this.LbSize);
+            this.PnlControlSize.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlControlSize.Location = new System.Drawing.Point(955, 1);
+            this.PnlControlSize.Name = "PnlControlSize";
+            this.PnlControlSize.Size = new System.Drawing.Size(77, 130);
+            this.PnlControlSize.TabIndex = 5;
+            // 
+            // PnlControlPenWidth
+            // 
+            this.PnlControlPenWidth.Controls.Add(this.BtnSize);
+            this.PnlControlPenWidth.Controls.Add(this.BtnSizeOptions);
+            this.PnlControlPenWidth.Location = new System.Drawing.Point(18, 25);
+            this.PnlControlPenWidth.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlControlPenWidth.Name = "PnlControlPenWidth";
+            this.PnlControlPenWidth.Padding = new System.Windows.Forms.Padding(1);
+            this.PnlControlPenWidth.Size = new System.Drawing.Size(42, 66);
+            this.PnlControlPenWidth.TabIndex = 3;
+            this.PnlControlPenWidth.Tag = "68";
+            this.PnlControlPenWidth.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlControlPenWidth_Paint);
+            this.PnlControlPenWidth.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlControlPenWidth_MouseClick);
+            this.PnlControlPenWidth.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.PnlControlPenWidth.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnSize
+            // 
+            this.BtnSize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSize.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnSize.Enabled = false;
+            this.BtnSize.FlatAppearance.BorderSize = 0;
+            this.BtnSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSize.Image = global::paint.Properties.Resources.shape_size;
+            this.BtnSize.Location = new System.Drawing.Point(1, 1);
+            this.BtnSize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnSize.Name = "BtnSize";
+            this.BtnSize.Size = new System.Drawing.Size(40, 34);
+            this.BtnSize.TabIndex = 1;
+            this.BtnSize.UseVisualStyleBackColor = false;
+            // 
+            // BtnSizeOptions
+            // 
+            this.BtnSizeOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSizeOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnSizeOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSizeOptions.Enabled = false;
+            this.BtnSizeOptions.FlatAppearance.BorderSize = 0;
+            this.BtnSizeOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSizeOptions.Location = new System.Drawing.Point(13, 37);
+            this.BtnSizeOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnSizeOptions.Name = "BtnSizeOptions";
+            this.BtnSizeOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnSizeOptions.TabIndex = 2;
+            this.BtnSizeOptions.UseVisualStyleBackColor = false;
+            // 
+            // PcbBar6
+            // 
+            this.PcbBar6.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar6.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar6.Location = new System.Drawing.Point(55, 0);
+            this.PcbBar6.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar6.Name = "PcbBar6";
+            this.PcbBar6.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar6.TabIndex = 2;
+            this.PcbBar6.TabStop = false;
+            // 
+            // LbSize
+            // 
+            this.LbSize.AutoSize = true;
+            this.LbSize.Location = new System.Drawing.Point(20, 98);
+            this.LbSize.Name = "LbSize";
+            this.LbSize.Size = new System.Drawing.Size(39, 20);
+            this.LbSize.TabIndex = 0;
+            this.LbSize.Text = "Size";
+            // 
+            // PnlControlShape
+            // 
+            this.PnlControlShape.Controls.Add(this.PnlPenDashStyle);
+            this.PnlControlShape.Controls.Add(this.PcbBar5);
+            this.PnlControlShape.Controls.Add(this.FLPShape);
+            this.PnlControlShape.Controls.Add(this.BtnShapeOutlineOptions);
+            this.PnlControlShape.Controls.Add(this.BtnShapeOutline);
+            this.PnlControlShape.Controls.Add(this.LbShape);
+            this.PnlControlShape.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlControlShape.Location = new System.Drawing.Point(624, 1);
+            this.PnlControlShape.Name = "PnlControlShape";
+            this.PnlControlShape.Size = new System.Drawing.Size(331, 130);
+            this.PnlControlShape.TabIndex = 4;
+            // 
+            // PnlPenDashStyle
+            // 
+            this.PnlPenDashStyle.Controls.Add(this.BtnPenDashStyle);
+            this.PnlPenDashStyle.Controls.Add(this.BtnPenDashStyleOptions);
+            this.PnlPenDashStyle.Location = new System.Drawing.Point(252, 53);
+            this.PnlPenDashStyle.Name = "PnlPenDashStyle";
+            this.PnlPenDashStyle.Size = new System.Drawing.Size(54, 34);
+            this.PnlPenDashStyle.TabIndex = 17;
+            this.PnlPenDashStyle.Tag = "32";
+            this.PnlPenDashStyle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlPenDashStyle_MouseClick);
+            this.PnlPenDashStyle.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.PnlPenDashStyle.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnPenDashStyle
+            // 
+            this.BtnPenDashStyle.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPenDashStyle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnPenDashStyle.Enabled = false;
+            this.BtnPenDashStyle.FlatAppearance.BorderSize = 0;
+            this.BtnPenDashStyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPenDashStyle.Image = global::paint.Properties.Resources.pen_style;
+            this.BtnPenDashStyle.Location = new System.Drawing.Point(0, 0);
+            this.BtnPenDashStyle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnPenDashStyle.Name = "BtnPenDashStyle";
+            this.BtnPenDashStyle.Size = new System.Drawing.Size(32, 34);
+            this.BtnPenDashStyle.TabIndex = 10;
+            this.BtnPenDashStyle.UseVisualStyleBackColor = false;
+            // 
+            // BtnPenDashStyleOptions
+            // 
+            this.BtnPenDashStyleOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPenDashStyleOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnPenDashStyleOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnPenDashStyleOptions.Enabled = false;
+            this.BtnPenDashStyleOptions.FlatAppearance.BorderSize = 0;
+            this.BtnPenDashStyleOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPenDashStyleOptions.Location = new System.Drawing.Point(35, 7);
+            this.BtnPenDashStyleOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnPenDashStyleOptions.Name = "BtnPenDashStyleOptions";
+            this.BtnPenDashStyleOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnPenDashStyleOptions.TabIndex = 12;
+            this.BtnPenDashStyleOptions.UseVisualStyleBackColor = false;
+            // 
+            // PcbBar5
+            // 
+            this.PcbBar5.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar5.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar5.Location = new System.Drawing.Point(309, 0);
+            this.PcbBar5.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar5.Name = "PcbBar5";
+            this.PcbBar5.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar5.TabIndex = 2;
+            this.PcbBar5.TabStop = false;
+            // 
+            // FLPShape
+            // 
+            this.FLPShape.AutoScroll = true;
+            this.FLPShape.Controls.Add(this.BtnShape1);
+            this.FLPShape.Controls.Add(this.BtnShape2);
+            this.FLPShape.Controls.Add(this.BtnShape3);
+            this.FLPShape.Controls.Add(this.BtnShape4);
+            this.FLPShape.Controls.Add(this.BtnShape5);
+            this.FLPShape.Controls.Add(this.BtnShape6);
+            this.FLPShape.Controls.Add(this.BtnShape7);
+            this.FLPShape.Controls.Add(this.BtnShape8);
+            this.FLPShape.Controls.Add(this.BtnShape9);
+            this.FLPShape.Controls.Add(this.BtnShape10);
+            this.FLPShape.Controls.Add(this.BtnShape11);
+            this.FLPShape.Controls.Add(this.BtnShape12);
+            this.FLPShape.Controls.Add(this.BtnShape13);
+            this.FLPShape.Controls.Add(this.BtnShape14);
+            this.FLPShape.Controls.Add(this.BtnShape15);
+            this.FLPShape.Controls.Add(this.BtnShape16);
+            this.FLPShape.Controls.Add(this.BtnShape17);
+            this.FLPShape.Controls.Add(this.BtnShape18);
+            this.FLPShape.Controls.Add(this.BtnShape19);
+            this.FLPShape.Controls.Add(this.BtnShape20);
+            this.FLPShape.Controls.Add(this.BtnShape21);
+            this.FLPShape.Controls.Add(this.BtnShape22);
+            this.FLPShape.Location = new System.Drawing.Point(19, 9);
+            this.FLPShape.Name = "FLPShape";
+            this.FLPShape.Size = new System.Drawing.Size(216, 90);
+            this.FLPShape.TabIndex = 1;
+            // 
+            // BtnShape1
+            // 
+            this.BtnShape1.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape1.FlatAppearance.BorderSize = 0;
+            this.BtnShape1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape1.Image = global::paint.Properties.Resources.diagonal_line;
+            this.BtnShape1.Location = new System.Drawing.Point(5, 5);
+            this.BtnShape1.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
+            this.BtnShape1.Name = "BtnShape1";
+            this.BtnShape1.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape1.TabIndex = 13;
+            this.BtnShape1.Tag = "42";
+            this.BtnShape1.UseVisualStyleBackColor = false;
+            this.BtnShape1.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape2
+            // 
+            this.BtnShape2.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape2.FlatAppearance.BorderSize = 0;
+            this.BtnShape2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape2.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape2.Image = global::paint.Properties.Resources.curve_line;
+            this.BtnShape2.Location = new System.Drawing.Point(32, 5);
+            this.BtnShape2.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape2.Name = "BtnShape2";
+            this.BtnShape2.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape2.TabIndex = 14;
+            this.BtnShape2.Tag = "43";
+            this.BtnShape2.UseVisualStyleBackColor = false;
+            this.BtnShape2.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape3
+            // 
+            this.BtnShape3.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape3.FlatAppearance.BorderSize = 0;
+            this.BtnShape3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape3.Image = global::paint.Properties.Resources.ellipse;
+            this.BtnShape3.Location = new System.Drawing.Point(59, 5);
+            this.BtnShape3.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape3.Name = "BtnShape3";
+            this.BtnShape3.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape3.TabIndex = 15;
+            this.BtnShape3.Tag = "44";
+            this.BtnShape3.UseVisualStyleBackColor = false;
+            this.BtnShape3.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape4
+            // 
+            this.BtnShape4.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape4.FlatAppearance.BorderSize = 0;
+            this.BtnShape4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape4.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape4.Image = global::paint.Properties.Resources.rectangular_shape_outline;
+            this.BtnShape4.Location = new System.Drawing.Point(86, 5);
+            this.BtnShape4.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape4.Name = "BtnShape4";
+            this.BtnShape4.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape4.TabIndex = 16;
+            this.BtnShape4.Tag = "45";
+            this.BtnShape4.UseVisualStyleBackColor = false;
+            this.BtnShape4.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape5
+            // 
+            this.BtnShape5.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape5.FlatAppearance.BorderSize = 0;
+            this.BtnShape5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape5.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape5.Image = global::paint.Properties.Resources.rounded_rectangle;
+            this.BtnShape5.Location = new System.Drawing.Point(113, 5);
+            this.BtnShape5.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape5.Name = "BtnShape5";
+            this.BtnShape5.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape5.TabIndex = 17;
+            this.BtnShape5.Tag = "46";
+            this.BtnShape5.UseVisualStyleBackColor = false;
+            this.BtnShape5.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape6
+            // 
+            this.BtnShape6.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape6.FlatAppearance.BorderSize = 0;
+            this.BtnShape6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape6.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape6.Image = global::paint.Properties.Resources.polygon;
+            this.BtnShape6.Location = new System.Drawing.Point(140, 5);
+            this.BtnShape6.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape6.Name = "BtnShape6";
+            this.BtnShape6.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape6.TabIndex = 18;
+            this.BtnShape6.Tag = "47";
+            this.BtnShape6.UseVisualStyleBackColor = false;
+            this.BtnShape6.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape7
+            // 
+            this.BtnShape7.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape7.FlatAppearance.BorderSize = 0;
+            this.BtnShape7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape7.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape7.Image = global::paint.Properties.Resources.triangle;
+            this.BtnShape7.Location = new System.Drawing.Point(167, 5);
+            this.BtnShape7.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape7.Name = "BtnShape7";
+            this.BtnShape7.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape7.TabIndex = 19;
+            this.BtnShape7.Tag = "48";
+            this.BtnShape7.UseVisualStyleBackColor = false;
+            this.BtnShape7.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape8
+            // 
+            this.BtnShape8.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape8.FlatAppearance.BorderSize = 0;
+            this.BtnShape8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape8.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape8.Image = global::paint.Properties.Resources.right_triangle;
+            this.BtnShape8.Location = new System.Drawing.Point(5, 35);
+            this.BtnShape8.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
+            this.BtnShape8.Name = "BtnShape8";
+            this.BtnShape8.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape8.TabIndex = 20;
+            this.BtnShape8.Tag = "49";
+            this.BtnShape8.UseVisualStyleBackColor = false;
+            this.BtnShape8.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape9
+            // 
+            this.BtnShape9.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape9.FlatAppearance.BorderSize = 0;
+            this.BtnShape9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape9.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape9.Image = global::paint.Properties.Resources.diamond;
+            this.BtnShape9.Location = new System.Drawing.Point(32, 35);
+            this.BtnShape9.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape9.Name = "BtnShape9";
+            this.BtnShape9.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape9.TabIndex = 21;
+            this.BtnShape9.Tag = "50";
+            this.BtnShape9.UseVisualStyleBackColor = false;
+            this.BtnShape9.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape10
+            // 
+            this.BtnShape10.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape10.FlatAppearance.BorderSize = 0;
+            this.BtnShape10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape10.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape10.Image = global::paint.Properties.Resources.pentagon_outline_shape;
+            this.BtnShape10.Location = new System.Drawing.Point(59, 35);
+            this.BtnShape10.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape10.Name = "BtnShape10";
+            this.BtnShape10.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape10.TabIndex = 22;
+            this.BtnShape10.Tag = "51";
+            this.BtnShape10.UseVisualStyleBackColor = false;
+            this.BtnShape10.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape11
+            // 
+            this.BtnShape11.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape11.FlatAppearance.BorderSize = 0;
+            this.BtnShape11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape11.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape11.Image = global::paint.Properties.Resources.hexagon_geometrical_shape_outline;
+            this.BtnShape11.Location = new System.Drawing.Point(86, 35);
+            this.BtnShape11.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape11.Name = "BtnShape11";
+            this.BtnShape11.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape11.TabIndex = 23;
+            this.BtnShape11.Tag = "52";
+            this.BtnShape11.UseVisualStyleBackColor = false;
+            this.BtnShape11.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape12
+            // 
+            this.BtnShape12.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape12.FlatAppearance.BorderSize = 0;
+            this.BtnShape12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape12.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape12.Image = global::paint.Properties.Resources.right_arrow;
+            this.BtnShape12.Location = new System.Drawing.Point(113, 35);
+            this.BtnShape12.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape12.Name = "BtnShape12";
+            this.BtnShape12.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape12.TabIndex = 24;
+            this.BtnShape12.Tag = "53";
+            this.BtnShape12.UseVisualStyleBackColor = false;
+            this.BtnShape12.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape13
+            // 
+            this.BtnShape13.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape13.FlatAppearance.BorderSize = 0;
+            this.BtnShape13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape13.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape13.Image = global::paint.Properties.Resources.left_arrow;
+            this.BtnShape13.Location = new System.Drawing.Point(140, 35);
+            this.BtnShape13.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape13.Name = "BtnShape13";
+            this.BtnShape13.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape13.TabIndex = 25;
+            this.BtnShape13.Tag = "54";
+            this.BtnShape13.UseVisualStyleBackColor = false;
+            this.BtnShape13.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape14
+            // 
+            this.BtnShape14.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape14.FlatAppearance.BorderSize = 0;
+            this.BtnShape14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape14.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape14.Image = global::paint.Properties.Resources.up_arrow;
+            this.BtnShape14.Location = new System.Drawing.Point(167, 35);
+            this.BtnShape14.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape14.Name = "BtnShape14";
+            this.BtnShape14.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape14.TabIndex = 26;
+            this.BtnShape14.Tag = "55";
+            this.BtnShape14.UseVisualStyleBackColor = false;
+            this.BtnShape14.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape15
+            // 
+            this.BtnShape15.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape15.FlatAppearance.BorderSize = 0;
+            this.BtnShape15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape15.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape15.Image = global::paint.Properties.Resources.arrow_down;
+            this.BtnShape15.Location = new System.Drawing.Point(5, 65);
+            this.BtnShape15.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
+            this.BtnShape15.Name = "BtnShape15";
+            this.BtnShape15.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape15.TabIndex = 27;
+            this.BtnShape15.Tag = "56";
+            this.BtnShape15.UseVisualStyleBackColor = false;
+            this.BtnShape15.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape16
+            // 
+            this.BtnShape16.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape16.FlatAppearance.BorderSize = 0;
+            this.BtnShape16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape16.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape16.Image = global::paint.Properties.Resources._4_point_star;
+            this.BtnShape16.Location = new System.Drawing.Point(32, 65);
+            this.BtnShape16.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape16.Name = "BtnShape16";
+            this.BtnShape16.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape16.TabIndex = 28;
+            this.BtnShape16.Tag = "57";
+            this.BtnShape16.UseVisualStyleBackColor = false;
+            this.BtnShape16.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape17
+            // 
+            this.BtnShape17.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape17.FlatAppearance.BorderSize = 0;
+            this.BtnShape17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape17.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape17.Image = global::paint.Properties.Resources._5_point_star;
+            this.BtnShape17.Location = new System.Drawing.Point(59, 65);
+            this.BtnShape17.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape17.Name = "BtnShape17";
+            this.BtnShape17.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape17.TabIndex = 29;
+            this.BtnShape17.Tag = "58";
+            this.BtnShape17.UseVisualStyleBackColor = false;
+            this.BtnShape17.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape18
+            // 
+            this.BtnShape18.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape18.FlatAppearance.BorderSize = 0;
+            this.BtnShape18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape18.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape18.Image = global::paint.Properties.Resources.six_pointed_star;
+            this.BtnShape18.Location = new System.Drawing.Point(86, 65);
+            this.BtnShape18.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape18.Name = "BtnShape18";
+            this.BtnShape18.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape18.TabIndex = 30;
+            this.BtnShape18.Tag = "59";
+            this.BtnShape18.UseVisualStyleBackColor = false;
+            this.BtnShape18.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape19
+            // 
+            this.BtnShape19.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape19.FlatAppearance.BorderSize = 0;
+            this.BtnShape19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape19.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape19.Image = global::paint.Properties.Resources.comment;
+            this.BtnShape19.Location = new System.Drawing.Point(113, 65);
+            this.BtnShape19.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape19.Name = "BtnShape19";
+            this.BtnShape19.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape19.TabIndex = 31;
+            this.BtnShape19.Tag = "60";
+            this.BtnShape19.UseVisualStyleBackColor = false;
+            this.BtnShape19.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape20
+            // 
+            this.BtnShape20.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape20.FlatAppearance.BorderSize = 0;
+            this.BtnShape20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape20.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape20.Image = global::paint.Properties.Resources.chat;
+            this.BtnShape20.Location = new System.Drawing.Point(140, 65);
+            this.BtnShape20.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape20.Name = "BtnShape20";
+            this.BtnShape20.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape20.TabIndex = 32;
+            this.BtnShape20.Tag = "61";
+            this.BtnShape20.UseVisualStyleBackColor = false;
+            this.BtnShape20.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape21
+            // 
+            this.BtnShape21.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape21.FlatAppearance.BorderSize = 0;
+            this.BtnShape21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape21.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape21.Image = global::paint.Properties.Resources.heart;
+            this.BtnShape21.Location = new System.Drawing.Point(167, 65);
+            this.BtnShape21.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
+            this.BtnShape21.Name = "BtnShape21";
+            this.BtnShape21.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape21.TabIndex = 33;
+            this.BtnShape21.Tag = "62";
+            this.BtnShape21.UseVisualStyleBackColor = false;
+            this.BtnShape21.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShape22
+            // 
+            this.BtnShape22.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShape22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShape22.FlatAppearance.BorderSize = 0;
+            this.BtnShape22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShape22.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.BtnShape22.Image = global::paint.Properties.Resources.flash;
+            this.BtnShape22.Location = new System.Drawing.Point(5, 95);
+            this.BtnShape22.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
+            this.BtnShape22.Name = "BtnShape22";
+            this.BtnShape22.Size = new System.Drawing.Size(23, 23);
+            this.BtnShape22.TabIndex = 34;
+            this.BtnShape22.Tag = "63";
+            this.BtnShape22.UseVisualStyleBackColor = false;
+            this.BtnShape22.Click += new System.EventHandler(this.Handler_Shapes_Click);
+            // 
+            // BtnShapeOutlineOptions
+            // 
+            this.BtnShapeOutlineOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShapeOutlineOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnShapeOutlineOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShapeOutlineOptions.FlatAppearance.BorderSize = 0;
+            this.BtnShapeOutlineOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShapeOutlineOptions.Location = new System.Drawing.Point(289, 18);
+            this.BtnShapeOutlineOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnShapeOutlineOptions.Name = "BtnShapeOutlineOptions";
+            this.BtnShapeOutlineOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnShapeOutlineOptions.TabIndex = 16;
+            this.BtnShapeOutlineOptions.Tag = "65";
+            this.BtnShapeOutlineOptions.UseVisualStyleBackColor = false;
+            this.BtnShapeOutlineOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnShapeOutlineOptions.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnShapeOutline
+            // 
+            this.BtnShapeOutline.BackColor = System.Drawing.Color.Transparent;
+            this.BtnShapeOutline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnShapeOutline.FlatAppearance.BorderSize = 0;
+            this.BtnShapeOutline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShapeOutline.Image = global::paint.Properties.Resources.outline;
+            this.BtnShapeOutline.Location = new System.Drawing.Point(254, 9);
+            this.BtnShapeOutline.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnShapeOutline.Name = "BtnShapeOutline";
+            this.BtnShapeOutline.Size = new System.Drawing.Size(32, 34);
+            this.BtnShapeOutline.TabIndex = 14;
+            this.BtnShapeOutline.Tag = "64";
+            this.BtnShapeOutline.UseVisualStyleBackColor = false;
+            this.BtnShapeOutline.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnShapeOutline.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // LbShape
+            // 
+            this.LbShape.AutoSize = true;
+            this.LbShape.Location = new System.Drawing.Point(144, 101);
+            this.LbShape.Name = "LbShape";
+            this.LbShape.Size = new System.Drawing.Size(56, 20);
+            this.LbShape.TabIndex = 5;
+            this.LbShape.Text = "Shape";
+            // 
+            // PnlBrushes
+            // 
+            this.PnlBrushes.BackColor = System.Drawing.Color.Transparent;
+            this.PnlBrushes.Controls.Add(this.PnlBrush);
+            this.PnlBrushes.Controls.Add(this.PcbBar4);
+            this.PnlBrushes.Controls.Add(this.LbBrushes);
+            this.PnlBrushes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlBrushes.Location = new System.Drawing.Point(537, 1);
+            this.PnlBrushes.Name = "PnlBrushes";
+            this.PnlBrushes.Size = new System.Drawing.Size(87, 130);
+            this.PnlBrushes.TabIndex = 3;
+            // 
+            // PnlBrush
+            // 
+            this.PnlBrush.Controls.Add(this.BtnBrush);
+            this.PnlBrush.Controls.Add(this.BtnBrushOptions);
+            this.PnlBrush.Location = new System.Drawing.Point(23, 32);
+            this.PnlBrush.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlBrush.Name = "PnlBrush";
+            this.PnlBrush.Padding = new System.Windows.Forms.Padding(1);
+            this.PnlBrush.Size = new System.Drawing.Size(42, 66);
+            this.PnlBrush.TabIndex = 4;
+            this.PnlBrush.Tag = "68";
+            this.PnlBrush.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlBrush_MouseClick);
+            this.PnlBrush.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.PnlBrush.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnBrush
+            // 
+            this.BtnBrush.BackColor = System.Drawing.Color.Transparent;
+            this.BtnBrush.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBrush.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBrush.Enabled = false;
+            this.BtnBrush.FlatAppearance.BorderSize = 0;
+            this.BtnBrush.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBrush.Image = global::paint.Properties.Resources.brush;
+            this.BtnBrush.Location = new System.Drawing.Point(1, 1);
+            this.BtnBrush.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBrush.Name = "BtnBrush";
+            this.BtnBrush.Size = new System.Drawing.Size(40, 34);
+            this.BtnBrush.TabIndex = 1;
+            this.BtnBrush.UseVisualStyleBackColor = false;
+            // 
+            // BtnBrushOptions
+            // 
+            this.BtnBrushOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnBrushOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnBrushOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBrushOptions.Enabled = false;
+            this.BtnBrushOptions.FlatAppearance.BorderSize = 0;
+            this.BtnBrushOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBrushOptions.Location = new System.Drawing.Point(13, 37);
+            this.BtnBrushOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBrushOptions.Name = "BtnBrushOptions";
+            this.BtnBrushOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnBrushOptions.TabIndex = 2;
+            this.BtnBrushOptions.UseVisualStyleBackColor = false;
+            // 
+            // PcbBar4
+            // 
+            this.PcbBar4.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar4.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar4.Location = new System.Drawing.Point(65, -1);
+            this.PcbBar4.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar4.Name = "PcbBar4";
+            this.PcbBar4.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar4.TabIndex = 2;
+            this.PcbBar4.TabStop = false;
+            // 
+            // LbBrushes
+            // 
+            this.LbBrushes.AutoSize = true;
+            this.LbBrushes.Location = new System.Drawing.Point(10, 98);
+            this.LbBrushes.Name = "LbBrushes";
+            this.LbBrushes.Size = new System.Drawing.Size(68, 20);
+            this.LbBrushes.TabIndex = 0;
+            this.LbBrushes.Text = "Brushes";
+            // 
+            // PnlControlTools
+            // 
+            this.PnlControlTools.BackColor = System.Drawing.Color.Transparent;
+            this.PnlControlTools.Controls.Add(this.PcbBar3);
+            this.PnlControlTools.Controls.Add(this.BtnMagnifier);
+            this.PnlControlTools.Controls.Add(this.BtnColorPicker);
+            this.PnlControlTools.Controls.Add(this.BtnText);
+            this.PnlControlTools.Controls.Add(this.BtnEraser);
+            this.PnlControlTools.Controls.Add(this.BtnFill);
+            this.PnlControlTools.Controls.Add(this.BtnPencil);
+            this.PnlControlTools.Controls.Add(this.LbTools);
+            this.PnlControlTools.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlControlTools.Location = new System.Drawing.Point(337, 1);
+            this.PnlControlTools.Name = "PnlControlTools";
+            this.PnlControlTools.Size = new System.Drawing.Size(200, 130);
+            this.PnlControlTools.TabIndex = 2;
+            // 
+            // PcbBar3
+            // 
+            this.PcbBar3.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar3.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar3.Location = new System.Drawing.Point(178, 0);
+            this.PcbBar3.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar3.Name = "PcbBar3";
+            this.PcbBar3.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar3.TabIndex = 17;
+            this.PcbBar3.TabStop = false;
+            // 
+            // BtnMagnifier
+            // 
+            this.BtnMagnifier.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMagnifier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMagnifier.FlatAppearance.BorderSize = 0;
+            this.BtnMagnifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMagnifier.Image = global::paint.Properties.Resources.magnifying_glass;
+            this.BtnMagnifier.Location = new System.Drawing.Point(143, 65);
+            this.BtnMagnifier.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMagnifier.Name = "BtnMagnifier";
+            this.BtnMagnifier.Size = new System.Drawing.Size(32, 34);
+            this.BtnMagnifier.TabIndex = 12;
+            this.BtnMagnifier.Tag = "39";
+            this.BtnMagnifier.UseVisualStyleBackColor = false;
+            this.BtnMagnifier.Click += new System.EventHandler(this.Handler_Tools_Click);
+            this.BtnMagnifier.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnMagnifier.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnColorPicker
+            // 
+            this.BtnColorPicker.BackColor = System.Drawing.Color.Transparent;
+            this.BtnColorPicker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnColorPicker.FlatAppearance.BorderSize = 0;
+            this.BtnColorPicker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColorPicker.Image = global::paint.Properties.Resources.color_picker;
+            this.BtnColorPicker.Location = new System.Drawing.Point(82, 62);
+            this.BtnColorPicker.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnColorPicker.Name = "BtnColorPicker";
+            this.BtnColorPicker.Size = new System.Drawing.Size(32, 34);
+            this.BtnColorPicker.TabIndex = 11;
+            this.BtnColorPicker.Tag = "37";
+            this.BtnColorPicker.UseVisualStyleBackColor = false;
+            this.BtnColorPicker.Click += new System.EventHandler(this.Handler_Tools_Click);
+            this.BtnColorPicker.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnColorPicker.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnText
+            // 
+            this.BtnText.BackColor = System.Drawing.Color.Transparent;
+            this.BtnText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnText.FlatAppearance.BorderSize = 0;
+            this.BtnText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnText.Image = global::paint.Properties.Resources.text;
+            this.BtnText.Location = new System.Drawing.Point(143, 11);
+            this.BtnText.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnText.Name = "BtnText";
+            this.BtnText.Size = new System.Drawing.Size(32, 34);
+            this.BtnText.TabIndex = 10;
+            this.BtnText.Tag = "38";
+            this.BtnText.UseVisualStyleBackColor = false;
+            this.BtnText.Click += new System.EventHandler(this.Handler_Tools_Click);
+            this.BtnText.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnText.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnEraser
+            // 
+            this.BtnEraser.BackColor = System.Drawing.Color.Transparent;
+            this.BtnEraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnEraser.FlatAppearance.BorderSize = 0;
+            this.BtnEraser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEraser.Image = global::paint.Properties.Resources.eraser;
+            this.BtnEraser.Location = new System.Drawing.Point(21, 58);
+            this.BtnEraser.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnEraser.Name = "BtnEraser";
+            this.BtnEraser.Size = new System.Drawing.Size(32, 34);
+            this.BtnEraser.TabIndex = 9;
+            this.BtnEraser.Tag = "35";
+            this.BtnEraser.UseVisualStyleBackColor = false;
+            this.BtnEraser.Click += new System.EventHandler(this.Handler_Tools_Click);
+            this.BtnEraser.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnEraser.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnFill
+            // 
+            this.BtnFill.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnFill.FlatAppearance.BorderSize = 0;
+            this.BtnFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFill.Image = global::paint.Properties.Resources.fill;
+            this.BtnFill.Location = new System.Drawing.Point(82, 11);
+            this.BtnFill.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnFill.Name = "BtnFill";
+            this.BtnFill.Size = new System.Drawing.Size(32, 34);
+            this.BtnFill.TabIndex = 8;
+            this.BtnFill.Tag = "36";
+            this.BtnFill.UseVisualStyleBackColor = false;
+            this.BtnFill.Click += new System.EventHandler(this.Handler_Tools_Click);
+            this.BtnFill.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnFill.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnPencil
+            // 
+            this.BtnPencil.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPencil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnPencil.FlatAppearance.BorderSize = 0;
+            this.BtnPencil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPencil.Image = global::paint.Properties.Resources.pen;
+            this.BtnPencil.Location = new System.Drawing.Point(21, 11);
+            this.BtnPencil.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnPencil.Name = "BtnPencil";
+            this.BtnPencil.Padding = new System.Windows.Forms.Padding(15);
+            this.BtnPencil.Size = new System.Drawing.Size(32, 34);
+            this.BtnPencil.TabIndex = 6;
+            this.BtnPencil.Tag = "34";
+            this.BtnPencil.UseVisualStyleBackColor = false;
+            this.BtnPencil.Click += new System.EventHandler(this.Handler_Tools_Click);
+            this.BtnPencil.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnPencil.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // LbTools
+            // 
+            this.LbTools.AutoSize = true;
+            this.LbTools.Location = new System.Drawing.Point(70, 101);
+            this.LbTools.Name = "LbTools";
+            this.LbTools.Size = new System.Drawing.Size(49, 20);
+            this.LbTools.TabIndex = 5;
+            this.LbTools.Text = "Tools";
+            // 
+            // PnlControlImage
+            // 
+            this.PnlControlImage.BackColor = System.Drawing.Color.Transparent;
+            this.PnlControlImage.Controls.Add(this.PnlRotate);
+            this.PnlControlImage.Controls.Add(this.PnlFlip);
+            this.PnlControlImage.Controls.Add(this.PcbBar2);
+            this.PnlControlImage.Controls.Add(this.BtnResize);
+            this.PnlControlImage.Controls.Add(this.BtnCrop);
+            this.PnlControlImage.Controls.Add(this.BtnSelectOptions);
+            this.PnlControlImage.Controls.Add(this.BtnSelect);
+            this.PnlControlImage.Controls.Add(this.LbImage);
+            this.PnlControlImage.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlControlImage.Location = new System.Drawing.Point(137, 1);
+            this.PnlControlImage.Name = "PnlControlImage";
+            this.PnlControlImage.Size = new System.Drawing.Size(200, 130);
+            this.PnlControlImage.TabIndex = 1;
+            // 
+            // PnlRotate
+            // 
+            this.PnlRotate.Controls.Add(this.BtnRotate);
+            this.PnlRotate.Controls.Add(this.BtnRotateOptions);
+            this.PnlRotate.Location = new System.Drawing.Point(125, 9);
+            this.PnlRotate.Name = "PnlRotate";
+            this.PnlRotate.Size = new System.Drawing.Size(54, 34);
+            this.PnlRotate.TabIndex = 14;
+            this.PnlRotate.Tag = "32";
+            this.PnlRotate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlRotate_MouseClick);
+            this.PnlRotate.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.PnlRotate.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnRotate
+            // 
+            this.BtnRotate.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRotate.Enabled = false;
+            this.BtnRotate.FlatAppearance.BorderSize = 0;
+            this.BtnRotate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRotate.Image = global::paint.Properties.Resources.rotate;
+            this.BtnRotate.Location = new System.Drawing.Point(0, 0);
+            this.BtnRotate.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnRotate.Name = "BtnRotate";
+            this.BtnRotate.Size = new System.Drawing.Size(32, 34);
+            this.BtnRotate.TabIndex = 10;
+            this.BtnRotate.UseVisualStyleBackColor = false;
+            // 
+            // BtnRotateOptions
+            // 
+            this.BtnRotateOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRotateOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnRotateOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRotateOptions.Enabled = false;
+            this.BtnRotateOptions.FlatAppearance.BorderSize = 0;
+            this.BtnRotateOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRotateOptions.Location = new System.Drawing.Point(35, 7);
+            this.BtnRotateOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnRotateOptions.Name = "BtnRotateOptions";
+            this.BtnRotateOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnRotateOptions.TabIndex = 12;
+            this.BtnRotateOptions.UseVisualStyleBackColor = false;
+            // 
+            // PnlFlip
+            // 
+            this.PnlFlip.Controls.Add(this.BtnFlipOptions);
+            this.PnlFlip.Controls.Add(this.BtnFlip);
+            this.PnlFlip.Location = new System.Drawing.Point(125, 62);
+            this.PnlFlip.Name = "PnlFlip";
+            this.PnlFlip.Size = new System.Drawing.Size(54, 33);
+            this.PnlFlip.TabIndex = 15;
+            this.PnlFlip.Tag = "33";
+            this.PnlFlip.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlFlip_MouseClick);
+            this.PnlFlip.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.PnlFlip.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnFlipOptions
+            // 
+            this.BtnFlipOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFlipOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnFlipOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnFlipOptions.Enabled = false;
+            this.BtnFlipOptions.FlatAppearance.BorderSize = 0;
+            this.BtnFlipOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFlipOptions.Location = new System.Drawing.Point(35, 7);
+            this.BtnFlipOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnFlipOptions.Name = "BtnFlipOptions";
+            this.BtnFlipOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnFlipOptions.TabIndex = 12;
+            this.BtnFlipOptions.UseVisualStyleBackColor = false;
+            // 
+            // BtnFlip
+            // 
+            this.BtnFlip.BackColor = System.Drawing.Color.Transparent;
+            this.BtnFlip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnFlip.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnFlip.Enabled = false;
+            this.BtnFlip.FlatAppearance.BorderSize = 0;
+            this.BtnFlip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFlip.Image = global::paint.Properties.Resources.flip;
+            this.BtnFlip.Location = new System.Drawing.Point(0, 0);
+            this.BtnFlip.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnFlip.Name = "BtnFlip";
+            this.BtnFlip.Size = new System.Drawing.Size(32, 33);
+            this.BtnFlip.TabIndex = 11;
+            this.BtnFlip.UseVisualStyleBackColor = false;
+            // 
+            // PcbBar2
+            // 
+            this.PcbBar2.BackColor = System.Drawing.Color.Transparent;
+            this.PcbBar2.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcbBar2.Location = new System.Drawing.Point(178, 0);
+            this.PcbBar2.Margin = new System.Windows.Forms.Padding(0);
+            this.PcbBar2.Name = "PcbBar2";
+            this.PcbBar2.Size = new System.Drawing.Size(46, 132);
+            this.PcbBar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbBar2.TabIndex = 16;
+            this.PcbBar2.TabStop = false;
+            // 
+            // BtnResize
+            // 
+            this.BtnResize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnResize.FlatAppearance.BorderSize = 0;
+            this.BtnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnResize.Image = global::paint.Properties.Resources.resize;
+            this.BtnResize.Location = new System.Drawing.Point(75, 53);
+            this.BtnResize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnResize.Name = "BtnResize";
+            this.BtnResize.Size = new System.Drawing.Size(32, 34);
+            this.BtnResize.TabIndex = 9;
+            this.BtnResize.Tag = "31";
+            this.BtnResize.UseVisualStyleBackColor = false;
+            this.BtnResize.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseClick);
+            this.BtnResize.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnResize.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnCrop
+            // 
+            this.BtnCrop.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCrop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCrop.FlatAppearance.BorderSize = 0;
+            this.BtnCrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCrop.Image = global::paint.Properties.Resources.crop;
+            this.BtnCrop.Location = new System.Drawing.Point(77, 9);
+            this.BtnCrop.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCrop.Name = "BtnCrop";
+            this.BtnCrop.Size = new System.Drawing.Size(32, 34);
+            this.BtnCrop.TabIndex = 8;
+            this.BtnCrop.Tag = "30";
+            this.BtnCrop.UseVisualStyleBackColor = false;
+            this.BtnCrop.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnCrop.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnSelectOptions
+            // 
+            this.BtnSelectOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSelectOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnSelectOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSelectOptions.FlatAppearance.BorderSize = 0;
+            this.BtnSelectOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSelectOptions.Location = new System.Drawing.Point(28, 65);
+            this.BtnSelectOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnSelectOptions.Name = "BtnSelectOptions";
+            this.BtnSelectOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnSelectOptions.TabIndex = 7;
+            this.BtnSelectOptions.Tag = "29";
+            this.BtnSelectOptions.UseVisualStyleBackColor = false;
+            this.BtnSelectOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnSelectOptions.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnSelect
+            // 
+            this.BtnSelect.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSelect.FlatAppearance.BorderSize = 0;
+            this.BtnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSelect.Image = global::paint.Properties.Resources.select;
+            this.BtnSelect.Location = new System.Drawing.Point(20, 29);
+            this.BtnSelect.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnSelect.Name = "BtnSelect";
+            this.BtnSelect.Size = new System.Drawing.Size(32, 34);
+            this.BtnSelect.TabIndex = 6;
+            this.BtnSelect.Tag = "28";
+            this.BtnSelect.UseVisualStyleBackColor = false;
+            this.BtnSelect.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnSelect.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // LbImage
+            // 
+            this.LbImage.AutoSize = true;
+            this.LbImage.Location = new System.Drawing.Point(70, 101);
+            this.LbImage.Name = "LbImage";
+            this.LbImage.Size = new System.Drawing.Size(57, 20);
+            this.LbImage.TabIndex = 5;
+            this.LbImage.Text = "Image";
+            // 
+            // PnlControlClipBoard
+            // 
+            this.PnlControlClipBoard.Controls.Add(this.BtnCopy);
+            this.PnlControlClipBoard.Controls.Add(this.BtnCut);
+            this.PnlControlClipBoard.Controls.Add(this.BtnPasteOptions);
+            this.PnlControlClipBoard.Controls.Add(this.BtnPaste);
+            this.PnlControlClipBoard.Controls.Add(this.LbClipboard);
+            this.PnlControlClipBoard.Controls.Add(this.PcBBar1);
+            this.PnlControlClipBoard.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlControlClipBoard.Location = new System.Drawing.Point(0, 1);
+            this.PnlControlClipBoard.Name = "PnlControlClipBoard";
+            this.PnlControlClipBoard.Size = new System.Drawing.Size(137, 130);
+            this.PnlControlClipBoard.TabIndex = 0;
+            // 
+            // BtnCopy
+            // 
+            this.BtnCopy.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCopy.FlatAppearance.BorderSize = 0;
+            this.BtnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCopy.Image = global::paint.Properties.Resources.copy;
+            this.BtnCopy.Location = new System.Drawing.Point(78, 53);
+            this.BtnCopy.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCopy.Name = "BtnCopy";
+            this.BtnCopy.Size = new System.Drawing.Size(32, 34);
+            this.BtnCopy.TabIndex = 4;
+            this.BtnCopy.Tag = "27";
+            this.BtnCopy.UseVisualStyleBackColor = false;
+            this.BtnCopy.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnCopy.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnCut
+            // 
+            this.BtnCut.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCut.FlatAppearance.BorderSize = 0;
+            this.BtnCut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCut.Image = global::paint.Properties.Resources.cut;
+            this.BtnCut.Location = new System.Drawing.Point(80, 9);
+            this.BtnCut.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCut.Name = "BtnCut";
+            this.BtnCut.Size = new System.Drawing.Size(32, 34);
+            this.BtnCut.TabIndex = 3;
+            this.BtnCut.Tag = "26";
+            this.BtnCut.UseVisualStyleBackColor = false;
+            this.BtnCut.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnCut.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnPasteOptions
+            // 
+            this.BtnPasteOptions.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPasteOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
+            this.BtnPasteOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnPasteOptions.FlatAppearance.BorderSize = 0;
+            this.BtnPasteOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPasteOptions.Location = new System.Drawing.Point(28, 65);
+            this.BtnPasteOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnPasteOptions.Name = "BtnPasteOptions";
+            this.BtnPasteOptions.Size = new System.Drawing.Size(16, 20);
+            this.BtnPasteOptions.TabIndex = 25;
+            this.BtnPasteOptions.Tag = "5.1";
+            this.BtnPasteOptions.UseVisualStyleBackColor = false;
+            this.BtnPasteOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnPasteOptions.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnPaste
+            // 
+            this.BtnPaste.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPaste.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnPaste.FlatAppearance.BorderSize = 0;
+            this.BtnPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPaste.Image = global::paint.Properties.Resources.paste;
+            this.BtnPaste.Location = new System.Drawing.Point(20, 29);
+            this.BtnPaste.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnPaste.Name = "BtnPaste";
+            this.BtnPaste.Size = new System.Drawing.Size(32, 34);
+            this.BtnPaste.TabIndex = 1;
+            this.BtnPaste.Tag = "24";
+            this.BtnPaste.UseVisualStyleBackColor = false;
+            this.BtnPaste.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnPaste.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // LbClipboard
+            // 
+            this.LbClipboard.AutoSize = true;
+            this.LbClipboard.Location = new System.Drawing.Point(27, 98);
+            this.LbClipboard.Name = "LbClipboard";
+            this.LbClipboard.Size = new System.Drawing.Size(83, 20);
+            this.LbClipboard.TabIndex = 0;
+            this.LbClipboard.Text = "Clipboard";
+            // 
+            // PcBBar1
+            // 
+            this.PcBBar1.BackColor = System.Drawing.Color.Transparent;
+            this.PcBBar1.Image = global::paint.Properties.Resources.Vertical_Line;
+            this.PcBBar1.Location = new System.Drawing.Point(115, 0);
+            this.PcBBar1.Margin = new System.Windows.Forms.Padding(0);
+            this.PcBBar1.Name = "PcBBar1";
+            this.PcBBar1.Size = new System.Drawing.Size(46, 132);
+            this.PcBBar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcBBar1.TabIndex = 1;
+            this.PcBBar1.TabStop = false;
+            // 
+            // PnlTitle
+            // 
+            this.PnlTitle.Controls.Add(this.BtnMinimize);
+            this.PnlTitle.Controls.Add(this.BtnMaximize);
+            this.PnlTitle.Controls.Add(this.BtnExit);
+            this.PnlTitle.Controls.Add(this.LbAppTitle);
+            this.PnlTitle.Controls.Add(this.PcbAppIcon);
+            this.PnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.PnlTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.PnlTitle.Name = "PnlTitle";
+            this.PnlTitle.Size = new System.Drawing.Size(1461, 38);
+            this.PnlTitle.TabIndex = 0;
+            this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseDown);
+            this.PnlTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseMove);
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnMinimize.FlatAppearance.BorderSize = 0;
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.Location = new System.Drawing.Point(1320, 0);
+            this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(47, 38);
+            this.BtnMinimize.TabIndex = 4;
+            this.BtnMinimize.Text = "🗕";
+            this.BtnMinimize.UseVisualStyleBackColor = false;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
+            // 
+            // BtnMaximize
+            // 
+            this.BtnMaximize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnMaximize.FlatAppearance.BorderSize = 0;
+            this.BtnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMaximize.Location = new System.Drawing.Point(1367, 0);
+            this.BtnMaximize.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMaximize.Name = "BtnMaximize";
+            this.BtnMaximize.Size = new System.Drawing.Size(47, 38);
+            this.BtnMaximize.TabIndex = 3;
+            this.BtnMaximize.Text = "🗖";
+            this.BtnMaximize.UseVisualStyleBackColor = false;
+            this.BtnMaximize.Click += new System.EventHandler(this.BtnMaximize_Click);
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
+            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnExit.FlatAppearance.BorderSize = 0;
+            this.BtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
+            this.BtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
+            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExit.Location = new System.Drawing.Point(1414, 0);
+            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(47, 38);
+            this.BtnExit.TabIndex = 2;
+            this.BtnExit.Text = "X";
+            this.BtnExit.UseVisualStyleBackColor = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            this.BtnExit.MouseEnter += new System.EventHandler(this.BtnExit_MouseEnter);
+            this.BtnExit.MouseLeave += new System.EventHandler(this.BtnExit_MouseLeave);
+            // 
+            // LbAppTitle
+            // 
+            this.LbAppTitle.AutoSize = true;
+            this.LbAppTitle.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbAppTitle.Location = new System.Drawing.Point(41, 11);
+            this.LbAppTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.LbAppTitle.Name = "LbAppTitle";
+            this.LbAppTitle.Size = new System.Drawing.Size(109, 19);
+            this.LbAppTitle.TabIndex = 1;
+            this.LbAppTitle.Text = "Untitled - Paint";
+            // 
+            // PcbAppIcon
+            // 
+            this.PcbAppIcon.BackColor = System.Drawing.Color.Transparent;
+            this.PcbAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PcbAppIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PcbAppIcon.Image = global::paint.Properties.Resources.paint;
+            this.PcbAppIcon.Location = new System.Drawing.Point(0, 0);
+            this.PcbAppIcon.Margin = new System.Windows.Forms.Padding(5);
+            this.PcbAppIcon.Name = "PcbAppIcon";
+            this.PcbAppIcon.Size = new System.Drawing.Size(36, 38);
+            this.PcbAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbAppIcon.TabIndex = 0;
+            this.PcbAppIcon.TabStop = false;
+            // 
+            // PnlControlPaint
+            // 
+            this.PnlControlPaint.Controls.Add(this.BtnRedo);
+            this.PnlControlPaint.Controls.Add(this.BtnUndo);
+            this.PnlControlPaint.Controls.Add(this.BtnSave);
+            this.PnlControlPaint.Controls.Add(this.MenuControl);
+            this.PnlControlPaint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlControlPaint.Location = new System.Drawing.Point(0, 38);
+            this.PnlControlPaint.Margin = new System.Windows.Forms.Padding(2);
+            this.PnlControlPaint.Name = "PnlControlPaint";
+            this.PnlControlPaint.Size = new System.Drawing.Size(1461, 37);
+            this.PnlControlPaint.TabIndex = 1;
+            // 
+            // BtnRedo
+            // 
+            this.BtnRedo.BackColor = System.Drawing.Color.Transparent;
+            this.BtnRedo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRedo.FlatAppearance.BorderSize = 0;
+            this.BtnRedo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRedo.Image = global::paint.Properties.Resources.redo;
+            this.BtnRedo.Location = new System.Drawing.Point(233, 5);
+            this.BtnRedo.Name = "BtnRedo";
+            this.BtnRedo.Size = new System.Drawing.Size(25, 26);
+            this.BtnRedo.TabIndex = 4;
+            this.BtnRedo.Tag = "23";
+            this.BtnRedo.UseVisualStyleBackColor = false;
+            this.BtnRedo.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnRedo.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnUndo
+            // 
+            this.BtnUndo.BackColor = System.Drawing.Color.Transparent;
+            this.BtnUndo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnUndo.FlatAppearance.BorderSize = 0;
+            this.BtnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnUndo.Image = global::paint.Properties.Resources.undo;
+            this.BtnUndo.Location = new System.Drawing.Point(190, 5);
+            this.BtnUndo.Name = "BtnUndo";
+            this.BtnUndo.Size = new System.Drawing.Size(25, 26);
+            this.BtnUndo.TabIndex = 3;
+            this.BtnUndo.Tag = "22";
+            this.BtnUndo.UseVisualStyleBackColor = false;
+            this.BtnUndo.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnUndo.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSave.FlatAppearance.BorderSize = 0;
+            this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSave.Image = global::paint.Properties.Resources.save;
+            this.BtnSave.Location = new System.Drawing.Point(143, 5);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(25, 26);
+            this.BtnSave.TabIndex = 2;
+            this.BtnSave.Tag = "21";
+            this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.Handler_SaveImage);
+            this.BtnSave.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.BtnSave.MouseLeave += new System.EventHandler(this.Btn_Leave);
+            // 
+            // MenuControl
+            // 
+            this.MenuControl.Dock = System.Windows.Forms.DockStyle.None;
+            this.MenuControl.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MenuControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuHome,
+            this.ViewHome});
+            this.MenuControl.Location = new System.Drawing.Point(2, 6);
+            this.MenuControl.Name = "MenuControl";
+            this.MenuControl.Size = new System.Drawing.Size(123, 28);
+            this.MenuControl.TabIndex = 5;
+            this.MenuControl.Text = "menuStrip1";
+            // 
+            // MenuHome
+            // 
+            this.MenuHome.BackColor = System.Drawing.Color.Transparent;
+            this.MenuHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemNew,
+            this.MenuItemOpen,
+            this.MenuItemSave,
+            this.MenuItemSaveAs,
+            this.MenuItemAbout});
+            this.MenuHome.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.MenuHome.Name = "MenuHome";
+            this.MenuHome.Size = new System.Drawing.Size(60, 24);
+            this.MenuHome.Text = "Menu";
+            // 
+            // MenuItemNew
+            // 
+            this.MenuItemNew.BackColor = System.Drawing.Color.Transparent;
+            this.MenuItemNew.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.MenuItemNew.Name = "MenuItemNew";
+            this.MenuItemNew.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemNew.Text = "New";
+            this.MenuItemNew.Click += new System.EventHandler(this.MenuItemNew_Click);
+            // 
+            // MenuItemOpen
+            // 
+            this.MenuItemOpen.Name = "MenuItemOpen";
+            this.MenuItemOpen.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemOpen.Text = "Open";
+            // 
+            // MenuItemSave
+            // 
+            this.MenuItemSave.Name = "MenuItemSave";
+            this.MenuItemSave.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemSave.Text = "Save";
+            this.MenuItemSave.Click += new System.EventHandler(this.Handler_SaveImage);
+            // 
+            // MenuItemSaveAs
+            // 
+            this.MenuItemSaveAs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pNGPictureToolStripMenuItem,
+            this.jPEGPictureToolStripMenuItem,
+            this.bMPPictureToolStripMenuItem,
+            this.gIFPictureToolStripMenuItem,
+            this.otherToolStripMenuItem});
+            this.MenuItemSaveAs.Name = "MenuItemSaveAs";
+            this.MenuItemSaveAs.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemSaveAs.Text = "Save as";
+            // 
+            // pNGPictureToolStripMenuItem
+            // 
+            this.pNGPictureToolStripMenuItem.Name = "pNGPictureToolStripMenuItem";
+            this.pNGPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.pNGPictureToolStripMenuItem.Tag = "png";
+            this.pNGPictureToolStripMenuItem.Text = "PNG picture";
+            this.pNGPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // jPEGPictureToolStripMenuItem
+            // 
+            this.jPEGPictureToolStripMenuItem.Name = "jPEGPictureToolStripMenuItem";
+            this.jPEGPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.jPEGPictureToolStripMenuItem.Tag = "jpg";
+            this.jPEGPictureToolStripMenuItem.Text = "JPEG picture";
+            this.jPEGPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // bMPPictureToolStripMenuItem
+            // 
+            this.bMPPictureToolStripMenuItem.Name = "bMPPictureToolStripMenuItem";
+            this.bMPPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.bMPPictureToolStripMenuItem.Tag = "bmp";
+            this.bMPPictureToolStripMenuItem.Text = "BMP picture";
+            this.bMPPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // gIFPictureToolStripMenuItem
+            // 
+            this.gIFPictureToolStripMenuItem.Name = "gIFPictureToolStripMenuItem";
+            this.gIFPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.gIFPictureToolStripMenuItem.Tag = "gif";
+            this.gIFPictureToolStripMenuItem.Text = "GIF picture";
+            this.gIFPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
+            // 
+            // otherToolStripMenuItem
+            // 
+            this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
+            this.otherToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.otherToolStripMenuItem.Text = "Other";
+            // 
+            // MenuItemAbout
+            // 
+            this.MenuItemAbout.Name = "MenuItemAbout";
+            this.MenuItemAbout.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemAbout.Text = "About Paint";
+            // 
+            // ViewHome
+            // 
+            this.ViewHome.BackColor = System.Drawing.Color.Transparent;
+            this.ViewHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MeniItemFullScreen,
+            this.MenuItemZoom,
+            this.MenuItemStatusBar});
+            this.ViewHome.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.ViewHome.Name = "ViewHome";
+            this.ViewHome.Size = new System.Drawing.Size(55, 24);
+            this.ViewHome.Text = "View";
+            // 
+            // MeniItemFullScreen
+            // 
+            this.MeniItemFullScreen.Name = "MeniItemFullScreen";
+            this.MeniItemFullScreen.Size = new System.Drawing.Size(161, 26);
+            this.MeniItemFullScreen.Text = "Full screen";
+            // 
+            // MenuItemZoom
+            // 
+            this.MenuItemZoom.Name = "MenuItemZoom";
+            this.MenuItemZoom.Size = new System.Drawing.Size(161, 26);
+            this.MenuItemZoom.Text = "100%";
+            // 
+            // MenuItemStatusBar
+            // 
+            this.MenuItemStatusBar.Name = "MenuItemStatusBar";
+            this.MenuItemStatusBar.Size = new System.Drawing.Size(161, 26);
+            this.MenuItemStatusBar.Text = "Status bar";
+            // 
+            // PnlControlApp
+            // 
+            this.PnlControlApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))));
+            this.PnlControlApp.Controls.Add(this.PnlControlPaint);
+            this.PnlControlApp.Controls.Add(this.PnlTitle);
+            this.PnlControlApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlControlApp.Location = new System.Drawing.Point(0, 0);
+            this.PnlControlApp.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlControlApp.Name = "PnlControlApp";
+            this.PnlControlApp.Size = new System.Drawing.Size(1461, 75);
+            this.PnlControlApp.TabIndex = 0;
+            // 
+            // BtnPenSize4
+            // 
+            this.BtnPenSize4.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize4.BarHeight = 4;
+            this.BtnPenSize4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize4.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize4.Location = new System.Drawing.Point(3, 200);
+            this.BtnPenSize4.Name = "BtnPenSize4";
+            this.BtnPenSize4.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize4.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize4.TabIndex = 3;
+            this.BtnPenSize4.Text = "4 px";
+            this.BtnPenSize4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize4.UseVisualStyleBackColor = false;
+            this.BtnPenSize4.Click += new System.EventHandler(this.BtnPenSizes_Click);
+            // 
+            // BtnPenSize3
+            // 
+            this.BtnPenSize3.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize3.BarHeight = 3;
+            this.BtnPenSize3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize3.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize3.Location = new System.Drawing.Point(3, 135);
+            this.BtnPenSize3.Name = "BtnPenSize3";
+            this.BtnPenSize3.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize3.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize3.TabIndex = 2;
+            this.BtnPenSize3.Text = "3 px";
+            this.BtnPenSize3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize3.UseVisualStyleBackColor = false;
+            this.BtnPenSize3.Click += new System.EventHandler(this.BtnPenSizes_Click);
+            // 
+            // BtnPenSize2
+            // 
+            this.BtnPenSize2.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize2.BarHeight = 2;
+            this.BtnPenSize2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize2.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize2.Location = new System.Drawing.Point(3, 70);
+            this.BtnPenSize2.Name = "BtnPenSize2";
+            this.BtnPenSize2.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize2.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize2.TabIndex = 1;
+            this.BtnPenSize2.Text = "2 px";
+            this.BtnPenSize2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize2.UseVisualStyleBackColor = false;
+            this.BtnPenSize2.Click += new System.EventHandler(this.BtnPenSizes_Click);
+            // 
+            // BtnPenSize1
+            // 
+            this.BtnPenSize1.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize1.BarHeight = 1;
+            this.BtnPenSize1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize1.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize1.Location = new System.Drawing.Point(3, 5);
+            this.BtnPenSize1.Name = "BtnPenSize1";
+            this.BtnPenSize1.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize1.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize1.TabIndex = 0;
+            this.BtnPenSize1.Text = "1 px";
+            this.BtnPenSize1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize1.UseVisualStyleBackColor = false;
+            this.BtnPenSize1.Click += new System.EventHandler(this.BtnPenSizes_Click);
             // 
             // BtnColor1
             // 
@@ -1030,15 +2656,6 @@
             this.BtnColor30.UseVisualStyleBackColor = false;
             this.BtnColor30.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
             // 
-            // LbColors
-            // 
-            this.LbColors.AutoSize = true;
-            this.LbColors.Location = new System.Drawing.Point(181, 97);
-            this.LbColors.Name = "LbColors";
-            this.LbColors.Size = new System.Drawing.Size(57, 20);
-            this.LbColors.TabIndex = 43;
-            this.LbColors.Text = "Colors";
-            // 
             // BtnMainColor2
             // 
             this.BtnMainColor2.BackColor = System.Drawing.Color.Transparent;
@@ -1069,1564 +2686,6 @@
             this.BtnMainColor1.UseVisualStyleBackColor = false;
             this.BtnMainColor1.Click += new System.EventHandler(this.Handler_ColorChoice_Click);
             // 
-            // PnlControlSize
-            // 
-            this.PnlControlSize.BackColor = System.Drawing.Color.Transparent;
-            this.PnlControlSize.Controls.Add(this.PnlControlPenWidth);
-            this.PnlControlSize.Controls.Add(this.PcbBar6);
-            this.PnlControlSize.Controls.Add(this.LbSize);
-            this.PnlControlSize.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlSize.Location = new System.Drawing.Point(955, 1);
-            this.PnlControlSize.Name = "PnlControlSize";
-            this.PnlControlSize.Size = new System.Drawing.Size(77, 130);
-            this.PnlControlSize.TabIndex = 5;
-            // 
-            // PnlControlPenWidth
-            // 
-            this.PnlControlPenWidth.Controls.Add(this.BtnSize);
-            this.PnlControlPenWidth.Controls.Add(this.BtnSizeOptions);
-            this.PnlControlPenWidth.Location = new System.Drawing.Point(18, 25);
-            this.PnlControlPenWidth.Margin = new System.Windows.Forms.Padding(0);
-            this.PnlControlPenWidth.Name = "PnlControlPenWidth";
-            this.PnlControlPenWidth.Padding = new System.Windows.Forms.Padding(1);
-            this.PnlControlPenWidth.Size = new System.Drawing.Size(42, 66);
-            this.PnlControlPenWidth.TabIndex = 3;
-            this.PnlControlPenWidth.Tag = "68";
-            this.PnlControlPenWidth.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlControlPenWidth_Paint);
-            this.PnlControlPenWidth.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlControlPenWidth_MouseClick);
-            this.PnlControlPenWidth.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.PnlControlPenWidth.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // LbSize
-            // 
-            this.LbSize.AutoSize = true;
-            this.LbSize.Location = new System.Drawing.Point(20, 98);
-            this.LbSize.Name = "LbSize";
-            this.LbSize.Size = new System.Drawing.Size(39, 20);
-            this.LbSize.TabIndex = 0;
-            this.LbSize.Text = "Size";
-            // 
-            // PnlControlShape
-            // 
-            this.PnlControlShape.Controls.Add(this.PnlPenDashStyle);
-            this.PnlControlShape.Controls.Add(this.PcbBar5);
-            this.PnlControlShape.Controls.Add(this.FLPShape);
-            this.PnlControlShape.Controls.Add(this.BtnShapeOutlineOptions);
-            this.PnlControlShape.Controls.Add(this.BtnShapeOutline);
-            this.PnlControlShape.Controls.Add(this.LbShape);
-            this.PnlControlShape.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlShape.Location = new System.Drawing.Point(624, 1);
-            this.PnlControlShape.Name = "PnlControlShape";
-            this.PnlControlShape.Size = new System.Drawing.Size(331, 130);
-            this.PnlControlShape.TabIndex = 4;
-            // 
-            // PnlPenDashStyle
-            // 
-            this.PnlPenDashStyle.Controls.Add(this.BtnPenDashStyle);
-            this.PnlPenDashStyle.Controls.Add(this.BtnPenDashStyleOptions);
-            this.PnlPenDashStyle.Location = new System.Drawing.Point(252, 53);
-            this.PnlPenDashStyle.Name = "PnlPenDashStyle";
-            this.PnlPenDashStyle.Size = new System.Drawing.Size(54, 34);
-            this.PnlPenDashStyle.TabIndex = 17;
-            this.PnlPenDashStyle.Tag = "32";
-            this.PnlPenDashStyle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlPenDashStyle_MouseClick);
-            this.PnlPenDashStyle.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.PnlPenDashStyle.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // FLPShape
-            // 
-            this.FLPShape.AutoScroll = true;
-            this.FLPShape.Controls.Add(this.BtnShape1);
-            this.FLPShape.Controls.Add(this.BtnShape2);
-            this.FLPShape.Controls.Add(this.BtnShape3);
-            this.FLPShape.Controls.Add(this.BtnShape4);
-            this.FLPShape.Controls.Add(this.BtnShape5);
-            this.FLPShape.Controls.Add(this.BtnShape6);
-            this.FLPShape.Controls.Add(this.BtnShape7);
-            this.FLPShape.Controls.Add(this.BtnShape8);
-            this.FLPShape.Controls.Add(this.BtnShape9);
-            this.FLPShape.Controls.Add(this.BtnShape10);
-            this.FLPShape.Controls.Add(this.BtnShape11);
-            this.FLPShape.Controls.Add(this.BtnShape12);
-            this.FLPShape.Controls.Add(this.BtnShape13);
-            this.FLPShape.Controls.Add(this.BtnShape14);
-            this.FLPShape.Controls.Add(this.BtnShape15);
-            this.FLPShape.Controls.Add(this.BtnShape16);
-            this.FLPShape.Controls.Add(this.BtnShape17);
-            this.FLPShape.Controls.Add(this.BtnShape18);
-            this.FLPShape.Controls.Add(this.BtnShape19);
-            this.FLPShape.Controls.Add(this.BtnShape20);
-            this.FLPShape.Controls.Add(this.BtnShape21);
-            this.FLPShape.Controls.Add(this.BtnShape22);
-            this.FLPShape.Location = new System.Drawing.Point(19, 9);
-            this.FLPShape.Name = "FLPShape";
-            this.FLPShape.Size = new System.Drawing.Size(216, 90);
-            this.FLPShape.TabIndex = 1;
-            // 
-            // LbShape
-            // 
-            this.LbShape.AutoSize = true;
-            this.LbShape.Location = new System.Drawing.Point(144, 101);
-            this.LbShape.Name = "LbShape";
-            this.LbShape.Size = new System.Drawing.Size(56, 20);
-            this.LbShape.TabIndex = 5;
-            this.LbShape.Text = "Shape";
-            // 
-            // PnlBrushes
-            // 
-            this.PnlBrushes.BackColor = System.Drawing.Color.Transparent;
-            this.PnlBrushes.Controls.Add(this.PcbBar4);
-            this.PnlBrushes.Controls.Add(this.BtnBrushOptions);
-            this.PnlBrushes.Controls.Add(this.BtnBrush);
-            this.PnlBrushes.Controls.Add(this.LbBrushes);
-            this.PnlBrushes.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlBrushes.Location = new System.Drawing.Point(537, 1);
-            this.PnlBrushes.Name = "PnlBrushes";
-            this.PnlBrushes.Size = new System.Drawing.Size(87, 130);
-            this.PnlBrushes.TabIndex = 3;
-            // 
-            // LbBrushes
-            // 
-            this.LbBrushes.AutoSize = true;
-            this.LbBrushes.Location = new System.Drawing.Point(10, 98);
-            this.LbBrushes.Name = "LbBrushes";
-            this.LbBrushes.Size = new System.Drawing.Size(68, 20);
-            this.LbBrushes.TabIndex = 0;
-            this.LbBrushes.Text = "Brushes";
-            // 
-            // PnlControlTools
-            // 
-            this.PnlControlTools.BackColor = System.Drawing.Color.Transparent;
-            this.PnlControlTools.Controls.Add(this.PcbBar3);
-            this.PnlControlTools.Controls.Add(this.BtnMagnifier);
-            this.PnlControlTools.Controls.Add(this.BtnColorPicker);
-            this.PnlControlTools.Controls.Add(this.BtnText);
-            this.PnlControlTools.Controls.Add(this.BtnEraser);
-            this.PnlControlTools.Controls.Add(this.BtnFill);
-            this.PnlControlTools.Controls.Add(this.BtnPencil);
-            this.PnlControlTools.Controls.Add(this.LbTools);
-            this.PnlControlTools.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlTools.Location = new System.Drawing.Point(337, 1);
-            this.PnlControlTools.Name = "PnlControlTools";
-            this.PnlControlTools.Size = new System.Drawing.Size(200, 130);
-            this.PnlControlTools.TabIndex = 2;
-            // 
-            // LbTools
-            // 
-            this.LbTools.AutoSize = true;
-            this.LbTools.Location = new System.Drawing.Point(70, 101);
-            this.LbTools.Name = "LbTools";
-            this.LbTools.Size = new System.Drawing.Size(49, 20);
-            this.LbTools.TabIndex = 5;
-            this.LbTools.Text = "Tools";
-            // 
-            // PnlControlImage
-            // 
-            this.PnlControlImage.BackColor = System.Drawing.Color.Transparent;
-            this.PnlControlImage.Controls.Add(this.PnlRotate);
-            this.PnlControlImage.Controls.Add(this.PnlFlip);
-            this.PnlControlImage.Controls.Add(this.PcbBar2);
-            this.PnlControlImage.Controls.Add(this.BtnResize);
-            this.PnlControlImage.Controls.Add(this.BtnCrop);
-            this.PnlControlImage.Controls.Add(this.BtnSelectOptions);
-            this.PnlControlImage.Controls.Add(this.BtnSelect);
-            this.PnlControlImage.Controls.Add(this.LbImage);
-            this.PnlControlImage.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlImage.Location = new System.Drawing.Point(137, 1);
-            this.PnlControlImage.Name = "PnlControlImage";
-            this.PnlControlImage.Size = new System.Drawing.Size(200, 130);
-            this.PnlControlImage.TabIndex = 1;
-            // 
-            // PnlRotate
-            // 
-            this.PnlRotate.Controls.Add(this.BtnRotate);
-            this.PnlRotate.Controls.Add(this.BtnRotateOptions);
-            this.PnlRotate.Location = new System.Drawing.Point(125, 9);
-            this.PnlRotate.Name = "PnlRotate";
-            this.PnlRotate.Size = new System.Drawing.Size(54, 34);
-            this.PnlRotate.TabIndex = 14;
-            this.PnlRotate.Tag = "32";
-            this.PnlRotate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlRotate_MouseClick);
-            this.PnlRotate.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.PnlRotate.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // PnlFlip
-            // 
-            this.PnlFlip.Controls.Add(this.BtnFlipOptions);
-            this.PnlFlip.Controls.Add(this.BtnFlip);
-            this.PnlFlip.Location = new System.Drawing.Point(125, 62);
-            this.PnlFlip.Name = "PnlFlip";
-            this.PnlFlip.Size = new System.Drawing.Size(54, 33);
-            this.PnlFlip.TabIndex = 15;
-            this.PnlFlip.Tag = "33";
-            this.PnlFlip.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlFlip_MouseClick);
-            this.PnlFlip.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.PnlFlip.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // LbImage
-            // 
-            this.LbImage.AutoSize = true;
-            this.LbImage.Location = new System.Drawing.Point(70, 101);
-            this.LbImage.Name = "LbImage";
-            this.LbImage.Size = new System.Drawing.Size(57, 20);
-            this.LbImage.TabIndex = 5;
-            this.LbImage.Text = "Image";
-            // 
-            // PnlControlClipBoard
-            // 
-            this.PnlControlClipBoard.Controls.Add(this.BtnCopy);
-            this.PnlControlClipBoard.Controls.Add(this.BtnCut);
-            this.PnlControlClipBoard.Controls.Add(this.BtnPasteOptions);
-            this.PnlControlClipBoard.Controls.Add(this.BtnPaste);
-            this.PnlControlClipBoard.Controls.Add(this.LbClipboard);
-            this.PnlControlClipBoard.Controls.Add(this.PcBBar1);
-            this.PnlControlClipBoard.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlControlClipBoard.Location = new System.Drawing.Point(0, 1);
-            this.PnlControlClipBoard.Name = "PnlControlClipBoard";
-            this.PnlControlClipBoard.Size = new System.Drawing.Size(137, 130);
-            this.PnlControlClipBoard.TabIndex = 0;
-            // 
-            // LbClipboard
-            // 
-            this.LbClipboard.AutoSize = true;
-            this.LbClipboard.Location = new System.Drawing.Point(27, 98);
-            this.LbClipboard.Name = "LbClipboard";
-            this.LbClipboard.Size = new System.Drawing.Size(83, 20);
-            this.LbClipboard.TabIndex = 0;
-            this.LbClipboard.Text = "Clipboard";
-            // 
-            // PnlTitle
-            // 
-            this.PnlTitle.Controls.Add(this.BtnMinimize);
-            this.PnlTitle.Controls.Add(this.BtnMaximize);
-            this.PnlTitle.Controls.Add(this.BtnExit);
-            this.PnlTitle.Controls.Add(this.LbAppTitle);
-            this.PnlTitle.Controls.Add(this.PcbAppIcon);
-            this.PnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlTitle.Location = new System.Drawing.Point(0, 0);
-            this.PnlTitle.Margin = new System.Windows.Forms.Padding(2);
-            this.PnlTitle.Name = "PnlTitle";
-            this.PnlTitle.Size = new System.Drawing.Size(1461, 38);
-            this.PnlTitle.TabIndex = 0;
-            this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseDown);
-            this.PnlTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseMove);
-            // 
-            // BtnMinimize
-            // 
-            this.BtnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnMinimize.FlatAppearance.BorderSize = 0;
-            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMinimize.Location = new System.Drawing.Point(1320, 0);
-            this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMinimize.Name = "BtnMinimize";
-            this.BtnMinimize.Size = new System.Drawing.Size(47, 38);
-            this.BtnMinimize.TabIndex = 4;
-            this.BtnMinimize.Text = "🗕";
-            this.BtnMinimize.UseVisualStyleBackColor = false;
-            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
-            // 
-            // BtnMaximize
-            // 
-            this.BtnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnMaximize.FlatAppearance.BorderSize = 0;
-            this.BtnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMaximize.Location = new System.Drawing.Point(1367, 0);
-            this.BtnMaximize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMaximize.Name = "BtnMaximize";
-            this.BtnMaximize.Size = new System.Drawing.Size(47, 38);
-            this.BtnMaximize.TabIndex = 3;
-            this.BtnMaximize.Text = "🗖";
-            this.BtnMaximize.UseVisualStyleBackColor = false;
-            this.BtnMaximize.Click += new System.EventHandler(this.BtnMaximize_Click);
-            // 
-            // BtnExit
-            // 
-            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
-            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnExit.FlatAppearance.BorderSize = 0;
-            this.BtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
-            this.BtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
-            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExit.Location = new System.Drawing.Point(1414, 0);
-            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(47, 38);
-            this.BtnExit.TabIndex = 2;
-            this.BtnExit.Text = "X";
-            this.BtnExit.UseVisualStyleBackColor = false;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            this.BtnExit.MouseEnter += new System.EventHandler(this.BtnExit_MouseEnter);
-            this.BtnExit.MouseLeave += new System.EventHandler(this.BtnExit_MouseLeave);
-            // 
-            // LbAppTitle
-            // 
-            this.LbAppTitle.AutoSize = true;
-            this.LbAppTitle.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbAppTitle.Location = new System.Drawing.Point(41, 11);
-            this.LbAppTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.LbAppTitle.Name = "LbAppTitle";
-            this.LbAppTitle.Size = new System.Drawing.Size(109, 19);
-            this.LbAppTitle.TabIndex = 1;
-            this.LbAppTitle.Text = "Untitled - Paint";
-            // 
-            // PnlControlPaint
-            // 
-            this.PnlControlPaint.Controls.Add(this.BtnRedo);
-            this.PnlControlPaint.Controls.Add(this.BtnUndo);
-            this.PnlControlPaint.Controls.Add(this.BtnSave);
-            this.PnlControlPaint.Controls.Add(this.MenuControl);
-            this.PnlControlPaint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlControlPaint.Location = new System.Drawing.Point(0, 38);
-            this.PnlControlPaint.Margin = new System.Windows.Forms.Padding(2);
-            this.PnlControlPaint.Name = "PnlControlPaint";
-            this.PnlControlPaint.Size = new System.Drawing.Size(1461, 37);
-            this.PnlControlPaint.TabIndex = 1;
-            // 
-            // MenuControl
-            // 
-            this.MenuControl.Dock = System.Windows.Forms.DockStyle.None;
-            this.MenuControl.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.MenuControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuHome,
-            this.ViewHome});
-            this.MenuControl.Location = new System.Drawing.Point(2, 6);
-            this.MenuControl.Name = "MenuControl";
-            this.MenuControl.Size = new System.Drawing.Size(125, 30);
-            this.MenuControl.TabIndex = 5;
-            this.MenuControl.Text = "menuStrip1";
-            // 
-            // MenuHome
-            // 
-            this.MenuHome.BackColor = System.Drawing.Color.Transparent;
-            this.MenuHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuItemNew,
-            this.MenuItemOpen,
-            this.MenuItemSave,
-            this.MenuItemSaveAs,
-            this.MenuItemAbout});
-            this.MenuHome.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.MenuHome.Name = "MenuHome";
-            this.MenuHome.Size = new System.Drawing.Size(60, 26);
-            this.MenuHome.Text = "Menu";
-            // 
-            // MenuItemNew
-            // 
-            this.MenuItemNew.BackColor = System.Drawing.Color.Transparent;
-            this.MenuItemNew.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.MenuItemNew.Name = "MenuItemNew";
-            this.MenuItemNew.Size = new System.Drawing.Size(169, 26);
-            this.MenuItemNew.Text = "New";
-            this.MenuItemNew.Click += new System.EventHandler(this.MenuItemNew_Click);
-            // 
-            // MenuItemOpen
-            // 
-            this.MenuItemOpen.Name = "MenuItemOpen";
-            this.MenuItemOpen.Size = new System.Drawing.Size(169, 26);
-            this.MenuItemOpen.Text = "Open";
-            // 
-            // MenuItemSave
-            // 
-            this.MenuItemSave.Name = "MenuItemSave";
-            this.MenuItemSave.Size = new System.Drawing.Size(169, 26);
-            this.MenuItemSave.Text = "Save";
-            this.MenuItemSave.Click += new System.EventHandler(this.Handler_SaveImage);
-            // 
-            // MenuItemSaveAs
-            // 
-            this.MenuItemSaveAs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pNGPictureToolStripMenuItem,
-            this.jPEGPictureToolStripMenuItem,
-            this.bMPPictureToolStripMenuItem,
-            this.gIFPictureToolStripMenuItem,
-            this.otherToolStripMenuItem});
-            this.MenuItemSaveAs.Name = "MenuItemSaveAs";
-            this.MenuItemSaveAs.Size = new System.Drawing.Size(169, 26);
-            this.MenuItemSaveAs.Text = "Save as";
-            // 
-            // pNGPictureToolStripMenuItem
-            // 
-            this.pNGPictureToolStripMenuItem.Name = "pNGPictureToolStripMenuItem";
-            this.pNGPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
-            this.pNGPictureToolStripMenuItem.Tag = "png";
-            this.pNGPictureToolStripMenuItem.Text = "PNG picture";
-            this.pNGPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
-            // 
-            // jPEGPictureToolStripMenuItem
-            // 
-            this.jPEGPictureToolStripMenuItem.Name = "jPEGPictureToolStripMenuItem";
-            this.jPEGPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
-            this.jPEGPictureToolStripMenuItem.Tag = "jpg";
-            this.jPEGPictureToolStripMenuItem.Text = "JPEG picture";
-            this.jPEGPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
-            // 
-            // bMPPictureToolStripMenuItem
-            // 
-            this.bMPPictureToolStripMenuItem.Name = "bMPPictureToolStripMenuItem";
-            this.bMPPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
-            this.bMPPictureToolStripMenuItem.Tag = "bmp";
-            this.bMPPictureToolStripMenuItem.Text = "BMP picture";
-            this.bMPPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
-            // 
-            // gIFPictureToolStripMenuItem
-            // 
-            this.gIFPictureToolStripMenuItem.Name = "gIFPictureToolStripMenuItem";
-            this.gIFPictureToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
-            this.gIFPictureToolStripMenuItem.Tag = "gif";
-            this.gIFPictureToolStripMenuItem.Text = "GIF picture";
-            this.gIFPictureToolStripMenuItem.Click += new System.EventHandler(this.Handler_SaveAsImage);
-            // 
-            // otherToolStripMenuItem
-            // 
-            this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-            this.otherToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
-            this.otherToolStripMenuItem.Text = "Other";
-            // 
-            // MenuItemAbout
-            // 
-            this.MenuItemAbout.Name = "MenuItemAbout";
-            this.MenuItemAbout.Size = new System.Drawing.Size(169, 26);
-            this.MenuItemAbout.Text = "About Paint";
-            // 
-            // ViewHome
-            // 
-            this.ViewHome.BackColor = System.Drawing.Color.Transparent;
-            this.ViewHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MeniItemFullScreen,
-            this.MenuItemZoom,
-            this.MenuItemStatusBar});
-            this.ViewHome.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.ViewHome.Name = "ViewHome";
-            this.ViewHome.Size = new System.Drawing.Size(55, 26);
-            this.ViewHome.Text = "View";
-            // 
-            // MeniItemFullScreen
-            // 
-            this.MeniItemFullScreen.Name = "MeniItemFullScreen";
-            this.MeniItemFullScreen.Size = new System.Drawing.Size(161, 26);
-            this.MeniItemFullScreen.Text = "Full screen";
-            // 
-            // MenuItemZoom
-            // 
-            this.MenuItemZoom.Name = "MenuItemZoom";
-            this.MenuItemZoom.Size = new System.Drawing.Size(161, 26);
-            this.MenuItemZoom.Text = "100%";
-            // 
-            // MenuItemStatusBar
-            // 
-            this.MenuItemStatusBar.Name = "MenuItemStatusBar";
-            this.MenuItemStatusBar.Size = new System.Drawing.Size(161, 26);
-            this.MenuItemStatusBar.Text = "Status bar";
-            // 
-            // PnlControlApp
-            // 
-            this.PnlControlApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))));
-            this.PnlControlApp.Controls.Add(this.PnlControlPaint);
-            this.PnlControlApp.Controls.Add(this.PnlTitle);
-            this.PnlControlApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlControlApp.Location = new System.Drawing.Point(0, 0);
-            this.PnlControlApp.Margin = new System.Windows.Forms.Padding(0);
-            this.PnlControlApp.Name = "PnlControlApp";
-            this.PnlControlApp.Size = new System.Drawing.Size(1461, 75);
-            this.PnlControlApp.TabIndex = 0;
-            // 
-            // BtnRotate180
-            // 
-            this.BtnRotate180.BackColor = System.Drawing.Color.Transparent;
-            this.BtnRotate180.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRotate180.Image = global::paint.Properties.Resources.rotate_180;
-            this.BtnRotate180.Location = new System.Drawing.Point(3, 135);
-            this.BtnRotate180.Name = "BtnRotate180";
-            this.BtnRotate180.Size = new System.Drawing.Size(182, 65);
-            this.BtnRotate180.TabIndex = 2;
-            this.BtnRotate180.Text = "Rotate 180";
-            this.BtnRotate180.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnRotate180.UseVisualStyleBackColor = false;
-            this.BtnRotate180.Click += new System.EventHandler(this.BtnRotate180_Click);
-            // 
-            // BtnRotateLeft90
-            // 
-            this.BtnRotateLeft90.BackColor = System.Drawing.Color.Transparent;
-            this.BtnRotateLeft90.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRotateLeft90.Image = global::paint.Properties.Resources.rotate_left;
-            this.BtnRotateLeft90.Location = new System.Drawing.Point(3, 70);
-            this.BtnRotateLeft90.Name = "BtnRotateLeft90";
-            this.BtnRotateLeft90.Size = new System.Drawing.Size(182, 65);
-            this.BtnRotateLeft90.TabIndex = 1;
-            this.BtnRotateLeft90.Text = "Rotate left 90";
-            this.BtnRotateLeft90.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnRotateLeft90.UseVisualStyleBackColor = false;
-            this.BtnRotateLeft90.Click += new System.EventHandler(this.BtnRotateLeft90_Click);
-            // 
-            // BtnRotateRight90
-            // 
-            this.BtnRotateRight90.BackColor = System.Drawing.Color.Transparent;
-            this.BtnRotateRight90.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRotateRight90.Image = global::paint.Properties.Resources.rotate_right;
-            this.BtnRotateRight90.Location = new System.Drawing.Point(3, 5);
-            this.BtnRotateRight90.Name = "BtnRotateRight90";
-            this.BtnRotateRight90.Size = new System.Drawing.Size(182, 65);
-            this.BtnRotateRight90.TabIndex = 0;
-            this.BtnRotateRight90.Text = "Rotate right 90";
-            this.BtnRotateRight90.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnRotateRight90.UseVisualStyleBackColor = false;
-            this.BtnRotateRight90.Click += new System.EventHandler(this.BtnRotateRight90_Click);
-            // 
-            // BtnFlipHor
-            // 
-            this.BtnFlipHor.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFlipHor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnFlipHor.Image = global::paint.Properties.Resources.horizontal_symmetry;
-            this.BtnFlipHor.Location = new System.Drawing.Point(3, 70);
-            this.BtnFlipHor.Name = "BtnFlipHor";
-            this.BtnFlipHor.Size = new System.Drawing.Size(182, 65);
-            this.BtnFlipHor.TabIndex = 1;
-            this.BtnFlipHor.Text = "Flip horizontal";
-            this.BtnFlipHor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnFlipHor.UseVisualStyleBackColor = false;
-            this.BtnFlipHor.Click += new System.EventHandler(this.BtnFlipHor_Click);
-            // 
-            // BtnFlipVer
-            // 
-            this.BtnFlipVer.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFlipVer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnFlipVer.Image = global::paint.Properties.Resources.flip;
-            this.BtnFlipVer.Location = new System.Drawing.Point(3, 5);
-            this.BtnFlipVer.Name = "BtnFlipVer";
-            this.BtnFlipVer.Size = new System.Drawing.Size(182, 65);
-            this.BtnFlipVer.TabIndex = 0;
-            this.BtnFlipVer.Text = "Flip vertical";
-            this.BtnFlipVer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnFlipVer.UseVisualStyleBackColor = false;
-            this.BtnFlipVer.Click += new System.EventHandler(this.BtnFlipVer_Click);
-            // 
-            // PcBMainDrawing
-            // 
-            this.PcBMainDrawing.Location = new System.Drawing.Point(0, 0);
-            this.PcBMainDrawing.Margin = new System.Windows.Forms.Padding(0);
-            this.PcBMainDrawing.Name = "PcBMainDrawing";
-            this.PcBMainDrawing.Size = new System.Drawing.Size(800, 300);
-            this.PcBMainDrawing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PcBMainDrawing.TabIndex = 0;
-            this.PcBMainDrawing.TabStop = false;
-            this.PcBMainDrawing.Paint += new System.Windows.Forms.PaintEventHandler(this.PcBMainDrawing_Paint);
-            this.PcBMainDrawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseClick);
-            this.PcBMainDrawing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseDown);
-            this.PcBMainDrawing.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseMove);
-            this.PcBMainDrawing.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PcBMainDrawing_MouseUp);
-            // 
-            // BtnPageSize
-            // 
-            this.BtnPageSize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPageSize.BackgroundImage = global::paint.Properties.Resources.page_size;
-            this.BtnPageSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPageSize.Enabled = false;
-            this.BtnPageSize.FlatAppearance.BorderSize = 0;
-            this.BtnPageSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPageSize.Location = new System.Drawing.Point(371, 13);
-            this.BtnPageSize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPageSize.Name = "BtnPageSize";
-            this.BtnPageSize.Size = new System.Drawing.Size(20, 18);
-            this.BtnPageSize.TabIndex = 19;
-            this.BtnPageSize.Tag = "18";
-            this.BtnPageSize.UseVisualStyleBackColor = false;
-            // 
-            // BtnShapeSize
-            // 
-            this.BtnShapeSize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShapeSize.BackgroundImage = global::paint.Properties.Resources.select;
-            this.BtnShapeSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShapeSize.Enabled = false;
-            this.BtnShapeSize.FlatAppearance.BorderSize = 0;
-            this.BtnShapeSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShapeSize.Location = new System.Drawing.Point(194, 14);
-            this.BtnShapeSize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnShapeSize.Name = "BtnShapeSize";
-            this.BtnShapeSize.Size = new System.Drawing.Size(20, 18);
-            this.BtnShapeSize.TabIndex = 16;
-            this.BtnShapeSize.Tag = "18";
-            this.BtnShapeSize.UseVisualStyleBackColor = false;
-            // 
-            // BtnLocation
-            // 
-            this.BtnLocation.BackColor = System.Drawing.Color.Transparent;
-            this.BtnLocation.BackgroundImage = global::paint.Properties.Resources.arrow_pointer;
-            this.BtnLocation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnLocation.Enabled = false;
-            this.BtnLocation.FlatAppearance.BorderSize = 0;
-            this.BtnLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLocation.Location = new System.Drawing.Point(17, 14);
-            this.BtnLocation.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnLocation.Name = "BtnLocation";
-            this.BtnLocation.Size = new System.Drawing.Size(20, 18);
-            this.BtnLocation.TabIndex = 13;
-            this.BtnLocation.Tag = "18";
-            this.BtnLocation.UseVisualStyleBackColor = false;
-            // 
-            // BtnEditColor
-            // 
-            this.BtnEditColor.BackColor = System.Drawing.Color.Transparent;
-            this.BtnEditColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnEditColor.FlatAppearance.BorderSize = 0;
-            this.BtnEditColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditColor.Image = global::paint.Properties.Resources.color_wheel;
-            this.BtnEditColor.Location = new System.Drawing.Point(354, 34);
-            this.BtnEditColor.Name = "BtnEditColor";
-            this.BtnEditColor.Size = new System.Drawing.Size(48, 44);
-            this.BtnEditColor.TabIndex = 73;
-            this.BtnEditColor.Tag = "69";
-            this.BtnEditColor.UseVisualStyleBackColor = false;
-            this.BtnEditColor.Click += new System.EventHandler(this.Handler_ColorWheel_Click);
-            this.BtnEditColor.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnEditColor.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnSize
-            // 
-            this.BtnSize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSize.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnSize.Enabled = false;
-            this.BtnSize.FlatAppearance.BorderSize = 0;
-            this.BtnSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSize.Image = global::paint.Properties.Resources.shape_size;
-            this.BtnSize.Location = new System.Drawing.Point(1, 1);
-            this.BtnSize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnSize.Name = "BtnSize";
-            this.BtnSize.Size = new System.Drawing.Size(40, 34);
-            this.BtnSize.TabIndex = 1;
-            this.BtnSize.UseVisualStyleBackColor = false;
-            // 
-            // BtnSizeOptions
-            // 
-            this.BtnSizeOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSizeOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnSizeOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSizeOptions.Enabled = false;
-            this.BtnSizeOptions.FlatAppearance.BorderSize = 0;
-            this.BtnSizeOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSizeOptions.Location = new System.Drawing.Point(13, 37);
-            this.BtnSizeOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnSizeOptions.Name = "BtnSizeOptions";
-            this.BtnSizeOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnSizeOptions.TabIndex = 2;
-            this.BtnSizeOptions.UseVisualStyleBackColor = false;
-            // 
-            // PcbBar6
-            // 
-            this.PcbBar6.BackColor = System.Drawing.Color.Transparent;
-            this.PcbBar6.Image = global::paint.Properties.Resources.Vertical_Line;
-            this.PcbBar6.Location = new System.Drawing.Point(55, 0);
-            this.PcbBar6.Margin = new System.Windows.Forms.Padding(0);
-            this.PcbBar6.Name = "PcbBar6";
-            this.PcbBar6.Size = new System.Drawing.Size(46, 132);
-            this.PcbBar6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbBar6.TabIndex = 2;
-            this.PcbBar6.TabStop = false;
-            // 
-            // BtnPenDashStyle
-            // 
-            this.BtnPenDashStyle.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPenDashStyle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPenDashStyle.Enabled = false;
-            this.BtnPenDashStyle.FlatAppearance.BorderSize = 0;
-            this.BtnPenDashStyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPenDashStyle.Image = global::paint.Properties.Resources.pen_style;
-            this.BtnPenDashStyle.Location = new System.Drawing.Point(0, 0);
-            this.BtnPenDashStyle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPenDashStyle.Name = "BtnPenDashStyle";
-            this.BtnPenDashStyle.Size = new System.Drawing.Size(32, 34);
-            this.BtnPenDashStyle.TabIndex = 10;
-            this.BtnPenDashStyle.UseVisualStyleBackColor = false;
-            // 
-            // BtnPenDashStyleOptions
-            // 
-            this.BtnPenDashStyleOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPenDashStyleOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnPenDashStyleOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPenDashStyleOptions.Enabled = false;
-            this.BtnPenDashStyleOptions.FlatAppearance.BorderSize = 0;
-            this.BtnPenDashStyleOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPenDashStyleOptions.Location = new System.Drawing.Point(35, 7);
-            this.BtnPenDashStyleOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPenDashStyleOptions.Name = "BtnPenDashStyleOptions";
-            this.BtnPenDashStyleOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnPenDashStyleOptions.TabIndex = 12;
-            this.BtnPenDashStyleOptions.UseVisualStyleBackColor = false;
-            // 
-            // PcbBar5
-            // 
-            this.PcbBar5.BackColor = System.Drawing.Color.Transparent;
-            this.PcbBar5.Image = global::paint.Properties.Resources.Vertical_Line;
-            this.PcbBar5.Location = new System.Drawing.Point(309, 0);
-            this.PcbBar5.Margin = new System.Windows.Forms.Padding(0);
-            this.PcbBar5.Name = "PcbBar5";
-            this.PcbBar5.Size = new System.Drawing.Size(46, 132);
-            this.PcbBar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbBar5.TabIndex = 2;
-            this.PcbBar5.TabStop = false;
-            // 
-            // BtnShape1
-            // 
-            this.BtnShape1.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape1.FlatAppearance.BorderSize = 0;
-            this.BtnShape1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape1.Image = global::paint.Properties.Resources.diagonal_line;
-            this.BtnShape1.Location = new System.Drawing.Point(5, 5);
-            this.BtnShape1.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
-            this.BtnShape1.Name = "BtnShape1";
-            this.BtnShape1.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape1.TabIndex = 13;
-            this.BtnShape1.Tag = "42";
-            this.BtnShape1.UseVisualStyleBackColor = false;
-            this.BtnShape1.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape2
-            // 
-            this.BtnShape2.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape2.FlatAppearance.BorderSize = 0;
-            this.BtnShape2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape2.Image = global::paint.Properties.Resources.curve_line;
-            this.BtnShape2.Location = new System.Drawing.Point(32, 5);
-            this.BtnShape2.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape2.Name = "BtnShape2";
-            this.BtnShape2.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape2.TabIndex = 14;
-            this.BtnShape2.Tag = "43";
-            this.BtnShape2.UseVisualStyleBackColor = false;
-            this.BtnShape2.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape3
-            // 
-            this.BtnShape3.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape3.FlatAppearance.BorderSize = 0;
-            this.BtnShape3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape3.Image = global::paint.Properties.Resources.ellipse;
-            this.BtnShape3.Location = new System.Drawing.Point(59, 5);
-            this.BtnShape3.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape3.Name = "BtnShape3";
-            this.BtnShape3.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape3.TabIndex = 15;
-            this.BtnShape3.Tag = "44";
-            this.BtnShape3.UseVisualStyleBackColor = false;
-            this.BtnShape3.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape4
-            // 
-            this.BtnShape4.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape4.FlatAppearance.BorderSize = 0;
-            this.BtnShape4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape4.Image = global::paint.Properties.Resources.rectangular_shape_outline;
-            this.BtnShape4.Location = new System.Drawing.Point(86, 5);
-            this.BtnShape4.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape4.Name = "BtnShape4";
-            this.BtnShape4.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape4.TabIndex = 16;
-            this.BtnShape4.Tag = "45";
-            this.BtnShape4.UseVisualStyleBackColor = false;
-            this.BtnShape4.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape5
-            // 
-            this.BtnShape5.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape5.FlatAppearance.BorderSize = 0;
-            this.BtnShape5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape5.Image = global::paint.Properties.Resources.rounded_rectangle;
-            this.BtnShape5.Location = new System.Drawing.Point(113, 5);
-            this.BtnShape5.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape5.Name = "BtnShape5";
-            this.BtnShape5.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape5.TabIndex = 17;
-            this.BtnShape5.Tag = "46";
-            this.BtnShape5.UseVisualStyleBackColor = false;
-            this.BtnShape5.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape6
-            // 
-            this.BtnShape6.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape6.FlatAppearance.BorderSize = 0;
-            this.BtnShape6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape6.Image = global::paint.Properties.Resources.polygon;
-            this.BtnShape6.Location = new System.Drawing.Point(140, 5);
-            this.BtnShape6.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape6.Name = "BtnShape6";
-            this.BtnShape6.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape6.TabIndex = 18;
-            this.BtnShape6.Tag = "47";
-            this.BtnShape6.UseVisualStyleBackColor = false;
-            this.BtnShape6.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape7
-            // 
-            this.BtnShape7.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape7.FlatAppearance.BorderSize = 0;
-            this.BtnShape7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape7.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape7.Image = global::paint.Properties.Resources.triangle;
-            this.BtnShape7.Location = new System.Drawing.Point(167, 5);
-            this.BtnShape7.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape7.Name = "BtnShape7";
-            this.BtnShape7.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape7.TabIndex = 19;
-            this.BtnShape7.Tag = "48";
-            this.BtnShape7.UseVisualStyleBackColor = false;
-            this.BtnShape7.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape8
-            // 
-            this.BtnShape8.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape8.FlatAppearance.BorderSize = 0;
-            this.BtnShape8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape8.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape8.Image = global::paint.Properties.Resources.right_triangle;
-            this.BtnShape8.Location = new System.Drawing.Point(5, 35);
-            this.BtnShape8.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
-            this.BtnShape8.Name = "BtnShape8";
-            this.BtnShape8.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape8.TabIndex = 20;
-            this.BtnShape8.Tag = "49";
-            this.BtnShape8.UseVisualStyleBackColor = false;
-            this.BtnShape8.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape9
-            // 
-            this.BtnShape9.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape9.FlatAppearance.BorderSize = 0;
-            this.BtnShape9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape9.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape9.Image = global::paint.Properties.Resources.diamond;
-            this.BtnShape9.Location = new System.Drawing.Point(32, 35);
-            this.BtnShape9.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape9.Name = "BtnShape9";
-            this.BtnShape9.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape9.TabIndex = 21;
-            this.BtnShape9.Tag = "50";
-            this.BtnShape9.UseVisualStyleBackColor = false;
-            this.BtnShape9.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape10
-            // 
-            this.BtnShape10.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape10.FlatAppearance.BorderSize = 0;
-            this.BtnShape10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape10.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape10.Image = global::paint.Properties.Resources.pentagon_outline_shape;
-            this.BtnShape10.Location = new System.Drawing.Point(59, 35);
-            this.BtnShape10.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape10.Name = "BtnShape10";
-            this.BtnShape10.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape10.TabIndex = 22;
-            this.BtnShape10.Tag = "51";
-            this.BtnShape10.UseVisualStyleBackColor = false;
-            this.BtnShape10.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape11
-            // 
-            this.BtnShape11.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape11.FlatAppearance.BorderSize = 0;
-            this.BtnShape11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape11.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape11.Image = global::paint.Properties.Resources.hexagon_geometrical_shape_outline;
-            this.BtnShape11.Location = new System.Drawing.Point(86, 35);
-            this.BtnShape11.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape11.Name = "BtnShape11";
-            this.BtnShape11.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape11.TabIndex = 23;
-            this.BtnShape11.Tag = "52";
-            this.BtnShape11.UseVisualStyleBackColor = false;
-            this.BtnShape11.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape12
-            // 
-            this.BtnShape12.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape12.FlatAppearance.BorderSize = 0;
-            this.BtnShape12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape12.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape12.Image = global::paint.Properties.Resources.right_arrow;
-            this.BtnShape12.Location = new System.Drawing.Point(113, 35);
-            this.BtnShape12.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape12.Name = "BtnShape12";
-            this.BtnShape12.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape12.TabIndex = 24;
-            this.BtnShape12.Tag = "53";
-            this.BtnShape12.UseVisualStyleBackColor = false;
-            this.BtnShape12.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape13
-            // 
-            this.BtnShape13.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape13.FlatAppearance.BorderSize = 0;
-            this.BtnShape13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape13.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape13.Image = global::paint.Properties.Resources.left_arrow;
-            this.BtnShape13.Location = new System.Drawing.Point(140, 35);
-            this.BtnShape13.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape13.Name = "BtnShape13";
-            this.BtnShape13.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape13.TabIndex = 25;
-            this.BtnShape13.Tag = "54";
-            this.BtnShape13.UseVisualStyleBackColor = false;
-            this.BtnShape13.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape14
-            // 
-            this.BtnShape14.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape14.FlatAppearance.BorderSize = 0;
-            this.BtnShape14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape14.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape14.Image = global::paint.Properties.Resources.up_arrow;
-            this.BtnShape14.Location = new System.Drawing.Point(167, 35);
-            this.BtnShape14.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape14.Name = "BtnShape14";
-            this.BtnShape14.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape14.TabIndex = 26;
-            this.BtnShape14.Tag = "55";
-            this.BtnShape14.UseVisualStyleBackColor = false;
-            this.BtnShape14.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape15
-            // 
-            this.BtnShape15.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape15.FlatAppearance.BorderSize = 0;
-            this.BtnShape15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape15.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape15.Image = global::paint.Properties.Resources.arrow_down;
-            this.BtnShape15.Location = new System.Drawing.Point(5, 65);
-            this.BtnShape15.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
-            this.BtnShape15.Name = "BtnShape15";
-            this.BtnShape15.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape15.TabIndex = 27;
-            this.BtnShape15.Tag = "56";
-            this.BtnShape15.UseVisualStyleBackColor = false;
-            this.BtnShape15.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape16
-            // 
-            this.BtnShape16.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape16.FlatAppearance.BorderSize = 0;
-            this.BtnShape16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape16.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape16.Image = global::paint.Properties.Resources._4_point_star;
-            this.BtnShape16.Location = new System.Drawing.Point(32, 65);
-            this.BtnShape16.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape16.Name = "BtnShape16";
-            this.BtnShape16.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape16.TabIndex = 28;
-            this.BtnShape16.Tag = "57";
-            this.BtnShape16.UseVisualStyleBackColor = false;
-            this.BtnShape16.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape17
-            // 
-            this.BtnShape17.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape17.FlatAppearance.BorderSize = 0;
-            this.BtnShape17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape17.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape17.Image = global::paint.Properties.Resources._5_point_star;
-            this.BtnShape17.Location = new System.Drawing.Point(59, 65);
-            this.BtnShape17.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape17.Name = "BtnShape17";
-            this.BtnShape17.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape17.TabIndex = 29;
-            this.BtnShape17.Tag = "58";
-            this.BtnShape17.UseVisualStyleBackColor = false;
-            this.BtnShape17.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape18
-            // 
-            this.BtnShape18.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape18.FlatAppearance.BorderSize = 0;
-            this.BtnShape18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape18.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape18.Image = global::paint.Properties.Resources.six_pointed_star;
-            this.BtnShape18.Location = new System.Drawing.Point(86, 65);
-            this.BtnShape18.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape18.Name = "BtnShape18";
-            this.BtnShape18.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape18.TabIndex = 30;
-            this.BtnShape18.Tag = "59";
-            this.BtnShape18.UseVisualStyleBackColor = false;
-            this.BtnShape18.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape19
-            // 
-            this.BtnShape19.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape19.FlatAppearance.BorderSize = 0;
-            this.BtnShape19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape19.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape19.Image = global::paint.Properties.Resources.comment;
-            this.BtnShape19.Location = new System.Drawing.Point(113, 65);
-            this.BtnShape19.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape19.Name = "BtnShape19";
-            this.BtnShape19.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape19.TabIndex = 31;
-            this.BtnShape19.Tag = "60";
-            this.BtnShape19.UseVisualStyleBackColor = false;
-            this.BtnShape19.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape20
-            // 
-            this.BtnShape20.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape20.FlatAppearance.BorderSize = 0;
-            this.BtnShape20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape20.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape20.Image = global::paint.Properties.Resources.chat;
-            this.BtnShape20.Location = new System.Drawing.Point(140, 65);
-            this.BtnShape20.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape20.Name = "BtnShape20";
-            this.BtnShape20.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape20.TabIndex = 32;
-            this.BtnShape20.Tag = "61";
-            this.BtnShape20.UseVisualStyleBackColor = false;
-            this.BtnShape20.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape21
-            // 
-            this.BtnShape21.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape21.FlatAppearance.BorderSize = 0;
-            this.BtnShape21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape21.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape21.Image = global::paint.Properties.Resources.heart;
-            this.BtnShape21.Location = new System.Drawing.Point(167, 65);
-            this.BtnShape21.Margin = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.BtnShape21.Name = "BtnShape21";
-            this.BtnShape21.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape21.TabIndex = 33;
-            this.BtnShape21.Tag = "62";
-            this.BtnShape21.UseVisualStyleBackColor = false;
-            this.BtnShape21.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShape22
-            // 
-            this.BtnShape22.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShape22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShape22.FlatAppearance.BorderSize = 0;
-            this.BtnShape22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShape22.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BtnShape22.Image = global::paint.Properties.Resources.flash;
-            this.BtnShape22.Location = new System.Drawing.Point(5, 95);
-            this.BtnShape22.Margin = new System.Windows.Forms.Padding(5, 5, 2, 2);
-            this.BtnShape22.Name = "BtnShape22";
-            this.BtnShape22.Size = new System.Drawing.Size(23, 23);
-            this.BtnShape22.TabIndex = 34;
-            this.BtnShape22.Tag = "63";
-            this.BtnShape22.UseVisualStyleBackColor = false;
-            this.BtnShape22.Click += new System.EventHandler(this.Handler_Shapes_Click);
-            // 
-            // BtnShapeOutlineOptions
-            // 
-            this.BtnShapeOutlineOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShapeOutlineOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnShapeOutlineOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShapeOutlineOptions.FlatAppearance.BorderSize = 0;
-            this.BtnShapeOutlineOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShapeOutlineOptions.Location = new System.Drawing.Point(289, 18);
-            this.BtnShapeOutlineOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnShapeOutlineOptions.Name = "BtnShapeOutlineOptions";
-            this.BtnShapeOutlineOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnShapeOutlineOptions.TabIndex = 16;
-            this.BtnShapeOutlineOptions.Tag = "65";
-            this.BtnShapeOutlineOptions.UseVisualStyleBackColor = false;
-            this.BtnShapeOutlineOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnShapeOutlineOptions.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnShapeOutline
-            // 
-            this.BtnShapeOutline.BackColor = System.Drawing.Color.Transparent;
-            this.BtnShapeOutline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnShapeOutline.FlatAppearance.BorderSize = 0;
-            this.BtnShapeOutline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShapeOutline.Image = global::paint.Properties.Resources.outline;
-            this.BtnShapeOutline.Location = new System.Drawing.Point(254, 9);
-            this.BtnShapeOutline.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnShapeOutline.Name = "BtnShapeOutline";
-            this.BtnShapeOutline.Size = new System.Drawing.Size(32, 34);
-            this.BtnShapeOutline.TabIndex = 14;
-            this.BtnShapeOutline.Tag = "64";
-            this.BtnShapeOutline.UseVisualStyleBackColor = false;
-            this.BtnShapeOutline.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnShapeOutline.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // PcbBar4
-            // 
-            this.PcbBar4.BackColor = System.Drawing.Color.Transparent;
-            this.PcbBar4.Image = global::paint.Properties.Resources.Vertical_Line;
-            this.PcbBar4.Location = new System.Drawing.Point(65, -1);
-            this.PcbBar4.Margin = new System.Windows.Forms.Padding(0);
-            this.PcbBar4.Name = "PcbBar4";
-            this.PcbBar4.Size = new System.Drawing.Size(46, 132);
-            this.PcbBar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbBar4.TabIndex = 2;
-            this.PcbBar4.TabStop = false;
-            // 
-            // BtnBrushOptions
-            // 
-            this.BtnBrushOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnBrushOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnBrushOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBrushOptions.FlatAppearance.BorderSize = 0;
-            this.BtnBrushOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBrushOptions.Location = new System.Drawing.Point(35, 65);
-            this.BtnBrushOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBrushOptions.Name = "BtnBrushOptions";
-            this.BtnBrushOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnBrushOptions.TabIndex = 2;
-            this.BtnBrushOptions.Tag = "41";
-            this.BtnBrushOptions.UseVisualStyleBackColor = false;
-            this.BtnBrushOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnBrushOptions.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnBrush
-            // 
-            this.BtnBrush.BackColor = System.Drawing.Color.Transparent;
-            this.BtnBrush.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBrush.FlatAppearance.BorderSize = 0;
-            this.BtnBrush.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBrush.Image = global::paint.Properties.Resources.brush;
-            this.BtnBrush.Location = new System.Drawing.Point(29, 27);
-            this.BtnBrush.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBrush.Name = "BtnBrush";
-            this.BtnBrush.Size = new System.Drawing.Size(32, 34);
-            this.BtnBrush.TabIndex = 1;
-            this.BtnBrush.Tag = "40";
-            this.BtnBrush.UseVisualStyleBackColor = false;
-            this.BtnBrush.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnBrush.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // PcbBar3
-            // 
-            this.PcbBar3.BackColor = System.Drawing.Color.Transparent;
-            this.PcbBar3.Image = global::paint.Properties.Resources.Vertical_Line;
-            this.PcbBar3.Location = new System.Drawing.Point(178, 0);
-            this.PcbBar3.Margin = new System.Windows.Forms.Padding(0);
-            this.PcbBar3.Name = "PcbBar3";
-            this.PcbBar3.Size = new System.Drawing.Size(46, 132);
-            this.PcbBar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbBar3.TabIndex = 17;
-            this.PcbBar3.TabStop = false;
-            // 
-            // BtnMagnifier
-            // 
-            this.BtnMagnifier.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMagnifier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnMagnifier.FlatAppearance.BorderSize = 0;
-            this.BtnMagnifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMagnifier.Image = global::paint.Properties.Resources.magnifying_glass;
-            this.BtnMagnifier.Location = new System.Drawing.Point(143, 65);
-            this.BtnMagnifier.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMagnifier.Name = "BtnMagnifier";
-            this.BtnMagnifier.Size = new System.Drawing.Size(32, 34);
-            this.BtnMagnifier.TabIndex = 12;
-            this.BtnMagnifier.Tag = "39";
-            this.BtnMagnifier.UseVisualStyleBackColor = false;
-            this.BtnMagnifier.Click += new System.EventHandler(this.Handler_Tools_Click);
-            this.BtnMagnifier.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnMagnifier.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnColorPicker
-            // 
-            this.BtnColorPicker.BackColor = System.Drawing.Color.Transparent;
-            this.BtnColorPicker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnColorPicker.FlatAppearance.BorderSize = 0;
-            this.BtnColorPicker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColorPicker.Image = global::paint.Properties.Resources.color_picker;
-            this.BtnColorPicker.Location = new System.Drawing.Point(82, 62);
-            this.BtnColorPicker.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnColorPicker.Name = "BtnColorPicker";
-            this.BtnColorPicker.Size = new System.Drawing.Size(32, 34);
-            this.BtnColorPicker.TabIndex = 11;
-            this.BtnColorPicker.Tag = "37";
-            this.BtnColorPicker.UseVisualStyleBackColor = false;
-            this.BtnColorPicker.Click += new System.EventHandler(this.Handler_Tools_Click);
-            this.BtnColorPicker.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnColorPicker.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnText
-            // 
-            this.BtnText.BackColor = System.Drawing.Color.Transparent;
-            this.BtnText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnText.FlatAppearance.BorderSize = 0;
-            this.BtnText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnText.Image = global::paint.Properties.Resources.text;
-            this.BtnText.Location = new System.Drawing.Point(143, 11);
-            this.BtnText.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnText.Name = "BtnText";
-            this.BtnText.Size = new System.Drawing.Size(32, 34);
-            this.BtnText.TabIndex = 10;
-            this.BtnText.Tag = "38";
-            this.BtnText.UseVisualStyleBackColor = false;
-            this.BtnText.Click += new System.EventHandler(this.Handler_Tools_Click);
-            this.BtnText.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnText.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnEraser
-            // 
-            this.BtnEraser.BackColor = System.Drawing.Color.Transparent;
-            this.BtnEraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnEraser.FlatAppearance.BorderSize = 0;
-            this.BtnEraser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEraser.Image = global::paint.Properties.Resources.eraser;
-            this.BtnEraser.Location = new System.Drawing.Point(21, 58);
-            this.BtnEraser.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnEraser.Name = "BtnEraser";
-            this.BtnEraser.Size = new System.Drawing.Size(32, 34);
-            this.BtnEraser.TabIndex = 9;
-            this.BtnEraser.Tag = "35";
-            this.BtnEraser.UseVisualStyleBackColor = false;
-            this.BtnEraser.Click += new System.EventHandler(this.Handler_Tools_Click);
-            this.BtnEraser.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnEraser.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnFill
-            // 
-            this.BtnFill.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnFill.FlatAppearance.BorderSize = 0;
-            this.BtnFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFill.Image = global::paint.Properties.Resources.fill;
-            this.BtnFill.Location = new System.Drawing.Point(82, 11);
-            this.BtnFill.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnFill.Name = "BtnFill";
-            this.BtnFill.Size = new System.Drawing.Size(32, 34);
-            this.BtnFill.TabIndex = 8;
-            this.BtnFill.Tag = "36";
-            this.BtnFill.UseVisualStyleBackColor = false;
-            this.BtnFill.Click += new System.EventHandler(this.Handler_Tools_Click);
-            this.BtnFill.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnFill.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnPencil
-            // 
-            this.BtnPencil.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPencil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPencil.FlatAppearance.BorderSize = 0;
-            this.BtnPencil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPencil.Image = global::paint.Properties.Resources.pen;
-            this.BtnPencil.Location = new System.Drawing.Point(21, 11);
-            this.BtnPencil.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPencil.Name = "BtnPencil";
-            this.BtnPencil.Padding = new System.Windows.Forms.Padding(15);
-            this.BtnPencil.Size = new System.Drawing.Size(32, 34);
-            this.BtnPencil.TabIndex = 6;
-            this.BtnPencil.Tag = "34";
-            this.BtnPencil.UseVisualStyleBackColor = false;
-            this.BtnPencil.Click += new System.EventHandler(this.Handler_Tools_Click);
-            this.BtnPencil.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnPencil.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnRotate
-            // 
-            this.BtnRotate.BackColor = System.Drawing.Color.Transparent;
-            this.BtnRotate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnRotate.Enabled = false;
-            this.BtnRotate.FlatAppearance.BorderSize = 0;
-            this.BtnRotate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRotate.Image = global::paint.Properties.Resources.rotate;
-            this.BtnRotate.Location = new System.Drawing.Point(0, 0);
-            this.BtnRotate.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnRotate.Name = "BtnRotate";
-            this.BtnRotate.Size = new System.Drawing.Size(32, 34);
-            this.BtnRotate.TabIndex = 10;
-            this.BtnRotate.UseVisualStyleBackColor = false;
-            // 
-            // BtnRotateOptions
-            // 
-            this.BtnRotateOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnRotateOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnRotateOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnRotateOptions.Enabled = false;
-            this.BtnRotateOptions.FlatAppearance.BorderSize = 0;
-            this.BtnRotateOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRotateOptions.Location = new System.Drawing.Point(35, 7);
-            this.BtnRotateOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnRotateOptions.Name = "BtnRotateOptions";
-            this.BtnRotateOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnRotateOptions.TabIndex = 12;
-            this.BtnRotateOptions.UseVisualStyleBackColor = false;
-            // 
-            // BtnFlipOptions
-            // 
-            this.BtnFlipOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFlipOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnFlipOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnFlipOptions.Enabled = false;
-            this.BtnFlipOptions.FlatAppearance.BorderSize = 0;
-            this.BtnFlipOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFlipOptions.Location = new System.Drawing.Point(35, 7);
-            this.BtnFlipOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnFlipOptions.Name = "BtnFlipOptions";
-            this.BtnFlipOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnFlipOptions.TabIndex = 12;
-            this.BtnFlipOptions.UseVisualStyleBackColor = false;
-            // 
-            // BtnFlip
-            // 
-            this.BtnFlip.BackColor = System.Drawing.Color.Transparent;
-            this.BtnFlip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnFlip.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnFlip.Enabled = false;
-            this.BtnFlip.FlatAppearance.BorderSize = 0;
-            this.BtnFlip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFlip.Image = global::paint.Properties.Resources.flip;
-            this.BtnFlip.Location = new System.Drawing.Point(0, 0);
-            this.BtnFlip.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnFlip.Name = "BtnFlip";
-            this.BtnFlip.Size = new System.Drawing.Size(32, 33);
-            this.BtnFlip.TabIndex = 11;
-            this.BtnFlip.UseVisualStyleBackColor = false;
-            // 
-            // PcbBar2
-            // 
-            this.PcbBar2.BackColor = System.Drawing.Color.Transparent;
-            this.PcbBar2.Image = global::paint.Properties.Resources.Vertical_Line;
-            this.PcbBar2.Location = new System.Drawing.Point(178, 0);
-            this.PcbBar2.Margin = new System.Windows.Forms.Padding(0);
-            this.PcbBar2.Name = "PcbBar2";
-            this.PcbBar2.Size = new System.Drawing.Size(46, 132);
-            this.PcbBar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbBar2.TabIndex = 16;
-            this.PcbBar2.TabStop = false;
-            // 
-            // BtnResize
-            // 
-            this.BtnResize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnResize.FlatAppearance.BorderSize = 0;
-            this.BtnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnResize.Image = global::paint.Properties.Resources.resize;
-            this.BtnResize.Location = new System.Drawing.Point(75, 53);
-            this.BtnResize.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnResize.Name = "BtnResize";
-            this.BtnResize.Size = new System.Drawing.Size(32, 34);
-            this.BtnResize.TabIndex = 9;
-            this.BtnResize.Tag = "31";
-            this.BtnResize.UseVisualStyleBackColor = false;
-            this.BtnResize.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseClick);
-            this.BtnResize.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnResize.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnCrop
-            // 
-            this.BtnCrop.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCrop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnCrop.FlatAppearance.BorderSize = 0;
-            this.BtnCrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCrop.Image = global::paint.Properties.Resources.crop;
-            this.BtnCrop.Location = new System.Drawing.Point(77, 9);
-            this.BtnCrop.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnCrop.Name = "BtnCrop";
-            this.BtnCrop.Size = new System.Drawing.Size(32, 34);
-            this.BtnCrop.TabIndex = 8;
-            this.BtnCrop.Tag = "30";
-            this.BtnCrop.UseVisualStyleBackColor = false;
-            this.BtnCrop.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnCrop.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnSelectOptions
-            // 
-            this.BtnSelectOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSelectOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnSelectOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSelectOptions.FlatAppearance.BorderSize = 0;
-            this.BtnSelectOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSelectOptions.Location = new System.Drawing.Point(28, 65);
-            this.BtnSelectOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnSelectOptions.Name = "BtnSelectOptions";
-            this.BtnSelectOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnSelectOptions.TabIndex = 7;
-            this.BtnSelectOptions.Tag = "29";
-            this.BtnSelectOptions.UseVisualStyleBackColor = false;
-            this.BtnSelectOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnSelectOptions.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnSelect
-            // 
-            this.BtnSelect.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSelect.FlatAppearance.BorderSize = 0;
-            this.BtnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSelect.Image = global::paint.Properties.Resources.select;
-            this.BtnSelect.Location = new System.Drawing.Point(20, 29);
-            this.BtnSelect.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnSelect.Name = "BtnSelect";
-            this.BtnSelect.Size = new System.Drawing.Size(32, 34);
-            this.BtnSelect.TabIndex = 6;
-            this.BtnSelect.Tag = "28";
-            this.BtnSelect.UseVisualStyleBackColor = false;
-            this.BtnSelect.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnSelect.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnCopy
-            // 
-            this.BtnCopy.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnCopy.FlatAppearance.BorderSize = 0;
-            this.BtnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCopy.Image = global::paint.Properties.Resources.copy;
-            this.BtnCopy.Location = new System.Drawing.Point(78, 53);
-            this.BtnCopy.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnCopy.Name = "BtnCopy";
-            this.BtnCopy.Size = new System.Drawing.Size(32, 34);
-            this.BtnCopy.TabIndex = 4;
-            this.BtnCopy.Tag = "27";
-            this.BtnCopy.UseVisualStyleBackColor = false;
-            this.BtnCopy.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnCopy.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnCut
-            // 
-            this.BtnCut.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnCut.FlatAppearance.BorderSize = 0;
-            this.BtnCut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCut.Image = global::paint.Properties.Resources.cut;
-            this.BtnCut.Location = new System.Drawing.Point(80, 9);
-            this.BtnCut.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnCut.Name = "BtnCut";
-            this.BtnCut.Size = new System.Drawing.Size(32, 34);
-            this.BtnCut.TabIndex = 3;
-            this.BtnCut.Tag = "26";
-            this.BtnCut.UseVisualStyleBackColor = false;
-            this.BtnCut.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnCut.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnPasteOptions
-            // 
-            this.BtnPasteOptions.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPasteOptions.BackgroundImage = global::paint.Properties.Resources.down_arrow;
-            this.BtnPasteOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPasteOptions.FlatAppearance.BorderSize = 0;
-            this.BtnPasteOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPasteOptions.Location = new System.Drawing.Point(28, 65);
-            this.BtnPasteOptions.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPasteOptions.Name = "BtnPasteOptions";
-            this.BtnPasteOptions.Size = new System.Drawing.Size(16, 20);
-            this.BtnPasteOptions.TabIndex = 25;
-            this.BtnPasteOptions.Tag = "5.1";
-            this.BtnPasteOptions.UseVisualStyleBackColor = false;
-            this.BtnPasteOptions.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnPasteOptions.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnPaste
-            // 
-            this.BtnPaste.BackColor = System.Drawing.Color.Transparent;
-            this.BtnPaste.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPaste.FlatAppearance.BorderSize = 0;
-            this.BtnPaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPaste.Image = global::paint.Properties.Resources.paste;
-            this.BtnPaste.Location = new System.Drawing.Point(20, 29);
-            this.BtnPaste.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPaste.Name = "BtnPaste";
-            this.BtnPaste.Size = new System.Drawing.Size(32, 34);
-            this.BtnPaste.TabIndex = 1;
-            this.BtnPaste.Tag = "24";
-            this.BtnPaste.UseVisualStyleBackColor = false;
-            this.BtnPaste.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnPaste.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // PcBBar1
-            // 
-            this.PcBBar1.BackColor = System.Drawing.Color.Transparent;
-            this.PcBBar1.Image = global::paint.Properties.Resources.Vertical_Line;
-            this.PcBBar1.Location = new System.Drawing.Point(115, 0);
-            this.PcBBar1.Margin = new System.Windows.Forms.Padding(0);
-            this.PcBBar1.Name = "PcBBar1";
-            this.PcBBar1.Size = new System.Drawing.Size(46, 132);
-            this.PcBBar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcBBar1.TabIndex = 1;
-            this.PcBBar1.TabStop = false;
-            // 
-            // BtnRedo
-            // 
-            this.BtnRedo.BackColor = System.Drawing.Color.Transparent;
-            this.BtnRedo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnRedo.FlatAppearance.BorderSize = 0;
-            this.BtnRedo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRedo.Image = global::paint.Properties.Resources.redo;
-            this.BtnRedo.Location = new System.Drawing.Point(233, 5);
-            this.BtnRedo.Name = "BtnRedo";
-            this.BtnRedo.Size = new System.Drawing.Size(25, 26);
-            this.BtnRedo.TabIndex = 4;
-            this.BtnRedo.Tag = "23";
-            this.BtnRedo.UseVisualStyleBackColor = false;
-            this.BtnRedo.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnRedo.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnUndo
-            // 
-            this.BtnUndo.BackColor = System.Drawing.Color.Transparent;
-            this.BtnUndo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnUndo.FlatAppearance.BorderSize = 0;
-            this.BtnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnUndo.Image = global::paint.Properties.Resources.undo;
-            this.BtnUndo.Location = new System.Drawing.Point(190, 5);
-            this.BtnUndo.Name = "BtnUndo";
-            this.BtnUndo.Size = new System.Drawing.Size(25, 26);
-            this.BtnUndo.TabIndex = 3;
-            this.BtnUndo.Tag = "22";
-            this.BtnUndo.UseVisualStyleBackColor = false;
-            this.BtnUndo.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnUndo.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSave.FlatAppearance.BorderSize = 0;
-            this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSave.Image = global::paint.Properties.Resources.save;
-            this.BtnSave.Location = new System.Drawing.Point(143, 5);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(25, 26);
-            this.BtnSave.TabIndex = 2;
-            this.BtnSave.Tag = "21";
-            this.BtnSave.UseVisualStyleBackColor = false;
-            this.BtnSave.Click += new System.EventHandler(this.Handler_SaveImage);
-            this.BtnSave.MouseEnter += new System.EventHandler(this.Btn_Enter);
-            this.BtnSave.MouseLeave += new System.EventHandler(this.Btn_Leave);
-            // 
-            // PcbAppIcon
-            // 
-            this.PcbAppIcon.BackColor = System.Drawing.Color.Transparent;
-            this.PcbAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PcbAppIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PcbAppIcon.Image = global::paint.Properties.Resources.paint;
-            this.PcbAppIcon.Location = new System.Drawing.Point(0, 0);
-            this.PcbAppIcon.Margin = new System.Windows.Forms.Padding(5);
-            this.PcbAppIcon.Name = "PcbAppIcon";
-            this.PcbAppIcon.Size = new System.Drawing.Size(36, 38);
-            this.PcbAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbAppIcon.TabIndex = 0;
-            this.PcbAppIcon.TabStop = false;
-            // 
             // AppPaint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2644,12 +2703,14 @@
             this.Text = "Paint";
             this.Load += new System.EventHandler(this.AppPaint_Load);
             this.PnlContainer.ResumeLayout(false);
+            this.PnlBrushOptions.ResumeLayout(false);
             this.PnlPenDashStyleOptions.ResumeLayout(false);
             this.PnlSize.ResumeLayout(false);
             this.PnlRotateImage.ResumeLayout(false);
             this.PnlImageFlip.ResumeLayout(false);
             this.PnlDrawing.ResumeLayout(false);
             this.PnlDrawing.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).EndInit();
             this.PnlControlFooter.ResumeLayout(false);
             this.PnlControlFooter.PerformLayout();
             this.PnlControlDrawing.ResumeLayout(false);
@@ -2659,35 +2720,35 @@
             this.PnlControlSize.ResumeLayout(false);
             this.PnlControlSize.PerformLayout();
             this.PnlControlPenWidth.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar6)).EndInit();
             this.PnlControlShape.ResumeLayout(false);
             this.PnlControlShape.PerformLayout();
             this.PnlPenDashStyle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar5)).EndInit();
             this.FLPShape.ResumeLayout(false);
             this.PnlBrushes.ResumeLayout(false);
             this.PnlBrushes.PerformLayout();
+            this.PnlBrush.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar4)).EndInit();
             this.PnlControlTools.ResumeLayout(false);
             this.PnlControlTools.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar3)).EndInit();
             this.PnlControlImage.ResumeLayout(false);
             this.PnlControlImage.PerformLayout();
             this.PnlRotate.ResumeLayout(false);
             this.PnlFlip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).EndInit();
             this.PnlControlClipBoard.ResumeLayout(false);
             this.PnlControlClipBoard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).EndInit();
             this.PnlTitle.ResumeLayout(false);
             this.PnlTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).EndInit();
             this.PnlControlPaint.ResumeLayout(false);
             this.PnlControlPaint.PerformLayout();
             this.MenuControl.ResumeLayout(false);
             this.MenuControl.PerformLayout();
             this.PnlControlApp.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PcBMainDrawing)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcBBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbAppIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2795,8 +2856,6 @@
         private System.Windows.Forms.Label LbShape;
         private System.Windows.Forms.Panel PnlBrushes;
         private System.Windows.Forms.PictureBox PcbBar4;
-        private System.Windows.Forms.Button BtnBrushOptions;
-        private System.Windows.Forms.Button BtnBrush;
         private System.Windows.Forms.Label LbBrushes;
         private System.Windows.Forms.Panel PnlControlTools;
         private System.Windows.Forms.PictureBox PcbBar3;
@@ -2859,6 +2918,12 @@
         private System.Windows.Forms.Button BtnPenDashDotDot;
         private System.Windows.Forms.Button BtnPenDot;
         private System.Windows.Forms.Button BtnPenSolid;
+        private System.Windows.Forms.Panel PnlBrushOptions;
+        private System.Windows.Forms.Button BtnLinearBrush;
+        private System.Windows.Forms.Button BtnBrushSolid;
+        private System.Windows.Forms.Panel PnlBrush;
+        private System.Windows.Forms.Button BtnBrush;
+        private System.Windows.Forms.Button BtnBrushOptions;
     }
 }
 
