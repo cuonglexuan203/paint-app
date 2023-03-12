@@ -51,7 +51,17 @@ namespace paint
         Point mouseOffset;  // var to control the drag-drop form
         int index = 34;  // var to set the feature to client
         bool painted = false;
-        string fileExt = "png";
+        string fileExt = "png"; // file extension
+        // object storage
+        int selectedObjectIndex = -1; // index of graphic object is selected by user
+        List<Rectangle> graphicObjects = new List<Rectangle>(); // contain all graphic object on the image
+        List <int> graphicObjectTypes = new List<int>(); // contain the tag of each graphic object
+        List<int> graphicObjectPenWidths = new List<int>();
+        List<DashStyle> graphicObjectPenDashStyles = new List<DashStyle>(); 
+        // Fill shape 
+        List <Point> filledPoints = new List<Point>(); // store points which user fill in
+        List <Color> filledPointColors = new List<Color>(); // store the color user chose
+        //
         //
         List<Panel> optionalPanels ;  // option for autoHideControls
         List<Panel> autoHideControls;  // auto hide controls in this var list when click on the optionalPanels
@@ -130,6 +140,35 @@ namespace paint
             {
                 pnl.Hide();
             }
+        }
+        private void AddFilledPoint(Point point, Color color)
+        {
+            filledPoints.Add(point);
+            filledPointColors.Add(color);
+        }
+        private void AddGraphicObject(Point topLeft, Point bottomRight, int tag)
+        {
+            Rectangle newObject = new Rectangle(topLeft, new Size(Math.Abs(topLeft.X - bottomRight.X), Math.Abs(topLeft.Y - bottomRight.Y)));
+            graphicObjects.Add(newObject);
+            graphicObjectTypes.Add(tag);
+            graphicObjectPenWidths.Add((int)mainPen.Width);
+            graphicObjectPenDashStyles.Add(mainPen.DashStyle);
+        }
+        private void AddGraphicObject(Rectangle rect, int tag)
+        {
+            Rectangle newObject = rect;
+            graphicObjects.Add(newObject);
+            graphicObjectTypes.Add(tag);
+            graphicObjectPenWidths.Add((int)mainPen.Width);
+            graphicObjectPenDashStyles.Add(mainPen.DashStyle);
+        }
+        private void AddGraphicObject(Point topLeft, int width, int height, int tag)
+        {
+            Rectangle newObject = new Rectangle(topLeft, new Size(width, height));
+            graphicObjects.Add(newObject);
+            graphicObjectTypes.Add(tag);
+            graphicObjectPenWidths.Add((int)mainPen.Width);
+            graphicObjectPenDashStyles.Add(mainPen.DashStyle);
         }
         public void AddEventHandlerForAllControls(Control parent) // add event handler for the control include its child
         {
@@ -301,12 +340,13 @@ namespace paint
         // PictureBox event
         private void PcBMainDrawing_MouseDown(object sender, MouseEventArgs e)
         {
+            // get coordinate
             painted = true;
             pointX = e.Location;
             ix = e.X;
             iy = e.Y;
             //
-            //
+            // draw
             points.Clear(); // dispose for free-line
             points.Add(e.Location);
             //
@@ -318,6 +358,7 @@ namespace paint
                     hasRoot = true;
                 }
             }
+            
             
         }
         private Point GetStartPoint()
@@ -357,6 +398,11 @@ namespace paint
                         Point sp = pointX;
                         Point ep = new Point(x, y);
                         g.DrawLine(selectedPen, sp, ep);
+                        if (g == mainGraphic)
+                        {
+                        AddGraphicObject(sp, ep, index);
+                        
+                        }
                         break;
                     }                    
                 case 43:
@@ -381,6 +427,10 @@ namespace paint
                         else
                         {
                             g.DrawEllipse(selectedPen, rect);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(rect, index);
+                            }
                         }
                         break;
                     }
@@ -401,7 +451,12 @@ namespace paint
                         else
                         {
                             g.DrawRectangle(selectedPen, rect);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(rect, index);
+                            }
                         }
+                        
                         break;
                     }
                 case 46:
@@ -422,10 +477,14 @@ namespace paint
                         else
                         {
                             g.DrawRoundedRectangle(selectedPen, rect, 10);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(rect, index);
+                            }
                         }
                         break;
                     }
-                case 47:
+                case 47: //
                     {
                         Point currentPoint = new Point(x, y);
                         g.DrawPolygon(selectedPen, rootPoint, pointX, pointY, endPoint, currentPoint, ref countLine, ref hasRoot);
@@ -446,6 +505,10 @@ namespace paint
                         else
                         {
                             g.DrawTriangle(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
                         }
                         break;
                     }
@@ -463,6 +526,11 @@ namespace paint
                         else
                         {
                             g.DrawRightTriangle(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -480,6 +548,11 @@ namespace paint
                         else
                         {
                             g.DrawDiamond(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -497,6 +570,11 @@ namespace paint
                         else
                         {
                             g.DrawPentagon(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -514,6 +592,11 @@ namespace paint
                         else
                         {
                             g.DrawHexagon(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -531,6 +614,11 @@ namespace paint
                         else
                         {
                             g.DrawRightArrow(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -548,6 +636,11 @@ namespace paint
                         else
                         {
                             g.DrawLeftArrow(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -565,6 +658,11 @@ namespace paint
                         else
                         {
                             g.DrawUpArrow(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -582,6 +680,11 @@ namespace paint
                         else
                         {
                             g.DrawDownArrow(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -599,6 +702,11 @@ namespace paint
                         else
                         {
                             g.DrawFourPointStar(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -616,6 +724,11 @@ namespace paint
                         else
                         {
                             g.DrawFivePointStar(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -633,6 +746,11 @@ namespace paint
                         else
                         {
                             g.DrawSixPointStar(selectedPen, pointX, currentPoint);
+                            if(g == mainGraphic){
+                                
+                            AddGraphicObject(pointX, currentPoint, index);
+                            }
+
                         }
                         break;
                     }
@@ -667,6 +785,7 @@ namespace paint
                     endPoint = e.Location; // save the current coordinate of the end point of the current line
                     countLine++;
                 }
+                
             }
             //points.Clear();
             painted = false;
@@ -681,6 +800,7 @@ namespace paint
                 if (index == 34) // free-line
                 {
                     points.Add(p);
+                    AddGraphicObject(points.First(), points.Last(), index);
                 }
                 else if (index == 35) // eraser
                 {
@@ -691,10 +811,12 @@ namespace paint
                     if (selectedColor == 0)
                     {
                         FillUp(mainBitmap, p.X, p.Y, mainColor);
+                        AddFilledPoint(p, mainColor);
                     }
                     else if (selectedColor == 1)
                     {
                         FillUp(mainBitmap, p.X, p.Y, subColor);
+                        AddFilledPoint(p, subColor);
                     }
                 }
             }
@@ -705,7 +827,7 @@ namespace paint
             sx = e.X - ix;
             sy = e.Y - iy;
         }
-
+       
         private void PcBMainDrawing_Paint(object sender, PaintEventArgs e)
         {
             
@@ -725,10 +847,11 @@ namespace paint
                             mainGraphic.DrawCurve(subPen, points.ToArray());
                         }
                     }
-                    if (index == 35)
+                    else if (index == 35)
                     {
                         mainGraphic.DrawCurve(mainEraser, points.ToArray());
                     }
+                    
                 }
                 
                 Handler_DrawShape(e.Graphics);
@@ -816,6 +939,13 @@ namespace paint
             {
                 this.mainEraser.Width = savedPenWidths[2];
             }
+        }
+        private void Handler_ImageControls_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int tag = Convert.ToInt32(btn.Tag);
+            //
+            this.index = this.indexPenSize = tag;
         }
         private void Handler_Shapes_Click(object sender, EventArgs e)
         {
@@ -980,8 +1110,10 @@ namespace paint
             Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
             newBm.RotateFlip(RotateFlipType.RotateNoneFlipY);
             //
-            mainGraphic = Graphics.FromImage(newBm);
-            PcBMainDrawing.Image = newBm;
+            Bitmap flipedBm = new Bitmap(newBm);
+            mainGraphic = Graphics.FromImage(flipedBm);
+            mainBitmap = flipedBm;
+            PcBMainDrawing.Image = flipedBm;
         }
 
         private void BtnFlipHor_Click(object sender, EventArgs e)
@@ -989,8 +1121,10 @@ namespace paint
             Bitmap newBm = new Bitmap(PcBMainDrawing.Image);
             newBm.RotateFlip(RotateFlipType.RotateNoneFlipX);
             //
-            mainGraphic = Graphics.FromImage(newBm);
-            PcBMainDrawing.Image = newBm;
+            Bitmap flipedBm = new Bitmap(newBm);
+            mainGraphic = Graphics.FromImage(flipedBm);
+            mainBitmap = flipedBm;
+            PcBMainDrawing.Image = flipedBm;
         }
 
         private void PnlRotate_MouseClick(object sender, MouseEventArgs e)
@@ -1145,6 +1279,7 @@ namespace paint
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1, 0, 1, 0, Color.FromArgb(234, 234, 234));
 
         }
+
         // additional method
         private void SetMainColor(Color color)
         {

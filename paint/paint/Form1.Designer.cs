@@ -1727,6 +1727,7 @@
             this.BtnSelect.TabIndex = 6;
             this.BtnSelect.Tag = "28";
             this.BtnSelect.UseVisualStyleBackColor = false;
+            this.BtnSelect.Click += new System.EventHandler(this.Handler_ImageControls_Click);
             this.BtnSelect.MouseEnter += new System.EventHandler(this.Btn_Enter);
             this.BtnSelect.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
