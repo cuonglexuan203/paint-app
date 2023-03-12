@@ -369,6 +369,7 @@ namespace paint
 
                         Size size = new Size(sx, sy);
                         Rectangle rect = new Rectangle(pointX, size);
+                        
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
