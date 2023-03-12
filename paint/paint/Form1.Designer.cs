@@ -504,7 +504,7 @@
             this.PcBMainDrawing.Location = new System.Drawing.Point(0, 0);
             this.PcBMainDrawing.Margin = new System.Windows.Forms.Padding(0);
             this.PcBMainDrawing.Name = "PcBMainDrawing";
-            this.PcBMainDrawing.Size = new System.Drawing.Size(800, 300);
+            this.PcBMainDrawing.Size = new System.Drawing.Size(1200, 500);
             this.PcBMainDrawing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PcBMainDrawing.TabIndex = 0;
             this.PcBMainDrawing.TabStop = false;
@@ -1392,7 +1392,7 @@
             // LbBrushes
             // 
             this.LbBrushes.AutoSize = true;
-            this.LbBrushes.Location = new System.Drawing.Point(10, 98);
+            this.LbBrushes.Location = new System.Drawing.Point(14, 98);
             this.LbBrushes.Name = "LbBrushes";
             this.LbBrushes.Size = new System.Drawing.Size(68, 20);
             this.LbBrushes.TabIndex = 0;
@@ -2004,7 +2004,7 @@
             this.ViewHome});
             this.MenuControl.Location = new System.Drawing.Point(2, 6);
             this.MenuControl.Name = "MenuControl";
-            this.MenuControl.Size = new System.Drawing.Size(123, 28);
+            this.MenuControl.Size = new System.Drawing.Size(125, 30);
             this.MenuControl.TabIndex = 5;
             this.MenuControl.Text = "menuStrip1";
             // 
@@ -2019,7 +2019,7 @@
             this.MenuItemAbout});
             this.MenuHome.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.MenuHome.Name = "MenuHome";
-            this.MenuHome.Size = new System.Drawing.Size(60, 24);
+            this.MenuHome.Size = new System.Drawing.Size(60, 26);
             this.MenuHome.Text = "Menu";
             // 
             // MenuItemNew
@@ -2109,7 +2109,7 @@
             this.MenuItemStatusBar});
             this.ViewHome.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.ViewHome.Name = "ViewHome";
-            this.ViewHome.Size = new System.Drawing.Size(55, 24);
+            this.ViewHome.Size = new System.Drawing.Size(55, 26);
             this.ViewHome.Text = "View";
             // 
             // MeniItemFullScreen

@@ -36,7 +36,7 @@ namespace paint
         //
         ColorDialog mainColorDialog = new ColorDialog();
         List<int> savedPenWidths = new List<int> { 1, 1, 4, 1 }; // 0: mainPen, 1: subPen, 2: eraser, 3: shapes
-        Size mainPcbSize = new Size(800, 300);
+        Size mainPcbSize = new Size(1200, 500);
         // point
         Point pointX, pointY;
         int x, y, sx, sy, ix, iy; // s: scale, i: initial
@@ -412,7 +412,8 @@ namespace paint
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.DrawRoundedRectangle(selectedPen, rect, 10);
+                                g.FillRoundedRectangle(mainSolidBrush, rect, 10);
+                                
                             }
                             
                             
@@ -432,73 +433,206 @@ namespace paint
                 case 48:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawTriangle(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillTriangle(mainSolidBrush, pointX, currentPoint);
+                            }
+
+
+                        }
+                        else
+                        {
+                            g.DrawTriangle(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 49:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawRightTriangle(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillRightTriangle(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawRightTriangle(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 50:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawDiamond(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillDiamond(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawDiamond(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 51:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawPentagon(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillPentagon(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawPentagon(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 52:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawHexagon(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillHexagon(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawHexagon(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 53:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawRightArrow(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillRightArrow(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawRightArrow(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 54:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawLeftArrow(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillLeftArrow(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawLeftArrow(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 55:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawUpArrow(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillUpArrow(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawUpArrow(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 56:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawDownArrow(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillDownArrow(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawDownArrow(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 57:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawFourPointStar(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillFourPointStar(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawFourPointStar(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 58:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawFivePointStar(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillFivePointStar(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawFivePointStar(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 59:
                     {
                         Point currentPoint = new Point((int)x, (int)y);
-                        g.DrawSixPointStar(selectedPen, pointX, currentPoint);
+                        if (isBrush)
+                        {
+                            if (selectedBrushIndex == 1)
+                            {
+                                g.FillSixPointStar(mainSolidBrush, pointX, currentPoint);
+                            }
+
+                        }
+                        else
+                        {
+                            g.DrawSixPointStar(selectedPen, pointX, currentPoint);
+                        }
                         break;
                     }
                 case 60:
