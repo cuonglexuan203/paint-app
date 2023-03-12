@@ -53,6 +53,11 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResizeAndSkewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,14 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ResizeAndSkewForm.resx">
       <DependentUpon>ResizeAndSkewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +276,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rotate-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen-style.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash-dot-dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash-dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash-dot-dot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashed-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dotted-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen-style1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

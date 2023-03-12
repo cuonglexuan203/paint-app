@@ -73,14 +73,13 @@ namespace paint
         Color.FromArgb(200,191,231),
         };
 
-
+        
 
         //
         private void InitData()
         {
             mainBitmap = new Bitmap(PcBMainDrawing.Width, PcBMainDrawing.Height);
             mainGraphic = Graphics.FromImage(mainBitmap);
-            
             mainGraphic.Clear(Color.White);
             mainGraphic.SmoothingMode = SmoothingMode.AntiAlias;
             mainColor = Color.Black;
@@ -94,7 +93,7 @@ namespace paint
             //this.PnlDrawing.AutoScrollMinSize = this.PcBMainDrawing.Size;
 
             //
-            autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage }; // auto hide controls when click on the optional panels
+            autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions }; // auto hide controls when click on the optional panels
             optionalPanels = new List<Panel> { this.PnlContainer, this.PnlControlPaint};
         }
         private void AppPaint_Load(object sender, EventArgs e)
@@ -139,6 +138,46 @@ namespace paint
             {
               AddEventHandlerForAllControls(p);
             }
+        }
+
+        private void Handler_PenDashStyleOptions_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            int selectedOption = int.Parse(button.Tag.ToString());
+            Pen pen = mainPen;
+            if (selectedColor == 1)
+            {
+                pen = subPen;
+            }
+            switch(selectedOption)
+            {
+                case 1:
+                    {
+                        pen.DashStyle = DashStyle.DashDotDot;
+                        break;
+                    }
+                case 2:
+                    {
+                        pen.DashStyle = DashStyle.DashDot;
+                        break;
+                    }
+                case 3:
+                    {
+                        pen.DashStyle = DashStyle.Dash;
+                        break;
+                    }
+                case 4:
+                    {
+                        pen.DashStyle = DashStyle.Solid;
+                        break;
+                    }
+                case 5:
+                    {
+                        pen.DashStyle = DashStyle.Dot;
+                        break;
+                    }
+            }
+            
         }
 
         private void Handler_SaveAsImage(object sender, EventArgs e)
@@ -801,6 +840,7 @@ namespace paint
             PcBMainDrawing.Location = new Point(0, 0);
             mainBitmap = newBm;
             mainGraphic = Graphics.FromImage(mainBitmap);
+            
         }
 
         private void BtnRotate180_Click(object sender, EventArgs e)
@@ -855,6 +895,13 @@ namespace paint
         {
             mainGraphic.Clear(Color.White);
             PcBMainDrawing.Refresh();
+        }
+
+        private void PnlPenDashStyle_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.PnlPenDashStyleOptions.Show();
+            this.PnlPenDashStyleOptions.Focus();
+            this.PnlPenDashStyleOptions.Refresh();
         }
 
         private void BtnMaximize_Click(object sender, EventArgs e)

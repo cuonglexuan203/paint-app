@@ -26,10 +26,8 @@ namespace paint
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            
             //
             Pen pen = new Pen(BorderColor, borderWidth);
-            
             GraphicsPath eclipse = new GraphicsPath();
             eclipse.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height);
             e.Graphics.DrawPath(pen, eclipse);

@@ -45,10 +45,17 @@ namespace paint
         {
             this.SuspendLayout();
             InitColorsOfPen();
-            CustomizeButtonImage(new List<Button>() { BtnSave, BtnUndo, BtnRedo, BtnPaste, BtnCut, BtnCopy, BtnSelect, BtnCrop, BtnResize, BtnRotate, BtnFlip, BtnPencil, BtnFill, BtnText, BtnEraser, BtnColorPicker, BtnMagnifier, BtnBrush, BtnShape1, BtnShape2, BtnShape3, BtnShape4, BtnShape5, BtnShape6, BtnShape7, BtnShape8, BtnShape9, BtnShape10, BtnShape11, BtnShape12, BtnShape13, BtnShape14, BtnShape15, BtnShape16, BtnShape17, BtnShape18, BtnShape19, BtnShape20, BtnShape21, BtnShape22, BtnShapeOutline, BtnShapeFill, BtnSize, BtnEditColor });
-            CustomizeOptionButtonImage(new List<Button> { BtnFlipHor, BtnFlipVer, this.BtnRotateRight90, this.BtnRotateLeft90, this.BtnRotate180 });
+            CustomizeButtonImage(new List<Button>() { BtnSave, BtnUndo, BtnRedo, BtnPaste, BtnCut, BtnCopy, BtnSelect, BtnCrop, BtnResize,
+                BtnRotate, BtnFlip, BtnPencil, BtnFill, BtnText, BtnEraser, BtnColorPicker, BtnMagnifier, BtnBrush,
+                BtnShape1, BtnShape2, BtnShape3, BtnShape4, BtnShape5, BtnShape6, BtnShape7, BtnShape8, BtnShape9, BtnShape10,
+                BtnShape11, BtnShape12, BtnShape13, BtnShape14, BtnShape15, BtnShape16, BtnShape17, BtnShape18, BtnShape19, BtnShape20,
+                BtnShape21, BtnShape22, BtnShapeOutline, BtnSize, BtnEditColor, BtnPenDashStyle
+
+            });
+            CustomizeOptionButtonImage(new List<Button> { BtnFlipHor, BtnFlipVer, this.BtnRotateRight90, this.BtnRotateLeft90, this.BtnRotate180,
+                this.BtnPenDashDotDot, this.BtnPenDashDot, this.BtnPenDash, this.BtnPenSolid, this.BtnPenDot });
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
-            HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage });
+            HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions });
             this.ResumeLayout();
         }
         public void InitColorsOfPen()
