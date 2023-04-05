@@ -86,7 +86,7 @@ namespace paint
             foreach (Button btn in buttons)
             {
                 Image img = btn.Image;
-                btn.Image = (Image)(new Bitmap(img, new Size((int)(btn.Width * 0.2 - borderWidth * 2), (int)(btn.Height * .6 - borderWidth * 2))));
+                btn.Image = (Image)(new Bitmap(img, new Size((int)(btn.Width * 0.2 - borderWidth * 2), (int)(btn.Height * 0.6 - borderWidth * 2))));
             }
         }
         public void CustomizeBorderPanelColor(Panel pnl, int topWidth, int rightWidth, int bottomWidth, int leftWidth, Color color)

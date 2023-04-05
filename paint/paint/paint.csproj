@@ -64,6 +64,7 @@
     <Compile Include="ResizeAndSkewForm.Designer.cs">
       <DependentUpon>ResizeAndSkewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Layers\BussinessLayer\BSAction.cs" />
     <Compile Include="src\CustomControls\CustomWidthButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -79,9 +80,12 @@
     <Compile Include="src\CustomUI\CustomUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="src\Layers\DatabaseLayer\DBMain.cs" />
     <Compile Include="src\ExtendMethods\GraphicsExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Layers\InterfaceLayer\Actions\GraphicObject.cs" />
+    <Compile Include="src\Layers\InterfaceLayer\Actions\PaintAction.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,5 +314,6 @@
   <ItemGroup>
     <None Include="Resources\linear-brush.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

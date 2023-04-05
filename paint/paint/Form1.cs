@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
+using static paint.src.Layers.InterfaceLayer.Actions.PaintAction;
+using paint.src.Layers.BussinessLayer;
+using paint.src.Layers.InterfaceLayer.Actions;
 
 namespace paint
 {
@@ -38,8 +41,10 @@ namespace paint
         List<int> savedPenWidths = new List<int> { 1, 1, 4, 1 }; // 0: mainPen, 1: subPen, 2: eraser, 3: shapes
         Size mainPcbSize = new Size(1200, 500);
         // point
-        Point pointX, pointY;
-        int x, y, sx, sy, ix, iy; // s: scale, i: initial
+        Point pointX; // begining point when mouse down
+        Point pointY; // ending point when mouse up
+        int x, y; // current coordinate of mouse in mouse move event
+        int sx, sy, ix, iy; // s: scale (set in mouse move event) , i: initial ( set in mouse down event )
         List<Point> points = new List<Point>();
         // point: shape
         bool hasRoot = false;
@@ -53,11 +58,7 @@ namespace paint
         bool painted = false;
         string fileExt = "png"; // file extension
         // object storage
-        int selectedObjectIndex = -1; // index of graphic object is selected by user
-        List<Rectangle> graphicObjects = new List<Rectangle>(); // contain all graphic object on the image
-        List <int> graphicObjectTypes = new List<int>(); // contain the tag of each graphic object
-        List<int> graphicObjectPenWidths = new List<int>();
-        List<DashStyle> graphicObjectPenDashStyles = new List<DashStyle>(); 
+        BSAction bsAction;
         // Fill shape 
         List <Point> filledPoints = new List<Point>(); // store points which user fill in
         List <Color> filledPointColors = new List<Color>(); // store the color user chose
@@ -115,6 +116,8 @@ namespace paint
             //
             autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions }; // auto hide controls when click on the optional panels
             optionalPanels = new List<Panel> { this.PnlContainer, this.PnlControlPaint};
+            // init data storage
+            bsAction = new BSAction();
         }
         private void AppPaint_Load(object sender, EventArgs e)
         {
@@ -146,30 +149,7 @@ namespace paint
             filledPoints.Add(point);
             filledPointColors.Add(color);
         }
-        private void AddGraphicObject(Point topLeft, Point bottomRight, int tag)
-        {
-            Rectangle newObject = new Rectangle(topLeft, new Size(Math.Abs(topLeft.X - bottomRight.X), Math.Abs(topLeft.Y - bottomRight.Y)));
-            graphicObjects.Add(newObject);
-            graphicObjectTypes.Add(tag);
-            graphicObjectPenWidths.Add((int)mainPen.Width);
-            graphicObjectPenDashStyles.Add(mainPen.DashStyle);
-        }
-        private void AddGraphicObject(Rectangle rect, int tag)
-        {
-            Rectangle newObject = rect;
-            graphicObjects.Add(newObject);
-            graphicObjectTypes.Add(tag);
-            graphicObjectPenWidths.Add((int)mainPen.Width);
-            graphicObjectPenDashStyles.Add(mainPen.DashStyle);
-        }
-        private void AddGraphicObject(Point topLeft, int width, int height, int tag)
-        {
-            Rectangle newObject = new Rectangle(topLeft, new Size(width, height));
-            graphicObjects.Add(newObject);
-            graphicObjectTypes.Add(tag);
-            graphicObjectPenWidths.Add((int)mainPen.Width);
-            graphicObjectPenDashStyles.Add(mainPen.DashStyle);
-        }
+        
         public void AddEventHandlerForAllControls(Control parent) // add event handler for the control include its child
         {
             foreach (Control c in parent.Controls)
@@ -343,8 +323,11 @@ namespace paint
             // get coordinate
             painted = true;
             pointX = e.Location;
+            // reset
             ix = e.X;
             iy = e.Y;
+            sx = 0;
+            sy = 0;
             //
             // draw
             points.Clear(); // dispose for free-line
@@ -361,7 +344,7 @@ namespace paint
             
             
         }
-        private Point GetStartPoint()
+        private Point GetStartPoint() // get top-left corner of the bound rectangle
         {
             Point point = pointX;
             Point epoint = new Point(x, y);
@@ -371,11 +354,11 @@ namespace paint
             }
             else if (sx < 0)
             {
-                point.X += sx; // sx now is negative
+                point.X += sx; // plus because sx now is negative
             }
             else if (sy < 0)
             {
-                point.Y += sy; // sy now is negative
+                point.Y += sy; // // plus because sy now is negative
             }
             return point;
         }
@@ -400,8 +383,11 @@ namespace paint
                         g.DrawLine(selectedPen, sp, ep);
                         if (g == mainGraphic)
                         {
-                        AddGraphicObject(sp, ep, index);
-                        
+                            GraphicObject curObj = new GraphicObject(sp, ep, this.index, mainPen, isBrush, mainSolidBrush);
+                            AddPaintActionToDB(curObj);
+                            //
+                            PaintAction a = GetPaintActionFromDB(0);
+                            MessageBox.Show(a.CurGObject.Bound + "");
                         }
                         break;
                     }                    
@@ -429,7 +415,7 @@ namespace paint
                             g.DrawEllipse(selectedPen, rect);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(rect, index);
+                            //AddGraphicObject(rect, index);
                             }
                         }
                         break;
@@ -453,7 +439,7 @@ namespace paint
                             g.DrawRectangle(selectedPen, rect);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(rect, index);
+                            //AddGraphicObject(rect, index);
                             }
                         }
                         
@@ -479,7 +465,7 @@ namespace paint
                             g.DrawRoundedRectangle(selectedPen, rect, 10);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(rect, index);
+                            //AddGraphicObject(rect, index);
                             }
                         }
                         break;
@@ -507,7 +493,7 @@ namespace paint
                             g.DrawTriangle(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
                         }
                         break;
@@ -528,7 +514,7 @@ namespace paint
                             g.DrawRightTriangle(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -550,7 +536,7 @@ namespace paint
                             g.DrawDiamond(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -572,7 +558,7 @@ namespace paint
                             g.DrawPentagon(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -594,7 +580,7 @@ namespace paint
                             g.DrawHexagon(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -616,7 +602,7 @@ namespace paint
                             g.DrawRightArrow(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -638,7 +624,7 @@ namespace paint
                             g.DrawLeftArrow(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -660,7 +646,7 @@ namespace paint
                             g.DrawUpArrow(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -682,7 +668,7 @@ namespace paint
                             g.DrawDownArrow(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -704,7 +690,7 @@ namespace paint
                             g.DrawFourPointStar(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -726,7 +712,7 @@ namespace paint
                             g.DrawFivePointStar(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -748,7 +734,7 @@ namespace paint
                             g.DrawSixPointStar(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
                                 
-                            AddGraphicObject(pointX, currentPoint, index);
+                            //AddGraphicObject(pointX, currentPoint, index);
                             }
 
                         }
@@ -773,6 +759,43 @@ namespace paint
                     }
             }
         }
+
+        //
+        public PaintAction GetPaintActionFromDB(int pos) // 0: first, 1: last
+        {
+            string xmlPaintAction = string.Empty;
+            string errMsg = string.Empty;
+            if (pos == 0)
+            {
+                xmlPaintAction = bsAction.GetFirstAction(ref errMsg, true);
+            }
+            else if (pos == 1)
+            {
+                xmlPaintAction = bsAction.GetLastAction(ref errMsg, true);
+            }
+            return PaintAction.PaintActionFromString(xmlPaintAction);
+        }
+
+        public void AddPaintActionToDB(GraphicObject curObj, GraphicObject oldObj = null, int actionType = 0)
+        {
+            PaintAction curAction = null;
+            if (oldObj == null)
+            {
+                curAction = new PaintAction(PaintAction.PaintActionType.Draw, curObj);
+            }
+            else
+            {
+                curAction = new PaintAction(PaintAction.PaintActionType.Draw, curObj, oldObj);
+            }
+            string strAction = curAction.ConvertToXMLString();
+            int type = actionType;
+            string errMsg = string.Empty;
+            bsAction.AddAction(strAction, type, ref errMsg);
+            if (string.IsNullOrEmpty(errMsg))
+            {
+                //MessageBox.Show(errMsg);
+            }
+        }
         private void PcBMainDrawing_MouseUp(object sender, MouseEventArgs e)
         {
             pointY = e.Location;
@@ -787,7 +810,7 @@ namespace paint
                 }
                 
             }
-            //points.Clear();
+            points.Clear();
             painted = false;
 
         }
@@ -800,7 +823,7 @@ namespace paint
                 if (index == 34) // free-line
                 {
                     points.Add(p);
-                    AddGraphicObject(points.First(), points.Last(), index);
+                    //AddGraphicObject(points.First(), points.Last(), index);
                 }
                 else if (index == 35) // eraser
                 {
