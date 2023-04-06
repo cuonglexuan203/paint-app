@@ -609,6 +609,7 @@
             this.PnlDrawing.Name = "PnlDrawing";
             this.PnlDrawing.Size = new System.Drawing.Size(1461, 425);
             this.PnlDrawing.TabIndex = 2;
+            this.PnlDrawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlDrawing_MouseClick);
             // 
             // PcBMainDrawing
             // 
