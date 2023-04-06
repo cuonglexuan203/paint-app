@@ -58,14 +58,14 @@ namespace paint
         bool painted = false;
         string fileExt = "png"; // file extension
         // object storage
-        BSAction bsAction;
-        // Fill shape 
-        List <Point> filledPoints = new List<Point>(); // store points which user fill in
-        List <Color> filledPointColors = new List<Color>(); // store the color user chose
+        List<PaintAction> mainActions;
         //
         //
         List<Panel> optionalPanels ;  // option for autoHideControls
         List<Panel> autoHideControls;  // auto hide controls in this var list when click on the optionalPanels
+        //
+        // selected selection
+        int selectedSelectionIndex;
         //
         List<Color> colors = new List<Color>() { 
         Color.FromArgb(0,0,0),
@@ -89,7 +89,9 @@ namespace paint
         Color.FromArgb(112,145,189),
         Color.FromArgb(200,191,231),
         };
-
+        //
+        // indexes <= 20 use for handling logic , they can be the same for separate controls
+        // 21 and afterward use for painting
         
 
         //
@@ -114,10 +116,12 @@ namespace paint
             //this.PnlDrawing.AutoScrollMinSize = this.PcBMainDrawing.Size;
 
             //
-            autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions }; // auto hide controls when click on the optional panels
+            autoHideControls = new List<Panel> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions, this.PnlSelectOptions }; // auto hide controls when click on the optional panels
             optionalPanels = new List<Panel> { this.PnlContainer, this.PnlControlPaint};
             // init data storage
-            bsAction = new BSAction();
+            mainActions = new List<PaintAction>();
+            // selection index 
+            selectedSelectionIndex = 2;
         }
         private void AppPaint_Load(object sender, EventArgs e)
         {
@@ -143,11 +147,6 @@ namespace paint
             {
                 pnl.Hide();
             }
-        }
-        private void AddFilledPoint(Point point, Color color)
-        {
-            filledPoints.Add(point);
-            filledPointColors.Add(color);
         }
         
         public void AddEventHandlerForAllControls(Control parent) // add event handler for the control include its child
@@ -318,32 +317,7 @@ namespace paint
         }
         
         // PictureBox event
-        private void PcBMainDrawing_MouseDown(object sender, MouseEventArgs e)
-        {
-            // get coordinate
-            painted = true;
-            pointX = e.Location;
-            // reset
-            ix = e.X;
-            iy = e.Y;
-            sx = 0;
-            sy = 0;
-            //
-            // draw
-            points.Clear(); // dispose for free-line
-            points.Add(e.Location);
-            //
-            if (index == 47)
-            {
-                if (!hasRoot)
-                {
-                    rootPoint = e.Location; // the root of polygon
-                    hasRoot = true;
-                }
-            }
-            
-            
-        }
+        
         private Point GetStartPoint() // get top-left corner of the bound rectangle
         {
             Point point = pointX;
@@ -383,11 +357,9 @@ namespace paint
                         g.DrawLine(selectedPen, sp, ep);
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(sp, ep, this.index, mainPen, isBrush, mainSolidBrush);
-                            AddPaintActionToDB(curObj);
-                            //
-                            PaintAction a = GetPaintActionFromDB(0);
-                            MessageBox.Show(a.CurGObject.Bound + "");
+                            GraphicObject curObj = new GraphicObject(sp, ep, this.index, (Pen)GetSelectedPen().Clone(), isBrush, mainSolidBrush);
+                            PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
+                            AddPaintAction(temp);
                         }
                         break;
                     }                    
@@ -408,15 +380,16 @@ namespace paint
                             {
                                 g.FillEllipse(mainSolidBrush, rect);
                             }
-                            
                         }
                         else
                         {
                             g.DrawEllipse(selectedPen, rect);
-                            if(g == mainGraphic){
-                                
-                            //AddGraphicObject(rect, index);
-                            }
+                        }
+                        if(g == mainGraphic){
+
+                            GraphicObject curObj = new GraphicObject(rect, this.index, (Pen)GetSelectedPen().Clone(), isBrush, mainSolidBrush);
+                            PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
+                            AddPaintAction(temp);
                         }
                         break;
                     }
@@ -437,10 +410,11 @@ namespace paint
                         else
                         {
                             g.DrawRectangle(selectedPen, rect);
-                            if(g == mainGraphic){
-                                
-                            //AddGraphicObject(rect, index);
-                            }
+                        }
+                        if(g == mainGraphic){
+                            GraphicObject curObj = new GraphicObject(rect, this.index, (Pen)GetSelectedPen().Clone(), isBrush, mainSolidBrush);
+                            PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
+                            AddPaintAction(temp);
                         }
                         
                         break;
@@ -457,16 +431,17 @@ namespace paint
                                 g.FillRoundedRectangle(mainSolidBrush, rect, 10);
                                 
                             }
-                            
-                            
+
                         }
                         else
                         {
                             g.DrawRoundedRectangle(selectedPen, rect, 10);
-                            if(g == mainGraphic){
-                                
-                            //AddGraphicObject(rect, index);
-                            }
+                        }
+                        if (g == mainGraphic)
+                        {
+                            GraphicObject curObj = new GraphicObject(rect, this.index, (Pen)GetSelectedPen().Clone(), isBrush, mainSolidBrush);
+                            PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
+                            AddPaintAction(temp);
                         }
                         break;
                     }
@@ -474,6 +449,10 @@ namespace paint
                     {
                         Point currentPoint = new Point(x, y);
                         g.DrawPolygon(selectedPen, rootPoint, pointX, pointY, endPoint, currentPoint, ref countLine, ref hasRoot);
+                        if (countLine == -1)
+                        {
+
+                        }
                         break;
                     }
                 case 48:
@@ -535,7 +514,6 @@ namespace paint
                         {
                             g.DrawDiamond(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
-                                
                             //AddGraphicObject(pointX, currentPoint, index);
                             }
 
@@ -557,10 +535,8 @@ namespace paint
                         {
                             g.DrawPentagon(selectedPen, pointX, currentPoint);
                             if(g == mainGraphic){
-                                
                             //AddGraphicObject(pointX, currentPoint, index);
                             }
-
                         }
                         break;
                     }
@@ -761,40 +737,30 @@ namespace paint
         }
 
         //
-        public PaintAction GetPaintActionFromDB(int pos) // 0: first, 1: last
+        private void PcBMainDrawing_MouseDown(object sender, MouseEventArgs e)
         {
-            string xmlPaintAction = string.Empty;
-            string errMsg = string.Empty;
-            if (pos == 0)
+            // get coordinate
+            painted = true;
+            pointX = e.Location;
+            // reset
+            ix = e.X;
+            iy = e.Y;
+            sx = 0;
+            sy = 0;
+            //
+            // draw
+            points.Clear(); // dispose for free-line
+            points.Add(e.Location);
+            //
+            if (index == 47)
             {
-                xmlPaintAction = bsAction.GetFirstAction(ref errMsg, true);
+                if (!hasRoot)
+                {
+                    rootPoint = e.Location; // the root of polygon
+                    hasRoot = true;
+                }
             }
-            else if (pos == 1)
-            {
-                xmlPaintAction = bsAction.GetLastAction(ref errMsg, true);
-            }
-            return PaintAction.PaintActionFromString(xmlPaintAction);
-        }
 
-        public void AddPaintActionToDB(GraphicObject curObj, GraphicObject oldObj = null, int actionType = 0)
-        {
-            PaintAction curAction = null;
-            if (oldObj == null)
-            {
-                curAction = new PaintAction(PaintAction.PaintActionType.Draw, curObj);
-            }
-            else
-            {
-                curAction = new PaintAction(PaintAction.PaintActionType.Draw, curObj, oldObj);
-            }
-            string strAction = curAction.ConvertToXMLString();
-            int type = actionType;
-            string errMsg = string.Empty;
-            bsAction.AddAction(strAction, type, ref errMsg);
-            if (string.IsNullOrEmpty(errMsg))
-            {
-                //MessageBox.Show(errMsg);
-            }
         }
         private void PcBMainDrawing_MouseUp(object sender, MouseEventArgs e)
         {
@@ -803,7 +769,14 @@ namespace paint
             {
                 // endPoint now contain the coordinate of the end point of the pre line
                 Handler_DrawShape(mainGraphic);
-                if (index == 47)
+                // Store additional information
+                if (index == 34)
+                {
+                    GraphicObject newFreeLine = new GraphicObject(points.ToArray(), this.index, (Pen)GetSelectedPen().Clone(), true);
+                    PaintAction paintAction = new PaintAction(PaintActionType.Draw, newFreeLine);
+                    AddPaintAction(paintAction);
+                }
+                else if (index == 47)
                 {
                     endPoint = e.Location; // save the current coordinate of the end point of the current line
                     countLine++;
@@ -823,7 +796,6 @@ namespace paint
                 if (index == 34) // free-line
                 {
                     points.Add(p);
-                    //AddGraphicObject(points.First(), points.Last(), index);
                 }
                 else if (index == 35) // eraser
                 {
@@ -834,12 +806,12 @@ namespace paint
                     if (selectedColor == 0)
                     {
                         FillUp(mainBitmap, p.X, p.Y, mainColor);
-                        AddFilledPoint(p, mainColor);
+                        //AddFilledPoint(p, mainColor);
                     }
                     else if (selectedColor == 1)
                     {
                         FillUp(mainBitmap, p.X, p.Y, subColor);
-                        AddFilledPoint(p, subColor);
+                        //AddFilledPoint(p, subColor);
                     }
                 }
             }
@@ -876,7 +848,6 @@ namespace paint
                     }
                     
                 }
-                
                 Handler_DrawShape(e.Graphics);
             }
         }
@@ -887,14 +858,20 @@ namespace paint
             if (this.index == 36)
             {
                 Point p = SetPoint(PcBMainDrawing, e.Location);
-                if(selectedColor == 0)
+                Color curColor = Color.Empty;
+                if (selectedColor == 0)
                 {
-                    FillUp(mainBitmap, p.X, p.Y, mainColor);
+                    curColor = mainColor;
                 }
-                else if (selectedColor == 1)
+                else if(selectedColor == 1)
                 {
-                    FillUp(mainBitmap, p.X, p.Y, subColor);
+                    curColor = subColor;
                 }
+                FillUp(mainBitmap, p.X, p.Y, curColor);
+                // Store additional information
+                GraphicObject curObject = new GraphicObject(new Point[] { e.Location }, this.index, (Pen)GetSelectedPen().Clone());
+                PaintAction paintAction = new PaintAction(PaintActionType.Fill, curObject);
+                AddPaintAction(paintAction);
             }
             else if (index == 37)
             {
@@ -1303,15 +1280,88 @@ namespace paint
 
         }
 
+        private void Handler_UndoPaintAction(object sender, MouseEventArgs e)
+        {
+            PaintAction curAction = GetCurrentPaintAction();
+            switch (curAction.Type)
+            {
+                case PaintActionType.Draw:
+                    {
+
+                        break;
+                    }
+                case PaintActionType.Fill:
+                    {
+
+                        break;
+                    }
+            }
+
+        }
+
         // additional method
         private void SetMainColor(Color color)
         {
             this.BtnMainColor1.BackColor = mainColor = mainPen.Color = mainSolidBrush.Color = color;
         }
+
+        private void BtnSelectOptions_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.PnlSelectOptions.Show();
+            this.PnlSelectOptions.Focus();
+            this.PnlSelectOptions.Refresh();
+        }
+
+        private void BtnObjectSelection_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+
+        }
+
+        private void Handler_SelectionOptions_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            selectedSelectionIndex = Convert.ToInt32(btn.Tag);
+            this.index = Convert.ToInt32(this.BtnSelect.Tag); // 28 set for selection
+        }
+
         private void SetSubColor(Color color)
         {
             this.BtnMainColor2.BackColor = subColor = subPen.Color = color;
         }
-
+        private Pen GetSelectedPen()
+        {
+            Pen selectedPen = null;
+            if (selectedColor == 0)
+            {
+                selectedPen = mainPen;
+            }
+            else if(selectedColor == 1)
+            {
+                selectedPen = subPen;
+            }
+            return selectedPen;
+        }
+        private bool AddPaintAction(PaintAction action)
+        {
+            this.BtnUndo.Enabled = true;
+            mainActions.Add(action);
+            return mainActions.Count > 0;
+        }
+        private bool RemoveCurrentPaintAction()
+        {
+            this.BtnRedo.Enabled = true;
+            if(mainActions.Count == 0)
+            {
+                this.BtnUndo.Enabled = false;
+                return false; // mainActions.Count == 0
+            }
+            mainActions.RemoveAt(mainActions.Count - 1);
+            return mainActions.Count > 0;
+        }
+        private PaintAction GetCurrentPaintAction()
+        {
+            return (mainActions.Count > 0) ? mainActions[mainActions.Count - 1]: null;
+        }
     }
 }

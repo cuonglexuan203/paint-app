@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Xml.Serialization;
 
 namespace paint.src.Layers.InterfaceLayer.Actions
@@ -13,6 +14,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         public enum PaintActionType
         {
             Draw,
+            Fill,
             Remove,
             Resize,
             Moving
@@ -30,33 +32,13 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         {
 
         }
-        public PaintAction( PaintActionType t, GraphicObject newGO, GraphicObject oldGO = null)
+        public PaintAction(PaintActionType t, GraphicObject newGO, GraphicObject oldGO = null)
         {
             CurGObject = newGO;
             OldGObject = oldGO;
             Type = t;
         }
         //
-        public string ConvertToXMLString()
-        {
-            XmlSerializer serializer = new XmlSerializer( typeof( PaintAction ) );
-            string serializerPaintAction = string.Empty;
-            using(StringWriter writer = new StringWriter())
-            {
-                serializer.Serialize( writer, this );
-                serializerPaintAction = writer.ToString();
-            }
-            return serializerPaintAction;
-        }
-        public static PaintAction PaintActionFromString( string str)
-        {
-            XmlSerializer xmlSerializer = new XmlSerializer( typeof( PaintAction ) ) ;
-            PaintAction result = null;
-            using(StringReader reader = new StringReader( str ))
-            {
-                result = (PaintAction)xmlSerializer.Deserialize( reader );
-            }
-            return result;
-        }
+        
     }
 }

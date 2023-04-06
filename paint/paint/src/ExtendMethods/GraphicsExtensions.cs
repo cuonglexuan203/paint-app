@@ -115,7 +115,7 @@ namespace paint
             }
         }
         //
-        private static bool IsRoughlyPoints(Point p1, Point p2)
+        private static bool IsRoughlyPoints(Point p1, Point p2) // check whether both points is close. If so, rough them
         {
             bool isRoughly = true;
             double radius = Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
@@ -159,7 +159,7 @@ namespace paint
                     {
                         g.DrawLine(p, sp, rootPoint); // the final line
                         countLine = -1; // finish shape
-                        hasRoot = false;
+                        isDrawingFlag = false;
                     }
                     else
                     {

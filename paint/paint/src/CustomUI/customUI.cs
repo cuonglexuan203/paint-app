@@ -53,9 +53,12 @@ namespace paint
 
             });
             CustomizeOptionButtonImage(new List<Button> { BtnFlipHor, BtnFlipVer, this.BtnRotateRight90, this.BtnRotateLeft90, this.BtnRotate180,
-                this.BtnPenDashDotDot, this.BtnPenDashDot, this.BtnPenDash, this.BtnPenSolid, this.BtnPenDot, this.BtnBrushSolid, this.BtnLinearBrush });
+                this.BtnPenDashDotDot, this.BtnPenDashDot, this.BtnPenDash, this.BtnPenSolid, this.BtnPenDot, this.BtnBrushSolid, this.BtnLinearBrush,
+                this.BtnSquareSelection, this.BtnObjectSelection});
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
-            HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions });
+            HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions, this.PnlSelectOptions });
+            DisableInitialControls(new List<Control> { BtnRedo, BtnUndo });
+
             this.ResumeLayout();
         }
         public void InitColorsOfPen()
@@ -114,6 +117,13 @@ namespace paint
                 ep.X = pnl.Location.X;
                 g.DrawLine(p, sp, ep);
 
+            }
+        }
+        public void DisableInitialControls(List <Control> controls)
+        {
+            foreach(Control control in controls)
+            {
+                control.Enabled = false;
             }
         }
         public void HideInitialControls(List<Control> ctls) // hide control when start
