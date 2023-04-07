@@ -11,8 +11,12 @@ namespace paint
     public static class SystemVariable
     {
         // Color.FromArgb(85, 85, 85)
+        // object selection pen
         public static Color sysSelectedGraphicObjectPenColor = Color.Red;
         public static DashStyle sysSelectedGraphicObjectPenDashStyle = DashStyle.Dot;
         public static int sysSelectedGraphicObjectPenWidth = 2;
+        // main bitmap variable
+        public static Color sysMainBitmapColor = Color.White;
+
     }
 }

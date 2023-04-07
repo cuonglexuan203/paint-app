@@ -613,6 +613,7 @@
             // 
             // PcBMainDrawing
             // 
+            this.PcBMainDrawing.Cursor = System.Windows.Forms.Cursors.Cross;
             this.PcBMainDrawing.Location = new System.Drawing.Point(0, 0);
             this.PcBMainDrawing.Margin = new System.Windows.Forms.Padding(0);
             this.PcBMainDrawing.Name = "PcBMainDrawing";
