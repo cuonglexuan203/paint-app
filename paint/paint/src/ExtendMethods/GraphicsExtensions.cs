@@ -257,20 +257,24 @@ namespace paint
             g.FillPath(brush, path);
 
         }
+        
         public static void DrawPentagon(this Graphics g, Pen p, Point topLeft, Point bottomRight)
         {
-            PointF centerPoint = new PointF ( 1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            PointF centerPoint = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
             float convertRatio = (float)Math.PI / 180;
+            float width = bottomRight.X - topLeft.X;
+            float height = bottomRight.Y - topLeft.Y;
+            float scaleRatio = width / height;
+            //
             float x = centerPoint.X;
             float y = centerPoint.Y;
-            float q = 1.61803398875f;
-            float d = (float)Math.Sqrt(Math.Pow(topLeft.X - bottomRight.X,2) + Math.Pow(topLeft.Y - bottomRight.Y,2));
-            float s = d / (1 + q);
-            PointF p1 = new PointF(x, y - s);
-            PointF p2 = new PointF((float)(x + s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio)));
-            PointF p3 = new PointF((float)(x + s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio)));
-            PointF p4 = new PointF((float)(x - s * Math.Cos(54 * convertRatio)),(float) (y + s * Math.Sin(54 * convertRatio)));
-            PointF p5 = new PointF((float)(x - s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio)));
+            float radius = (x - topLeft.X) < (y - topLeft.Y) ? (x - topLeft.X) : (y - topLeft.Y);
+            //
+            PointF p1 = new PointF(x, topLeft.Y);
+            PointF p2 = new PointF(bottomRight.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio) );
+            PointF p3 = new PointF((float)(x + radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p4 = new PointF((float)(x - radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p5 = new PointF(topLeft.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio) );
             PointF[] pentagonPoints = { p1, p2, p3, p4, p5 };
             g.DrawPolygon(p, pentagonPoints);
         }
@@ -279,50 +283,62 @@ namespace paint
         {
             PointF centerPoint = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
             float convertRatio = (float)Math.PI / 180;
+            float width = bottomRight.X - topLeft.X;
+            float height = bottomRight.Y - topLeft.Y;
+            float scaleRatio = width / height;
+            //
             float x = centerPoint.X;
             float y = centerPoint.Y;
-            float q = 1.61803398875f;
-            float d = (float)Math.Sqrt(Math.Pow(topLeft.X - bottomRight.X, 2) + Math.Pow(topLeft.Y - bottomRight.Y, 2));
-            float s = d / (1 + q);
-            PointF p1 = new PointF(x, y - s);
-            PointF p2 = new PointF((float)(x + s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio)));
-            PointF p3 = new PointF((float)(x + s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio)));
-            PointF p4 = new PointF((float)(x - s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio)));
-            PointF p5 = new PointF((float)(x - s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio)));
+            float radius = (x - topLeft.X) < (y - topLeft.Y) ? (x - topLeft.X) : (y - topLeft.Y);
+            //
+            PointF p1 = new PointF(x, topLeft.Y);
+            PointF p2 = new PointF(bottomRight.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio));
+            PointF p3 = new PointF((float)(x + radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p4 = new PointF((float)(x - radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p5 = new PointF(topLeft.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio));
             PointF[] pentagonPoints = { p1, p2, p3, p4, p5 };
             GraphicsPath path = new GraphicsPath();
             path.AddPolygon(pentagonPoints);
             g.FillPath(brush, path);
         }
+        
         public static void DrawHexagon(this Graphics g, Pen p, Point topLeft, Point bottomRight)
         {
             PointF centerPoint = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            float convertRatio = (float)Math.PI / 180;
             float x = centerPoint.X;
             float y = centerPoint.Y;
-            float d = (float)Math.Sqrt(Math.Pow(topLeft.X - bottomRight.X, 2) + Math.Pow(topLeft.Y - bottomRight.Y, 2));
-            float s = d / 2;
-            PointF p1 = new PointF(x, y - s);
-            PointF p2 = new PointF((float)(x + s * Math.Sqrt(3) / 2), y - s / 2);
-            PointF p3 = new PointF((float)(x + s * Math.Sqrt(3) / 2), y + s / 2);
-            PointF p4 = new PointF(x, y + s);
-            PointF p5 = new PointF((float)(x - s * Math.Sqrt(3) / 2), y + s / 2);
-            PointF p6 = new PointF((float)(x - s * Math.Sqrt(3) / 2), y - s / 2);
+            float radius = (x - topLeft.X) < (y - topLeft.Y) ? (x - topLeft.X) : (y - topLeft.Y);
+            float width = Math.Abs(bottomRight.X - topLeft.X);
+            float height = Math.Abs(bottomRight.Y - topLeft.Y);
+            float scaleRatio = width / height;
+           
+            PointF p1 = new PointF(x, topLeft.Y);
+            PointF p2 = new PointF(bottomRight.X,(float)(y - Math.Cos(60 * convertRatio) * radius )); // / scaleRatio
+            PointF p3 = new PointF(bottomRight.X, (float)(y + Math.Cos(60 * convertRatio) * radius )); // / scaleRatio
+            PointF p4 = new PointF(x, bottomRight.Y);
+            PointF p5 = new PointF(topLeft.X, (float)(y + Math.Cos(60 * convertRatio) * radius )); // / scaleRatio
+            PointF p6 = new PointF(topLeft.X, (float)(y - Math.Cos(60 * convertRatio) * radius )); // / scaleRatio
             PointF[] hexagonPoints = { p1, p2, p3, p4, p5, p6 };
             g.DrawPolygon(p, hexagonPoints);
         }
         public static void FillHexagon(this Graphics g, Brush brush, Point topLeft, Point bottomRight)
         {
             PointF centerPoint = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
+            float convertRatio = (float)Math.PI / 180;
             float x = centerPoint.X;
             float y = centerPoint.Y;
-            float d = (float)Math.Sqrt(Math.Pow(topLeft.X - bottomRight.X, 2) + Math.Pow(topLeft.Y - bottomRight.Y, 2));
-            float s = d / 2;
-            PointF p1 = new PointF(x, y - s);
-            PointF p2 = new PointF((float)(x + s * Math.Sqrt(3) / 2), y - s / 2);
-            PointF p3 = new PointF((float)(x + s * Math.Sqrt(3) / 2), y + s / 2);
-            PointF p4 = new PointF(x, y + s);
-            PointF p5 = new PointF((float)(x - s * Math.Sqrt(3) / 2), y + s / 2);
-            PointF p6 = new PointF((float)(x - s * Math.Sqrt(3) / 2), y - s / 2);
+            float radius = (x - topLeft.X) < (y - topLeft.Y) ? (x - topLeft.X) : (y - topLeft.Y);
+            float width = Math.Abs(bottomRight.X - topLeft.X);
+            float height = Math.Abs(bottomRight.Y - topLeft.Y);
+            float scaleRatio = width / height;
+
+            PointF p1 = new PointF(x, topLeft.Y);
+            PointF p2 = new PointF(bottomRight.X, (float)(y - Math.Cos(60 * convertRatio) * radius)); // / scaleRatio
+            PointF p3 = new PointF(bottomRight.X, (float)(y + Math.Cos(60 * convertRatio) * radius)); // / scaleRatio
+            PointF p4 = new PointF(x, bottomRight.Y);
+            PointF p5 = new PointF(topLeft.X, (float)(y + Math.Cos(60 * convertRatio) * radius)); // / scaleRatio
+            PointF p6 = new PointF(topLeft.X, (float)(y - Math.Cos(60 * convertRatio) * radius)); // / scaleRatio
             PointF[] hexagonPoints = { p1, p2, p3, p4, p5, p6 };
             GraphicsPath path = new GraphicsPath();
             path.AddPolygon(hexagonPoints);
@@ -332,11 +348,6 @@ namespace paint
         //
         public static void DrawRightArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -354,11 +365,6 @@ namespace paint
         }
         public static void FillRightArrow(this Graphics g, Brush brush, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -379,11 +385,6 @@ namespace paint
 
         public static void DrawLeftArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -401,11 +402,6 @@ namespace paint
         }
         public static void FillLeftArrow(this Graphics g, Brush brush, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -425,11 +421,6 @@ namespace paint
         }
         public static void DrawUpArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -447,11 +438,6 @@ namespace paint
         }
         public static void FillUpArrow(this Graphics g, Brush brush, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -471,11 +457,6 @@ namespace paint
         }
         public static void DrawDownArrow(this Graphics g, Pen p, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -493,11 +474,6 @@ namespace paint
         }
         public static void FillDownArrow(this Graphics g, Brush brush, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
@@ -517,11 +493,6 @@ namespace paint
         }
         public static void DrawFourPointStar(this Graphics g, Pen p, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
@@ -541,11 +512,6 @@ namespace paint
         }
         public static void FillFourPointStar(this Graphics g, Brush brush, Point topLeft, Point bottomRight)
         {
-            Point pointX = topLeft;
-            int x = bottomRight.X;
-            int y = bottomRight.Y;
-            //
-
             PointF centerP = new PointF(1f * (topLeft.X + bottomRight.X) / 2, 1f * (topLeft.Y + bottomRight.Y) / 2);
             float height = Math.Abs(topLeft.Y - bottomRight.Y);
             float width = Math.Abs(topLeft.X - bottomRight.X);
@@ -571,15 +537,17 @@ namespace paint
             float convertRatio = (float)Math.PI / 180;
             float x = centerPoint.X;
             float y = centerPoint.Y;
-            float q = 1.61803398875f;
-            float d = (float)Math.Sqrt(Math.Pow(topLeft.X - bottomRight.X, 2) + Math.Pow(topLeft.Y - bottomRight.Y, 2));
-            float s = d / (1 + q);
-            PointF p1 = new PointF(x, y - s); // A
-            PointF p2 = new PointF((float)(x + s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio))); // B
-            PointF p3 = new PointF((float)(x + s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio))); // C
-            PointF p4 = new PointF((float)(x - s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio))); // D
-            PointF p5 = new PointF((float)(x - s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio))); // E
-            PointF[] outerPoints = {p1,p2, p3, p4, p5};  // outer points: A B C D E
+            float radius = (x - topLeft.X) < (y - topLeft.Y) ? (x - topLeft.X) : (y - topLeft.Y);
+            float width = Math.Abs(bottomRight.X - topLeft.X);
+            float height = Math.Abs(bottomRight.Y - topLeft.Y);
+            float scaleRatio = width / height;
+            //
+            PointF p1 = new PointF(x, topLeft.Y);
+            PointF p2 = new PointF(bottomRight.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio));
+            PointF p3 = new PointF((float)(x + radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p4 = new PointF((float)(x - radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p5 = new PointF(topLeft.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio));
+            PointF[] outerPoints = { p1, p2, p3, p4, p5 };  // outer points: A B C D E
             //
             //                          A
             //
@@ -592,28 +560,28 @@ namespace paint
             float a = 0f;
             float b = 0f;
             // calculate parameter of AC, BD, CE, DA, EB
-            List <Tuple<float, float>> parameters = new List<Tuple<float, float>>();
-            for(int i = 0; i  < outerPoints.Length; i++)
+            List<Tuple<float, float>> parameters = new List<Tuple<float, float>>();
+            for (int i = 0; i < outerPoints.Length; i++)
             {
-                int ii = ( i + 2 < outerPoints.Length ?  i + 2 : i + 2 - outerPoints.Length);
+                int ii = (i + 2 < outerPoints.Length ? i + 2 : i + 2 - outerPoints.Length);
                 a = (outerPoints[i].Y - outerPoints[ii].Y) / (outerPoints[i].X - outerPoints[ii].X);
                 b = outerPoints[i].Y - a * outerPoints[i].X;
-                parameters.Add(new Tuple<float, float>(a, b)); 
+                parameters.Add(new Tuple<float, float>(a, b));
             }
             // calculate the coordinate of intersections ( inner points )
             // in order: G H I K F
-            List <PointF> innerPoints = new List<PointF>();
+            List<PointF> innerPoints = new List<PointF>();
             float pointX = 0f;
             float pointY = 0f;
             for (int i = 0; i < parameters.Count; i++)
             {
-                int ii = (i + 1 < parameters.Count ? i + 1 : i + 1 -  parameters.Count);
+                int ii = (i + 1 < parameters.Count ? i + 1 : i + 1 - parameters.Count);
                 pointX = (parameters[ii].Item2 - parameters[i].Item2) / (parameters[i].Item1 - parameters[ii].Item1);
                 pointY = parameters[i].Item1 * pointX + parameters[i].Item2;
                 innerPoints.Add(new PointF(pointX, pointY));
             }
             //
-            List <PointF> fivePointStarPoints = new List<PointF>() { outerPoints[0], innerPoints[4], outerPoints[1], innerPoints[0], outerPoints[2],
+            List<PointF> fivePointStarPoints = new List<PointF>() { outerPoints[0], innerPoints[4], outerPoints[1], innerPoints[0], outerPoints[2],
                                                                      innerPoints[1], outerPoints[3], innerPoints[2], outerPoints[4], innerPoints[3] };
             g.DrawPolygon(p, fivePointStarPoints.ToArray());
         }
@@ -623,14 +591,16 @@ namespace paint
             float convertRatio = (float)Math.PI / 180;
             float x = centerPoint.X;
             float y = centerPoint.Y;
-            float q = 1.61803398875f;
-            float d = (float)Math.Sqrt(Math.Pow(topLeft.X - bottomRight.X, 2) + Math.Pow(topLeft.Y - bottomRight.Y, 2));
-            float s = d / (1 + q);
-            PointF p1 = new PointF(x, y - s); // A
-            PointF p2 = new PointF((float)(x + s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio))); // B
-            PointF p3 = new PointF((float)(x + s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio))); // C
-            PointF p4 = new PointF((float)(x - s * Math.Cos(54 * convertRatio)), (float)(y + s * Math.Sin(54 * convertRatio))); // D
-            PointF p5 = new PointF((float)(x - s * Math.Cos(18 * convertRatio)), (float)(y - s * Math.Sin(18 * convertRatio))); // E
+            float radius = (x - topLeft.X) < (y - topLeft.Y) ? (x - topLeft.X) : (y - topLeft.Y);
+            float width = Math.Abs(bottomRight.X - topLeft.X);
+            float height = Math.Abs(bottomRight.Y - topLeft.Y);
+            float scaleRatio = width / height;
+            //
+            PointF p1 = new PointF(x, topLeft.Y);
+            PointF p2 = new PointF(bottomRight.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio));
+            PointF p3 = new PointF((float)(x + radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p4 = new PointF((float)(x - radius * Math.Sin(144 * convertRatio) * scaleRatio), bottomRight.Y);
+            PointF p5 = new PointF(topLeft.X, (float)(y - radius * Math.Cos(72 * convertRatio) / scaleRatio));
             PointF[] outerPoints = { p1, p2, p3, p4, p5 };  // outer points: A B C D E
             //
             //                          A
