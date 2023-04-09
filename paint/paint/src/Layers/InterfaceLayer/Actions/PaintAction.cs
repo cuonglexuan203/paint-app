@@ -17,7 +17,9 @@ namespace paint.src.Layers.InterfaceLayer.Actions
             Fill,
             Remove,
             Resize,
-            Moving
+            Moving,
+            Untrack,
+            Delete // remove object
         }
         //
         PaintActionType type = PaintActionType.Draw;
@@ -27,6 +29,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         internal PaintActionType Type { get => type; set => type = value; }
         internal GraphicObject CurGObject { get => curGObject; set => curGObject = value; }
         internal GraphicObject OldGObject { get => oldGObject; set => oldGObject = value; }
+
         //
         public PaintAction()
         {
@@ -38,7 +41,12 @@ namespace paint.src.Layers.InterfaceLayer.Actions
             OldGObject = oldGO;
             Type = t;
         }
+        public PaintAction(GraphicObject newGO, GraphicObject oldGO = null)
+        {
+            CurGObject = newGO;
+            OldGObject = oldGO;
+        }
         //
-        
+
     }
 }

@@ -21,6 +21,8 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         bool isFreeObject = false;
         Point[] points = null;
         //
+        bool isDeleted = false; // check change object (replace by another)
+
         //
         public Rectangle Bound { get => bound; set => bound = value; }
         public int Type { get => type; set => type = value; }
@@ -29,6 +31,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         public SolidBrush SolidBrush { get => solidBrush; set => solidBrush = value; }
         public bool IsFreeObject { get => isFreeObject; set => isFreeObject = value; }
         public Point[] Points { get => points; set => points = value; }
+        public bool IsDeleted { get => isDeleted; set => isDeleted = value; }
 
         //
         public GraphicObject()
@@ -74,6 +77,9 @@ namespace paint.src.Layers.InterfaceLayer.Actions
                 this.IsFreeObject = isFreeObject;
             }
         }
+        public GraphicObject Clone()
+        => new GraphicObject(new Rectangle(new Point(this.Bound.X, this.Bound.Y), this.Bound.Size)
+            , this.Type, (Pen)MainPen.Clone(), IsBrush, (SolidBrush)SolidBrush.Clone());
         
     }
 }
