@@ -70,7 +70,7 @@ namespace paint
         List<PaintAction> mainActions; // reserve 
         List<PaintAction> untrackActions; // prepare for tracking actions and commit to mainActions list
         List<GraphicObject> mainGraphicObjects; // change; reference to graphic object in mainaction
-        List<PaintAction> groupActions; // change
+        List<Tuple<PaintAction, List<Point>>> mainGroupActions; // reserve ( store group actions and offset of graphic objects in that group )
         //
         //
         List<Panel> autoHideControls;  // auto hide controls in this var list when click on the optionalPanels
@@ -142,7 +142,7 @@ namespace paint
             mainActions = new List<PaintAction>();
             mainGraphicObjects = new List<GraphicObject>();
             untrackActions = new List<PaintAction>();
-            groupActions = new List<PaintAction>();
+            mainGroupActions = new List<Tuple<PaintAction, List<Point>>>();
             // selection index 
             selectedSelectionIndex = 2;
             selectedGraphicObjs = new List<GraphicObject>();
@@ -166,7 +166,10 @@ namespace paint
                 , BtnText, BtnEraser, BtnColorPicker, BtnMagnifier, PnlBrushOptions, FLPShape }
             , new List<Action<object, EventArgs>> { CancelSelectedObjects });
             //
+            if (Keyboard.IsKeyDown(Key.A))
+            {
 
+            }
         }
         // process logic
         public void CancelSelectedObjects(object sender, EventArgs e) // The same Handler_CancelSelectingGraphicObject but it use to assign event for controls
@@ -870,7 +873,6 @@ namespace paint
 
                     int clickedPosition = 0; // 4 edge
                     clickedSelectedGraphicObjectOffsets.Clear(); // clear only one time for each mouse down
-
                     for (int i = 0; i < selectedGraphicObjs.Count; i++)
                     {
                         if (!isClickOnSelectedGraphicObject) // clear only one time
@@ -878,7 +880,6 @@ namespace paint
                             if (selectedGraphicObjs[i].Bound != null && selectedGraphicObjs[i].Bound.Contains(pointX)) // click on the seletected objs 
                             {
                                 isClickOnSelectedGraphicObject = true;
-
                             }
                         }
                         if (selectedGraphicObjs[i].Bound != null)
@@ -1029,15 +1030,6 @@ namespace paint
                 Point[] originalPoints = CalcTopleftBottomright(gobj.Bound);
                 switch (type) // type === this.index
                 {
-                    case 0:
-                        {
-                            List<GraphicObject> temp = groupActions[0].GetObjsAfterGroup();
-                            foreach(GraphicObject obj in temp)
-                            {
-                                Handler_ReDrawGraphicObject(g, obj);
-                            }
-                            break;
-                        }
                     case 42:
                         {
                             g.DrawLine(gobj.MainPen, originalPoints[0], originalPoints[1]);
@@ -1147,17 +1139,35 @@ namespace paint
                 }
             }
         }
-        private void Handler_MovingGroupGraphicObject(Graphics g, PaintAction groupPaintAction, Point offset)
+        private void Handler_MovingGroupGraphicObject(Graphics g, GraphicObject boundContainer, Point offset)
         {
-            List<GraphicObject> group = groupPaintAction.GetObjsAfterGroup();
-            foreach (GraphicObject gobj in group)
+            Tuple<PaintAction, List<Point>> groupActionData = null;
+
+            foreach (Tuple<PaintAction, List<Point>> tup in mainGroupActions)
             {
-                Point newPos = new Point(x, y);
-                newPos.Offset(offset);
-                gobj.Bound = new Rectangle(newPos, gobj.Bound.Size);
-                Handler_ReDrawGraphicObject(g, gobj);
+                if (tup.Item1.CurGObject.Bound.Size.Equals(boundContainer.Bound.Size))
+                {
+                    groupActionData = tup;
+                    break;
+                }
             }
-            groupPaintAction.CurGObject.Bound.Location.Offset(offset);
+            if (groupActionData != null)
+            {
+                List<GraphicObject> group = groupActionData.Item1.GetObjsAfterGroup();
+                Point newPos;
+                for (int i = 0; i < group.Count; i++)
+                {
+                    newPos = new Point(x, y);
+                    newPos.Offset(offset);
+                    newPos.Offset(groupActionData.Item2[i]);
+                    group[i].Bound = new Rectangle(newPos, group[i].Bound.Size);
+                    Handler_ReDrawGraphicObject(g, group[i]);
+                }
+                newPos = new Point(x, y);
+                newPos.Offset(offset);
+                //groupActionData.Item1.CurGObject.Bound = new Rectangle(newPos, groupActionData.Item1.CurGObject.Bound.Size);
+                boundContainer.Bound = new Rectangle(newPos, boundContainer.Bound.Size);
+            }
         }
         /// <summary>
         /// Change the coordinate of selected graphic object and redrawing them
@@ -1174,7 +1184,7 @@ namespace paint
                 }
                 if (ls[i].Type == 0)
                 {
-                    Handler_MovingGroupGraphicObject(g, groupActions[0], clickedSelectedGraphicObjectOffsets[i]);
+                    Handler_MovingGroupGraphicObject(g, ls[i], clickedSelectedGraphicObjectOffsets[i]);
                 }
                 else
                 {
@@ -1225,7 +1235,14 @@ namespace paint
             {
                 foreach (GraphicObject gobj in selectedGraphicObjs)
                 {
-                    Handler_ReDrawGraphicObject(e.Graphics, gobj);
+                    if (gobj.Type == 0)
+                    {
+                        Handler_ReDrawGroupGraphicObject(e.Graphics, gobj);
+                    }
+                    else
+                    {
+                        Handler_ReDrawGraphicObject(e.Graphics, gobj);
+                    }
                 }
             }
             // draw frame of selected objects
@@ -1250,6 +1267,49 @@ namespace paint
             isClearSelectedGraphicObject = true;
             SetIndex(preIndex);
         }
+        private void Handler_ReDrawGroupGraphicObject(Graphics g, GraphicObject boundContainer)
+        {
+            Tuple<PaintAction, List<Point>> groupActionData = null;
+
+            foreach (Tuple<PaintAction, List<Point>> tup in mainGroupActions)
+            {
+                if (tup.Item1.CurGObject.Bound.Size.Equals(boundContainer.Bound.Size))
+                {
+                    groupActionData = tup;
+                    break;
+                }
+            }
+            if (groupActionData != null)
+            {
+                List<GraphicObject> group = groupActionData.Item1.GetObjsAfterGroup();
+                for (int i = 0; i < group.Count; i++)
+                {
+                    Handler_ReDrawGraphicObject(g, group[i]);
+                }
+            }
+        }
+        private bool CheckActionChange()
+        {
+            bool isNewActions = false; // only need to check the one action in list but we check all for completion
+            foreach (PaintAction pac in untrackActions)
+            {
+                if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && !pac.CurGObject.Bound.Location.Equals(pac.OldGObject.Bound.Location))
+                {
+                    pac.Type = PaintActionType.Moving;
+                    isNewActions = true;
+                }
+                if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && !pac.CurGObject.Bound.Size.Equals(pac.OldGObject.Bound.Size))
+                {
+                    pac.Type = PaintActionType.Resize;
+                    isNewActions = true;
+                }
+                if (!isNewActions && pac.OldGObject != null)
+                {
+                    pac.OldGObject.IsDeleted = false;
+                }
+            }
+            return isNewActions;
+        }
         /// <summary>
         /// Cancel selecting and redraw
         /// return true if add new actions, else false 
@@ -1261,27 +1321,18 @@ namespace paint
             {
                 foreach (GraphicObject gobj in selectedGraphicObjs)
                 {
-                    Handler_ReDrawGraphicObject(mainGraphic, gobj);
+                    if (gobj.Type == 0)
+                    {
+                        Handler_ReDrawGroupGraphicObject(mainGraphic, gobj);
+                    }
+                    else
+                    {
+                        Handler_ReDrawGraphicObject(mainGraphic, gobj);
+                    }
                 }
                 // add new paint actions
-                bool isNewActions = false; // only need to check the one action in list but we check all for completion
-                foreach (PaintAction pac in untrackActions)
-                {
-                    if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && !pac.CurGObject.Bound.Location.Equals(pac.OldGObject.Bound.Location))
-                    {
-                        pac.Type = PaintActionType.Moving;
-                        isNewActions = true;
-                    }
-                    if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && !pac.CurGObject.Bound.Size.Equals(pac.OldGObject.Bound.Size))
-                    {
-                        pac.Type = PaintActionType.Resize;
-                        isNewActions = true;
-                    }
-                    if (!isNewActions && pac.OldGObject != null)
-                    {
-                        pac.OldGObject.IsDeleted = false;
-                    }
-                }
+                bool isNewActions = CheckActionChange(); 
+                
                 if (isNewActions) // only add actions when there are something change
                 {
                     AddRangePaintAction(untrackActions);
@@ -1982,7 +2033,13 @@ namespace paint
                     newPaintAction.GroupObjects(selectedGraphicObjs);
                     ResetDataSelectionMode();
                     AddPaintAction(newPaintAction);
-                    groupActions.Add(newPaintAction);
+                    List<GraphicObject> objAfterGroup = newPaintAction.GetObjsAfterGroup();
+                    List<Point> groupOffsets = new List<Point>(); // offset of graphic object within group compare to the common bound
+                    foreach (GraphicObject gobj in objAfterGroup)
+                    {
+                        groupOffsets.Add(new Point(gobj.Bound.Location.X - newPaintAction.CurGObject.Bound.Location.X, gobj.Bound.Location.Y - newPaintAction.CurGObject.Bound.Location.Y));
+                    }
+                    mainGroupActions.Add(new Tuple<PaintAction, List<Point>>(newPaintAction, groupOffsets));
                 }
             }
         }
