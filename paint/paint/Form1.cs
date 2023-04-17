@@ -1139,18 +1139,22 @@ namespace paint
                 }
             }
         }
-        private void Handler_MovingGroupGraphicObject(Graphics g, GraphicObject boundContainer, Point offset)
+        private Tuple<PaintAction, List<Point>> GetGroupAction(GraphicObject gobj)
         {
-            Tuple<PaintAction, List<Point>> groupActionData = null;
-
+            Tuple<PaintAction, List<Point>> res = null;
             foreach (Tuple<PaintAction, List<Point>> tup in mainGroupActions)
             {
-                if (tup.Item1.CurGObject.Bound.Size.Equals(boundContainer.Bound.Size))
+                if (tup.Item1.CurGObject.Bound.Size.Equals(gobj.Bound.Size))
                 {
-                    groupActionData = tup;
+                    res = tup;
                     break;
                 }
             }
+            return res;
+        }
+        private void Handler_MovingGroupGraphicObject(Graphics g, GraphicObject boundContainer, Point offset)
+        {
+            Tuple<PaintAction, List<Point>> groupActionData = GetGroupAction(boundContainer);
             if (groupActionData != null)
             {
                 List<GraphicObject> group = groupActionData.Item1.GetObjsAfterGroup();
@@ -1269,16 +1273,7 @@ namespace paint
         }
         private void Handler_ReDrawGroupGraphicObject(Graphics g, GraphicObject boundContainer)
         {
-            Tuple<PaintAction, List<Point>> groupActionData = null;
-
-            foreach (Tuple<PaintAction, List<Point>> tup in mainGroupActions)
-            {
-                if (tup.Item1.CurGObject.Bound.Size.Equals(boundContainer.Bound.Size))
-                {
-                    groupActionData = tup;
-                    break;
-                }
-            }
+            Tuple<PaintAction, List<Point>> groupActionData = GetGroupAction(boundContainer);
             if (groupActionData != null)
             {
                 List<GraphicObject> group = groupActionData.Item1.GetObjsAfterGroup();
@@ -1344,7 +1339,6 @@ namespace paint
         }
         private void PcBMainDrawing_MouseClick(object sender, MouseEventArgs e)
         {
-
             //
             if (this.index == 36)
             {
@@ -2023,16 +2017,18 @@ namespace paint
             }
         }
 
-        private void Handler_GroupingGraphicObjects()
+        private void Handler_GroupingGraphicObjects(List<GraphicObject> ls)
         {
             if (isSelectingGraphicObjects)
             {
-                if (selectedGraphicObjs.Count >= 2)
+                if (ls.Count >= 2)
                 {
                     PaintAction newPaintAction = new PaintAction();
-                    newPaintAction.GroupObjects(selectedGraphicObjs);
+                    newPaintAction.GroupObjects(ls);
                     ResetDataSelectionMode();
+                    //
                     AddPaintAction(newPaintAction);
+                    //
                     List<GraphicObject> objAfterGroup = newPaintAction.GetObjsAfterGroup();
                     List<Point> groupOffsets = new List<Point>(); // offset of graphic object within group compare to the common bound
                     foreach (GraphicObject gobj in objAfterGroup)
@@ -2047,8 +2043,28 @@ namespace paint
         {
             if (e.KeyCode == Keys.G && ctrlKeypressed) // group mode
             {
-                Handler_GroupingGraphicObjects();
-                mainGraphicObjects = Get_GraphicObject_Selection();
+                if (selectedGraphicObjs.Count >= 2)
+                {
+                    List<GraphicObject> groupedGObjs = new List<GraphicObject>();
+                    foreach (GraphicObject gobj in selectedGraphicObjs)
+                    {
+                        if (gobj.Type == 0)
+                        {
+                            Tuple<PaintAction, List<Point>> temp = GetGroupAction(gobj);
+                            if (temp != null)
+                            {
+                                groupedGObjs.AddRange(temp.Item1.GetObjsAfterGroup());
+                            }
+                        }
+                        else
+                        {
+                            groupedGObjs.Add(gobj);
+                        }
+                    }
+                    Handler_GroupingGraphicObjects(groupedGObjs);
+                    mainGraphicObjects = Get_GraphicObject_Selection();
+
+                }
             }
             else if (e.KeyCode == Keys.ControlKey) // selection mode
             {
