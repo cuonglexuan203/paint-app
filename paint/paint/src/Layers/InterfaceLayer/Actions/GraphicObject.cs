@@ -13,7 +13,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
     public class GraphicObject
     {
         Rectangle bound = Rectangle.Empty;
-        int type = 0; // index 
+        int type = 0; // index (0: grouped object container)
         Pen mainPen = null;
         bool isBrush = false;
         SolidBrush solidBrush = null;
@@ -56,7 +56,18 @@ namespace paint.src.Layers.InterfaceLayer.Actions
             this.IsBrush = isBrush;
             SolidBrush = mainSolidBrush;
         }
-
+        public GraphicObject(Rectangle rect, int tag, Pen mainPen, bool isBrush, SolidBrush mainSolidBrush, bool isFreeObject, Point[] points, bool isDeleted)
+        {
+            bound = rect;
+            type = tag;
+            this.MainPen = mainPen;
+            this.IsBrush = isBrush;
+            SolidBrush = mainSolidBrush;
+            //
+            this.isFreeObject = isFreeObject;
+            this.points = points;
+            this.isDeleted = isDeleted;
+        }
         public GraphicObject(Point topLeft, int width, int height, int tag, Pen mainPen, bool isBrush, SolidBrush mainSolidBrush)
         {
             Rectangle newObject = new Rectangle(topLeft, new Size(width, height));
@@ -79,7 +90,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         }
         public GraphicObject Clone()
         => new GraphicObject(new Rectangle(new Point(this.Bound.X, this.Bound.Y), this.Bound.Size)
-            , this.Type, (Pen)MainPen.Clone(), IsBrush, (SolidBrush)SolidBrush.Clone());
+            , this.Type, (Pen)MainPen?.Clone(), IsBrush, (SolidBrush)SolidBrush?.Clone(), this.isFreeObject,(Point[])this.points?.Clone(), this.isDeleted);
         
     }
 }

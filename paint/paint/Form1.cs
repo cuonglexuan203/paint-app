@@ -17,6 +17,13 @@ using static paint.src.Layers.InterfaceLayer.Actions.PaintAction;
 using paint.src.Layers.BussinessLayer;
 using paint.src.Layers.InterfaceLayer.Actions;
 using System.Windows.Documents;
+using System.Windows.Input;
+using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
+using Cursor = System.Windows.Forms.Cursor;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
+using Cursors = System.Windows.Forms.Cursors;
 
 namespace paint
 {
@@ -39,7 +46,7 @@ namespace paint
         LinearGradientBrush mainLinearGradientBrush;
         //
         ColorDialog mainColorDialog = new ColorDialog();
-        List<int> savedPenWidths = new List<int> { 1, 1, 4, 1 }; // 0: mainPen, 1: subPen, 2: eraser, 3: shapes
+        List<int> savedPenWidths = new List<int> { 1, 1, 4, 1 }; // 0: mainPen, 1: subPen, 2: eraser, 3: shapes // mem storage
         Size mainPcbSize = new Size(1200, 500);
         // point
         Point pointX; // begining point when mouse down
@@ -47,7 +54,7 @@ namespace paint
         int x, y; // current coordinate of mouse in mouse move event
         int sx, sy, ix, iy; // s: scale (set in mouse move event) , i: initial ( set in mouse down event )
         List<Point> points = new List<Point>();
-        // point: shape
+        // point: shape47
         bool hasRoot = false;
         Point rootPoint, endPoint; // root coordinate of the polygon, endPoint: the end point of previous line
         int countLine = 0;
@@ -62,7 +69,8 @@ namespace paint
         // object storage
         List<PaintAction> mainActions; // reserve 
         List<PaintAction> untrackActions; // prepare for tracking actions and commit to mainActions list
-        List<GraphicObject> mainGraphicObjects; // change; reference to graphic object i mainaction
+        List<GraphicObject> mainGraphicObjects; // change; reference to graphic object in mainaction
+        List<PaintAction> groupActions; // change
         //
         //
         List<Panel> autoHideControls;  // auto hide controls in this var list when click on the optionalPanels
@@ -75,7 +83,9 @@ namespace paint
         List<GraphicObject> selectedGraphicObjs;
         List<Point> clickedSelectedGraphicObjectOffsets = new List<Point>(); // offset of currently mouse position and upper-left of bounds
         // historic action
-        int indexAction = -1; // init
+        int indexAction = -1; // init ( from 0 to list.Count - 1)
+        // Key control
+        bool ctrlKeypressed = false; //
         //
         List<Color> colors = new List<Color>() {
         Color.FromArgb(0,0,0),
@@ -132,6 +142,7 @@ namespace paint
             mainActions = new List<PaintAction>();
             mainGraphicObjects = new List<GraphicObject>();
             untrackActions = new List<PaintAction>();
+            groupActions = new List<PaintAction>();
             // selection index 
             selectedSelectionIndex = 2;
             selectedGraphicObjs = new List<GraphicObject>();
@@ -831,7 +842,7 @@ namespace paint
 
                     using (SolidBrush sbr = new SolidBrush(SystemVariable.sysMainBitmapColor))
                     {
-                        int width = (int)gobj.MainPen.Width;
+                        int width = (int)(gobj.MainPen?.Width != null ? gobj.MainPen?.Width : 2);
                         Rectangle temprect = new Rectangle(gobj.Bound.Location.X - width, gobj.Bound.Y - width, gobj.Bound.Size.Width + width * 2, gobj.Bound.Size.Height + width * 2);
                         mainGraphic.FillRectangle(sbr, temprect); // change 
                     }
@@ -904,12 +915,46 @@ namespace paint
             if (painted)
             {
                 // endPoint now contain the coordinate of the end point of the pre line
-                Handler_DrawShape(mainGraphic, this.index);
+                if (!isSelectingGraphicObjects)
+                {
+                    Handler_DrawShape(mainGraphic, this.index);
+                }
+                //
+                if (this.index == 28) // selection
+                {
+                    if (this.selectedSelectionIndex == 2)
+                    {
+                        Point curPoint = e.Location;
+                        bool hasSelectedObject = AddSelectectedGraphicObject(curPoint);
+                        if (hasSelectedObject)
+                        {
+                            isSelectingGraphicObjects = true;
+                            // reserve preindex
+                            SetIndex(preIndex);
+                            SetIndex(-1000);
+                        }
+                    }
+
+                }
+                if (isSelectingGraphicObjects) // cancel selection
+                {
+                    bool outSelection = true;
+                    foreach (GraphicObject gobj in selectedGraphicObjs)
+                    {
+                        if (gobj.Bound.Contains(e.Location))
+                        {
+                            outSelection = false;
+                            break;
+                        }
+                    }
+                    if (outSelection)
+                    {
+                        Handler_CancelSelectingGraphicObject();
+                    }
+                }
                 //
 
                 isClickOnSelectedGraphicObject = false;
-
-
 
                 // Store additional information
                 if (index == 34)
@@ -967,6 +1012,7 @@ namespace paint
             sx = e.X - ix;
             sy = e.Y - iy;
         }
+
         private void Handler_ReDrawGraphicObject(Graphics g, GraphicObject gobj)
         {
             if (gobj.IsFreeObject)
@@ -983,6 +1029,15 @@ namespace paint
                 Point[] originalPoints = CalcTopleftBottomright(gobj.Bound);
                 switch (type) // type === this.index
                 {
+                    case 0:
+                        {
+                            List<GraphicObject> temp = groupActions[0].GetObjsAfterGroup();
+                            foreach(GraphicObject obj in temp)
+                            {
+                                Handler_ReDrawGraphicObject(g, obj);
+                            }
+                            break;
+                        }
                     case 42:
                         {
                             g.DrawLine(gobj.MainPen, originalPoints[0], originalPoints[1]);
@@ -1092,22 +1147,41 @@ namespace paint
                 }
             }
         }
+        private void Handler_MovingGroupGraphicObject(Graphics g, PaintAction groupPaintAction, Point offset)
+        {
+            List<GraphicObject> group = groupPaintAction.GetObjsAfterGroup();
+            foreach (GraphicObject gobj in group)
+            {
+                Point newPos = new Point(x, y);
+                newPos.Offset(offset);
+                gobj.Bound = new Rectangle(newPos, gobj.Bound.Size);
+                Handler_ReDrawGraphicObject(g, gobj);
+            }
+            groupPaintAction.CurGObject.Bound.Location.Offset(offset);
+        }
         /// <summary>
         /// Change the coordinate of selected graphic object and redrawing them
         /// </summary>
         /// <param name="g"></param>
-        private void Handler_MovingGraphicObject_Click(Graphics g)
+        private void Handler_MovingGraphicObject_Click(Graphics g, List<GraphicObject> ls)
         {
-            for (int i = 0; i < selectedGraphicObjs.Count; i++)
+            for (int i = 0; i < ls.Count; i++)
             {
                 Point newPos = new Point(x, y); // current position
                 if (clickedSelectedGraphicObjectOffsets.Count == 0)
                 {
                     return;
                 }
-                newPos.Offset(clickedSelectedGraphicObjectOffsets[i]);
-                selectedGraphicObjs[i].Bound = new Rectangle(newPos, selectedGraphicObjs[i].Bound.Size);
-                Handler_ReDrawGraphicObject(g, selectedGraphicObjs[i]);
+                if (ls[i].Type == 0)
+                {
+                    Handler_MovingGroupGraphicObject(g, groupActions[0], clickedSelectedGraphicObjectOffsets[i]);
+                }
+                else
+                {
+                    newPos.Offset(clickedSelectedGraphicObjectOffsets[i]);
+                    ls[i].Bound = new Rectangle(newPos, ls[i].Bound.Size);
+                    Handler_ReDrawGraphicObject(g, ls[i]);
+                }
             }
         }
         private void PcBMainDrawing_Paint(object sender, PaintEventArgs e)
@@ -1144,7 +1218,7 @@ namespace paint
             {
                 if (selectedSelectionIndex == 2)
                 {
-                    Handler_MovingGraphicObject_Click(e.Graphics);
+                    Handler_MovingGraphicObject_Click(e.Graphics, this.selectedGraphicObjs);
                 }
             }
             else if (isSelectingGraphicObjects)
@@ -1165,10 +1239,22 @@ namespace paint
                 }
             }
         }
+        private void ResetDataSelectionMode()
+        {
+            untrackActions.Clear();
+            // quite selection mode
+            selectedGraphicObjs.Clear();
+            clickedSelectedGraphicObjectOffsets.Clear();
+            mainGraphicObjects.Clear();
+            isSelectingGraphicObjects = false;
+            isClearSelectedGraphicObject = true;
+            SetIndex(preIndex);
+        }
         /// <summary>
-        /// Cancel selecting and redraw 
+        /// Cancel selecting and redraw
+        /// return true if add new actions, else false 
         /// </summary>
-        private void Handler_CancelSelectingGraphicObject()
+        private bool Handler_CancelSelectingGraphicObject()
         {
             // redraw selected graphic object
             if (isSelectingGraphicObjects)
@@ -1177,63 +1263,37 @@ namespace paint
                 {
                     Handler_ReDrawGraphicObject(mainGraphic, gobj);
                 }
-            }
-            // add new paint actions
-            foreach (PaintAction pac in untrackActions)
-            {
-                if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && pac.CurGObject.Bound.Location.Equals(pac.OldGObject.Bound.Location))
+                // add new paint actions
+                bool isNewActions = false; // only need to check the one action in list but we check all for completion
+                foreach (PaintAction pac in untrackActions)
                 {
-                    pac.Type = PaintActionType.Moving;
+                    if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && !pac.CurGObject.Bound.Location.Equals(pac.OldGObject.Bound.Location))
+                    {
+                        pac.Type = PaintActionType.Moving;
+                        isNewActions = true;
+                    }
+                    if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && !pac.CurGObject.Bound.Size.Equals(pac.OldGObject.Bound.Size))
+                    {
+                        pac.Type = PaintActionType.Resize;
+                        isNewActions = true;
+                    }
+                    if (!isNewActions && pac.OldGObject != null)
+                    {
+                        pac.OldGObject.IsDeleted = false;
+                    }
                 }
-                if (pac.CurGObject.Bound != null && pac.OldGObject.Bound != null && pac.CurGObject.Bound.Size.Equals(pac.OldGObject.Bound.Size))
+                if (isNewActions) // only add actions when there are something change
                 {
-                    pac.Type = PaintActionType.Resize;
+                    AddRangePaintAction(untrackActions);
                 }
+                ResetDataSelectionMode();
+                return isNewActions;
             }
-            mainActions.AddRange(untrackActions);
-            untrackActions.Clear();
-            // quite selection mode
-            selectedGraphicObjs.Clear();
-            clickedSelectedGraphicObjectOffsets.Clear();
-            isSelectingGraphicObjects = false;
-            isClearSelectedGraphicObject = true;
-            SetIndex(preIndex);
-
+            return false;
         }
         private void PcBMainDrawing_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this.index == 28) // selection
-            {
-                if (this.selectedSelectionIndex == 2)
-                {
-                    Point curPoint = e.Location;
-                    bool hasSelectedObject = AddSelectectedGraphicObject(curPoint);
-                    if (hasSelectedObject)
-                    {
-                        isSelectingGraphicObjects = true;
-                        // reserve preindex
-                        SetIndex(preIndex);
-                        SetIndex(-1000);
-                    }
-                }
 
-            }
-            if (isSelectingGraphicObjects) // cancel selection
-            {
-                bool outSelection = true;
-                foreach (GraphicObject gobj in selectedGraphicObjs)
-                {
-                    if (gobj.Bound.Contains(e.Location))
-                    {
-                        outSelection = false;
-                        break;
-                    }
-                }
-                if (outSelection)
-                {
-                    Handler_CancelSelectingGraphicObject();
-                }
-            }
             //
             if (this.index == 36)
             {
@@ -1297,6 +1357,38 @@ namespace paint
                 SetSubColor(color);
             }
         }
+        private void Handler_ChangeCursorIcon(int tag)
+        {
+            if (tag == 34)
+            {
+                this.PcBMainDrawing.Cursor = new Cursor(SystemVariable.sysAppPath + "\\src\\CustomUI\\Cursors\\freeLineCur.cur");
+            }
+            else if (tag == 35)
+            {
+                this.PcBMainDrawing.Cursor = new Cursor(SystemVariable.sysAppPath + "\\src\\CustomUI\\Cursors\\eraserCur.cur");
+            }
+            else if (tag == 36)
+            {
+
+                Bitmap bm = new Bitmap(Image.FromFile(SystemVariable.sysAppPath + "\\src\\CustomUI\\Cursors\\fillCur.png"), new Size(30, 30));
+                Cursor cs = new Cursor(bm.GetHicon());
+                this.PcBMainDrawing.Cursor = cs;
+            }
+            else if (tag == 37)
+            {
+                this.PcBMainDrawing.Cursor = new Cursor(SystemVariable.sysAppPath + "\\src\\CustomUI\\Cursors\\colorPickerCur.cur");
+            }
+            else if (tag >= 42 && tag <= 63)
+            {
+                Bitmap bm = new Bitmap(Image.FromFile(SystemVariable.sysAppPath + "\\src\\CustomUI\\Cursors\\shapeCur.png"), new Size(30, 30));
+                Cursor cs = new Cursor(bm.GetHicon());
+                this.PcBMainDrawing.Cursor = cs;
+            }
+            else
+            {
+                this.PcBMainDrawing.Cursor = Cursors.Cross;
+            }
+        }
         private void Handler_Tools_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -1324,6 +1416,9 @@ namespace paint
             {
                 this.mainEraser.Width = savedPenWidths[2];
             }
+
+
+
         }
         private void Handler_ImageControls_Click(object sender, EventArgs e)
         {
@@ -1697,7 +1792,7 @@ namespace paint
             {
                 return;
             }
-            RunPaintActions(0, indexAction);
+            // RunPaintActions(0, indexAction);
 
         }
 
@@ -1725,18 +1820,11 @@ namespace paint
             for (int i = 0; i < mainActions.Count; i++) // get moved shape , not init shape
             {
                 bool isAdd = true;
-                //for (int j = 0; j < mainActions.Count; j++)
-                //{
-                //    if (i != j)
-                //    {
-                //        if (mainActions[j].OldGObject != null && mainActions[i].CurGObject == mainActions[j].OldGObject)
-                //        {
-                //            isAdd = false;
-                //            break;
-                //        }
-                //    }
-                //}
-                if (mainActions[i].CurGObject == null)
+                if (mainActions[i].Type == PaintActionType.Delete)
+                {
+                    isAdd = false;
+                }
+                else if (mainActions[i].CurGObject == null) // no object to add ( or that is the delete action )
                 {
                     isAdd = false;
                 }
@@ -1803,35 +1891,112 @@ namespace paint
             }
             return selectedBrush;
         }
+        /// <summary>
+        /// Submit paint action
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
         private bool AddPaintAction(PaintAction action)
         {
-            this.BtnUndo.Enabled = true;
             mainActions.Add(action);
             indexAction++;
+            //
+            this.BtnUndo.Enabled = indexAction >= 0; // if == 0, a work has been done 
+            //
             return mainActions.Count > 0;
         }
-        private bool RemoveCurrentPaintAction()
+        /// <summary>
+        /// Sumit paint actions
+        /// </summary>
+        /// <param name="ls"></param>
+        /// <returns></returns>
+        private bool AddRangePaintAction(List<PaintAction> ls)
         {
-            this.BtnRedo.Enabled = true;
-            if (mainActions.Count == 0)
-            {
-                this.BtnUndo.Enabled = false;
-                return false; // mainActions.Count == 0
-            }
-            mainActions.RemoveAt(mainActions.Count - 1);
+            mainActions.AddRange(ls);
+            indexAction += ls.Count;
+            //
+            this.BtnUndo.Enabled = indexAction >= 0;
+            //
+            return mainActions.Count > 0;
+        }
+
+        private bool RemoveUnusePaintActions(int currentActionTag) // when user back to the previous step and add additional actions
+        // then we remove unuse paint actions from that step to the end list
+        {
+            mainActions.RemoveRange(currentActionTag, mainActions.Count - currentActionTag);
+            this.BtnRedo.Enabled = false;
             return mainActions.Count > 0;
         }
 
         private void BtnRedo_MouseClick(object sender, MouseEventArgs e)
         {
             indexAction++;
+            this.BtnUndo.Enabled = this.indexAction >= 0;
             this.BtnRedo.Enabled = indexAction + 1 < mainActions.Count;
         }
+        private void Handler_DeleteSelectedGraphicObjects()
+        {
+            if (isSelectingGraphicObjects)
+            {
+                //
+                List<PaintAction> tempUntrackPaintAction = new List<PaintAction>(); // submit after untrackPaintAction
+                foreach (PaintAction pac in untrackActions)
+                {
+                    // pac now has : curobj and oldobj but we don't need curobj because the delete action, so we get rid of curobj
+                    pac.CurGObject.IsDeleted = true;
+                    pac.OldGObject.IsDeleted = true; // ensure the oldgobj is set to deleted
+                    //
+                    PaintAction newpac = new PaintAction(pac.CurGObject, pac.OldGObject); // currentObj = null, but we store for the later purpose ( determine the old object )
+                    newpac.Type = PaintActionType.Delete;
+                    tempUntrackPaintAction.Add(newpac);
+                }
+                //
+                bool graphicObjectChanged = Handler_CancelSelectingGraphicObject();
+                foreach (PaintAction pac in tempUntrackPaintAction)
+                {
+                    if (graphicObjectChanged)
+                    {
+                        pac.OldGObject = pac.CurGObject;
+                    }
+                    pac.CurGObject = null; // release current graphic object
+                }
+                //
+                List<GraphicObject> deletedGraphicObject = new List<GraphicObject>();
+                foreach (PaintAction pac in tempUntrackPaintAction)
+                {
+                    deletedGraphicObject.Add(pac.OldGObject);
+                }
+                //Handler_CancelSelectingGraphicObject(); // submit selected graphic object to main action (reserve reference link among sibling graphic objects)
+                ClearGraphicObjectGraphics(deletedGraphicObject);
+                AddRangePaintAction(tempUntrackPaintAction); // submit delete action
+            }
+        }
 
+        private void Handler_GroupingGraphicObjects()
+        {
+            if (isSelectingGraphicObjects)
+            {
+                if (selectedGraphicObjs.Count >= 2)
+                {
+                    PaintAction newPaintAction = new PaintAction();
+                    newPaintAction.GroupObjects(selectedGraphicObjs);
+                    ResetDataSelectionMode();
+                    AddPaintAction(newPaintAction);
+                    groupActions.Add(newPaintAction);
+                }
+            }
+        }
         private void AppPaint_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.ControlKey)
+            if (e.KeyCode == Keys.G && ctrlKeypressed) // group mode
             {
+                Handler_GroupingGraphicObjects();
+                mainGraphicObjects = Get_GraphicObject_Selection();
+            }
+            else if (e.KeyCode == Keys.ControlKey) // selection mode
+            {
+                ctrlKeypressed = true;
+                //
                 if (this.index != 28)
                 {
                     if (this.index == -1000)
@@ -1842,30 +2007,12 @@ namespace paint
                 }
                 mainGraphicObjects = Get_GraphicObject_Selection();
             }
-            else if (e.KeyCode == Keys.Delete)
+            else if (e.KeyCode == Keys.Delete) //
             {
-                if (isSelectingGraphicObjects)
-                {
-                    List<PaintAction> tempUntrackPaintAction = new List<PaintAction>(); // submit after untrackpaintaction
-                    foreach (PaintAction pac in untrackActions)
-                    {
-                        pac.CurGObject.IsDeleted = true;
-                        PaintAction newpac = new PaintAction(null, pac.CurGObject);
-                        newpac.Type = PaintActionType.Delete;
-                        tempUntrackPaintAction.Add(newpac);
-                    }
-                    List<GraphicObject> deletedGraphicObject = new List<GraphicObject>();
-                    foreach (PaintAction pac in tempUntrackPaintAction)
-                    {
-                        deletedGraphicObject.Add(pac.OldGObject);
-                    }
-                    Handler_CancelSelectingGraphicObject(); // submit selected graphic object to main action (reserve reference link among sibling graphic objects)
-                    ClearGraphicObjectGraphics(deletedGraphicObject);
-                    mainActions.AddRange(tempUntrackPaintAction); // submit delete action
-                }
+                Handler_DeleteSelectedGraphicObjects();
             }
         }
-        private void AppPaint_KeyUp(object sender, KeyEventArgs e) //modify
+        private void AppPaint_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e) //modify
         {
             if (e.KeyCode == Keys.ControlKey)
             {
@@ -1893,6 +2040,7 @@ namespace paint
                         SetIndex(preIndex);
                     }
                 }
+                ctrlKeypressed = false;
             }
         }
         private PaintAction GetCurrentPaintAction()
@@ -1900,27 +2048,9 @@ namespace paint
             return (mainActions.Count > 0) ? mainActions[mainActions.Count - 1] : null;
         }
 
-
-
         private bool AddSelectectedGraphicObject(Point p)
         {
-            //foreach (PaintAction action in mainActions)
-            //{
-            //    if (action.CurGObject.Bound != null &&
-            //    action.CurGObject.Bound.Contains(p))
-            //    {
-            //        foreach (GraphicObject gobj in selectedGraphicObjs)
-            //        {
-            //            if (gobj == action.CurGObject)
-            //            {
-            //                return false;
-            //            }
-            //        }
-            //        selectedGraphicObjs.Add(action.CurGObject);
-            //        return true;
 
-            //    }
-            //}
             foreach (GraphicObject gobj in selectedGraphicObjs)
             {
                 if (gobj.Bound != null && gobj.Bound.Contains(p))
@@ -1928,6 +2058,7 @@ namespace paint
                     return false;
                 }
             }
+            //
             foreach (GraphicObject gobj in mainGraphicObjects)
             {
                 if (gobj.Bound != null && gobj.Bound.Contains(p))
@@ -1939,7 +2070,7 @@ namespace paint
                     //
                     untrackActions.Add(newPaintAction);
                     selectedGraphicObjs.Add(newGobj); // after lose focus on moving graphic object, add this action to the mainActions
-                    ClearGraphicObjectGraphics(this.selectedGraphicObjs);
+                    //ClearGraphicObjectGraphics(this.selectedGraphicObjs);
                     return true;
                 }
             }
@@ -1958,8 +2089,21 @@ namespace paint
         /// <param name="index"></param>
         private void SetIndex(int index)
         {
+            // reset variable of old index
+            if (this.index == 47)
+            {
+                hasRoot = false;
+                countLine = 0;
+            }
+            // change to new index
             this.preIndex = this.index;
             this.index = index;
+            // change cursor
+            Handler_ChangeCursorIcon(this.index);
+
         }
     }
 }
+
+
+// fix: clear graphic when add more graphic object ( clear only the new added obj)

@@ -315,6 +315,8 @@
   <ItemGroup>
     <None Include="Resources\linear-brush.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="src\CustomUI\Cursors\FillCursor.cur" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
