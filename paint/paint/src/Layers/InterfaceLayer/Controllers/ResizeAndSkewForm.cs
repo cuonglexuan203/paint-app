@@ -143,7 +143,20 @@ namespace paint
             vertSkew = int.Parse(TxtSkewVer.Text);
             this.Close();
         }
-
-        
+        private void DrawUI()
+        {
+            DrawRectangleFrame(this.PnlContainer);
+        }
+        private void DrawRectangleFrame(Control ctr)
+        {
+            Bitmap bm = new Bitmap(ctr.Width, ctr.Height);
+            Graphics g = Graphics.FromImage(bm);
+            g.DrawRectangle(new Pen(Color.FromArgb(155, 164, 181)), new Rectangle(0, 0, ctr.Width - 1, ctr.Height - 1));
+            ctr.BackgroundImage = bm;
+        }
+        private void ResizeAndSkewForm_Load(object sender, EventArgs e)
+        {
+            DrawUI();
+        }
     }
 }

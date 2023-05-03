@@ -68,6 +68,7 @@
             this.PnlContainer.Location = new System.Drawing.Point(0, 0);
             this.PnlContainer.Margin = new System.Windows.Forms.Padding(0);
             this.PnlContainer.Name = "PnlContainer";
+            this.PnlContainer.Padding = new System.Windows.Forms.Padding(1);
             this.PnlContainer.Size = new System.Drawing.Size(368, 542);
             this.PnlContainer.TabIndex = 1;
             // 
@@ -77,10 +78,10 @@
             this.PnlControl.Controls.Add(this.PnlSkew);
             this.PnlControl.Controls.Add(this.PnlResize);
             this.PnlControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlControl.Location = new System.Drawing.Point(0, 37);
+            this.PnlControl.Location = new System.Drawing.Point(1, 38);
             this.PnlControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PnlControl.Name = "PnlControl";
-            this.PnlControl.Size = new System.Drawing.Size(368, 405);
+            this.PnlControl.Size = new System.Drawing.Size(366, 403);
             this.PnlControl.TabIndex = 2;
             // 
             // PnlSkew
@@ -95,7 +96,7 @@
             this.PnlSkew.Margin = new System.Windows.Forms.Padding(1);
             this.PnlSkew.Name = "PnlSkew";
             this.PnlSkew.Padding = new System.Windows.Forms.Padding(30);
-            this.PnlSkew.Size = new System.Drawing.Size(368, 156);
+            this.PnlSkew.Size = new System.Drawing.Size(366, 154);
             this.PnlSkew.TabIndex = 3;
             // 
             // TxtSkewVer
@@ -160,7 +161,7 @@
             this.PnlResize.Margin = new System.Windows.Forms.Padding(1);
             this.PnlResize.Name = "PnlResize";
             this.PnlResize.Padding = new System.Windows.Forms.Padding(30);
-            this.PnlResize.Size = new System.Drawing.Size(368, 249);
+            this.PnlResize.Size = new System.Drawing.Size(366, 249);
             this.PnlResize.TabIndex = 2;
             // 
             // TxtVerResize
@@ -263,11 +264,11 @@
             this.PnlChoice.Controls.Add(this.BtnCancel);
             this.PnlChoice.Controls.Add(this.BtnOk);
             this.PnlChoice.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlChoice.Location = new System.Drawing.Point(0, 442);
+            this.PnlChoice.Location = new System.Drawing.Point(1, 441);
             this.PnlChoice.Margin = new System.Windows.Forms.Padding(1);
             this.PnlChoice.Name = "PnlChoice";
             this.PnlChoice.Padding = new System.Windows.Forms.Padding(30);
-            this.PnlChoice.Size = new System.Drawing.Size(368, 100);
+            this.PnlChoice.Size = new System.Drawing.Size(366, 100);
             this.PnlChoice.TabIndex = 1;
             // 
             // BtnCancel
@@ -295,10 +296,10 @@
             this.PnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))));
             this.PnlTitle.Controls.Add(this.BtnExit);
             this.PnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.PnlTitle.Location = new System.Drawing.Point(1, 1);
             this.PnlTitle.Margin = new System.Windows.Forms.Padding(1);
             this.PnlTitle.Name = "PnlTitle";
-            this.PnlTitle.Size = new System.Drawing.Size(368, 37);
+            this.PnlTitle.Size = new System.Drawing.Size(366, 37);
             this.PnlTitle.TabIndex = 0;
             this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseDown);
             this.PnlTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseMove);
@@ -310,7 +311,7 @@
             this.BtnExit.FlatAppearance.BorderSize = 0;
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.Font = new System.Drawing.Font("Gadugi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExit.Location = new System.Drawing.Point(323, 0);
+            this.BtnExit.Location = new System.Drawing.Point(321, 0);
             this.BtnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(45, 37);
@@ -330,6 +331,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ResizeAndSkewForm";
             this.Text = "ResizeAndSkewForm";
+            this.Load += new System.EventHandler(this.ResizeAndSkewForm_Load);
             this.PnlContainer.ResumeLayout(false);
             this.PnlControl.ResumeLayout(false);
             this.PnlSkew.ResumeLayout(false);

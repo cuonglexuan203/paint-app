@@ -251,10 +251,10 @@
             this.PnlContainer.Controls.Add(this.PnlControlFooter);
             this.PnlContainer.Controls.Add(this.PnlControlDrawing);
             this.PnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlContainer.Location = new System.Drawing.Point(0, 75);
+            this.PnlContainer.Location = new System.Drawing.Point(1, 76);
             this.PnlContainer.Margin = new System.Windows.Forms.Padding(0);
             this.PnlContainer.Name = "PnlContainer";
-            this.PnlContainer.Size = new System.Drawing.Size(1461, 601);
+            this.PnlContainer.Size = new System.Drawing.Size(1459, 599);
             this.PnlContainer.TabIndex = 1;
             // 
             // PnlSelectOptions
@@ -543,7 +543,7 @@
             this.PnlDrawing.Location = new System.Drawing.Point(0, 132);
             this.PnlDrawing.Margin = new System.Windows.Forms.Padding(0);
             this.PnlDrawing.Name = "PnlDrawing";
-            this.PnlDrawing.Size = new System.Drawing.Size(1461, 425);
+            this.PnlDrawing.Size = new System.Drawing.Size(1459, 423);
             this.PnlDrawing.TabIndex = 2;
             this.PnlDrawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnlDrawing_MouseClick);
             // 
@@ -575,10 +575,10 @@
             this.PnlControlFooter.Controls.Add(this.LbBar1);
             this.PnlControlFooter.Controls.Add(this.BtnLocation);
             this.PnlControlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlControlFooter.Location = new System.Drawing.Point(0, 557);
+            this.PnlControlFooter.Location = new System.Drawing.Point(0, 555);
             this.PnlControlFooter.Margin = new System.Windows.Forms.Padding(0);
             this.PnlControlFooter.Name = "PnlControlFooter";
-            this.PnlControlFooter.Size = new System.Drawing.Size(1461, 44);
+            this.PnlControlFooter.Size = new System.Drawing.Size(1459, 44);
             this.PnlControlFooter.TabIndex = 1;
             // 
             // LbLocationPoint
@@ -692,7 +692,7 @@
             this.PnlControlDrawing.Margin = new System.Windows.Forms.Padding(1);
             this.PnlControlDrawing.Name = "PnlControlDrawing";
             this.PnlControlDrawing.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.PnlControlDrawing.Size = new System.Drawing.Size(1461, 132);
+            this.PnlControlDrawing.Size = new System.Drawing.Size(1459, 132);
             this.PnlControlDrawing.TabIndex = 0;
             this.PnlControlDrawing.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlControlDrawing_Paint);
             // 
@@ -706,7 +706,7 @@
             this.PnlControlColors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlControlColors.Location = new System.Drawing.Point(1032, 1);
             this.PnlControlColors.Name = "PnlControlColors";
-            this.PnlControlColors.Size = new System.Drawing.Size(429, 130);
+            this.PnlControlColors.Size = new System.Drawing.Size(427, 130);
             this.PnlControlColors.TabIndex = 6;
             // 
             // FLBColorOptions
@@ -1904,7 +1904,7 @@
             this.PnlTitle.Location = new System.Drawing.Point(0, 0);
             this.PnlTitle.Margin = new System.Windows.Forms.Padding(2);
             this.PnlTitle.Name = "PnlTitle";
-            this.PnlTitle.Size = new System.Drawing.Size(1461, 38);
+            this.PnlTitle.Size = new System.Drawing.Size(1459, 38);
             this.PnlTitle.TabIndex = 0;
             this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseDown);
             this.PnlTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlTitle_MouseMove);
@@ -1915,7 +1915,7 @@
             this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnMinimize.FlatAppearance.BorderSize = 0;
             this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMinimize.Location = new System.Drawing.Point(1320, 0);
+            this.BtnMinimize.Location = new System.Drawing.Point(1318, 0);
             this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMinimize.Name = "BtnMinimize";
             this.BtnMinimize.Size = new System.Drawing.Size(47, 38);
@@ -1931,7 +1931,7 @@
             this.BtnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnMaximize.FlatAppearance.BorderSize = 0;
             this.BtnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMaximize.Location = new System.Drawing.Point(1367, 0);
+            this.BtnMaximize.Location = new System.Drawing.Point(1365, 0);
             this.BtnMaximize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMaximize.Name = "BtnMaximize";
             this.BtnMaximize.Size = new System.Drawing.Size(47, 38);
@@ -1948,7 +1948,7 @@
             this.BtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
             this.BtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(43)))), ((int)(((byte)(28)))));
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExit.Location = new System.Drawing.Point(1414, 0);
+            this.BtnExit.Location = new System.Drawing.Point(1412, 0);
             this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(47, 38);
@@ -1994,7 +1994,7 @@
             this.PnlControlPaint.Location = new System.Drawing.Point(0, 38);
             this.PnlControlPaint.Margin = new System.Windows.Forms.Padding(2);
             this.PnlControlPaint.Name = "PnlControlPaint";
-            this.PnlControlPaint.Size = new System.Drawing.Size(1461, 37);
+            this.PnlControlPaint.Size = new System.Drawing.Size(1459, 37);
             this.PnlControlPaint.TabIndex = 1;
             // 
             // BtnRedo
@@ -2057,7 +2057,7 @@
             this.ViewHome});
             this.MenuControl.Location = new System.Drawing.Point(2, 6);
             this.MenuControl.Name = "MenuControl";
-            this.MenuControl.Size = new System.Drawing.Size(125, 30);
+            this.MenuControl.Size = new System.Drawing.Size(123, 28);
             this.MenuControl.TabIndex = 5;
             this.MenuControl.Text = "menuStrip1";
             // 
@@ -2072,7 +2072,7 @@
             this.MenuItemAbout});
             this.MenuHome.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.MenuHome.Name = "MenuHome";
-            this.MenuHome.Size = new System.Drawing.Size(60, 26);
+            this.MenuHome.Size = new System.Drawing.Size(60, 24);
             this.MenuHome.Text = "Menu";
             // 
             // MenuItemNew
@@ -2162,7 +2162,7 @@
             this.MenuItemStatusBar});
             this.ViewHome.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.ViewHome.Name = "ViewHome";
-            this.ViewHome.Size = new System.Drawing.Size(55, 26);
+            this.ViewHome.Size = new System.Drawing.Size(55, 24);
             this.ViewHome.Text = "View";
             // 
             // MeniItemFullScreen
@@ -2189,10 +2189,10 @@
             this.PnlControlApp.Controls.Add(this.PnlControlPaint);
             this.PnlControlApp.Controls.Add(this.PnlTitle);
             this.PnlControlApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlControlApp.Location = new System.Drawing.Point(0, 0);
+            this.PnlControlApp.Location = new System.Drawing.Point(1, 1);
             this.PnlControlApp.Margin = new System.Windows.Forms.Padding(0);
             this.PnlControlApp.Name = "PnlControlApp";
-            this.PnlControlApp.Size = new System.Drawing.Size(1461, 75);
+            this.PnlControlApp.Size = new System.Drawing.Size(1459, 75);
             this.PnlControlApp.TabIndex = 0;
             // 
             // BtnPenSize4
@@ -2753,6 +2753,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "AppPaint";
+            this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paint";
             this.Load += new System.EventHandler(this.AppPaint_Load);

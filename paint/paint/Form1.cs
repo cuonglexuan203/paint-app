@@ -24,6 +24,10 @@ using Cursor = System.Windows.Forms.Cursor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 using Cursors = System.Windows.Forms.Cursors;
+using System.Windows;
+using Point = System.Drawing.Point;
+using Size = System.Drawing.Size;
+using Application = System.Windows.Forms.Application;
 
 namespace paint
 {
@@ -129,6 +133,8 @@ namespace paint
             //
             mainSolidBrush = new SolidBrush(mainColor);
             // init for main linear gradient brush
+            mainLinearGradientBrush = new LinearGradientBrush(new PointF(0, 0), new PointF(1, 1), mainColor, subColor);
+
             //
             PcBMainDrawing.Image = mainBitmap;
             PcBMainDrawing.Size = mainPcbSize;
@@ -427,8 +433,13 @@ namespace paint
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillEllipse((SolidBrush)GetSelectedBrush(), rect);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillEllipse(selectedBrush, rect);
                         }
                         else
                         {
@@ -437,7 +448,7 @@ namespace paint
                         if (g == mainGraphic)
                         {
 
-                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -453,8 +464,13 @@ namespace paint
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillRectangle((SolidBrush)GetSelectedBrush(), rect);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillRectangle(selectedBrush, rect);
 
                         }
                         else
@@ -463,7 +479,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -479,9 +495,13 @@ namespace paint
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillRoundedRectangle((SolidBrush)GetSelectedBrush(), rect, 10);
-
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillRoundedRectangle(selectedBrush, rect, 10);
 
                         }
                         else
@@ -490,7 +510,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -512,13 +532,19 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
+                            //
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillTriangle((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
-
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillTriangle(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -528,7 +554,8 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            //
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -538,12 +565,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillRightTriangle((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillRightTriangle(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -554,7 +587,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -564,12 +597,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillDiamond((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillDiamond(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -579,7 +618,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -589,12 +628,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillPentagon((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillPentagon(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -604,7 +649,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -614,12 +659,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillHexagon((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillHexagon(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -629,7 +680,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -639,12 +690,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillRightArrow((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillRightArrow(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -655,7 +712,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -665,12 +722,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillLeftArrow((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillLeftArrow(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -680,7 +743,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -690,12 +753,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillUpArrow((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillUpArrow(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -705,7 +774,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -715,12 +784,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillDownArrow((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillDownArrow(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -731,7 +806,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -741,12 +816,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillFourPointStar((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillFourPointStar(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -757,7 +838,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -767,12 +848,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillFivePointStar((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillFivePointStar(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -782,7 +869,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -792,12 +879,18 @@ namespace paint
                     {
                         Point currentPoint = SetPoint(PcBMainDrawing, new Point(x, y));
                         Point[] originalPoints = CalcTopleftBottomright(pointX, currentPoint);
+                        Rectangle rect = GenerateRectangle(originalPoints[0], originalPoints[1]);
                         if (isBrush)
                         {
                             if (selectedBrushIndex == 1)
                             {
-                                g.FillSixPointStar((SolidBrush)GetSelectedBrush(), originalPoints[0], originalPoints[1]);
                             }
+                            else if (selectedBrushIndex == 2)
+                            {
+                                SetMainLinearGradientBrush(rect);
+                            }
+                            Brush selectedBrush = GetSelectedBrush();
+                            g.FillSixPointStar(selectedBrush, originalPoints[0], originalPoints[1]);
 
                         }
                         else
@@ -806,7 +899,7 @@ namespace paint
                         }
                         if (g == mainGraphic)
                         {
-                            GraphicObject curObj = new GraphicObject(GenerateRectangle(originalPoints[0], originalPoints[1]), index, (Pen)GetSelectedPen().Clone(), isBrush, (SolidBrush)GetSelectedBrush().Clone());
+                            GraphicObject curObj = new GraphicObject(rect, index, (Pen)GetSelectedPen().Clone(), isBrush, (Brush)GetSelectedBrush().Clone());
                             PaintAction temp = new PaintAction(PaintActionType.Draw, curObj);
                             AddPaintAction(temp);
                         }
@@ -1013,6 +1106,68 @@ namespace paint
             sx = e.X - ix;
             sy = e.Y - iy;
         }
+        private void PcBMainDrawing_Paint(object sender, PaintEventArgs e)
+        {
+
+            if (painted)
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                if (points.Count > 1)
+                {
+                    if (index == 34)
+                    {
+                        if (selectedColor == 0)
+                        {
+                            mainGraphic.DrawCurve(mainPen, points.ToArray());
+                        }
+                        else if (selectedColor == 1)
+                        {
+                            mainGraphic.DrawCurve(subPen, points.ToArray());
+                        }
+                    }
+                    else if (index == 35)
+                    {
+                        mainGraphic.DrawCurve(mainEraser, points.ToArray());
+                    }
+
+                }
+                Handler_DrawShape(e.Graphics, this.index);
+            }
+            // selection logic
+            // moving selected object
+
+            if (isClickOnSelectedGraphicObject) // modify later: redundant
+            {
+                if (selectedSelectionIndex == 2)
+                {
+                    Handler_MovingGraphicObject_Click(e.Graphics, this.selectedGraphicObjs);
+                }
+            }
+            else if (isSelectingGraphicObjects)
+            {
+                foreach (GraphicObject gobj in selectedGraphicObjs)
+                {
+                    if (gobj.Type == 0)
+                    {
+                        Handler_ReDrawGroupGraphicObject(e.Graphics, gobj);
+                    }
+                    else
+                    {
+                        Handler_ReDrawGraphicObject(e.Graphics, gobj);
+                    }
+                }
+            }
+            // draw frame of selected objects
+            if (isSelectingGraphicObjects)
+            {
+                foreach (GraphicObject gobj in selectedGraphicObjs)
+                {
+                    Pen tempPen = new Pen(SystemVariable.sysSelectedGraphicObjectPenColor, SystemVariable.sysSelectedGraphicObjectPenWidth);
+                    tempPen.DashStyle = SystemVariable.sysSelectedGraphicObjectPenDashStyle;
+                    e.Graphics.DrawRectangle(tempPen, gobj.Bound);
+                }
+            }
+        }
 
         private void Handler_ReDrawGraphicObject(Graphics g, GraphicObject gobj)
         {
@@ -1198,68 +1353,7 @@ namespace paint
                 }
             }
         }
-        private void PcBMainDrawing_Paint(object sender, PaintEventArgs e)
-        {
 
-            if (painted)
-            {
-                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                if (points.Count > 1)
-                {
-                    if (index == 34)
-                    {
-                        if (selectedColor == 0)
-                        {
-                            mainGraphic.DrawCurve(mainPen, points.ToArray());
-                        }
-                        else if (selectedColor == 1)
-                        {
-                            mainGraphic.DrawCurve(subPen, points.ToArray());
-                        }
-                    }
-                    else if (index == 35)
-                    {
-                        mainGraphic.DrawCurve(mainEraser, points.ToArray());
-                    }
-
-                }
-                Handler_DrawShape(e.Graphics, this.index);
-            }
-            // selection logic
-            // moving selected object
-
-            if (isClickOnSelectedGraphicObject) // modify later: redundant
-            {
-                if (selectedSelectionIndex == 2)
-                {
-                    Handler_MovingGraphicObject_Click(e.Graphics, this.selectedGraphicObjs);
-                }
-            }
-            else if (isSelectingGraphicObjects)
-            {
-                foreach (GraphicObject gobj in selectedGraphicObjs)
-                {
-                    if (gobj.Type == 0)
-                    {
-                        Handler_ReDrawGroupGraphicObject(e.Graphics, gobj);
-                    }
-                    else
-                    {
-                        Handler_ReDrawGraphicObject(e.Graphics, gobj);
-                    }
-                }
-            }
-            // draw frame of selected objects
-            if (isSelectingGraphicObjects)
-            {
-                foreach (GraphicObject gobj in selectedGraphicObjs)
-                {
-                    Pen tempPen = new Pen(SystemVariable.sysSelectedGraphicObjectPenColor, SystemVariable.sysSelectedGraphicObjectPenWidth);
-                    tempPen.DashStyle = SystemVariable.sysSelectedGraphicObjectPenDashStyle;
-                    e.Graphics.DrawRectangle(tempPen, gobj.Bound);
-                }
-            }
-        }
         private void ResetDataSelectionMode()
         {
             untrackActions.Clear();
@@ -1298,7 +1392,7 @@ namespace paint
                     pac.Type = PaintActionType.Resize;
                     isNewActions = true;
                 }
-                if (!isNewActions && pac.OldGObject != null)
+                if (!isNewActions && pac.OldGObject != null && !pac.CurGObject.IsDeleted)
                 {
                     pac.OldGObject.IsDeleted = false;
                 }
@@ -1326,8 +1420,8 @@ namespace paint
                     }
                 }
                 // add new paint actions
-                bool isNewActions = CheckActionChange(); 
-                
+                bool isNewActions = CheckActionChange();
+
                 if (isNewActions) // only add actions when there are something change
                 {
                     AddRangePaintAction(untrackActions);
@@ -1373,11 +1467,16 @@ namespace paint
         {
             EclipseButton esBtn = (EclipseButton)sender;
             this.selectedColor = Convert.ToInt32(esBtn.Tag);
+            if (isBrush)
+            {
+                SetBrushColor(mainColor, subColor);
+            }
         }
 
         private void Handler_ColorOptions_Click(object sender, EventArgs e)
         {
             EclipseButton esBtn = (EclipseButton)(sender);
+            //
             if (selectedColor == 0)
             {
                 SetMainColor(esBtn.BackColor);
@@ -1386,7 +1485,11 @@ namespace paint
             {
                 SetSubColor(esBtn.BackColor);
             }
-
+            //
+            if (isBrush)
+            {
+                SetBrushColor(mainColor, subColor);
+            }
         }
 
         private void Handler_ColorWheel_Click(object sender, EventArgs e)
@@ -1764,8 +1867,8 @@ namespace paint
             Button button = sender as Button;
             selectedBrushIndex = int.Parse(button.Tag.ToString());
             isBrush = true;
-
-
+            //
+            SetBrushColor(mainColor, subColor);
         }
 
         private void PnlBrush_MouseClick(object sender, MouseEventArgs e)
@@ -1844,9 +1947,40 @@ namespace paint
         // additional method
         private void SetMainColor(Color color)
         {
-            this.BtnMainColor1.BackColor = mainColor = mainPen.Color = mainSolidBrush.Color = color;
-        }
+            this.BtnMainColor1.BackColor = mainColor = mainPen.Color = color;
+            //
 
+        }
+        private void SetSubColor(Color color)
+        {
+            this.BtnMainColor2.BackColor = subColor = subPen.Color = color;
+        }
+        private void SetMainSolidBrushColor(Color color)
+        {
+            this.mainSolidBrush.Color = color;
+        }
+        private void SetMainLinearGradientBrushColor(Color start, Color end)
+        {
+            this.mainLinearGradientBrush.LinearColors = new Color[] { start, end };
+        }
+        private void SetBrushColor(Color main, Color sub)
+        {
+            if (selectedBrushIndex == 1)
+            {
+                if (selectedColor == 0)
+                {
+                    SetMainSolidBrushColor(main);
+                }
+                else if (selectedColor == 1)
+                {
+                    SetMainSolidBrushColor(sub);
+                }
+            }
+            else if (selectedBrushIndex == 2)
+            {
+                SetMainLinearGradientBrushColor(main, sub);
+            }
+        }
         private void BtnSelectOptions_MouseClick(object sender, MouseEventArgs e)
         {
             this.PnlSelectOptions.Show();
@@ -1897,10 +2031,7 @@ namespace paint
             mainGraphicObjects = Get_GraphicObject_Selection();
         }
 
-        private void SetSubColor(Color color)
-        {
-            this.BtnMainColor2.BackColor = subColor = subPen.Color = color;
-        }
+
 
         private void PnlDrawing_MouseClick(object sender, MouseEventArgs e) // cancel selected object
         {
@@ -1922,6 +2053,19 @@ namespace paint
                 selectedPen = subPen;
             }
             return selectedPen;
+        }
+        private void SetMainLinearGradientBrush(Rectangle rect)
+        {
+            if (rect.Width == 0 || rect.Height == 0)
+            {
+                rect.Width = 1;
+                rect.Height = 1;
+            }
+            mainLinearGradientBrush = new LinearGradientBrush(rect, mainLinearGradientBrush.LinearColors[0], mainLinearGradientBrush.LinearColors[1], 0, true);
+        }
+        private void SetMainLinearGradientBrush(Rectangle rect, Color color1, Color color2, int angle)
+        {
+            mainLinearGradientBrush = new LinearGradientBrush(rect, color1, color2, angle, true);
         }
         private Brush GetSelectedBrush()
         {

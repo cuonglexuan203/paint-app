@@ -16,7 +16,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         int type = 0; // index (0: grouped object container)
         Pen mainPen = null;
         bool isBrush = false;
-        SolidBrush solidBrush = null;
+        Brush mainBrush = null;
         //
         bool isFreeObject = false;
         Point[] points = null;
@@ -28,7 +28,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         public int Type { get => type; set => type = value; }
         public Pen MainPen { get => mainPen; set => mainPen = value; }
         public bool IsBrush { get => isBrush; set => isBrush = value; }
-        public SolidBrush SolidBrush { get => solidBrush; set => solidBrush = value; }
+        public Brush MainBrush { get => mainBrush; set => mainBrush = value; }
         public bool IsFreeObject { get => isFreeObject; set => isFreeObject = value; }
         public Point[] Points { get => points; set => points = value; }
         public bool IsDeleted { get => isDeleted; set => isDeleted = value; }
@@ -39,43 +39,43 @@ namespace paint.src.Layers.InterfaceLayer.Actions
 
         }
         // Shape
-        public GraphicObject(Point topLeft, Point bottomRight, int tag, Pen mainPen, bool isBrush, SolidBrush mainSolidBrush)
+        public GraphicObject(Point topLeft, Point bottomRight, int tag, Pen mainPen, bool isBrush, Brush mainBrush)
         {
             Rectangle newObject = new Rectangle(topLeft, new Size(Math.Abs(topLeft.X - bottomRight.X), Math.Abs(topLeft.Y - bottomRight.Y)));
             bound = newObject;
             type = tag;
             this.MainPen = mainPen;
             this.IsBrush = isBrush;
-            SolidBrush = mainSolidBrush;
+            this.mainBrush = mainBrush;
         }
-        public GraphicObject(Rectangle rect, int tag, Pen mainPen, bool isBrush, SolidBrush mainSolidBrush)
+        public GraphicObject(Rectangle rect, int tag, Pen mainPen, bool isBrush, Brush mainBrush)
         {
             bound = rect;
             type = tag;
             this.MainPen = mainPen;
             this.IsBrush = isBrush;
-            SolidBrush = mainSolidBrush;
+            this.mainBrush = mainBrush;
         }
-        public GraphicObject(Rectangle rect, int tag, Pen mainPen, bool isBrush, SolidBrush mainSolidBrush, bool isFreeObject, Point[] points, bool isDeleted)
+        public GraphicObject(Rectangle rect, int tag, Pen mainPen, bool isBrush, Brush mainBrush, bool isFreeObject, Point[] points, bool isDeleted)
         {
             bound = rect;
             type = tag;
             this.MainPen = mainPen;
             this.IsBrush = isBrush;
-            SolidBrush = mainSolidBrush;
+            this.mainBrush = mainBrush;
             //
             this.isFreeObject = isFreeObject;
             this.points = points;
             this.isDeleted = isDeleted;
         }
-        public GraphicObject(Point topLeft, int width, int height, int tag, Pen mainPen, bool isBrush, SolidBrush mainSolidBrush)
+        public GraphicObject(Point topLeft, int width, int height, int tag, Pen mainPen, bool isBrush, Brush mainBrush)
         {
             Rectangle newObject = new Rectangle(topLeft, new Size(width, height));
             bound = newObject;
             type = tag;
             this.MainPen = mainPen;
             this.IsBrush = isBrush;
-            SolidBrush = mainSolidBrush;
+            this.mainBrush = mainBrush;
         }
         // free line: 34 // fill: 36
         public GraphicObject(Point[] points, int tag, Pen mainPen, bool isFreeObject = true) 
@@ -90,7 +90,7 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         }
         public GraphicObject Clone()
         => new GraphicObject(new Rectangle(new Point(this.Bound.X, this.Bound.Y), this.Bound.Size)
-            , this.Type, (Pen)MainPen?.Clone(), IsBrush, (SolidBrush)SolidBrush?.Clone(), this.isFreeObject,(Point[])this.points?.Clone(), this.isDeleted);
+            , this.Type, (Pen)MainPen?.Clone(), IsBrush, (Brush)mainBrush?.Clone(), this.isFreeObject,(Point[])this.points?.Clone(), this.isDeleted);
         
     }
 }

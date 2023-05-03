@@ -44,6 +44,9 @@ namespace paint
         public void CustomizeUIs()
         {
             this.SuspendLayout();
+            //
+            DrawRectangleFrame(this);
+            //
             InitColorsOfPen();
             CustomizeButtonImage(new List<Button>() { BtnSave, BtnUndo, BtnRedo, BtnPaste, BtnCut, BtnCopy, BtnSelect, BtnCrop, BtnResize,
                 BtnRotate, BtnFlip, BtnPencil, BtnFill, BtnText, BtnEraser, BtnColorPicker, BtnMagnifier, BtnBrush,
@@ -58,8 +61,18 @@ namespace paint
             CustomizeBorderPanelColor(this.PnlControlDrawing, 1,0,1,0,Color.FromArgb(234,234,234));
             HideInitialControls(new List<Control> { this.PnlSize, this.PnlImageFlip, this.PnlRotateImage, this.PnlPenDashStyleOptions, this.PnlBrushOptions, this.PnlSelectOptions });
             DisableInitialControls(new List<Control> { BtnRedo, BtnUndo });
+            //
 
+            //
             this.ResumeLayout();
+
+        }
+        private void DrawRectangleFrame(Form app)
+        {
+            Bitmap bm = new Bitmap(app.Width, app.Height);
+            Graphics g = Graphics.FromImage(bm);
+            g.DrawRectangle(new Pen(Color.FromArgb(155, 164, 181)), new Rectangle(0, 0, app.Width - 1, app.Height - 1));
+            app.BackgroundImage = bm;
         }
         public void InitColorsOfPen()
         {
