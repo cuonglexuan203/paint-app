@@ -1175,13 +1175,19 @@ namespace paint
             {
 
             }
-            else if (gobj.IsBrush)
-            {
-
-            }
             else
             {
                 int type = gobj.Type;
+                //
+                bool isBrushed = gobj.IsBrush;
+                if (gobj.MainBrush is LinearGradientBrush)
+                {
+                    LinearGradientBrush linearGradientBrush = (LinearGradientBrush)gobj.MainBrush;
+                    gobj.MainBrush = new LinearGradientBrush(gobj.Bound, linearGradientBrush.LinearColors[0], linearGradientBrush.LinearColors[1], 0, true); // change the rectangle of brush to the gobj.bound 
+                    // because this function is called when redrawing graphic object ( moving object )
+                }
+                Brush brush = gobj.MainBrush;
+                //
                 Point[] originalPoints = CalcTopleftBottomright(gobj.Bound);
                 switch (type) // type === this.index
                 {
@@ -1196,17 +1202,38 @@ namespace paint
                         }
                     case 44:
                         {
-                            g.DrawEllipse(gobj.MainPen, gobj.Bound);
+                            if (isBrushed)
+                            {
+                                g.FillEllipse(brush, gobj.Bound);
+                            }
+                            else
+                            {
+                                g.DrawEllipse(gobj.MainPen, gobj.Bound);
+                            }
                             break;
                         }
                     case 45:
                         {
-                            g.DrawRectangle(gobj.MainPen, gobj.Bound);
+                            if (isBrushed)
+                            {
+                                g.FillRectangle(brush, gobj.Bound);
+                            }
+                            else
+                            {
+                                g.DrawRectangle(gobj.MainPen, gobj.Bound);
+                            }
                             break;
                         }
                     case 46:
                         {
-                            g.DrawRoundedRectangle(gobj.MainPen, gobj.Bound, 10); // 10: virtual value
+                            if (isBrushed)
+                            {
+                                g.FillRoundedRectangle(brush, gobj.Bound, 10);
+                            }
+                            else
+                            {
+                                g.DrawRoundedRectangle(gobj.MainPen, gobj.Bound, 10); // 10: virtual value
+                            }
                             break;
                         }
                     case 47:
@@ -1216,63 +1243,146 @@ namespace paint
                         }
                     case 48:
                         {
-                            g.DrawTriangle(gobj.MainPen, originalPoints[0], originalPoints[1]);
-
+                            if (isBrushed)
+                            {
+                                g.FillTriangle(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawTriangle(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 49:
                         {
-                            g.DrawRightTriangle(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillRightTriangle(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawRightTriangle(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 50:
                         {
-                            g.DrawDiamond(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillDiamond(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawDiamond(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 51:
                         {
-                            g.DrawPentagon(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillPentagon(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawPentagon(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 52:
                         {
-                            g.DrawHexagon(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillHexagon(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawHexagon(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 53:
                         {
-                            g.DrawRightArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillRightArrow(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawRightArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 54:
                         {
-                            g.DrawLeftArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillLeftArrow(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawLeftArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 55:
                         {
-                            g.DrawUpArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillUpArrow(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawUpArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 56:
                         {
-                            g.DrawDownArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillDownArrow(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawDownArrow(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 57:
                         {
-                            g.DrawFourPointStar(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillFourPointStar(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawFourPointStar(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 58:
                         {
-                            g.DrawFivePointStar(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillFivePointStar(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawFivePointStar(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 59:
                         {
-                            g.DrawSixPointStar(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            if (isBrushed)
+                            {
+                                g.FillSixPointStar(brush, originalPoints[0], originalPoints[1]);
+                            }
+                            else
+                            {
+                                g.DrawSixPointStar(gobj.MainPen, originalPoints[0], originalPoints[1]);
+                            }
                             break;
                         }
                     case 60:
@@ -2067,6 +2177,7 @@ namespace paint
         {
             mainLinearGradientBrush = new LinearGradientBrush(rect, color1, color2, angle, true);
         }
+
         private Brush GetSelectedBrush()
         {
             Brush selectedBrush = null;
