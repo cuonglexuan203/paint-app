@@ -54,14 +54,14 @@ namespace paint.src.Layers.InterfaceLayer.Actions
         public List<GraphicObject> GetObjsBeforeGroup()
         {
             List<GraphicObject> res = null;
-            if(this.type == PaintActionType.Group)
-            {
+            //if (this.type == PaintActionType.Group)
+            //{
                 res = new List<GraphicObject>();
-                foreach(GraphicObject obj in this.objBeforeGroup)
+                foreach (GraphicObject obj in this.objBeforeGroup)
                 {
                     res.Add(obj);
                 }
-            }
+            //}
             return res;
         }
         public List<GraphicObject> GetObjsAfterGroup()
@@ -77,18 +77,18 @@ namespace paint.src.Layers.InterfaceLayer.Actions
             }
             return res;
         }
-        private bool SetObjsBeforeGroup(List<GraphicObject> ls)
+        public bool SetObjsBeforeGroup(List<GraphicObject> ls)
         {
             bool res = false;
-            if(this.type == PaintActionType.Group)
+            // if (this.type == PaintActionType.Group)
+            // {
+            res = true;
+            this.objBeforeGroup = new List<GraphicObject>();
+            foreach (GraphicObject obj in ls)
             {
-                res = true;
-                this.objBeforeGroup = new List<GraphicObject>();
-                foreach (GraphicObject obj in ls)
-                {
-                    this.objBeforeGroup.Add(obj);
-                }
+                this.objBeforeGroup.Add(obj);
             }
+            // }
             return res;
         }
         public bool GroupObjects(List<GraphicObject> ls)
@@ -111,16 +111,17 @@ namespace paint.src.Layers.InterfaceLayer.Actions
                 foreach (GraphicObject obj in objAfterGroup) // redundant but it will be safe
                 {
                     this.curGObject.Bound = Rectangle.Union(this.curGObject.Bound, obj.Bound);
-                    obj.IsDeleted= false;
+                    obj.IsDeleted = false;
                 }
                 //
             }
             return res;
         }
+
         private bool GenerateObjsAfterGroup()
         {
             bool res = false;
-            if(this.type == PaintActionType.Group)
+            if (this.type == PaintActionType.Group)
             {
                 res = true;
                 objAfterGroup = new List<GraphicObject>();

@@ -79,7 +79,6 @@
     <Compile Include="src\Layers\InterfaceLayer\Controllers\ResizeAndSkewForm.Designer.cs">
       <DependentUpon>ResizeAndSkewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Layers\BussinessLayer\BSAction.cs" />
     <Compile Include="src\CustomControls\CustomWidthButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -95,7 +94,6 @@
     <Compile Include="src\CustomUI\CustomUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\Layers\DatabaseLayer\DBMain.cs" />
     <Compile Include="src\ExtendMethods\GraphicsExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

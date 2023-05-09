@@ -43,6 +43,10 @@
             this.BtnPenDashDot = new System.Windows.Forms.Button();
             this.BtnPenDashDotDot = new System.Windows.Forms.Button();
             this.PnlSize = new System.Windows.Forms.Panel();
+            this.BtnPenSize4 = new paint.CustomWidthButton();
+            this.BtnPenSize3 = new paint.CustomWidthButton();
+            this.BtnPenSize2 = new paint.CustomWidthButton();
+            this.BtnPenSize1 = new paint.CustomWidthButton();
             this.PnlRotateImage = new System.Windows.Forms.Panel();
             this.BtnRotate180 = new System.Windows.Forms.Button();
             this.BtnRotateLeft90 = new System.Windows.Forms.Button();
@@ -64,8 +68,40 @@
             this.PnlControlDrawing = new System.Windows.Forms.Panel();
             this.PnlControlColors = new System.Windows.Forms.Panel();
             this.FLBColorOptions = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnColor1 = new paint.EclipseButton();
+            this.BtnColor2 = new paint.EclipseButton();
+            this.BtnColor3 = new paint.EclipseButton();
+            this.BtnColor4 = new paint.EclipseButton();
+            this.BtnColor6 = new paint.EclipseButton();
+            this.BtnColor8 = new paint.EclipseButton();
+            this.BtnColor5 = new paint.EclipseButton();
+            this.BtnColor7 = new paint.EclipseButton();
+            this.BtnColor9 = new paint.EclipseButton();
+            this.BtnColor10 = new paint.EclipseButton();
+            this.BtnColor11 = new paint.EclipseButton();
+            this.BtnColor12 = new paint.EclipseButton();
+            this.BtnColor13 = new paint.EclipseButton();
+            this.BtnColor14 = new paint.EclipseButton();
+            this.BtnColor16 = new paint.EclipseButton();
+            this.BtnColor18 = new paint.EclipseButton();
+            this.BtnColor15 = new paint.EclipseButton();
+            this.BtnColor17 = new paint.EclipseButton();
+            this.BtnColor19 = new paint.EclipseButton();
+            this.BtnColor20 = new paint.EclipseButton();
+            this.BtnColor21 = new paint.EclipseButton();
+            this.BtnColor22 = new paint.EclipseButton();
+            this.BtnColor23 = new paint.EclipseButton();
+            this.BtnColor24 = new paint.EclipseButton();
+            this.BtnColor26 = new paint.EclipseButton();
+            this.BtnColor28 = new paint.EclipseButton();
+            this.BtnColor25 = new paint.EclipseButton();
+            this.BtnColor27 = new paint.EclipseButton();
+            this.BtnColor29 = new paint.EclipseButton();
+            this.BtnColor30 = new paint.EclipseButton();
             this.BtnEditColor = new System.Windows.Forms.Button();
             this.LbColors = new System.Windows.Forms.Label();
+            this.BtnMainColor2 = new paint.EclipseButton();
+            this.BtnMainColor1 = new paint.EclipseButton();
             this.PnlControlSize = new System.Windows.Forms.Panel();
             this.PnlControlPenWidth = new System.Windows.Forms.Panel();
             this.BtnSize = new System.Windows.Forms.Button();
@@ -165,42 +201,6 @@
             this.MenuItemZoom = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemStatusBar = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlControlApp = new System.Windows.Forms.Panel();
-            this.BtnPenSize4 = new paint.CustomWidthButton();
-            this.BtnPenSize3 = new paint.CustomWidthButton();
-            this.BtnPenSize2 = new paint.CustomWidthButton();
-            this.BtnPenSize1 = new paint.CustomWidthButton();
-            this.BtnColor1 = new paint.EclipseButton();
-            this.BtnColor2 = new paint.EclipseButton();
-            this.BtnColor3 = new paint.EclipseButton();
-            this.BtnColor4 = new paint.EclipseButton();
-            this.BtnColor6 = new paint.EclipseButton();
-            this.BtnColor8 = new paint.EclipseButton();
-            this.BtnColor5 = new paint.EclipseButton();
-            this.BtnColor7 = new paint.EclipseButton();
-            this.BtnColor9 = new paint.EclipseButton();
-            this.BtnColor10 = new paint.EclipseButton();
-            this.BtnColor11 = new paint.EclipseButton();
-            this.BtnColor12 = new paint.EclipseButton();
-            this.BtnColor13 = new paint.EclipseButton();
-            this.BtnColor14 = new paint.EclipseButton();
-            this.BtnColor16 = new paint.EclipseButton();
-            this.BtnColor18 = new paint.EclipseButton();
-            this.BtnColor15 = new paint.EclipseButton();
-            this.BtnColor17 = new paint.EclipseButton();
-            this.BtnColor19 = new paint.EclipseButton();
-            this.BtnColor20 = new paint.EclipseButton();
-            this.BtnColor21 = new paint.EclipseButton();
-            this.BtnColor22 = new paint.EclipseButton();
-            this.BtnColor23 = new paint.EclipseButton();
-            this.BtnColor24 = new paint.EclipseButton();
-            this.BtnColor26 = new paint.EclipseButton();
-            this.BtnColor28 = new paint.EclipseButton();
-            this.BtnColor25 = new paint.EclipseButton();
-            this.BtnColor27 = new paint.EclipseButton();
-            this.BtnColor29 = new paint.EclipseButton();
-            this.BtnColor30 = new paint.EclipseButton();
-            this.BtnMainColor2 = new paint.EclipseButton();
-            this.BtnMainColor1 = new paint.EclipseButton();
             this.PnlContainer.SuspendLayout();
             this.PnlSelectOptions.SuspendLayout();
             this.PnlBrushOptions.SuspendLayout();
@@ -441,6 +441,70 @@
             this.PnlSize.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.PnlSize.Size = new System.Drawing.Size(190, 270);
             this.PnlSize.TabIndex = 1;
+            // 
+            // BtnPenSize4
+            // 
+            this.BtnPenSize4.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize4.BarHeight = 4;
+            this.BtnPenSize4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize4.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize4.Location = new System.Drawing.Point(3, 200);
+            this.BtnPenSize4.Name = "BtnPenSize4";
+            this.BtnPenSize4.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize4.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize4.TabIndex = 3;
+            this.BtnPenSize4.Text = "4 px";
+            this.BtnPenSize4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize4.UseVisualStyleBackColor = false;
+            this.BtnPenSize4.Click += new System.EventHandler(this.BtnPenSizes_Click);
+            // 
+            // BtnPenSize3
+            // 
+            this.BtnPenSize3.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize3.BarHeight = 3;
+            this.BtnPenSize3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize3.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize3.Location = new System.Drawing.Point(3, 135);
+            this.BtnPenSize3.Name = "BtnPenSize3";
+            this.BtnPenSize3.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize3.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize3.TabIndex = 2;
+            this.BtnPenSize3.Text = "3 px";
+            this.BtnPenSize3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize3.UseVisualStyleBackColor = false;
+            this.BtnPenSize3.Click += new System.EventHandler(this.BtnPenSizes_Click);
+            // 
+            // BtnPenSize2
+            // 
+            this.BtnPenSize2.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize2.BarHeight = 2;
+            this.BtnPenSize2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize2.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize2.Location = new System.Drawing.Point(3, 70);
+            this.BtnPenSize2.Name = "BtnPenSize2";
+            this.BtnPenSize2.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize2.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize2.TabIndex = 1;
+            this.BtnPenSize2.Text = "2 px";
+            this.BtnPenSize2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize2.UseVisualStyleBackColor = false;
+            this.BtnPenSize2.Click += new System.EventHandler(this.BtnPenSizes_Click);
+            // 
+            // BtnPenSize1
+            // 
+            this.BtnPenSize1.BackColor = System.Drawing.Color.White;
+            this.BtnPenSize1.BarHeight = 1;
+            this.BtnPenSize1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPenSize1.FlatAppearance.BorderSize = 0;
+            this.BtnPenSize1.Location = new System.Drawing.Point(3, 5);
+            this.BtnPenSize1.Name = "BtnPenSize1";
+            this.BtnPenSize1.Padding = new System.Windows.Forms.Padding(3);
+            this.BtnPenSize1.Size = new System.Drawing.Size(182, 65);
+            this.BtnPenSize1.TabIndex = 0;
+            this.BtnPenSize1.Text = "1 px";
+            this.BtnPenSize1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPenSize1.UseVisualStyleBackColor = false;
+            this.BtnPenSize1.Click += new System.EventHandler(this.BtnPenSizes_Click);
             // 
             // PnlRotateImage
             // 
@@ -746,6 +810,456 @@
             this.FLBColorOptions.Size = new System.Drawing.Size(252, 77);
             this.FLBColorOptions.TabIndex = 1;
             // 
+            // BtnColor1
+            // 
+            this.BtnColor1.BackColor = System.Drawing.Color.Black;
+            this.BtnColor1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor1.BorderWidth = 4;
+            this.BtnColor1.FlatAppearance.BorderSize = 0;
+            this.BtnColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor1.Location = new System.Drawing.Point(3, 3);
+            this.BtnColor1.Name = "BtnColor1";
+            this.BtnColor1.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor1.TabIndex = 41;
+            this.BtnColor1.Tag = "0";
+            this.BtnColor1.UseVisualStyleBackColor = false;
+            this.BtnColor1.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor2
+            // 
+            this.BtnColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.BtnColor2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor2.BorderWidth = 4;
+            this.BtnColor2.FlatAppearance.BorderSize = 0;
+            this.BtnColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor2.Location = new System.Drawing.Point(27, 3);
+            this.BtnColor2.Name = "BtnColor2";
+            this.BtnColor2.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor2.TabIndex = 44;
+            this.BtnColor2.Tag = "1";
+            this.BtnColor2.UseVisualStyleBackColor = false;
+            this.BtnColor2.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor3
+            // 
+            this.BtnColor3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(0)))), ((int)(((byte)(21)))));
+            this.BtnColor3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor3.BorderWidth = 4;
+            this.BtnColor3.FlatAppearance.BorderSize = 0;
+            this.BtnColor3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor3.Location = new System.Drawing.Point(51, 3);
+            this.BtnColor3.Name = "BtnColor3";
+            this.BtnColor3.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor3.TabIndex = 45;
+            this.BtnColor3.Tag = "2";
+            this.BtnColor3.UseVisualStyleBackColor = false;
+            this.BtnColor3.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor4
+            // 
+            this.BtnColor4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+            this.BtnColor4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor4.BorderWidth = 4;
+            this.BtnColor4.FlatAppearance.BorderSize = 0;
+            this.BtnColor4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor4.Location = new System.Drawing.Point(75, 3);
+            this.BtnColor4.Name = "BtnColor4";
+            this.BtnColor4.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor4.TabIndex = 46;
+            this.BtnColor4.Tag = "3";
+            this.BtnColor4.UseVisualStyleBackColor = false;
+            this.BtnColor4.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor6
+            // 
+            this.BtnColor6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(0)))));
+            this.BtnColor6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor6.BorderWidth = 4;
+            this.BtnColor6.FlatAppearance.BorderSize = 0;
+            this.BtnColor6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor6.Location = new System.Drawing.Point(99, 3);
+            this.BtnColor6.Name = "BtnColor6";
+            this.BtnColor6.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor6.TabIndex = 47;
+            this.BtnColor6.Tag = "5";
+            this.BtnColor6.UseVisualStyleBackColor = false;
+            this.BtnColor6.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor8
+            // 
+            this.BtnColor8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(232)))));
+            this.BtnColor8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor8.BorderWidth = 4;
+            this.BtnColor8.FlatAppearance.BorderSize = 0;
+            this.BtnColor8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor8.Location = new System.Drawing.Point(123, 3);
+            this.BtnColor8.Name = "BtnColor8";
+            this.BtnColor8.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor8.TabIndex = 48;
+            this.BtnColor8.Tag = "7";
+            this.BtnColor8.UseVisualStyleBackColor = false;
+            this.BtnColor8.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor5
+            // 
+            this.BtnColor5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(29)))));
+            this.BtnColor5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor5.BorderWidth = 4;
+            this.BtnColor5.FlatAppearance.BorderSize = 0;
+            this.BtnColor5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor5.Location = new System.Drawing.Point(147, 3);
+            this.BtnColor5.Name = "BtnColor5";
+            this.BtnColor5.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor5.TabIndex = 49;
+            this.BtnColor5.Tag = "4";
+            this.BtnColor5.UseVisualStyleBackColor = false;
+            this.BtnColor5.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor7
+            // 
+            this.BtnColor7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(177)))), ((int)(((byte)(76)))));
+            this.BtnColor7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor7.BorderWidth = 4;
+            this.BtnColor7.FlatAppearance.BorderSize = 0;
+            this.BtnColor7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor7.Location = new System.Drawing.Point(171, 3);
+            this.BtnColor7.Name = "BtnColor7";
+            this.BtnColor7.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor7.TabIndex = 50;
+            this.BtnColor7.Tag = "6";
+            this.BtnColor7.UseVisualStyleBackColor = false;
+            this.BtnColor7.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor9
+            // 
+            this.BtnColor9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(72)))), ((int)(((byte)(204)))));
+            this.BtnColor9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor9.BorderWidth = 4;
+            this.BtnColor9.FlatAppearance.BorderSize = 0;
+            this.BtnColor9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor9.Location = new System.Drawing.Point(195, 3);
+            this.BtnColor9.Name = "BtnColor9";
+            this.BtnColor9.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor9.TabIndex = 51;
+            this.BtnColor9.Tag = "8";
+            this.BtnColor9.UseVisualStyleBackColor = false;
+            this.BtnColor9.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor10
+            // 
+            this.BtnColor10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(73)))), ((int)(((byte)(164)))));
+            this.BtnColor10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor10.BorderWidth = 4;
+            this.BtnColor10.FlatAppearance.BorderSize = 0;
+            this.BtnColor10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor10.Location = new System.Drawing.Point(219, 3);
+            this.BtnColor10.Name = "BtnColor10";
+            this.BtnColor10.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor10.TabIndex = 52;
+            this.BtnColor10.Tag = "9";
+            this.BtnColor10.UseVisualStyleBackColor = false;
+            this.BtnColor10.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor11
+            // 
+            this.BtnColor11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.BtnColor11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor11.BorderWidth = 4;
+            this.BtnColor11.FlatAppearance.BorderSize = 0;
+            this.BtnColor11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor11.Location = new System.Drawing.Point(3, 27);
+            this.BtnColor11.Name = "BtnColor11";
+            this.BtnColor11.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor11.TabIndex = 53;
+            this.BtnColor11.Tag = "10";
+            this.BtnColor11.UseVisualStyleBackColor = false;
+            this.BtnColor11.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor12
+            // 
+            this.BtnColor12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.BtnColor12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor12.BorderWidth = 4;
+            this.BtnColor12.FlatAppearance.BorderSize = 0;
+            this.BtnColor12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor12.Location = new System.Drawing.Point(27, 27);
+            this.BtnColor12.Name = "BtnColor12";
+            this.BtnColor12.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor12.TabIndex = 54;
+            this.BtnColor12.Tag = "11";
+            this.BtnColor12.UseVisualStyleBackColor = false;
+            this.BtnColor12.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor13
+            // 
+            this.BtnColor13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(122)))), ((int)(((byte)(87)))));
+            this.BtnColor13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor13.BorderWidth = 4;
+            this.BtnColor13.FlatAppearance.BorderSize = 0;
+            this.BtnColor13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor13.Location = new System.Drawing.Point(51, 27);
+            this.BtnColor13.Name = "BtnColor13";
+            this.BtnColor13.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor13.TabIndex = 55;
+            this.BtnColor13.Tag = "12";
+            this.BtnColor13.UseVisualStyleBackColor = false;
+            this.BtnColor13.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor14
+            // 
+            this.BtnColor14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(174)))), ((int)(((byte)(201)))));
+            this.BtnColor14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor14.BorderWidth = 4;
+            this.BtnColor14.FlatAppearance.BorderSize = 0;
+            this.BtnColor14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor14.Location = new System.Drawing.Point(75, 27);
+            this.BtnColor14.Name = "BtnColor14";
+            this.BtnColor14.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor14.TabIndex = 56;
+            this.BtnColor14.Tag = "13";
+            this.BtnColor14.UseVisualStyleBackColor = false;
+            this.BtnColor14.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor16
+            // 
+            this.BtnColor16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(228)))), ((int)(((byte)(176)))));
+            this.BtnColor16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor16.BorderWidth = 4;
+            this.BtnColor16.FlatAppearance.BorderSize = 0;
+            this.BtnColor16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor16.Location = new System.Drawing.Point(99, 27);
+            this.BtnColor16.Name = "BtnColor16";
+            this.BtnColor16.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor16.TabIndex = 57;
+            this.BtnColor16.Tag = "15";
+            this.BtnColor16.UseVisualStyleBackColor = false;
+            this.BtnColor16.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor18
+            // 
+            this.BtnColor18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(217)))), ((int)(((byte)(234)))));
+            this.BtnColor18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor18.BorderWidth = 4;
+            this.BtnColor18.FlatAppearance.BorderSize = 0;
+            this.BtnColor18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor18.Location = new System.Drawing.Point(123, 27);
+            this.BtnColor18.Name = "BtnColor18";
+            this.BtnColor18.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor18.TabIndex = 58;
+            this.BtnColor18.Tag = "17";
+            this.BtnColor18.UseVisualStyleBackColor = false;
+            this.BtnColor18.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor15
+            // 
+            this.BtnColor15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(14)))));
+            this.BtnColor15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor15.BorderWidth = 4;
+            this.BtnColor15.FlatAppearance.BorderSize = 0;
+            this.BtnColor15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor15.Location = new System.Drawing.Point(147, 27);
+            this.BtnColor15.Name = "BtnColor15";
+            this.BtnColor15.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor15.TabIndex = 59;
+            this.BtnColor15.Tag = "14";
+            this.BtnColor15.UseVisualStyleBackColor = false;
+            this.BtnColor15.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor17
+            // 
+            this.BtnColor17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(29)))));
+            this.BtnColor17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor17.BorderWidth = 4;
+            this.BtnColor17.FlatAppearance.BorderSize = 0;
+            this.BtnColor17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor17.Location = new System.Drawing.Point(171, 27);
+            this.BtnColor17.Name = "BtnColor17";
+            this.BtnColor17.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor17.TabIndex = 60;
+            this.BtnColor17.Tag = "16";
+            this.BtnColor17.UseVisualStyleBackColor = false;
+            this.BtnColor17.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor19
+            // 
+            this.BtnColor19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(145)))), ((int)(((byte)(189)))));
+            this.BtnColor19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor19.BorderWidth = 4;
+            this.BtnColor19.FlatAppearance.BorderSize = 0;
+            this.BtnColor19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor19.Location = new System.Drawing.Point(195, 27);
+            this.BtnColor19.Name = "BtnColor19";
+            this.BtnColor19.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor19.TabIndex = 61;
+            this.BtnColor19.Tag = "18";
+            this.BtnColor19.UseVisualStyleBackColor = false;
+            this.BtnColor19.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor20
+            // 
+            this.BtnColor20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(191)))), ((int)(((byte)(231)))));
+            this.BtnColor20.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor20.BorderWidth = 4;
+            this.BtnColor20.FlatAppearance.BorderSize = 0;
+            this.BtnColor20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor20.Location = new System.Drawing.Point(219, 27);
+            this.BtnColor20.Name = "BtnColor20";
+            this.BtnColor20.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor20.TabIndex = 62;
+            this.BtnColor20.Tag = "19";
+            this.BtnColor20.UseVisualStyleBackColor = false;
+            this.BtnColor20.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor21
+            // 
+            this.BtnColor21.BackColor = System.Drawing.Color.White;
+            this.BtnColor21.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor21.BorderWidth = 4;
+            this.BtnColor21.FlatAppearance.BorderSize = 0;
+            this.BtnColor21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor21.Location = new System.Drawing.Point(3, 51);
+            this.BtnColor21.Name = "BtnColor21";
+            this.BtnColor21.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor21.TabIndex = 63;
+            this.BtnColor21.Tag = "20";
+            this.BtnColor21.UseVisualStyleBackColor = false;
+            this.BtnColor21.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor22
+            // 
+            this.BtnColor22.BackColor = System.Drawing.Color.White;
+            this.BtnColor22.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor22.BorderWidth = 4;
+            this.BtnColor22.FlatAppearance.BorderSize = 0;
+            this.BtnColor22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor22.Location = new System.Drawing.Point(27, 51);
+            this.BtnColor22.Name = "BtnColor22";
+            this.BtnColor22.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor22.TabIndex = 64;
+            this.BtnColor22.Tag = "21";
+            this.BtnColor22.UseVisualStyleBackColor = false;
+            this.BtnColor22.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor23
+            // 
+            this.BtnColor23.BackColor = System.Drawing.Color.White;
+            this.BtnColor23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor23.BorderWidth = 4;
+            this.BtnColor23.FlatAppearance.BorderSize = 0;
+            this.BtnColor23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor23.Location = new System.Drawing.Point(51, 51);
+            this.BtnColor23.Name = "BtnColor23";
+            this.BtnColor23.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor23.TabIndex = 65;
+            this.BtnColor23.Tag = "22";
+            this.BtnColor23.UseVisualStyleBackColor = false;
+            this.BtnColor23.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor24
+            // 
+            this.BtnColor24.BackColor = System.Drawing.Color.White;
+            this.BtnColor24.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor24.BorderWidth = 4;
+            this.BtnColor24.FlatAppearance.BorderSize = 0;
+            this.BtnColor24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor24.Location = new System.Drawing.Point(75, 51);
+            this.BtnColor24.Name = "BtnColor24";
+            this.BtnColor24.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor24.TabIndex = 66;
+            this.BtnColor24.Tag = "23";
+            this.BtnColor24.UseVisualStyleBackColor = false;
+            this.BtnColor24.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor26
+            // 
+            this.BtnColor26.BackColor = System.Drawing.Color.White;
+            this.BtnColor26.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor26.BorderWidth = 4;
+            this.BtnColor26.FlatAppearance.BorderSize = 0;
+            this.BtnColor26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor26.Location = new System.Drawing.Point(99, 51);
+            this.BtnColor26.Name = "BtnColor26";
+            this.BtnColor26.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor26.TabIndex = 67;
+            this.BtnColor26.Tag = "25";
+            this.BtnColor26.UseVisualStyleBackColor = false;
+            this.BtnColor26.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor28
+            // 
+            this.BtnColor28.BackColor = System.Drawing.Color.White;
+            this.BtnColor28.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor28.BorderWidth = 4;
+            this.BtnColor28.FlatAppearance.BorderSize = 0;
+            this.BtnColor28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor28.Location = new System.Drawing.Point(123, 51);
+            this.BtnColor28.Name = "BtnColor28";
+            this.BtnColor28.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor28.TabIndex = 68;
+            this.BtnColor28.Tag = "27";
+            this.BtnColor28.UseVisualStyleBackColor = false;
+            this.BtnColor28.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor25
+            // 
+            this.BtnColor25.BackColor = System.Drawing.Color.White;
+            this.BtnColor25.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor25.BorderWidth = 4;
+            this.BtnColor25.FlatAppearance.BorderSize = 0;
+            this.BtnColor25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor25.Location = new System.Drawing.Point(147, 51);
+            this.BtnColor25.Name = "BtnColor25";
+            this.BtnColor25.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor25.TabIndex = 69;
+            this.BtnColor25.Tag = "24";
+            this.BtnColor25.UseVisualStyleBackColor = false;
+            this.BtnColor25.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor27
+            // 
+            this.BtnColor27.BackColor = System.Drawing.Color.White;
+            this.BtnColor27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor27.BorderWidth = 4;
+            this.BtnColor27.FlatAppearance.BorderSize = 0;
+            this.BtnColor27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor27.Location = new System.Drawing.Point(171, 51);
+            this.BtnColor27.Name = "BtnColor27";
+            this.BtnColor27.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor27.TabIndex = 70;
+            this.BtnColor27.Tag = "26";
+            this.BtnColor27.UseVisualStyleBackColor = false;
+            this.BtnColor27.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor29
+            // 
+            this.BtnColor29.BackColor = System.Drawing.Color.White;
+            this.BtnColor29.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor29.BorderWidth = 4;
+            this.BtnColor29.FlatAppearance.BorderSize = 0;
+            this.BtnColor29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor29.Location = new System.Drawing.Point(195, 51);
+            this.BtnColor29.Name = "BtnColor29";
+            this.BtnColor29.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor29.TabIndex = 71;
+            this.BtnColor29.Tag = "28";
+            this.BtnColor29.UseVisualStyleBackColor = false;
+            this.BtnColor29.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
+            // BtnColor30
+            // 
+            this.BtnColor30.BackColor = System.Drawing.Color.White;
+            this.BtnColor30.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnColor30.BorderWidth = 4;
+            this.BtnColor30.FlatAppearance.BorderSize = 0;
+            this.BtnColor30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnColor30.Location = new System.Drawing.Point(219, 51);
+            this.BtnColor30.Name = "BtnColor30";
+            this.BtnColor30.Size = new System.Drawing.Size(18, 18);
+            this.BtnColor30.TabIndex = 72;
+            this.BtnColor30.Tag = "29";
+            this.BtnColor30.UseVisualStyleBackColor = false;
+            this.BtnColor30.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
+            // 
             // BtnEditColor
             // 
             this.BtnEditColor.BackColor = System.Drawing.Color.Transparent;
@@ -771,6 +1285,36 @@
             this.LbColors.Size = new System.Drawing.Size(57, 20);
             this.LbColors.TabIndex = 43;
             this.LbColors.Text = "Colors";
+            // 
+            // BtnMainColor2
+            // 
+            this.BtnMainColor2.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMainColor2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnMainColor2.BorderWidth = 4;
+            this.BtnMainColor2.FlatAppearance.BorderSize = 0;
+            this.BtnMainColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMainColor2.Location = new System.Drawing.Point(26, 63);
+            this.BtnMainColor2.Name = "BtnMainColor2";
+            this.BtnMainColor2.Size = new System.Drawing.Size(30, 30);
+            this.BtnMainColor2.TabIndex = 42;
+            this.BtnMainColor2.Tag = "1";
+            this.BtnMainColor2.UseVisualStyleBackColor = false;
+            this.BtnMainColor2.Click += new System.EventHandler(this.Handler_ColorChoice_Click);
+            // 
+            // BtnMainColor1
+            // 
+            this.BtnMainColor1.BackColor = System.Drawing.Color.Black;
+            this.BtnMainColor1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnMainColor1.BorderWidth = 4;
+            this.BtnMainColor1.FlatAppearance.BorderSize = 0;
+            this.BtnMainColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMainColor1.Location = new System.Drawing.Point(26, 15);
+            this.BtnMainColor1.Name = "BtnMainColor1";
+            this.BtnMainColor1.Size = new System.Drawing.Size(30, 30);
+            this.BtnMainColor1.TabIndex = 40;
+            this.BtnMainColor1.Tag = "0";
+            this.BtnMainColor1.UseVisualStyleBackColor = false;
+            this.BtnMainColor1.Click += new System.EventHandler(this.Handler_ColorChoice_Click);
             // 
             // PnlControlSize
             // 
@@ -2057,7 +2601,7 @@
             this.ViewHome});
             this.MenuControl.Location = new System.Drawing.Point(2, 6);
             this.MenuControl.Name = "MenuControl";
-            this.MenuControl.Size = new System.Drawing.Size(123, 28);
+            this.MenuControl.Size = new System.Drawing.Size(273, 28);
             this.MenuControl.TabIndex = 5;
             this.MenuControl.Text = "menuStrip1";
             // 
@@ -2080,20 +2624,21 @@
             this.MenuItemNew.BackColor = System.Drawing.Color.Transparent;
             this.MenuItemNew.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.MenuItemNew.Name = "MenuItemNew";
-            this.MenuItemNew.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemNew.Size = new System.Drawing.Size(224, 26);
             this.MenuItemNew.Text = "New";
             this.MenuItemNew.Click += new System.EventHandler(this.MenuItemNew_Click);
             // 
             // MenuItemOpen
             // 
             this.MenuItemOpen.Name = "MenuItemOpen";
-            this.MenuItemOpen.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemOpen.Size = new System.Drawing.Size(224, 26);
             this.MenuItemOpen.Text = "Open";
+            this.MenuItemOpen.Click += new System.EventHandler(this.MenuItemOpen_Click);
             // 
             // MenuItemSave
             // 
             this.MenuItemSave.Name = "MenuItemSave";
-            this.MenuItemSave.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemSave.Size = new System.Drawing.Size(224, 26);
             this.MenuItemSave.Text = "Save";
             this.MenuItemSave.Click += new System.EventHandler(this.Handler_SaveImage);
             // 
@@ -2106,7 +2651,7 @@
             this.gIFPictureToolStripMenuItem,
             this.otherToolStripMenuItem});
             this.MenuItemSaveAs.Name = "MenuItemSaveAs";
-            this.MenuItemSaveAs.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemSaveAs.Size = new System.Drawing.Size(224, 26);
             this.MenuItemSaveAs.Text = "Save as";
             // 
             // pNGPictureToolStripMenuItem
@@ -2150,7 +2695,7 @@
             // MenuItemAbout
             // 
             this.MenuItemAbout.Name = "MenuItemAbout";
-            this.MenuItemAbout.Size = new System.Drawing.Size(169, 26);
+            this.MenuItemAbout.Size = new System.Drawing.Size(224, 26);
             this.MenuItemAbout.Text = "About Paint";
             // 
             // ViewHome
@@ -2194,550 +2739,6 @@
             this.PnlControlApp.Name = "PnlControlApp";
             this.PnlControlApp.Size = new System.Drawing.Size(1459, 75);
             this.PnlControlApp.TabIndex = 0;
-            // 
-            // BtnPenSize4
-            // 
-            this.BtnPenSize4.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize4.BarHeight = 4;
-            this.BtnPenSize4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize4.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize4.Location = new System.Drawing.Point(3, 200);
-            this.BtnPenSize4.Name = "BtnPenSize4";
-            this.BtnPenSize4.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize4.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize4.TabIndex = 3;
-            this.BtnPenSize4.Text = "4 px";
-            this.BtnPenSize4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize4.UseVisualStyleBackColor = false;
-            this.BtnPenSize4.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
-            // BtnPenSize3
-            // 
-            this.BtnPenSize3.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize3.BarHeight = 3;
-            this.BtnPenSize3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize3.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize3.Location = new System.Drawing.Point(3, 135);
-            this.BtnPenSize3.Name = "BtnPenSize3";
-            this.BtnPenSize3.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize3.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize3.TabIndex = 2;
-            this.BtnPenSize3.Text = "3 px";
-            this.BtnPenSize3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize3.UseVisualStyleBackColor = false;
-            this.BtnPenSize3.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
-            // BtnPenSize2
-            // 
-            this.BtnPenSize2.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize2.BarHeight = 2;
-            this.BtnPenSize2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize2.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize2.Location = new System.Drawing.Point(3, 70);
-            this.BtnPenSize2.Name = "BtnPenSize2";
-            this.BtnPenSize2.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize2.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize2.TabIndex = 1;
-            this.BtnPenSize2.Text = "2 px";
-            this.BtnPenSize2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize2.UseVisualStyleBackColor = false;
-            this.BtnPenSize2.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
-            // BtnPenSize1
-            // 
-            this.BtnPenSize1.BackColor = System.Drawing.Color.White;
-            this.BtnPenSize1.BarHeight = 1;
-            this.BtnPenSize1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPenSize1.FlatAppearance.BorderSize = 0;
-            this.BtnPenSize1.Location = new System.Drawing.Point(3, 5);
-            this.BtnPenSize1.Name = "BtnPenSize1";
-            this.BtnPenSize1.Padding = new System.Windows.Forms.Padding(3);
-            this.BtnPenSize1.Size = new System.Drawing.Size(182, 65);
-            this.BtnPenSize1.TabIndex = 0;
-            this.BtnPenSize1.Text = "1 px";
-            this.BtnPenSize1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPenSize1.UseVisualStyleBackColor = false;
-            this.BtnPenSize1.Click += new System.EventHandler(this.BtnPenSizes_Click);
-            // 
-            // BtnColor1
-            // 
-            this.BtnColor1.BackColor = System.Drawing.Color.Black;
-            this.BtnColor1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor1.BorderWidth = 4;
-            this.BtnColor1.FlatAppearance.BorderSize = 0;
-            this.BtnColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor1.Location = new System.Drawing.Point(3, 3);
-            this.BtnColor1.Name = "BtnColor1";
-            this.BtnColor1.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor1.TabIndex = 41;
-            this.BtnColor1.Tag = "0";
-            this.BtnColor1.UseVisualStyleBackColor = false;
-            this.BtnColor1.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor2
-            // 
-            this.BtnColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.BtnColor2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor2.BorderWidth = 4;
-            this.BtnColor2.FlatAppearance.BorderSize = 0;
-            this.BtnColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor2.Location = new System.Drawing.Point(27, 3);
-            this.BtnColor2.Name = "BtnColor2";
-            this.BtnColor2.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor2.TabIndex = 44;
-            this.BtnColor2.Tag = "1";
-            this.BtnColor2.UseVisualStyleBackColor = false;
-            this.BtnColor2.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor3
-            // 
-            this.BtnColor3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(0)))), ((int)(((byte)(21)))));
-            this.BtnColor3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor3.BorderWidth = 4;
-            this.BtnColor3.FlatAppearance.BorderSize = 0;
-            this.BtnColor3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor3.Location = new System.Drawing.Point(51, 3);
-            this.BtnColor3.Name = "BtnColor3";
-            this.BtnColor3.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor3.TabIndex = 45;
-            this.BtnColor3.Tag = "2";
-            this.BtnColor3.UseVisualStyleBackColor = false;
-            this.BtnColor3.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor4
-            // 
-            this.BtnColor4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
-            this.BtnColor4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor4.BorderWidth = 4;
-            this.BtnColor4.FlatAppearance.BorderSize = 0;
-            this.BtnColor4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor4.Location = new System.Drawing.Point(75, 3);
-            this.BtnColor4.Name = "BtnColor4";
-            this.BtnColor4.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor4.TabIndex = 46;
-            this.BtnColor4.Tag = "3";
-            this.BtnColor4.UseVisualStyleBackColor = false;
-            this.BtnColor4.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor6
-            // 
-            this.BtnColor6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(0)))));
-            this.BtnColor6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor6.BorderWidth = 4;
-            this.BtnColor6.FlatAppearance.BorderSize = 0;
-            this.BtnColor6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor6.Location = new System.Drawing.Point(99, 3);
-            this.BtnColor6.Name = "BtnColor6";
-            this.BtnColor6.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor6.TabIndex = 47;
-            this.BtnColor6.Tag = "5";
-            this.BtnColor6.UseVisualStyleBackColor = false;
-            this.BtnColor6.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor8
-            // 
-            this.BtnColor8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(232)))));
-            this.BtnColor8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor8.BorderWidth = 4;
-            this.BtnColor8.FlatAppearance.BorderSize = 0;
-            this.BtnColor8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor8.Location = new System.Drawing.Point(123, 3);
-            this.BtnColor8.Name = "BtnColor8";
-            this.BtnColor8.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor8.TabIndex = 48;
-            this.BtnColor8.Tag = "7";
-            this.BtnColor8.UseVisualStyleBackColor = false;
-            this.BtnColor8.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor5
-            // 
-            this.BtnColor5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(29)))));
-            this.BtnColor5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor5.BorderWidth = 4;
-            this.BtnColor5.FlatAppearance.BorderSize = 0;
-            this.BtnColor5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor5.Location = new System.Drawing.Point(147, 3);
-            this.BtnColor5.Name = "BtnColor5";
-            this.BtnColor5.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor5.TabIndex = 49;
-            this.BtnColor5.Tag = "4";
-            this.BtnColor5.UseVisualStyleBackColor = false;
-            this.BtnColor5.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor7
-            // 
-            this.BtnColor7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(177)))), ((int)(((byte)(76)))));
-            this.BtnColor7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor7.BorderWidth = 4;
-            this.BtnColor7.FlatAppearance.BorderSize = 0;
-            this.BtnColor7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor7.Location = new System.Drawing.Point(171, 3);
-            this.BtnColor7.Name = "BtnColor7";
-            this.BtnColor7.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor7.TabIndex = 50;
-            this.BtnColor7.Tag = "6";
-            this.BtnColor7.UseVisualStyleBackColor = false;
-            this.BtnColor7.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor9
-            // 
-            this.BtnColor9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(72)))), ((int)(((byte)(204)))));
-            this.BtnColor9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor9.BorderWidth = 4;
-            this.BtnColor9.FlatAppearance.BorderSize = 0;
-            this.BtnColor9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor9.Location = new System.Drawing.Point(195, 3);
-            this.BtnColor9.Name = "BtnColor9";
-            this.BtnColor9.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor9.TabIndex = 51;
-            this.BtnColor9.Tag = "8";
-            this.BtnColor9.UseVisualStyleBackColor = false;
-            this.BtnColor9.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor10
-            // 
-            this.BtnColor10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(73)))), ((int)(((byte)(164)))));
-            this.BtnColor10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor10.BorderWidth = 4;
-            this.BtnColor10.FlatAppearance.BorderSize = 0;
-            this.BtnColor10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor10.Location = new System.Drawing.Point(219, 3);
-            this.BtnColor10.Name = "BtnColor10";
-            this.BtnColor10.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor10.TabIndex = 52;
-            this.BtnColor10.Tag = "9";
-            this.BtnColor10.UseVisualStyleBackColor = false;
-            this.BtnColor10.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor11
-            // 
-            this.BtnColor11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.BtnColor11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor11.BorderWidth = 4;
-            this.BtnColor11.FlatAppearance.BorderSize = 0;
-            this.BtnColor11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor11.Location = new System.Drawing.Point(3, 27);
-            this.BtnColor11.Name = "BtnColor11";
-            this.BtnColor11.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor11.TabIndex = 53;
-            this.BtnColor11.Tag = "10";
-            this.BtnColor11.UseVisualStyleBackColor = false;
-            this.BtnColor11.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor12
-            // 
-            this.BtnColor12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.BtnColor12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor12.BorderWidth = 4;
-            this.BtnColor12.FlatAppearance.BorderSize = 0;
-            this.BtnColor12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor12.Location = new System.Drawing.Point(27, 27);
-            this.BtnColor12.Name = "BtnColor12";
-            this.BtnColor12.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor12.TabIndex = 54;
-            this.BtnColor12.Tag = "11";
-            this.BtnColor12.UseVisualStyleBackColor = false;
-            this.BtnColor12.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor13
-            // 
-            this.BtnColor13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(122)))), ((int)(((byte)(87)))));
-            this.BtnColor13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor13.BorderWidth = 4;
-            this.BtnColor13.FlatAppearance.BorderSize = 0;
-            this.BtnColor13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor13.Location = new System.Drawing.Point(51, 27);
-            this.BtnColor13.Name = "BtnColor13";
-            this.BtnColor13.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor13.TabIndex = 55;
-            this.BtnColor13.Tag = "12";
-            this.BtnColor13.UseVisualStyleBackColor = false;
-            this.BtnColor13.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor14
-            // 
-            this.BtnColor14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(174)))), ((int)(((byte)(201)))));
-            this.BtnColor14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor14.BorderWidth = 4;
-            this.BtnColor14.FlatAppearance.BorderSize = 0;
-            this.BtnColor14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor14.Location = new System.Drawing.Point(75, 27);
-            this.BtnColor14.Name = "BtnColor14";
-            this.BtnColor14.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor14.TabIndex = 56;
-            this.BtnColor14.Tag = "13";
-            this.BtnColor14.UseVisualStyleBackColor = false;
-            this.BtnColor14.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor16
-            // 
-            this.BtnColor16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(228)))), ((int)(((byte)(176)))));
-            this.BtnColor16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor16.BorderWidth = 4;
-            this.BtnColor16.FlatAppearance.BorderSize = 0;
-            this.BtnColor16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor16.Location = new System.Drawing.Point(99, 27);
-            this.BtnColor16.Name = "BtnColor16";
-            this.BtnColor16.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor16.TabIndex = 57;
-            this.BtnColor16.Tag = "15";
-            this.BtnColor16.UseVisualStyleBackColor = false;
-            this.BtnColor16.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor18
-            // 
-            this.BtnColor18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(217)))), ((int)(((byte)(234)))));
-            this.BtnColor18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor18.BorderWidth = 4;
-            this.BtnColor18.FlatAppearance.BorderSize = 0;
-            this.BtnColor18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor18.Location = new System.Drawing.Point(123, 27);
-            this.BtnColor18.Name = "BtnColor18";
-            this.BtnColor18.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor18.TabIndex = 58;
-            this.BtnColor18.Tag = "17";
-            this.BtnColor18.UseVisualStyleBackColor = false;
-            this.BtnColor18.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor15
-            // 
-            this.BtnColor15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(14)))));
-            this.BtnColor15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor15.BorderWidth = 4;
-            this.BtnColor15.FlatAppearance.BorderSize = 0;
-            this.BtnColor15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor15.Location = new System.Drawing.Point(147, 27);
-            this.BtnColor15.Name = "BtnColor15";
-            this.BtnColor15.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor15.TabIndex = 59;
-            this.BtnColor15.Tag = "14";
-            this.BtnColor15.UseVisualStyleBackColor = false;
-            this.BtnColor15.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor17
-            // 
-            this.BtnColor17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(29)))));
-            this.BtnColor17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor17.BorderWidth = 4;
-            this.BtnColor17.FlatAppearance.BorderSize = 0;
-            this.BtnColor17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor17.Location = new System.Drawing.Point(171, 27);
-            this.BtnColor17.Name = "BtnColor17";
-            this.BtnColor17.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor17.TabIndex = 60;
-            this.BtnColor17.Tag = "16";
-            this.BtnColor17.UseVisualStyleBackColor = false;
-            this.BtnColor17.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor19
-            // 
-            this.BtnColor19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(145)))), ((int)(((byte)(189)))));
-            this.BtnColor19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor19.BorderWidth = 4;
-            this.BtnColor19.FlatAppearance.BorderSize = 0;
-            this.BtnColor19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor19.Location = new System.Drawing.Point(195, 27);
-            this.BtnColor19.Name = "BtnColor19";
-            this.BtnColor19.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor19.TabIndex = 61;
-            this.BtnColor19.Tag = "18";
-            this.BtnColor19.UseVisualStyleBackColor = false;
-            this.BtnColor19.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor20
-            // 
-            this.BtnColor20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(191)))), ((int)(((byte)(231)))));
-            this.BtnColor20.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor20.BorderWidth = 4;
-            this.BtnColor20.FlatAppearance.BorderSize = 0;
-            this.BtnColor20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor20.Location = new System.Drawing.Point(219, 27);
-            this.BtnColor20.Name = "BtnColor20";
-            this.BtnColor20.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor20.TabIndex = 62;
-            this.BtnColor20.Tag = "19";
-            this.BtnColor20.UseVisualStyleBackColor = false;
-            this.BtnColor20.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor21
-            // 
-            this.BtnColor21.BackColor = System.Drawing.Color.White;
-            this.BtnColor21.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor21.BorderWidth = 4;
-            this.BtnColor21.FlatAppearance.BorderSize = 0;
-            this.BtnColor21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor21.Location = new System.Drawing.Point(3, 51);
-            this.BtnColor21.Name = "BtnColor21";
-            this.BtnColor21.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor21.TabIndex = 63;
-            this.BtnColor21.Tag = "20";
-            this.BtnColor21.UseVisualStyleBackColor = false;
-            this.BtnColor21.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor22
-            // 
-            this.BtnColor22.BackColor = System.Drawing.Color.White;
-            this.BtnColor22.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor22.BorderWidth = 4;
-            this.BtnColor22.FlatAppearance.BorderSize = 0;
-            this.BtnColor22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor22.Location = new System.Drawing.Point(27, 51);
-            this.BtnColor22.Name = "BtnColor22";
-            this.BtnColor22.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor22.TabIndex = 64;
-            this.BtnColor22.Tag = "21";
-            this.BtnColor22.UseVisualStyleBackColor = false;
-            this.BtnColor22.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor23
-            // 
-            this.BtnColor23.BackColor = System.Drawing.Color.White;
-            this.BtnColor23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor23.BorderWidth = 4;
-            this.BtnColor23.FlatAppearance.BorderSize = 0;
-            this.BtnColor23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor23.Location = new System.Drawing.Point(51, 51);
-            this.BtnColor23.Name = "BtnColor23";
-            this.BtnColor23.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor23.TabIndex = 65;
-            this.BtnColor23.Tag = "22";
-            this.BtnColor23.UseVisualStyleBackColor = false;
-            this.BtnColor23.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor24
-            // 
-            this.BtnColor24.BackColor = System.Drawing.Color.White;
-            this.BtnColor24.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor24.BorderWidth = 4;
-            this.BtnColor24.FlatAppearance.BorderSize = 0;
-            this.BtnColor24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor24.Location = new System.Drawing.Point(75, 51);
-            this.BtnColor24.Name = "BtnColor24";
-            this.BtnColor24.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor24.TabIndex = 66;
-            this.BtnColor24.Tag = "23";
-            this.BtnColor24.UseVisualStyleBackColor = false;
-            this.BtnColor24.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor26
-            // 
-            this.BtnColor26.BackColor = System.Drawing.Color.White;
-            this.BtnColor26.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor26.BorderWidth = 4;
-            this.BtnColor26.FlatAppearance.BorderSize = 0;
-            this.BtnColor26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor26.Location = new System.Drawing.Point(99, 51);
-            this.BtnColor26.Name = "BtnColor26";
-            this.BtnColor26.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor26.TabIndex = 67;
-            this.BtnColor26.Tag = "25";
-            this.BtnColor26.UseVisualStyleBackColor = false;
-            this.BtnColor26.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor28
-            // 
-            this.BtnColor28.BackColor = System.Drawing.Color.White;
-            this.BtnColor28.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor28.BorderWidth = 4;
-            this.BtnColor28.FlatAppearance.BorderSize = 0;
-            this.BtnColor28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor28.Location = new System.Drawing.Point(123, 51);
-            this.BtnColor28.Name = "BtnColor28";
-            this.BtnColor28.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor28.TabIndex = 68;
-            this.BtnColor28.Tag = "27";
-            this.BtnColor28.UseVisualStyleBackColor = false;
-            this.BtnColor28.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor25
-            // 
-            this.BtnColor25.BackColor = System.Drawing.Color.White;
-            this.BtnColor25.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor25.BorderWidth = 4;
-            this.BtnColor25.FlatAppearance.BorderSize = 0;
-            this.BtnColor25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor25.Location = new System.Drawing.Point(147, 51);
-            this.BtnColor25.Name = "BtnColor25";
-            this.BtnColor25.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor25.TabIndex = 69;
-            this.BtnColor25.Tag = "24";
-            this.BtnColor25.UseVisualStyleBackColor = false;
-            this.BtnColor25.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor27
-            // 
-            this.BtnColor27.BackColor = System.Drawing.Color.White;
-            this.BtnColor27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor27.BorderWidth = 4;
-            this.BtnColor27.FlatAppearance.BorderSize = 0;
-            this.BtnColor27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor27.Location = new System.Drawing.Point(171, 51);
-            this.BtnColor27.Name = "BtnColor27";
-            this.BtnColor27.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor27.TabIndex = 70;
-            this.BtnColor27.Tag = "26";
-            this.BtnColor27.UseVisualStyleBackColor = false;
-            this.BtnColor27.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor29
-            // 
-            this.BtnColor29.BackColor = System.Drawing.Color.White;
-            this.BtnColor29.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor29.BorderWidth = 4;
-            this.BtnColor29.FlatAppearance.BorderSize = 0;
-            this.BtnColor29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor29.Location = new System.Drawing.Point(195, 51);
-            this.BtnColor29.Name = "BtnColor29";
-            this.BtnColor29.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor29.TabIndex = 71;
-            this.BtnColor29.Tag = "28";
-            this.BtnColor29.UseVisualStyleBackColor = false;
-            this.BtnColor29.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnColor30
-            // 
-            this.BtnColor30.BackColor = System.Drawing.Color.White;
-            this.BtnColor30.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnColor30.BorderWidth = 4;
-            this.BtnColor30.FlatAppearance.BorderSize = 0;
-            this.BtnColor30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnColor30.Location = new System.Drawing.Point(219, 51);
-            this.BtnColor30.Name = "BtnColor30";
-            this.BtnColor30.Size = new System.Drawing.Size(18, 18);
-            this.BtnColor30.TabIndex = 72;
-            this.BtnColor30.Tag = "29";
-            this.BtnColor30.UseVisualStyleBackColor = false;
-            this.BtnColor30.Click += new System.EventHandler(this.Handler_ColorOptions_Click);
-            // 
-            // BtnMainColor2
-            // 
-            this.BtnMainColor2.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMainColor2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnMainColor2.BorderWidth = 4;
-            this.BtnMainColor2.FlatAppearance.BorderSize = 0;
-            this.BtnMainColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMainColor2.Location = new System.Drawing.Point(26, 63);
-            this.BtnMainColor2.Name = "BtnMainColor2";
-            this.BtnMainColor2.Size = new System.Drawing.Size(30, 30);
-            this.BtnMainColor2.TabIndex = 42;
-            this.BtnMainColor2.Tag = "1";
-            this.BtnMainColor2.UseVisualStyleBackColor = false;
-            this.BtnMainColor2.Click += new System.EventHandler(this.Handler_ColorChoice_Click);
-            // 
-            // BtnMainColor1
-            // 
-            this.BtnMainColor1.BackColor = System.Drawing.Color.Black;
-            this.BtnMainColor1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnMainColor1.BorderWidth = 4;
-            this.BtnMainColor1.FlatAppearance.BorderSize = 0;
-            this.BtnMainColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMainColor1.Location = new System.Drawing.Point(26, 15);
-            this.BtnMainColor1.Name = "BtnMainColor1";
-            this.BtnMainColor1.Size = new System.Drawing.Size(30, 30);
-            this.BtnMainColor1.TabIndex = 40;
-            this.BtnMainColor1.Tag = "0";
-            this.BtnMainColor1.UseVisualStyleBackColor = false;
-            this.BtnMainColor1.Click += new System.EventHandler(this.Handler_ColorChoice_Click);
             // 
             // AppPaint
             // 

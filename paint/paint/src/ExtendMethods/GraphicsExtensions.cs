@@ -119,7 +119,7 @@ namespace paint
         {
             bool isRoughly = true;
             double radius = Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
-            if (radius > 4)
+            if (radius > 15) // 15: virtual value 
             {
                 isRoughly = false;
             }
